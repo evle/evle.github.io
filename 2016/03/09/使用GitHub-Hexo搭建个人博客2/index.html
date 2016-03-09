@@ -21,7 +21,7 @@ Hexo is a fast, simple and powerful blog framework. You write posts in Markdown 
 安装在安装Hexo之前需要先安装以下软件
 
 Node.j">
-<meta property="og:updated_time" content="2016-03-09T12:03:55.997Z">
+<meta property="og:updated_time" content="2016-03-09T12:13:35.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用GitHub+Hexo搭建个人博客2">
 <meta name="twitter:description" content="介绍
@@ -110,36 +110,39 @@ Node.j">
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装<strong>Hexo</strong>之前需要先安装以下软件</p>
 <ul>
 <li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a>  (注意需要添加Git的bin目录至环境变量)<br>最后执行以下命令安装<code>Hexo</code>  </li>
+<li><p><a href="http://git-scm.com/" target="_blank" rel="external">Git</a>  (注意需要添加Git的bin目录至环境变量)<br>最后执行以下命令安装<code>Hexo</code>  </p>
+<p> npm install -g hexo-cli  </p>
+</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><ol>
 <li><p>首先执行以下命令初始化一个<code>Hexo</code>工程.</p>
-<p> hexo init <folder><br> cd <folder><br> npm install</folder></folder></p>
-</li>
+<pre><code>hexo init &lt;folder&gt;
+cd &lt;folder&gt;
+npm install
+</code></pre></li>
 <li><p>在新建的<code>Hexo</code>Project文件夹中使用以下命令创建文章, 然后用你喜欢的编辑器打开所创建的文章进行书写</p>
-<p> hexo new <title></title></p>
-</li>
+<pre><code>hexo new &lt;title&gt;
+</code></pre></li>
 <li><p>写好文章后需要生成网页</p>
-<p> hexo generate  # 可简化为 <code>hexo g</code></p>
-</li>
+<pre><code>hexo generate  # 可简化为 `hexo g`
+</code></pre></li>
 <li><p>本地预览<br>启动<code>Hexo</code>服务器</p>
-<p> hexo server     # 启动后登陆<code>localhost:4000</code>进行预览</p>
-</li>
+<pre><code>hexo server     # 启动后登陆`localhost:4000`进行预览
+</code></pre></li>
 </ol>
 <h2 id="布署"><a href="#布署" class="headerlink" title="布署"></a>布署</h2><p>布署是将你本地<code>Hexo</code>工程所生成的页面布署到github的一个过程.</p>
 <ol>
 <li><p>安装hexo布署模块</p>
-<p> npm install hexo-deployer-git –save</p>
-</li>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre></li>
 <li><p>在<code>_config.yml</code>文件中修改一些设置</p>
-<p> deploy:</p>
-<pre><code>type: git
-repo: &lt;repository url&gt;    # e.g., repo: https://github.com/evle/evle.github.io.git
+<pre><code>deploy:
+    type: git
+    repo: &lt;repository url&gt;    # e.g., repo: https://github.com/evle/evle.github.io.git
 </code></pre></li>
 <li><p>生成页面并布署至github</p>
-<p> hexo deploy –generate      # 可简化为 <code>hexo d -g</code></p>
-</li>
+<pre><code>hexo deploy --generate      # 可简化为 `hexo d -g`
+</code></pre></li>
 </ol>
 <p>Tips: 当修改<code>_config.yml</code>文件并且布署后发现网页没有更新时</p>
 <pre><code>rm -rf .deploy_git/

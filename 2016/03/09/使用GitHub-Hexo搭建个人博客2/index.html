@@ -27,7 +27,7 @@ Hexo is a fast, simple and powerful blog framework. You write posts in Markdown 
 安装在安装Hexo之前需要先安装以下软件
 
 Node.j">
-<meta property="og:updated_time" content="2016-03-09T06:07:16.731Z">
+<meta property="og:updated_time" content="2016-03-09T06:11:50.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用GitHub+Hexo搭建个人博客2">
 <meta name="twitter:description" content="介绍
@@ -236,10 +236,10 @@ Node.j">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: &lt;repository url&gt;    # e.g., repo: https://github.com/evle/evle.github.io.git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>生成页面并布署至github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy --generate      # 可简化为 `hexo d -g`</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Tips: 当修改`_config.yml`文件并且布署后发现网页没有更新时</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy --generate      # 可简化为 `hexo d -g`</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>rm -rf .deploy_git/<br>hexo clean<br>hexo d -g<br>```</p>
+<p>Tips: 当修改<code>_config.yml</code>文件并且布署后发现网页没有更新时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .deploy_git/</span><br><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
 <li><p>从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a> 挑选自己心仪的主题并下载</p>
 </li>

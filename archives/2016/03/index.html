@@ -223,14 +223,10 @@
 <p>启动成功后你可以登陆<code>localhost:4000</code>进行预览.</p>
 <h2 id="布署"><a href="#布署" class="headerlink" title="布署"></a>布署</h2><p>布署是将你本地<code>Hexo</code>工程所生成的页面布署到github的一个过程.</p>
 <ol>
-<li>安装hexo布署模块</li>
+<li>安装hexo布署模块<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">``` </span><br><span class="line">2. 在`_config.yml`文件中修改一些设置</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<ol>
-<li>在<code>_config.yml</code>文件中修改一些设置</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: &lt;repository url&gt;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">(e.g., repo: https://github.com/evle/evle.github.io.git)</span><br><span class="line"></span><br><span class="line">3. 生成页面并布署至github</span><br></pre></td></tr></table></figure>
-<p>hexo deploy –generate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可简化为 `hexo d -g`</span><br><span class="line"></span><br><span class="line">Tips: 当修改`_config.yml`文件并且布署后发现网页没有更新时</span><br></pre></td></tr></table></figure></p>
+<p>deploy:<br>    type: git<br>    repo: <repository url=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(e.g., repo: https://github.com/evle/evle.github.io.git)</span><br><span class="line">3. 生成页面并布署至github</span><br><span class="line">``` </span><br><span class="line">hexo deploy --generate</span><br><span class="line">``` </span><br><span class="line">可简化为 `hexo d -g`</span><br><span class="line"></span><br><span class="line">Tips: 当修改`_config.yml`文件并且布署后发现网页没有更新时</span><br></pre></td></tr></table></figure></repository></p>
 <p>rm -rf .deploy_git/<br>hexo clean<br>hexo d -g<br>```</p>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
 <li><p>从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a> 挑选自己心仪的主题并下载</p>

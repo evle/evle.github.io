@@ -5,25 +5,49 @@
   
   <title>koa2 | Evle&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="- [&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;](#&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;)
+  <meta name="description" content="koa2
+&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
+&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+koa-router
+&amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
+MVC
 
 
-Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust">
+
+
+koa2
+Koa is a new web framework designed by the team behind Express, which aims to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="koa2">
 <meta property="og:url" content="http://evleblog.com/2016/11/18/koa2/index.html">
 <meta property="og:site_name" content="Evle's Blog">
-<meta property="og:description" content="- [&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;](#&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;)
+<meta property="og:description" content="koa2
+&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
+&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+koa-router
+&amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
+MVC
 
 
-Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust">
-<meta property="og:updated_time" content="2016-11-18T19:56:06.000Z">
+
+
+koa2
+Koa is a new web framework designed by the team behind Express, which aims to">
+<meta property="og:updated_time" content="2016-11-18T20:32:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa2">
-<meta name="twitter:description" content="- [&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;](#&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;)
+<meta name="twitter:description" content="koa2
+&amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
+&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+koa-router
+&amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
+MVC
 
 
-Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust">
+
+
+koa2
+Koa is a new web framework designed by the team behind Express, which aims to">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
   
@@ -99,12 +123,37 @@ Koa is a new web framework designed by the team behind Express, which aims to be
     <div class="article-entry" itemprop="articleBody">
       
         <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-<pre><code>- [&#x73AF;&#x5883;&#x642D;&#x5EFA;](#&#x73AF;&#x5883;&#x642D;&#x5EFA;)
-</code></pre><!-- /TOC -->
-<blockquote>
+<ul>
+<li><a href="#koa2">koa2</a><ul>
+<li><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;">&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li>
+<li><a href="#&#x4E2D;&#x95F4;&#x4EF6;">&#x4E2D;&#x95F4;&#x4EF6;</a></li>
+<li><a href="#koa-router">koa-router</a></li>
+<li><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;">&#x6A21;&#x7248;&#x5F15;&#x64CE;</a></li>
+<li><a href="#mvc">MVC</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="koa2"><a href="#koa2" class="headerlink" title="koa2"></a>koa2</h1><blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
 </blockquote>
-<h3 id="&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="headerlink" title="&#x73AF;&#x5883;&#x642D;&#x5EFA;"></a>&#x73AF;&#x5883;&#x642D;&#x5EFA;</h3>
+<h2 id="&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="headerlink" title="&#x73AF;&#x5883;&#x642D;&#x5EFA;"></a>&#x73AF;&#x5883;&#x642D;&#x5EFA;</h2><ol>
+<li><p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x5E76;&#x5728;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA; <code>app.js</code></p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">&apos;koa&apos;</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">const app = new Koa()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt; {</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">    ctx.response.type = <span class="string">&apos;text/html&apos;</span><span class="comment">;</span></span><br><span class="line">    ctx.response.body = <span class="string">&apos;&lt;h1&gt;Hello, koa2!&lt;/h1&gt;&apos;</span><span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>)<span class="comment">;</span></span><br><span class="line">console.log(<span class="string">&apos;app started at port 3000...&apos;</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5728;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA; <code>package.js</code> &#x5E76;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#x5305;</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: {</span><br><span class="line">      <span class="attr">&quot;babel-core&quot;</span>: <span class="string">&quot;6.13.2&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;babel-polyfill&quot;</span>: <span class="string">&quot;6.13.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;babel-preset-es2015-node6&quot;</span>: <span class="string">&quot;0.3.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;babel-preset-stage-3&quot;</span>: <span class="string">&quot;6.5.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;koa&quot;</span>: <span class="string">&quot;2.0.0&quot;</span></span><br><span class="line">      }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x4F7F;&#x7528; <code>npm instll</code> &#x547D;&#x4EE4;&#x5B89;&#x88C5;&#x6240;&#x6DFB;&#x52A0;&#x7684;&#x4F9D;&#x8D56;&#x5305;</p>
+<ol>
+<li><p>&#x65B0;&#x5EFA;&#x81EA;&#x52A8;&#x8F6C;&#x7801;&#x6587;&#x4EF6; <code>start.js</code></p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">register</span> = <span class="keyword">require</span>(<span class="string">&apos;babel-core/register&apos;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">register</span>(<span class="comment">{</span><br><span class="line">    presets: [&apos;stage-3&apos;]</span><br><span class="line">}</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span>(<span class="string">&apos;./app.js&apos;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C; <code>node start</code> &#x547D;&#x4EE4;&#x540E;&#x8BBF;&#x95EE; <strong>localhost:3000</strong> &#xFF0C;&#x5982;&#x679C;&#x663E;&#x793A; <strong>Hello, koa2!</strong> &#x5219;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x6210;&#x529F;</p>
+</li>
+</ol>
+<h2 id="&#x4E2D;&#x95F4;&#x4EF6;"><a href="#&#x4E2D;&#x95F4;&#x4EF6;" class="headerlink" title="&#x4E2D;&#x95F4;&#x4EF6;"></a>&#x4E2D;&#x95F4;&#x4EF6;</h2><h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="&#x6A21;&#x7248;&#x5F15;&#x64CE;"><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;" class="headerlink" title="&#x6A21;&#x7248;&#x5F15;&#x64CE;"></a>&#x6A21;&#x7248;&#x5F15;&#x64CE;</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
       
     </div>
     <footer class="article-footer">
@@ -129,7 +178,7 @@ Koa is a new web framework designed by the team behind Express, which aims to be
   
     <a href="/2016/11/18/单元测试/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">单元测试</div>
     </a>
   
 </nav>
@@ -174,7 +223,7 @@ Koa is a new web framework designed by the team behind Express, which aims to be
           </li>
         
           <li>
-            <a href="/2016/11/18/单元测试/">(no title)</a>
+            <a href="/2016/11/18/单元测试/">单元测试</a>
           </li>
         
           <li>

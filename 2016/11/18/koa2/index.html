@@ -8,7 +8,7 @@
   <meta name="description" content="koa2
 &amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
 Koa2 &amp;#x4F7F;&amp;#x7528;&amp;#x6D41;&amp;#x7A0B;
-&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+Middleware
 koa-router
 &amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
 MVC
@@ -17,7 +17,7 @@ MVC
 
 
 koa2
-Koa is a new web framework designed by t">
+Koa is a new web framework designed by the team behind">
 <meta property="og:type" content="article">
 <meta property="og:title" content="koa2">
 <meta property="og:url" content="http://evleblog.com/2016/11/18/koa2/index.html">
@@ -25,7 +25,7 @@ Koa is a new web framework designed by t">
 <meta property="og:description" content="koa2
 &amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
 Koa2 &amp;#x4F7F;&amp;#x7528;&amp;#x6D41;&amp;#x7A0B;
-&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+Middleware
 koa-router
 &amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
 MVC
@@ -34,14 +34,14 @@ MVC
 
 
 koa2
-Koa is a new web framework designed by t">
-<meta property="og:updated_time" content="2016-11-19T18:50:09.000Z">
+Koa is a new web framework designed by the team behind">
+<meta property="og:updated_time" content="2016-11-19T19:01:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa2">
 <meta name="twitter:description" content="koa2
 &amp;#x73AF;&amp;#x5883;&amp;#x642D;&amp;#x5EFA;
 Koa2 &amp;#x4F7F;&amp;#x7528;&amp;#x6D41;&amp;#x7A0B;
-&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;
+Middleware
 koa-router
 &amp;#x6A21;&amp;#x7248;&amp;#x5F15;&amp;#x64CE;
 MVC
@@ -50,7 +50,7 @@ MVC
 
 
 koa2
-Koa is a new web framework designed by t">
+Koa is a new web framework designed by the team behind">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
   
@@ -130,7 +130,7 @@ Koa is a new web framework designed by t">
 <li><a href="#koa2">koa2</a><ul>
 <li><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;">&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li>
 <li><a href="#koa2-&#x4F7F;&#x7528;&#x6D41;&#x7A0B;">Koa2 &#x4F7F;&#x7528;&#x6D41;&#x7A0B;</a></li>
-<li><a href="#&#x4E2D;&#x95F4;&#x4EF6;">&#x4E2D;&#x95F4;&#x4EF6;</a></li>
+<li><a href="#middleware">Middleware</a></li>
 <li><a href="#koa-router">koa-router</a></li>
 <li><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;">&#x6A21;&#x7248;&#x5F15;&#x64CE;</a></li>
 <li><a href="#mvc">MVC</a></li>
@@ -163,7 +163,8 @@ Koa is a new web framework designed by t">
 <li>Listen on a specific port  </li>
 </ol>
 <p>&#x6BCF;&#x5F53;&#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3;&#x6536;&#x5230;&#x4E00;&#x4E2A;http&#x8BF7;&#x6C42;&#xFF0C;Koa2&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x901A;&#x8FC7; <code>app.use()</code>&#x6CE8;&#x518C;&#x7684; <strong>async</strong> &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4F20;&#x5165; <code>ctx</code> &#x548C; <code>next</code>&#x53C2;&#x6570;&#x3002;<code>ctx</code> &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x6BD4;&#x5982;<code>ctx.response.body &#xFF1D; &#x2018;&lt;p&gt; unless you show me how&#x2019;</code>. <code>next</code> &#x53C2;&#x6570;&#x7528;&#x6765;&#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A; <strong>async</strong> &#x51FD;&#x6570;&#x3002;</p>
-<h2 id="&#x4E2D;&#x95F4;&#x4EF6;"><a href="#&#x4E2D;&#x95F4;&#x4EF6;" class="headerlink" title="&#x4E2D;&#x95F4;&#x4EF6;"></a>&#x4E2D;&#x95F4;&#x4EF6;</h2><h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="&#x6A21;&#x7248;&#x5F15;&#x64CE;"><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;" class="headerlink" title="&#x6A21;&#x7248;&#x5F15;&#x64CE;"></a>&#x6A21;&#x7248;&#x5F15;&#x64CE;</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>async</strong> &#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E2D;&#x95F4;&#x4EF6;. &#x901A;&#x8FC7; <code>app.use()</code> &#x6CE8;&#x518C;&#x4E2D;&#x95F4;&#x4EF6;,  </p>
+<h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="&#x6A21;&#x7248;&#x5F15;&#x64CE;"><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;" class="headerlink" title="&#x6A21;&#x7248;&#x5F15;&#x64CE;"></a>&#x6A21;&#x7248;&#x5F15;&#x64CE;</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
       
     </div>
     <footer class="article-footer">

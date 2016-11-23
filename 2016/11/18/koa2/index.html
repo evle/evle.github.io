@@ -35,7 +35,7 @@ MVC
 
 koa2
 Koa is a new web framework designed by the team behind">
-<meta property="og:updated_time" content="2016-11-19T19:09:03.000Z">
+<meta property="og:updated_time" content="2016-11-19T19:10:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa2">
 <meta name="twitter:description" content="koa2
@@ -163,12 +163,13 @@ Koa is a new web framework designed by the team behind">
 <li>Listen on a specific port  </li>
 </ol>
 <p>&#x6BCF;&#x5F53;&#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3;&#x6536;&#x5230;&#x4E00;&#x4E2A;http&#x8BF7;&#x6C42;&#xFF0C;Koa2&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x901A;&#x8FC7; <code>app.use()</code>&#x6CE8;&#x518C;&#x7684; <strong>async</strong> &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4F20;&#x5165; <code>ctx</code> &#x548C; <code>next</code>&#x53C2;&#x6570;&#x3002;<code>ctx</code> &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x6BD4;&#x5982;<code>ctx.response.body &#xFF1D; &#x2018;&lt;p&gt; unless you show me how&#x2019;</code>. <code>next</code> &#x53C2;&#x6570;&#x7528;&#x6765;&#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A; <strong>async</strong> &#x51FD;&#x6570;&#x3002;</p>
-<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>async</strong> &#x51FD;&#x6570;&#x5C31;&#x662F;middleware. &#x901A;&#x8FC7; <code>app.use()</code> &#x53EF;&#x4EE5;&#x6CE8;&#x518C;middleware&#x5E76;&#x4E14; <code>app.use()</code> &#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x51B3;&#x5B9A;&#x4E86;middleware&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;, &#x4F7F;&#x7528; <code>await next()</code> &#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;middleware. &#x901A;&#x8FC7;middleware&#x7684;&#x7EC4;&#x5408;&#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x529F;&#x80FD;&#x662F;Koa2&#x7684;&#x7CBE;&#x9AD3;&#x3002;<br>Middleware &#x7EC4;&#x5408;&#x793A;&#x4F8B;:<br><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">&apos;koa&apos;</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">const app = new Koa()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt; {</span><br><span class="line">  console.log(ctx.request.method +<span class="string">&apos;,&apos;</span>+ctx.request.url)<span class="comment">;</span></span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt;{</span><br><span class="line">  const start = new Date().<span class="keyword">getTime</span>()<span class="comment">;</span></span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">  const ms = new Date().<span class="keyword">getTime</span>() - start<span class="comment">;</span></span><br><span class="line">  console.log(<span class="string">&apos;&#x5904;&#x7406;&#x6240;&#x6D88;&#x8017;&#x65F6;&#x95F4;: &apos;</span> + ms)<span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt; {</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">  ctx.response.type = <span class="string">&apos;text/html&apos;</span><span class="comment">;</span></span><br><span class="line">  ctx.response.body = <span class="string">&apos;&lt;h1&gt;Hello, koa2&lt;/h1&gt;&apos;</span><span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>)<span class="comment">;</span></span><br><span class="line">console.log(<span class="string">&apos;app started at port 3000...&apos;</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>async</strong> &#x51FD;&#x6570;&#x5C31;&#x662F;middleware. &#x901A;&#x8FC7; <code>app.use()</code> &#x53EF;&#x4EE5;&#x6CE8;&#x518C;middleware&#x5E76;&#x4E14; <code>app.use()</code> &#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x51B3;&#x5B9A;&#x4E86;middleware&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;, &#x4F7F;&#x7528; <code>await next()</code> &#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;middleware. &#x901A;&#x8FC7;middleware&#x7684;&#x7EC4;&#x5408;&#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x529F;&#x80FD;&#x662F;Koa2&#x7684;&#x7CBE;&#x9AD3;&#x3002;   </p>
+<p>Middleware &#x7EC4;&#x5408;&#x793A;&#x4F8B;:<br><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">&apos;koa&apos;</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">const app = new Koa()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt; {</span><br><span class="line">  console.log(ctx.request.method +<span class="string">&apos;,&apos;</span>+ctx.request.url)<span class="comment">;</span></span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt;{</span><br><span class="line">  const start = new Date().<span class="keyword">getTime</span>()<span class="comment">;</span></span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">  const ms = new Date().<span class="keyword">getTime</span>() - start<span class="comment">;</span></span><br><span class="line">  console.log(<span class="string">&apos;&#x5904;&#x7406;&#x6240;&#x6D88;&#x8017;&#x65F6;&#x95F4;: &apos;</span> + ms)<span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.use(async (ctx, <span class="keyword">next</span>) =&gt; {</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">next</span>()<span class="comment">;</span></span><br><span class="line">  ctx.response.type = <span class="string">&apos;text/html&apos;</span><span class="comment">;</span></span><br><span class="line">  ctx.response.body = <span class="string">&apos;&lt;h1&gt;Hello, koa2&lt;/h1&gt;&apos;</span><span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>)<span class="comment">;</span></span><br><span class="line">console.log(<span class="string">&apos;app started at port 3000...&apos;</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="&#x6A21;&#x7248;&#x5F15;&#x64CE;"><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;" class="headerlink" title="&#x6A21;&#x7248;&#x5F15;&#x64CE;"></a>&#x6A21;&#x7248;&#x5F15;&#x64CE;</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/18/koa2/" data-id="civpkkoyf0003yhd03m29msf9" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/18/koa2/" data-id="civumjf36000e4kd0v0dy72v5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -226,23 +227,23 @@ Koa is a new web framework designed by the team behind">
       <ul>
         
           <li>
-            <a href="/2016/11/19/real-world-coding-in-html5/">real-world-coding-in-html5</a>
+            <a href="/2016/11/23/哈皮/">哈皮</a>
           </li>
         
           <li>
-            <a href="/2016/11/19/Zero-to-Hero-with-Python/">Zero-to-Hero-with-Python</a>
+            <a href="/2016/11/22/MAC使用技巧/">MAC使用技巧</a>
           </li>
         
           <li>
-            <a href="/2016/11/18/Zero-to-Hero-with-Nodejs/">Zero to Hero with Nodejs</a>
+            <a href="/2016/11/22/underscore/">underscore</a>
           </li>
         
           <li>
-            <a href="/2016/11/18/koa2/">koa2</a>
+            <a href="/2016/11/22/jQuery/">jQuery</a>
           </li>
         
           <li>
-            <a href="/2016/11/18/单元测试/">单元测试</a>
+            <a href="/2016/11/22/javascript-Promise/">javascript-Promise</a>
           </li>
         
       </ul>

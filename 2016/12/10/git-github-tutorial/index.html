@@ -5,16 +5,16 @@
   
   <title>Learn Git &amp; Github 你要知道的命令没那么多 | Evle&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learn Git & Github 你要知道的命令没那么多">
 <meta property="og:url" content="http://evleblog.com/2016/12/10/git-github-tutorial/index.html">
 <meta property="og:site_name" content="Evle's Blog">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-12-10T16:33:39.000Z">
+<meta property="og:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
+<meta property="og:updated_time" content="2016-12-10T16:41:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learn Git & Github 你要知道的命令没那么多">
-<meta name="twitter:description">
+<meta name="twitter:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
   
@@ -89,11 +89,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Git&#x662F;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;, &#x4E0B;&#x8F7D;&#x53CA;&#x5B89;&#x88C5;Git&#x540E;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4EE5;&#x4E0B;&#x8BBE;&#x7F6E;<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br><span class="line">```  </span><br><span class="line">&#x8BBE;&#x7F6E;&#x5B8C;Git&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;Github&#x7684; <span class="keyword">*</span><span class="keyword">*</span>SSH key<span class="keyword">*</span><span class="keyword">*</span>. &#x4F7F;&#x7528; `ssh-keygen -t rsa -C <span class="string">&quot;email@example.com&quot;</span>` &#x751F;&#x6210; <span class="keyword">*</span><span class="keyword">*</span>id_rsa.pub<span class="keyword">*</span><span class="keyword">*</span> &#x7136;&#x540E; &#x6DFB;&#x52A0;&#x5230; Github &#x8D26;&#x6237;&#x4E2D;.</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x57FA;&#x672C;&#x64CD;&#x4F5C;</span></span><br><span class="line"><span class="comment">## &#x521B;&#x5EFA;&#x4E0E;&#x6DFB;&#x52A0;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="&#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;"><a href="#&#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;" class="headerlink" title="&#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;"></a>&#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;</h1><p>$ git init  </p>
+<h1 id="&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;"><a href="#&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;" class="headerlink" title="&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;"></a>&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;</h1><p>$ git add a<br>$ git add b<br>$ git add .<br>$ git commit -m &#x201C;add 2 files.&#x201D;</p>
+<h1 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;"><a href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;" class="headerlink" title="&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;"></a>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;</h1><p>$ git status</p>
+<h1 id="&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;"><a href="#&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;" class="headerlink" title="&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;"></a>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;</h1><p>$ git diff<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;&#x65F6;&#x6709;2&#x6B65;&#xFF0C;&#x5148;&#x4F7F;&#x7528; `git add filename` &#x63D0;&#x4EA4;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x6682;&#x5B58;&#x533A;, &#x7136;&#x540E;&#x4F7F;&#x7528; `git commit -m <span class="string">&quot;message&quot;</span>` &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;. &#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x786E;&#x4FDD; <span class="keyword">*</span><span class="keyword">*</span><span class="string">&quot;message&quot;</span><span class="keyword">*</span><span class="keyword">*</span> &#x6709;&#x610F;&#x4E49;.  </span><br><span class="line"></span><br><span class="line"><span class="comment">## &#x7248;&#x672C;&#x5207;&#x6362;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="&#x67E5;&#x770B;commit&#x8BB0;&#x5F55;-&#x83B7;&#x53D6;commit-id"><a href="#&#x67E5;&#x770B;commit&#x8BB0;&#x5F55;-&#x83B7;&#x53D6;commit-id" class="headerlink" title="&#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)"></a>&#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)</h1><p>git log</p>
+<p>&#xFF03;&#x5207;&#x6362;&#x7248;&#x672C;<br>git reset &#x2013;hard commit_id  # &#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;commit_id&#x7684;&#x7248;&#x672C;<br>git reset &#x2013;hard HEAD^      # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E2A;&#x7248;&#x672C;<br>git reset &#x2013;hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&#x7248;&#x672C;</p>
+<h1 id="&#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;"><a href="#&#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;" class="headerlink" title="&#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;"></a>&#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;</h1><p>git reflog<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x5F53;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x65F6;, &#x56DE;&#x9000;&#x524D;&#x7684;&#x7248;&#x672C;&#x7684;commit_id&#x65E0;&#x6CD5;&#x901A;&#x8FC7; `git log` &#x67E5;&#x8BE2;, &#x53EA;&#x80FD;&#x901A;&#x8FC7; `git reflog` &#x67E5;&#x8BE2;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;commit_id.  </span><br><span class="line">e.g. &#x5F53;&#x524D;&#x7248;&#x672C;B, &#x4F7F;&#x7528; `git reset --hard commit_id` &#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;<span class="literal">A</span>. &#x5728;&#x7248;&#x672C;<span class="literal">A</span>&#x4E2D;, &#x518D;&#x60F3;&#x56DE;&#x9000;&#x5230;&#x7248;&#x672C;B&#x65F6;, &#x65E0;&#x6CD5;&#x4F7F;&#x7528; `git log` &#x83B7;&#x53D6;&#x7248;&#x672C;B&#x7684; **commit_id** . &#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; `git reflog` &#x83B7;&#x53D6;.</span><br><span class="line"></span><br><span class="line">## &#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</span><br></pre></td></tr></table></figure></p>
+<p>git checkout &#x2013; filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539;<br>git rm  &#xFF03; &#x5220;&#x9664;&#x6587;&#x4EF6;<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x8BEF;&#x5220;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; `git checkout -- filename` &#x6062;&#x590D;.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"># &#x5206;&#x652F;&#x7BA1;&#x7406;</span></span><br><span class="line"><span class="meta">## &#x5206;&#x652F;&#x64CD;&#x4F5C;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="&#x521B;&#x5EFA;"><a href="#&#x521B;&#x5EFA;" class="headerlink" title="&#x521B;&#x5EFA;"></a>&#x521B;&#x5EFA;</h1><p>$ git branch branch_name       # &#x521B;&#x5EFA;&#x5206;&#x652F;<br>$ git checkout branch_name     # &#x5207;&#x6362;&#x5206;&#x652F;<br>$ git checkout -b branch_name  # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;</p>
+<h1 id="&#x5408;&#x5E76;"><a href="#&#x5408;&#x5E76;" class="headerlink" title="&#x5408;&#x5E76;"></a>&#x5408;&#x5E76;</h1><p>$ git merge branch_name         &#xFF03; &#x5F53;&#x65E0;&#x6CD5;&#x5408;&#x5E76;&#x65F6;&#x9700;&#x8981;&#x624B;&#x52A8;&#x89E3;&#x51B3;&#x51B2;&#x7A81;<br>$ git merge branch_name &#x2013;no-ff &#xFF03; &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;</p>
+<h1 id="&#x5220;&#x9664;"><a href="#&#x5220;&#x9664;" class="headerlink" title="&#x5220;&#x9664;"></a>&#x5220;&#x9664;</h1><p>$ git branch -d dev</p>
+<h1 id="&#x63A8;&#x9001;&#x5206;&#x652F;"><a href="#&#x63A8;&#x9001;&#x5206;&#x652F;" class="headerlink" title="&#x63A8;&#x9001;&#x5206;&#x652F;"></a>&#x63A8;&#x9001;&#x5206;&#x652F;</h1><p>$ git push origin branch_name</p>
+<h1 id="&#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;"><a href="#&#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;" class="headerlink" title="&#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;"></a>&#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;</h1><p>$ git branch &#x2013;set-upstream branch-name origin/branch-name<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x5982;&#x679C;&#x7A81;&#x7136;&#x6709;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5206;&#x652F;&#x9700;&#x8981;&#x524D;&#x53BB;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;, &#x4F7F;&#x7528; `git stash` &#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x5F53;&#x5176;&#x5B83;&#x5206;&#x652F;&#x5904;&#x7406;&#x5B8C;&#x6210;.</span><br><span class="line">&#x4F7F;&#x7528; `git stash pop` &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;.</span><br><span class="line"></span><br><span class="line"># &#x6807;&#x7B7E;&#x7BA1;&#x7406;</span><br></pre></td></tr></table></figure></p>
+<h1 id="&#x521B;&#x5EFA;&#x6807;&#x7B7E;"><a href="#&#x521B;&#x5EFA;&#x6807;&#x7B7E;" class="headerlink" title="&#x521B;&#x5EFA;&#x6807;&#x7B7E;"></a>&#x521B;&#x5EFA;&#x6807;&#x7B7E;</h1><p>$ git tag tag_name<br>$ git tag tag_name commit_id        # &#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x63D0;&#x4EA4;&#x521B;&#x5EFA;&#x6807;&#x7B7E;<br>$ git tag -a tag_name -m &#x201C;message&#x201D;  # &#x521B;&#x5EFA;&#x6807;&#x7B7E;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x8BF4;&#x660E;</p>
+<h1 id="&#x67E5;&#x770B;&#x6807;&#x7B7E;"><a href="#&#x67E5;&#x770B;&#x6807;&#x7B7E;" class="headerlink" title="&#x67E5;&#x770B;&#x6807;&#x7B7E;"></a>&#x67E5;&#x770B;&#x6807;&#x7B7E;</h1><p>$ git tag</p>
+<h1 id="&#x5220;&#x9664;&#x6807;&#x7B7E;"><a href="#&#x5220;&#x9664;&#x6807;&#x7B7E;" class="headerlink" title="&#x5220;&#x9664;&#x6807;&#x7B7E;"></a>&#x5220;&#x9664;&#x6807;&#x7B7E;</h1><p>$ git tag -d tag_name</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x88AB;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;, &#x4F7F;&#x7528; <span class="code">`git push origin --tags`</span> &#x5C06;&#x6807;&#x7B7E;&#x63A8;&#x9001;&#x81F3;&#x8FDC;&#x7A0B;</span><br><span class="line"></span><br><span class="line"><span class="section"># &#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</span></span><br><span class="line">&#x672C;&#x5730;&#x7684;&#x4ED3;&#x5E93;&#x53EF;&#x4EE5;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x7684;Github&#x5728;&#x7EBF;&#x6258;&#x7BA1;</span><br><span class="line"><span class="section">## &#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;</span></span><br><span class="line"><span class="bullet">1. </span>&#x5148;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Repository.</span><br><span class="line"><span class="bullet">2. </span>&#x5C06;&#x672C;&#x5730;&#x7684;&#x4ED3;&#x5E93;&#x4E0E;&#x521A;&#x624D;&#x65B0;&#x5EFA;&#x7684;&#x4ED3;&#x5E93;&#x5173;&#x8054;.</span><br></pre></td></tr></table></figure>
+<p>$ git remote add origin git@github.com:username/repo_name.git<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">3. </span>&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</span><br></pre></td></tr></table></figure></p>
+<p>$ git push -u origin master<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x4E4B;&#x540E;&#x6BCF;&#x6B21;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53EA;&#x9700;&#x8981; `git push origin master`.  </span><br><span class="line">&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;, <span class="keyword">*</span><span class="keyword">*</span>&#x5982;&#x679C;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;README<span class="keyword">*</span><span class="keyword">*</span>&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5173;&#x8054;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E4B;&#x540E;&#x6267;&#x884C; `git pull --rebase origin master` &#x5C06;README&#x540C;&#x6B65;&#x81F3;&#x672C;&#x5730;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;.</span><br><span class="line"></span><br><span class="line"><span class="comment">## &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;</span></span><br><span class="line">1. &#x5728;Github&#x4E2D;&#x627E;&#x5230; <span class="keyword">*</span><span class="keyword">*</span>Clone<span class="keyword">*</span><span class="keyword">*</span> &#x9009;&#x9879;&#x4E2D;&#x6240;&#x9700;&#x9879;&#x76EE;&#x7684; <span class="keyword">*</span><span class="keyword">*</span>SSH<span class="keyword">*</span><span class="keyword">*</span> &#x6216;&#x8005; <span class="keyword">*</span><span class="keyword">*</span>HTTPS<span class="keyword">*</span><span class="keyword">*</span> &#x7684;URL.</span><br><span class="line">2. &#x5728;&#x5408;&#x9002;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;.</span><br></pre></td></tr></table></figure></p>
+<p>$ git clone  SSH or HTTPS<br>```    </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="ciwjg3bde0007d5d073dq481a" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="ciwjg5ntz0006djd01990hgwi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,15 +122,6 @@
   
     
 <nav id="article-nav">
-  
-    <a href="/2016/12/11/learn-git/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Learn Git and Githab 你要知道的命令没那么多
-        
-      </div>
-    </a>
   
   
     <a href="/2016/11/24/有效的提升英文写作能力/" id="article-nav-older" class="article-nav-link-wrap">
@@ -151,10 +163,6 @@
       <ul>
         
           <li>
-            <a href="/2016/12/11/learn-git/">Learn Git and Githab 你要知道的命令没那么多</a>
-          </li>
-        
-          <li>
             <a href="/2016/12/10/git-github-tutorial/">Learn Git &amp; Github 你要知道的命令没那么多</a>
           </li>
         
@@ -168,6 +176,10 @@
         
           <li>
             <a href="/2016/11/22/underscore/">underscore</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/22/jQuery/">jQuery</a>
           </li>
         
       </ul>

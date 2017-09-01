@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learn Git & Github 你要知道的命令没那么多">
+<meta property="og:title" content="Learn Git &amp; Github 你要知道的命令没那么多">
 <meta property="og:url" content="http://evleblog.com/2016/12/10/git-github-tutorial/index.html">
-<meta property="og:site_name" content="Evle's Blog">
+<meta property="og:site_name" content="Evle&#39;s Blog">
 <meta property="og:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
-<meta property="og:updated_time" content="2016-12-10T16:51:37.000Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-31T15:02:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn Git & Github 你要知道的命令没那么多">
+<meta name="twitter:title" content="Learn Git &amp; Github 你要知道的命令没那么多">
 <meta name="twitter:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
@@ -61,7 +62,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
       </div>
     </div>
   </div>
@@ -158,7 +159,7 @@ $ git tag -d tag_name
 <pre><code>$ git remote add origin git@github.com:username/repo_name.git
 </code></pre></li>
 <li><p>&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
-<pre><code>$ git push -u origin master
+<pre><code>$ git push -u origin master  # -u &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x548C;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
 </code></pre></li>
 </ol>
 <p>&#x4E4B;&#x540E;&#x6BCF;&#x6B21;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53EA;&#x9700;&#x8981; <code>git push origin master</code>.<br>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;, <strong>&#x5982;&#x679C;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;README</strong>&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5173;&#x8054;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E4B;&#x540E;&#x6267;&#x884C; <code>git pull --rebase origin master</code> &#x5C06;README&#x540C;&#x6B65;&#x81F3;&#x672C;&#x5730;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;.</p>
@@ -166,11 +167,19 @@ $ git tag -d tag_name
 <li>&#x5728;Github&#x4E2D;&#x627E;&#x5230; <strong>Clone</strong> &#x9009;&#x9879;&#x4E2D;&#x6240;&#x9700;&#x9879;&#x76EE;&#x7684; <strong>SSH</strong> &#x6216;&#x8005; <strong>HTTPS</strong> &#x7684;URL.</li>
 <li>&#x5728;&#x5408;&#x9002;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x6267;&#x884C; <code>git clone  SSH or HTTPS</code>.</li>
 </ol>
-
+<h1 id="&#x8D21;&#x732E;&#x4EE3;&#x7801;"><a href="#&#x8D21;&#x732E;&#x4EE3;&#x7801;" class="headerlink" title="&#x8D21;&#x732E;&#x4EE3;&#x7801;"></a>&#x8D21;&#x732E;&#x4EE3;&#x7801;</h1><h2 id="Collaborators"><a href="#Collaborators" class="headerlink" title="Collaborators"></a>Collaborators</h2><p><em>Settings -&gt; Collaborators -&gt; Add collaborator</em></p>
+<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p><em>Fork -&gt; Clone -&gt; [Write Code] -&gt; Commit &amp; Push -&gt; Pull Request</em></p>
+<h1 id="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"><a href="#&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;" class="headerlink" title="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"></a>&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;</h1><p>Coming Soon</p>
+<h1 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h1><h2 id="Feature-Branch-Workflow"><a href="#Feature-Branch-Workflow" class="headerlink" title="Feature Branch Workflow"></a>Feature Branch Workflow</h2><ol>
+<li>Create a new branch<br> git checkout -b new-feature</li>
+<li>Coding<br> git status<br> git add [something]<br> git commit<br> git push -u origin new-feature</li>
+<li>Pull Request</li>
+</ol>
+<h2 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="ciwjg5ntz0006djd01990hgwi" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="cj729sqj800098y8z9h47n8u4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,6 +187,15 @@ $ git tag -d tag_name
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/01/05/bootstrap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          理解和使用Bootstrap
+        
+      </div>
+    </a>
   
   
     <a href="/2016/11/24/有效的提升英文写作能力/" id="article-nav-older" class="article-nav-link-wrap">
@@ -206,7 +224,7 @@ $ git tag -d tag_name
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
     </div>
   </div>
 
@@ -219,23 +237,23 @@ $ git tag -d tag_name
       <ul>
         
           <li>
-            <a href="/2016/12/10/git-github-tutorial/">Learn Git &amp; Github 你要知道的命令没那么多</a>
+            <a href="/2017/09/02/MongoDB-Cheat-Sheets/">MongoDB-Cheat-Sheets</a>
           </li>
         
           <li>
-            <a href="/2016/11/24/有效的提升英文写作能力/">有效的提升英文写作能力</a>
+            <a href="/2017/09/01/nodejs-1-md/">nodejs.md</a>
           </li>
         
           <li>
-            <a href="/2016/11/22/MAC使用技巧/">MAC使用技巧</a>
+            <a href="/2017/06/29/sass-guides-md/">sass_guides.md</a>
           </li>
         
           <li>
-            <a href="/2016/11/22/underscore/">underscore</a>
+            <a href="/2017/02/20/open-source-guides-md/">open-source-guides.md</a>
           </li>
         
           <li>
-            <a href="/2016/11/22/jQuery/">jQuery</a>
+            <a href="/2017/01/05/bootstrap/">理解和使用Bootstrap</a>
           </li>
         
       </ul>
@@ -250,7 +268,7 @@ $ git tag -d tag_name
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Sangwoo Lee<br>
+      &copy; 2017 Sangwoo Lee<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

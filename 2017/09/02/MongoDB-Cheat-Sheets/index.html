@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Evle&#39;s Blog">
 <meta property="og:description" content="Executables    MySQL/Oracle MongoDB     Database Server mysqld/oracle mongod   Database Client mysql/sqlplus mongo    Concepts   SQL Terms/Concepts MongoDB Terms/Concepts     database database   table">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-01T20:28:16.000Z">
+<meta property="og:updated_time" content="2017-09-01T20:49:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB-Cheat-Sheets">
 <meta name="twitter:description" content="Executables    MySQL/Oracle MongoDB     Database Server mysqld/oracle mongod   Database Client mysql/sqlplus mongo    Concepts   SQL Terms/Concepts MongoDB Terms/Concepts     database database   table">
@@ -167,7 +167,29 @@
 </tr>
 <tr>
 <td>use <db></db></td>
-<td>Set the named database as the current database.</td>
+<td>Create or switch database</td>
+</tr>
+<tr>
+<td>db.dropDatabase()</td>
+<td>Drop database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.createCollection(&#x201C;user&#x201D;)</td>
+<td>Create collection</td>
+</tr>
+<tr>
+<td>db.COLLECTION_NAME.drop()</td>
+<td>Delete collection</td>
 </tr>
 </tbody>
 </table>
@@ -240,6 +262,59 @@
 <tr>
 <td>db.users.remove({ status: &#x201C;D&#x201D; })</td>
 <td>status = D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit()</td>
+<td></td>
+</tr>
+<tr>
+<td>skip()</td>
+<td></td>
+</tr>
+<tr>
+<td>sort()</td>
+<td></td>
+</tr>
+<tr>
+<td>$lt</td>
+<td></td>
+</tr>
+<tr>
+<td>$lte</td>
+<td></td>
+</tr>
+<tr>
+<td>$gt</td>
+<td></td>
+</tr>
+<tr>
+<td>$gte</td>
+<td></td>
+</tr>
+<tr>
+<td>$ne</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+</tr>
+<tr>
+<td>OR</td>
+<td></td>
+</tr>
+<tr>
+<td>aggregate()</td>
 </tr>
 </tbody>
 </table>

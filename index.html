@@ -109,7 +109,136 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><table>
+<thead>
+<tr>
+<th>SQL Terms/Concepts</th>
+<th>MongoDB Terms/Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document or BSON document</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td>embedded documents and linking</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key(default _id)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>Displays the database that you&#x2019;re currently using.</td>
+</tr>
+<tr>
+<td>show dbs</td>
+<td>Displays the databases available on the server.</td>
+</tr>
+<tr>
+<td>use <db></db></td>
+<td>Set the named database as the current database.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Basic-CRUD-Operations"><a href="#Basic-CRUD-Operations" class="headerlink" title="Basic CRUD Operations"></a>Basic CRUD Operations</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.insert({name: &#x201C;evle&#x201D;,age: 18})</td>
+<td></td>
+</tr>
+<tr>
+<td>db.user.ensureIndex( { user_id: 1, age: -1 } )</td>
+<td>Index</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.find()</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.find({ status: &#x201C;A&#x201D; }</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}})</td>
+<td>Only update the first one.</td>
+</tr>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}},{multi:ture})</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.remove( )</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.remove({ status: &#x201C;D&#x201D; })</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     <footer class="article-footer">

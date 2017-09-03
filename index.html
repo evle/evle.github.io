@@ -66,6 +66,751 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Using-Mongoose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Using-Mongoose/" class="article-date">
+  <time datetime="2017-09-01T21:02:14.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/Using-Mongoose/">Using Mongoose</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node.js and MongoDB are a pair made for each other&#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.</p>
+<pre><code>$ npm install mongoose --save    # install mongoose
+</code></pre><h2 id="Import-Mongoose"><a href="#Import-Mongoose" class="headerlink" title="Import Mongoose"></a>Import Mongoose</h2><pre><code>const mongoose = require(&apos;mongoose&apos;)    
+mongoose.connect(&apos;mongodb://localhost/mydatabase&apos;);
+</code></pre><h2 id="Defining-a-Model"><a href="#Defining-a-Model" class="headerlink" title="Defining a Model"></a>Defining a Model</h2><p>Before we can handle CRUD operations, we will need a mongoose Model. These models are constructors that we define. They represent documents which can be saved and retrieved from our database.</p>
+<table>
+<thead>
+<tr>
+<th>Terms</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mongoose Schema</td>
+<td>used to define attributes for documents</td>
+</tr>
+<tr>
+<td>Mongoose Methods</td>
+<td>can be defined on a mongoose schema</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Models-user-js"><a href="#Models-user-js" class="headerlink" title="Models/user.js"></a>Models/user.js</h3><pre><code>var mongoose = require(&apos;mongoose&apos;)
+var Schema = mongoose.Schema
+
+var userSchema = new Schema({
+  name: String,
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  created_at: Date,
+  updated_at: Date
+})
+
+userSchema.methods.dudify = function() {
+  this.name = this.name + &apos;-dude&apos;
+  return this.name
+};
+
+userSchema.pre(&apos;save&apos;, function(next) {
+var currentDate = new Date();
+
+this.updated_at = currentDate;
+if (!this.created_at)
+  this.created_at = currentDate;
+
+  next();
+});
+
+userSchema.index({username: 1})
+module.exports = mongoose.model(&apos;User&apos;, userSchema)
+</code></pre><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre><code>var User = require(&apos;./app/models/user&apos;)
+
+var evle = new User({
+  name: &apos;evle&apos;,
+  username: &apos;evlefsp&apos;,
+  password: &apos;password&apos;
+})
+
+evle.dudify(function(err, name) {
+  if (err) throw err;
+  console.log(&apos;Your new name is &apos; + name)
+})
+
+evle.save(function(err) {
+  if (err) throw err;
+  console.log(&apos;User saved successfully!&apos;)
+})
+</code></pre><p>#3 Create<br>var User = require(&#x2018;./models/user&#x2019;)</p>
+<p>// create a new user<br>var newUser = User({<br>  username: &#x2018;evle&#x2019;,<br>  password: &#x2018;password&#x2019;<br>})</p>
+<p>// save the user<br>evle.save(function(err) {<br>  if (err) throw err;</p>
+<p>  console.log(&#x2018;User created!&#x2019;)<br>})</p>
+<h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
+  if (err) throw err;
+  console.log(users)
+});
+</code></pre><h3 id="Find-One"><a href="#Find-One" class="headerlink" title="Find One"></a>Find One</h3><pre><code>// find by user name
+User.find({ username: &apos;evle&apos; }, function(err, user) {
+  if (err) throw err;
+  console.log(user);
+});
+
+// find by id
+User.findById(1, function(err, user) {
+  if (err) throw err;
+  console.log(user);
+});
+</code></pre><h3 id="Using-MongoDB-query-syntax"><a href="#Using-MongoDB-query-syntax" class="headerlink" title="Using MongoDB query syntax."></a>Using MongoDB query syntax.</h3><p>example: get any admin that was created in the past month</p>
+<pre><code>// get the date 1 month ago
+var monthAgo = new Date();
+monthAgo.setMonth(monthAgo.getMonth() - 1);
+
+User.find({ admin: true }).where(&apos;created_at&apos;).gt(monthAgo).exec(function(err, users) {
+  if (err) throw err;
+
+  // show the admins in the past month
+  console.log(users);
+});
+</code></pre><h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><pre><code>// get a user with ID of 1
+User.findById(1, function(err, user) {
+  if (err) throw err;
+
+  // change the users location
+  user.location = &apos;uk&apos;;
+
+  // save the user
+  user.save(function(err) {
+    if (err) throw err;
+
+    console.log(&apos;User successfully updated!&apos;);
+  });
+
+});
+</code></pre><h3 id="Find-and-Update"><a href="#Find-and-Update" class="headerlink" title="Find and Update"></a>Find and Update</h3><pre><code>User.findOneAndUpdate({ username: &apos;evle&apos; }, { username: &apos;evlefsp&apos; }, function(err, user) {
+  if (err) throw err;
+  console.log(user);
+});
+
+// Find By ID and Update
+User.findByIdAndUpdate(4, { username: &apos;evlefsp&apos; }, function(err, user) {
+  if (err) throw err;
+  console.log(user);
+});
+</code></pre><h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><pre><code>// get the user evle
+User.find({ username: &apos;evle&apos; }, function(err, user) {
+  if (err) throw err;
+
+  // delete him
+  user.remove(function(err) {
+    if (err) throw err;
+
+    console.log(&apos;User successfully deleted!&apos;);
+  });
+});
+</code></pre><h3 id="Find-and-Delete"><a href="#Find-and-Delete" class="headerlink" title="Find and Delete"></a>Find and Delete</h3><pre><code>// find and delete the user
+User.findOneAndRemove({ username: &apos;evle&apos; }, function(err) {
+  if (err) throw err;
+
+  // we have deleted the user
+  console.log(&apos;User deleted!&apos;);
+});
+
+
+// find the user with id 4
+User.findByIdAndRemove(4, function(err) {
+  if (err) throw err;
+
+  // we have deleted the user
+  console.log(&apos;User deleted!&apos;);
+});
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Using-Mongoose/" data-id="cj7490lq00006pm8zh8vellty" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Node-js-process-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Node-js-process-module/" class="article-date">
+  <time datetime="2017-09-01T20:58:06.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/Node-js-process-module/">Node.js-process-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2.1 process&#x6A21;&#x5757;</p>
+<p>process&#x6A21;&#x5757;&#x5728;&#x524D;&#x9762;&#x7684;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;&#x5B9E;&#x9A8C;&#x4E2D;&#x5DF2;&#x7ECF;&#x7528;&#x8FC7;&#x4E86;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x53D8;&#x91CF;process&#x8BBF;&#x95EE;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x901A;&#x8FC7;require&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;&#x3002;process&#x7528;&#x6765;&#x548C;&#x5F53;&#x524D;Node.js&#x7A0B;&#x5E8F;&#x8FDB;&#x7A0B;&#x4E92;&#x52A8;&#x3002;</p>
+<p>process&#x662F;EventEmitter&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;process&#x4E3B;&#x8981;&#x5305;&#x542B;&#x9000;&#x51FA;&#x4E8B;&#x4EF6;&#x3001;&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x3002;</p>
+<p>2.1.1 &#x9000;&#x51FA;&#x4E8B;&#x4EF6;&#xFF08;exit&#xFF09;</p>
+<p>&#x5F53;&#x9000;&#x51FA;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x4F1A;&#x4FC3;&#x53D1;exit&#x4E8B;&#x4EF6;&#xFF0C;exit&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x53EA;&#x63A5;&#x53D7;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53EA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#xFF0C;&#x5982;&#xFF1A;</p>
+<p>process.on(&#x2018;exit&#x2019;, function(code) {<br>    setTimeout(function() {<br>        console.log(&#x2018;This will not run&#x2019;);<br>    }, 0);</p>
+<pre><code>console.log(&apos;exit code: &apos;, code);
+</code></pre><p>});<br>&#x8FD0;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x4E2D;setTimeout&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;exit&#x4E8B;&#x4EF6;&#x4E2D;&#x53EA;&#x4F1A;&#x8FD0;&#x884C;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x8FD0;&#x884C;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5728;exit&#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;beforeExit&#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5728;beforeExit&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x901A;&#x8FC7;process.exit()&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x6216;&#x8005;&#x56E0;&#x4E3A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x800C;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x662F;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;beforeExit&#x4E8B;&#x4EF6;&#x7684;&#x3002;&#x987A;&#x4FBF;&#x8BF4;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x6709;&#x9519;&#x8BEF;&#x672A;&#x88AB;&#x6355;&#x83B7;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;uncaughtException&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>2.1.2 &#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;</p>
+<p>&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;&#x5C31;&#x662F;&#x63A5;&#x6536;&#x5230;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x4FE1;&#x53F7;&#x624D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x7684;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x6BD4;&#x5982;SIGINT&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x65B9;&#x5F0F;&#x662F;ctrl+c&#xFF1A;</p>
+<p>// sigint.js<br>process.stdin.resume();</p>
+<p>process.on(&#x2018;SIGINT&#x2019;, function() {<br>    console.log(&#x2018;Got SIGINT.  Press Control-D to exit.&#x2019;);<br>});<br>&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>$ node sigint.js<br>&#x7136;&#x540E;&#x6309;&#x4F4F;ctrl&#x952E;&#xFF0C;&#x518D;&#x6309;c&#x952E;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;SIGINT&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>2.1.3 &#x5C5E;&#x6027;</p>
+<p>process&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x5C5E;&#x6027;&#xFF0C;&#x5176;&#x4E2D;&#x5173;&#x4E8E;IO&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x7684;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;</p>
+<p>process.stdin  // &#x6807;&#x51C6;&#x8F93;&#x5165;<br>process.stdout // &#x6807;&#x51C6;&#x8F93;&#x51FA;<br>process.stderr // &#x6807;&#x51C6;&#x9519;&#x8BEF;<br>&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<p>// stdin.js<br>process.stdin.setEncoding(&#x2018;utf8&#x2019;);</p>
+<p>process.stdin.on(&#x2018;readable&#x2019;, function() {<br>    var chunk = process.stdin.read();<br>    if (chunk !== null) {<br>        process.stdout.write(&#x2018;data: &#x2018; + chunk);<br>    }<br>});</p>
+<p>process.stdin.on(&#x2018;end&#x2019;, function() {<br>    process.stdout.write(&#x2018;end&#x2019;);<br>});<br>&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>node stdin.js<br>&#x8F93;&#x5165;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF0C;Node.js&#x4F1A;&#x628A;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x8F93;&#x5165;ctrl+D&#x89E6;&#x53D1;end&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>process&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#xFF0C;&#x6BD4;&#x5982;process.argv&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<p>2.1.4 &#x65B9;&#x6CD5;</p>
+<p>process&#x6A21;&#x5757;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5B9E;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<p>process.cwd()   // &#x8FD4;&#x56DE;&#x811A;&#x672C;&#x8FD0;&#x884C;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;<br>process.chdir() // &#x5207;&#x6362;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;<br>process.exit()  // &#x9000;&#x51FA;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;<br>process.on()    // &#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x4E8B;&#x4EF6;<br>//&#x2026;<br>2.2 child_process&#x6A21;&#x5757;</p>
+<p>child_process&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;</p>
+<p>2.2.1 child_process.spawn()&#x65B9;&#x6CD5;</p>
+<p>&#x901A;&#x8FC7;&#x5F53;&#x524D;&#x547D;&#x4EE4;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x3002;&#x5982;&#xFF1A;</p>
+<p>// test_spawn.js<br>var spawn = require(&#x2018;child_process&#x2019;).spawn,<br>    ls = spawn(&#x2018;ls&#x2019;, [&#x2018;-lh&#x2019;, &#x2018;/usr&#x2019;]);</p>
+<p>ls.stdout.on(&#x2018;data&#x2019;, function (data) {<br>    console.log(&#x2018;stdout: &#x2018; + data);<br>});</p>
+<p>ls.stderr.on(&#x2018;data&#x2019;, function (data) {<br>    console.log(&#x2018;stderr: &#x2018; + data);<br>});</p>
+<p>ls.on(&#x2018;close&#x2019;, function (code) {<br>    console.log(&#x2018;child process exited with code &#x2018; + code);<br>});<br>&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#xFF1A;</p>
+<p>$ node test_spawn.js<br>&#x4ECE;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x6210;&#x529F;&#x8FD0;&#x884C;&#x4E86;ls -lh /usr&#x547D;&#x4EE4;&#x3002;</p>
+<p>2.2.2 child_process.exec()&#x65B9;&#x6CD5;</p>
+<p>&#x5728;shell&#x4E2D;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x7F13;&#x5B58;&#x5176;&#x8F93;&#x51FA;&#x3002;&#x5982;&#xFF1A;</p>
+<p>// test_exec.js<br>var exec = require(&#x2018;child_process&#x2019;).exec,<br>    child;</p>
+<p>child = exec(&#x2018;cat *.js bad_file | wc -l&#x2019;,<br>    function (error, stdout, stderr) {<br>        console.log(&#x2018;stdout: &#x2018; + stdout);<br>        console.log(&#x2018;stderr: &#x2018; + stderr);<br>    if (error !== null) {<br>        console.log(&#x2018;exec error: &#x2018; + error);<br>    }<br>});<br>&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>$ node test_exec.js<br>&#x56E0;&#x4E3A;&#x6CA1;&#x6709;bad_file &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x770B;&#x5230;&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x51FA;&#x4E86;&#x76F8;&#x5173;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
+<p>2.2.3 child_process.execFile()&#x65B9;&#x6CD5;</p>
+<p>&#x4E0E;exec&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#xFF0C;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#xFF0C;&#x53C2;&#x6570;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4F20;&#x9001;&#x3002;&#xFF0C;&#x5982;&#xFF1A;</p>
+<p>// test_execfile.js<br>var child_process = require(&#x2018;child_process&#x2019;);</p>
+<p>// exec: spawns a shell<br>child_process.exec(&#x2018;ls -lh /usr&#x2019;, function(error, stdout, stderr){<br>    console.log(stdout);<br>    console.log(&#x2018;<strong><strong><strong><strong>**</strong></strong></strong></strong>&#x2018;);<br>});</p>
+<p>// execFile: executes a file with the specified arguments<br>child_process.execFile(&#x2018;/bin/ls&#x2019;, [&#x2018;-lh&#x2019;, &#x2018;/usr&#x2019;], function(error, stdout, stderr){<br>    console.log(stdout);<br>});<br>&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>$ node test_execfile.js<br>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;execFile&#x6210;&#x529F;&#x6267;&#x884C;&#x4E86;/bin/ls&#x7A0B;&#x5E8F;&#xFF0C;&#x5217;&#x51FA;&#x4E86;/usr&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x3002;</p>
+<p>2.2.4 child_process.fork()&#x65B9;&#x6CD5;</p>
+<p>&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x6B64;&#x8FDB;&#x7A0B;&#x662F;node&#x547D;&#x4EE4;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;fork(&#x2018;./sub.js&#x2019;)&#x76F8;&#x5F53;&#x4E8E;spwan(&#x2018;node&#x2019;, &#x2018;./sub.js&#x2019;)&#x3002;fork&#x8FD8;&#x4F1A;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#xFF0C;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x901A;&#x4FE1;&#x7BA1;&#x9053;&#xFF0C;&#x901A;&#x8FC7;child.send()&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;&#x5982;&#xFF1A;</p>
+<p>// main.js<br>var cp = require(&#x2018;child_process&#x2019;);</p>
+<p>var n = cp.fork(__dirname + &#x2018;/sub.js&#x2019;);</p>
+<p>n.on(&#x2018;message&#x2019;, function(m) {<br>  console.log(&#x2018;PARENT got message:&#x2019;, m);<br>});</p>
+<p>n.send({ hello: &#x2018;world&#x2019; });<br>// sub.js<br>process.on(&#x2018;message&#x2019;, function(m) {<br>  console.log(&#x2018;CHILD got message:&#x2019;, m);<br>});</p>
+<p>process.send({ foo: &#x2018;bar&#x2019; });<br>&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>$ node main.js<br>&#x8F93;&#x51FA;&#xFF1A;</p>
+<p>PARENT got message: { foo: &#x2018;bar&#x2019; }<br>CHILD got message: { hello: &#x2018;world&#x2019; }<br>&#x8FD0;&#x884C;main.js&#x4F1A;&#x770B;&#x5230;&#x4E3B;&#x8FDB;&#x7A0B;&#x6536;&#x5230;&#x4E86;&#x6765;&#x81EA;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x800C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E5F;&#x6536;&#x5230;&#x4E86;&#x6765;&#x81EA;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
+<p>2.3 cluster&#x6A21;&#x5757;</p>
+<p>&#x5355;&#x4E2A;&#x7684;Node&#x5B9E;&#x4F8B;&#x8FD0;&#x884C;&#x5728;&#x5355;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x3002;&#x8981;&#x53D1;&#x6325;&#x591A;&#x6838;&#x7CFB;&#x7EDF;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x9700;&#x8981;&#x542F;&#x52A8;&#x4E00;&#x4E2A;Node&#x8FDB;&#x7A0B;&#x96C6;&#x7FA4;&#x6765;&#x5904;&#x7406;&#x8D1F;&#x8F7D;&#x3002;cluster&#x6A21;&#x5757;&#x5C31;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5171;&#x4EAB;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>// test_cluster.js</p>
+<p>var cluster = require(&#x2018;cluster&#x2019;);<br>var http = require(&#x2018;http&#x2019;);<br>var numCPUs = require(&#x2018;os&#x2019;).cpus().length;  // &#x83B7;&#x53D6;CPU&#x5185;&#x6838;&#x6570;</p>
+<p>// master&#x662F;&#x4E3B;&#x8FDB;&#x7A0B;<br>// &#x6B64;&#x5904;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;master&#x8FDB;&#x7A0B;<br>// &#x662F;&#x5219;&#x6839;&#x636E;CPU&#x5185;&#x6838;&#x6570;&#x521B;&#x5EFA;worker&#x8FDB;&#x7A0B;<br>if (cluster.isMaster) {<br>    // worker&#x662F;&#x8FD0;&#x884C;&#x8282;&#x70B9;<br>    // &#x6839;&#x636E;CPU&#x6570;&#x91CF;&#x542F;&#x52A8;worker<br>    // Fork workers<br>    for (var i = 0; i &lt; numCPUs; i++) {<br>        cluster.fork();<br>    }</p>
+<pre><code>Object.keys(cluster.workers).forEach(function(id) {
+    console.log(&apos;I am running with ID : &apos; + cluster.workers[id].process.pid);
+});
+cluster.on(&apos;exit&apos;, function(worker, code, signal) {
+    console.log(&apos;worker &apos; + worker.process.pid + &apos; died&apos;);
+});
+</code></pre><p>} else {<br>    // cluster.isWorker == true<br>    // &#x8FD0;&#x884C;&#x5230;else&#x4E2D;&#x7684;&#x4EE3;&#x7801;<br>    // &#x8BF4;&#x660E;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x662F;worker&#x8FDB;&#x7A0B;<br>    // &#x90A3;&#x4E48;&#x6B64;worker&#x8FDB;&#x7A0B;&#x5C31;&#x542F;&#x52A8;&#x4E00;&#x4E2A;http&#x670D;&#x52A1;<br>    http.createServer(function(req, res) {<br>        res.writeHead(200);<br>        res.end(&#x201C;hello world\n&#x201D;);<br>    }).listen(8000);<br>}<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>$ node test_cluster.js<br>&#x5728;&#x7EC8;&#x7AEF;&#x4F1A;&#x770B;&#x5230;&#x6839;&#x636E;CPU&#x5185;&#x6838;&#x6570;&#x521B;&#x5EFA;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;worker&#x8FDB;&#x7A0B;&#x90FD;&#x662F;&#x901A;&#x8FC7;child_process.fork()&#x65B9;&#x6CD5;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;IPC&#xFF08;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#xFF09;&#x4E0E;master&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x3002;</p>
+<p>cluster.worker&#x662F;worker&#x8FDB;&#x7A0B;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;&#x6709; worker.id&#x3001;worker.process&#x7B49;&#x5C5E;&#x6027;&#xFF0C;&#x8FD8;&#x6709;worker.send()&#x7B49;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E09;&#x3001;&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;</p>
+<p>&#x5728;Node.js&#x4E2D;&#xFF0C;Process&#x6A21;&#x5757;&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x548C;&#x7A0B;&#x5E8F;&#x4E3B;&#x8FDB;&#x7A0B;&#x6709;&#x5173;&#x7684;&#x529F;&#x80FD;&#xFF0C;child_process&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;cluster&#x7528;&#x4E8E;&#x5904;&#x7406;&#x96C6;&#x7FA4;&#x76F8;&#x5173;&#x7F16;&#x7A0B;&#x3002;<br>&#x56DB;&#x3001;&#x8BFE;&#x540E;&#x4F5C;&#x4E1A;</p>
+<p>&#x5C06;&#x5B9E;&#x9A8C;6&#x4E2D;&#x7684;&#x4F5C;&#x4E1A;&#x6539;&#x9020;&#x6210;&#x591A;&#x7EBF;&#x7A0B;&#x4E0B;&#x8F7D;&#x5668;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-process-module/" data-id="cj7490lq70008pm8zn9hvbqyi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Node-js-fs-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Node-js-fs-module/" class="article-date">
+  <time datetime="2017-09-01T20:57:29.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/Node-js-fs-module/">Node.js-fs-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2.1 &#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;</p>
+<p>&#x4E0D;&#x540C;&#x4E8E;C++&#x3001;Java&#x7B49;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;JavaScript&#x8BED;&#x53E5;&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#xFF0C;Node.js&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;&#x5F02;&#x6B65;&#x4F7F;&#x5F97;Node.js&#x80FD;&#x591F;&#x201D;&#x540C;&#x65F6;&#x201D;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x670D;&#x52A1;&#x7A0B;&#x5E8F;&#x7684;&#x5E76;&#x53D1;&#x6027;&#x3002;&#x5F02;&#x6B65;&#x7279;&#x6027;&#x4E5F;&#x662F;Node.js&#x5F97;&#x4EE5;&#x6D41;&#x884C;&#x7684;&#x539F;&#x56E0;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>fs&#x6A21;&#x5757;&#x4E2D;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x6709;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5B66;&#x4E60;fs&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x7684;&#x540C;&#x65F6;&#x4F53;&#x4F1A;&#x5F02;&#x6B65;&#x548C;&#x540C;&#x6B65;&#x7684;&#x5DEE;&#x522B;&#x3002;</p>
+<p>&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x4E2D;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x603B;&#x662F;&#x7559;&#x7ED9;&#x5F02;&#x5E38;&#x53C2;&#x6570;&#xFF08;exception&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x6210;&#x529F;&#x5B8C;&#x6210;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;null&#x6216;&#x8005;undefined&#x3002;</p>
+<p>&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;&#xFF08;&#x65E0;&#x9700;&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x7F16;&#x5199;&#xFF09;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x8F7D;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>fs.unlink(&#x2018;/tmp/shiyanlou&#x2019;, function(err) {<br>    if (err) {<br>        throw err;<br>    }<br>    console.log(&#x2018;&#x6210;&#x529F;&#x5220;&#x9664;&#x4E86; /tmp/shiyanlou&#x2019;);<br>});<br>&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x4EE3;&#x7801;&#xFF08;&#x65E0;&#x9700;&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x7F16;&#x5199;&#xFF09;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>fs.unlinkSync(&#x2018;/tmp/shiyanlou&#x2019;); // &#x51FD;&#x6570;&#x540D;&#x6700;&#x540E;&#x7684;Sync &#x8868;&#x793A;&#x662F;&#x540C;&#x6B65;&#x65B9;&#x6CD5;<br>console.log(&#x2018;&#x6210;&#x529F;&#x5220;&#x9664;&#x4E86; /tmp/shiyanlou&#x2019;);<br>&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x5E76;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x540E;&#xFF0C;&#x624D;&#x80FD;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x800C;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x91C7;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x4EE5;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>2.2readFile&#x8BFB;&#x53D6;&#x6587;&#x4EF6;</p>
+<p>&#x4F7F;&#x7528;fs.readFile(filename, [options], callback)&#x65B9;&#x6CD5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x3002;</p>
+<p>readFile&#x63A5;&#x6536;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;filename&#x662F;&#x6587;&#x4EF6;&#x540D;&#xFF1B;[options]&#x662F;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x7F16;&#x7801;&#xFF08;encoding&#xFF09;&#x53CA;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#xFF08;flag&#xFF09;&#xFF1B;callback&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5728;&#x865A;&#x62DF;&#x673A;&#x5BB6;&#x76EE;&#x5F55;&#xFF08;/home/shiyanlou&#xFF09;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;text.txt&#xFF0C;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>line one<br>line two<br>&#x4F7F;&#x7528;readFile&#x8BFB;&#x53D6;&#x6B64;&#x6587;&#x4EF6;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x5BB6;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;readfile.js&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>fs.readFile(&#x2018;./text.txt&#x2019;, function(err, data) {<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5931;&#x8D25;/&#x9519;&#x8BEF;<br>    if (err) {<br>        throw err;<br>    }<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6210;&#x529F;<br>    console.log(data);<br>});<br>readFile&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;err&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x51FA;&#x9519;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#xFF0C;data&#x662F;&#x4ECE;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>~/ $ node readfile.js<br>&#x4F1A;&#x770B;&#x5230;&#x8F93;&#x51FA;&#x7684;&#x5185;&#x5BB9;&#x7C7B;&#x4F3C;&#x4E8E;&#x8FD9;&#x6837;&#xFF1A;</p>
+<p><buffer 20="" 65="" 69="" 74="" 77="" 6c="" 6e="" 6f="" 0a=""><br>&#x8FD9;&#x662F;&#x539F;&#x59CB;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x5728;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8981;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;toString()&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x8F93;&#x51FA;&#x7F16;&#x7801;&#xFF0C;readFile.js&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x8FD9;&#x6837;&#xFF1A;</buffer></p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x4F7F;&#x7528;toString()<br>fs.readFile(&#x2018;./test.txt&#x2019;, function(err, data) {<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5931;&#x8D25;/&#x9519;&#x8BEF;<br>    if (err) {<br>        throw err;<br>    }<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6210;&#x529F;<br>    console.log(&#x2018;toString: &#x2018;, data.toString());<br>});</p>
+<p>// &#x8BBE;&#x7F6E;&#x7F16;&#x7801;&#x683C;&#x5F0F;<br>fs.readFile(&#x2018;./test.txt&#x2019;, &#x2018;utf-8&#x2019;, function(err, data) {<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5931;&#x8D25;/&#x9519;&#x8BEF;<br>    if (err) {<br>        throw err;<br>    }<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6210;&#x529F;<br>    console.log(&#x2018;utf-8: &#x2018;, data);<br>});<br>&#x8FD9;&#x6837;&#x518D;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x5C31;&#x80FD;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x51FA;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4E86;&#x3002;</p>
+<p>fs.readFileSync(filename, [options])&#x662F;readFile&#x7684;&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>2.3 writeFile&#x5199;&#x5165;&#x6587;&#x4EF6;</p>
+<p>&#x4F7F;&#x7528;fs.writeFile(filename, data, [options], callback)&#x5199;&#x5165;&#x5185;&#x5BB9;&#x5230;&#x6587;&#x4EF6;&#x3002;</p>
+<p>writeFile&#x63A5;&#x6536;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;filename&#x662F;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF1B;data&#x662F;&#x8981;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#xFF1B;[options]&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x5305;&#x542B;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#xFF08;encoding&#xFF09;&#xFF0C;&#x6A21;&#x5F0F;&#xFF08;mode&#xFF09;&#x4EE5;&#x53CA;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#xFF08;flag&#xFF09;&#xFF1B;callback&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>writeFile</p>
+<p>&#x5728;&#x865A;&#x62DF;&#x673A;&#x5BB6;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;writeFile.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x5199;&#x5165;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF08;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;<br>// &#x5199;&#x5165;&#x65F6;&#x4F1A;&#x5148;&#x6E05;&#x7A7A;&#x6587;&#x4EF6;<br>fs.writeFile(&#x2018;./test2.txt&#x2019;, &#x2018;test test&#x2019;, function(err) {<br>    if (err) {<br>        throw err;<br>    }</p>
+<pre><code>console.log(&apos;Saved.&apos;);
+
+// &#x5199;&#x5165;&#x6210;&#x529F;&#x540E;&#x8BFB;&#x53D6;&#x6D4B;&#x8BD5;
+fs.readFile(&apos;./test2.txt&apos;, &apos;utf-8&apos;, function(err, data) {
+    if (err) {
+        throw err;
+    }
+    console.log(data);
+});
+</code></pre><p>});<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>~/ $ node writeFile.js<br>&#x5982;&#x679C;&#x8981;&#x8FFD;&#x52A0;&#x6570;&#x636E;&#x5230;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4E00;&#x4E2A;flag&#x53C2;&#x6570;&#xFF0C;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x4E3A;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x5199;&#x5165;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF08;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;<br>// &#x4F20;&#x9012;&#x4E86;&#x8FFD;&#x52A0;&#x53C2;&#x6570; { &#x2018;flag&#x2019;: &#x2018;a&#x2019; }<br>fs.writeFile(&#x2018;./test2.txt&#x2019;, &#x2018;test test&#x2019;, { &#x2018;flag&#x2019;: &#x2018;a&#x2019; }, function(err) {<br>    if (err) {<br>        throw err;<br>    }</p>
+<pre><code>console.log(&apos;Saved.&apos;);
+
+// &#x5199;&#x5165;&#x6210;&#x529F;&#x540E;&#x8BFB;&#x53D6;&#x6D4B;&#x8BD5;
+fs.readFile(&apos;./test2.txt&apos;, &apos;utf-8&apos;, function(err, data) {
+    if (err) {
+        throw err;
+    }
+    console.log(data);
+});
+</code></pre><p>});<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>~/ $ node writeFile.js<br>flag&#x4F20;&#x9012;&#x7684;&#x503C;&#xFF0C;r&#x4EE3;&#x8868;&#x8BFB;&#x53D6;(read)&#x6587;&#x4EF6;&#xFF0C;&#xFF0C;w&#x4EE3;&#x8868;&#x5199;&#x5165;(write)&#x6587;&#x4EF6;&#xFF0C;a&#x4EE3;&#x8868;&#x8FFD;&#x52A0;(append)&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x503C;&#x4E0D;&#x4F5C;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p>2.4 &#x4F7F;&#x7528;fs.read&#x548C;fs.write&#x8BFB;&#x5199;&#x6587;&#x4EF6;</p>
+<p>&#x4F7F;&#x7528;fs.read&#x548C;fs.write&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x9700;&#x8981;&#x4F7F;&#x7528;fs.open&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x548C;fs.close&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x3002;</p>
+<p>2.4.1 fs.read()</p>
+<p>&#x5148;&#x4ECB;&#x7ECD;fs.open(path, flags, [mode], callback)&#x65B9;&#x6CD5;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x4FBF;fs.read()&#x8BFB;&#x53D6;&#x3002;path&#x662F;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;flags&#x662F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;[mode]&#x662F;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;0666&#xFF09;&#xFF0C;callback&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>flags&#x7684;&#x503C;&#xFF1A;</p>
+<p>r &#xFF1A;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;&#xFF1B;<br>r+ &#xFF1A;&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;&#xFF1B;<br>rs &#xFF1A;&#x4EE5;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;&#xFF1B;<br>rs+ &#xFF1A;&#x4EE5;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;&#xFF1B;<br>w &#xFF1A;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x6E05;&#x7A7A;&#xFF1B;<br>wx &#xFF1A;&#x548C;w&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#xFF1B;<br>w+ &#xFF1A;&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x6E05;&#x7A7A;&#xFF1B;<br>wx+ &#xFF1A;&#x548C;w+&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#xFF1B;<br>a &#xFF1A;&#x4EE5;&#x8FFD;&#x52A0;&#x65B9;&#x5F0F;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF1B;<br>ax &#xFF1A;&#x548C;a&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#xFF1B;<br>a+ &#xFF1A;&#x8BFB;&#x53D6;&#x5E76;&#x8FFD;&#x52A0;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF1B;<br>ax+ &#xFF1A;&#x548C;a+&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#x3002;<br>fs.close(fd, [callback])&#x7528;&#x4E8E;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#xFF0C;fd&#x662F;&#x6240;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
+<p>fs.read(fd, buffer, offset, length, position, callback)&#x65B9;&#x6CD5;&#x63A5;&#x6536;6&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p>fd&#x662F;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x5FC5;&#x987B;&#x63A5;&#x6536;fs.open()&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF1B;<br>buffer&#x662F;&#x5B58;&#x653E;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x7684;Buffer&#x5BF9;&#x8C61;&#xFF1B;<br>offset&#x6307;&#x5B9A;&#x5411;buffer&#x4E2D;&#x5B58;&#x653E;&#x6570;&#x636E;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF1B;<br>length&#x6307;&#x5B9A;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x4E2D;&#x6570;&#x636E;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF1B;<br>position&#x6307;&#x5B9A;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF1B;<br>callback&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF1A;<br>err&#x7528;&#x4E8E;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1B;<br>bytesRead&#x662F;&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x5185;&#x5BB9;&#x7684;&#x5B9E;&#x9645;&#x5B57;&#x8282;&#x6570;&#xFF1B;<br>buffer&#x662F;&#x88AB;&#x8BFB;&#x53D6;&#x7684;&#x7F13;&#x5B58;&#x533A;&#x5BF9;&#x8C61;&#x3002;<br>&#x5728;&#x5BB6;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;testread.txt&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x968F;&#x610F;&#x8F93;&#x5165;&#x4E00;&#x4E9B;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x65B0;&#x5EFA;read.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x6253;&#x5F00;&#x6587;&#x4EF6;<br>fs.open(&#x2018;./testread.txt&#x2019;, &#x2018;r&#x2019;, function(err, fd) {<br>    if (err) {<br>        throw err;<br>    }<br>    console.log(&#x2018;open file success.&#x2019;);<br>    var buffer = new Buffer(255);<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;<br>    fs.read(fd, buffer, 0, 10, 0, function(err, bytesRead, buffer) {<br>        if (err) {<br>            throw err;<br>        }<br>        // &#x6253;&#x5370;&#x51FA;buffer&#x4E2D;&#x5B58;&#x5165;&#x7684;&#x6570;&#x636E;<br>        console.log(bytesRead, buffer.slice(0, bytesRead).toString());</p>
+<pre><code>    // &#x5173;&#x95ED;&#x6587;&#x4EF6;
+    fs.close(fd);
+});
+</code></pre><p>});<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>~/ $ node read.js<br>2.4.2 fs.write()</p>
+<p>fs.write(fd, buffer, offset, length, position, callback)&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x548C;fs.read()&#x76F8;&#x540C;&#xFF0C;buffer&#x662F;&#x9700;&#x8981;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x5728;&#x5BB6;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;testwrite.txt&#xFF0C;&#x7136;&#x540E;&#x65B0;&#x5EFA;write.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x6253;&#x5F00;&#x6587;&#x4EF6;<br>fs.open(&#x2018;./testwrite.txt&#x2019;, <code>w</code>, function(err, fd) {<br>    if (err) {<br>        throw err;<br>    }<br>    console.log(&#x2018;open file success.&#x2019;);<br>    var buffer = new Buffer(&#x2018;shiyanlou&#x2019;);<br>    // &#x8BFB;&#x53D6;&#x6587;&#x4EF6;<br>    fs.write(fd, buffer, 0, 6, 0, function(err, written, buffer) {<br>        if (err) {<br>            throw err;<br>        }</p>
+<pre><code>    console.log(&apos;write success.&apos;);
+
+    // &#x6253;&#x5370;&#x51FA;buffer&#x4E2D;&#x5B58;&#x5165;&#x7684;&#x6570;&#x636E;
+    var byteLength = buffer.byteLength;
+    console.log(byteLength, buffer.slice(0, byteLength).toString());
+
+    // &#x5173;&#x95ED;&#x6587;&#x4EF6;
+    fs.close(fd);
+});
+</code></pre><p>});<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<p>~/ $ node write.js<br>2.5 &#x76EE;&#x5F55;&#x64CD;&#x4F5C;</p>
+<p>2.5.1 &#x521B;&#x5EFA;&#x76EE;&#x5F55;</p>
+<p>&#x4F7F;&#x7528;fs.mkdir(path, [mode], callback)&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#xFF0C;path&#x662F;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#xFF0C;[mode]&#x662F;&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#x662F;0777&#xFF09;&#xFF0C;callback &#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5728;&#x5BB6;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;mkdir.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>// &#x521B;&#x5EFA; newdir &#x76EE;&#x5F55;<br>fs.mkdir(&#x2018;./newdir&#x2019;, function(err) {<br>    if (err) {<br>        throw err;<br>    }<br>    console.log(&#x2018;make dir success.&#x2019;);<br>});<br>&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>~/ $ node mkdir.js<br>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x4E86;newdir&#x76EE;&#x5F55;&#xFF0C;&#x5220;&#x9664;&#x76EE;&#x5F55;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;fs.rmdir(path, callback)&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x80FD;&#x5220;&#x9664;&#x7A7A;&#x76EE;&#x5F55;&#x3002;</p>
+<p>2.5.2 &#x8BFB;&#x53D6;&#x76EE;&#x5F55;</p>
+<p>&#x4F7F;&#x7528;fs.readdir(path, callback)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x5728;&#x5BB6;&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;readdir.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;); // &#x5F15;&#x5165;fs&#x6A21;&#x5757;</p>
+<p>fs.readdir(&#x2018;./newdir&#x2019;, function(err, files) {<br>    if (err) {<br>        throw err;<br>    }<br>    // files&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;<br>    // &#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x6B64;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x540D;&#x79F0;<br>    console.log(files);<br>});<br>&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>~/ $ node readdir.js<br>2.6 &#x7ED3;&#x675F;</p>
+<p>fs&#x6A21;&#x5757;&#x4E2D;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4F7F;&#x7528;&#x4E0E;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x7684;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#xFF0C;&#x5728;&#x6B64;&#x4E0D;&#x4E00;&#x4E00;&#x4ECB;&#x7ECD;&#xFF0C;&#x53EF;&#x81EA;&#x884C;&#x67E5;&#x9605;&#x5B98;&#x65B9;API&#x6587;&#x6863;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-fs-module/" data-id="cj7490lpu0005pm8zrop17907" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Node-js-net-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Node-js-net-module/" class="article-date">
+  <time datetime="2017-09-01T20:56:39.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/Node-js-net-module/">Node.js-net-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2.1 TCP Server</p>
+<p>net&#x6A21;&#x5757;&#x901A;&#x8FC7;net.createServer&#x65B9;&#x6CD5;&#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x901A;&#x8FC7;net.connect&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x5BA2;&#x6237;&#x7AEF;&#x53BB;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x901A;&#x8FC7;net&#x6A21;&#x5757;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;TCP Server&#xFF1A;</p>
+<p>// server.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer(function(socket) {<br>    console.log(&#x2018;client connected&#x2019;);</p>
+<pre><code>// &#x76D1;&#x542C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;
+socket.on(&apos;data&apos;, function(data) {
+    console.log(&apos;server got data from client: &apos;, data.toString());
+});
+// &#x76D1;&#x542C;&#x5BA2;&#x6237;&#x7AEF;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x4E8B;&#x4EF6;
+socket.on(&apos;end&apos;, function(data) {
+    console.log(&apos;connection closed&apos;);
+});
+// &#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;
+socket.write(&apos;Hello\r\n&apos;);
+</code></pre><p>});</p>
+<p>// &#x542F;&#x52A8;&#x670D;&#x52A1;<br>server.listen(8080, function() {<br>    console.log(&#x2018;server bound&#x2019;);<br>});<br>&#x7136;&#x540E;&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<p>// client.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;<br>var client = net.connect({port: 8080}, function() {<br>    console.log(&#x2018;connected to server&#x2019;);<br>    client.write(&#x2018;World!\r\n&#x2019;);<br>});</p>
+<p>// &#x63A5;&#x6536;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x6570;&#x636E;<br>client.on(&#x2018;data&#x2019;, function(data) {<br>    console.log(&#x2018;client got data from server: &#x2018;, data.toString());<br>    // &#x65AD;&#x5F00;&#x8FDE;&#x63A5;<br>    client.end();<br>});</p>
+<p>// &#x65AD;&#x5F00;&#x8FDE;&#x63A5;<br>client.on(&#x2018;end&#x2019;, function() {<br>    console.log(&#x2018;disconnected from server&#x2019;);<br>});<br>&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<p>&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x6253;&#x5F00;&#x4E24;&#x4E2A;&#x7EC8;&#x7AEF;&#xFF0C;&#x5148;&#x8FD0;&#x884C;TCP&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>$ node server.js<br>&#x7136;&#x540E;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x8FD0;&#x884C;TCP&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>$ node client.js<br>&#x5373;&#x53EF;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x7EC8;&#x7AEF;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+<p>2.2 &#x7B80;&#x6613;&#x804A;&#x5929;&#x5BA4;&#x670D;&#x52A1;&#x7AEF;</p>
+<p>&#x4E86;&#x89E3;&#x4E86;&#x57FA;&#x7840;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x505A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x804A;&#x5929;&#x5BA4;&#x5427;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x548C;&#x524D;&#x9762;&#x4E00;&#x6837;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();</p>
+<p>// &#x65B0;&#x589E;&#x7684;&#x4EE3;&#x7801;<br>server.on(&#x2018;connection&#x2019;, function(socket) {<br>    console.log(&#x2018;Got a new connection&#x2019;);<br>});</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();</p>
+<p>server.on(&#x2018;connection&#x2019;, function(socket) {<br>    console.log(&#x2018;Got a new connection&#x2019;);<br>    // &#x65B0;&#x589E;&#x7684;&#x4EE3;&#x7801;<br>    socket.on(&#x2018;data&#x2019;, function(data) {<br>        console.log(&#x2018;Got data: &#x2018;, data.toString());<br>    });<br>});</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>&#x65E2;&#x7136;&#x662F;&#x804A;&#x5929;&#x5BA4;&#xFF0C;&#x5F53;&#x7136;&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7528;&#x6237;&#x540C;&#x65F6;&#x8FDE;&#x63A5;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x63A5;&#x6536;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x8FDE;&#x63A5;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();<br>// &#x65B0;&#x589E;&#x7684;&#x4EE3;&#x7801;<br>var sockets = []; // &#x5B58;&#x50A8;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;socket</p>
+<p>server.on(&#x2018;connection&#x2019;, function(socket) {<br>    console.log(&#x2018;Got a new connection&#x2019;);</p>
+<pre><code>// &#x65B0;&#x589E;&#x7684;&#x4EE3;&#x7801;
+sockets.push(socket);
+
+socket.on(&apos;data&apos;, function(data) {
+    console.log(&apos;Got data: &apos;, data);
+});
+</code></pre><p>});</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>&#x670D;&#x52A1;&#x5668;&#x5E7F;&#x64AD;&#x6570;&#x636E;&#xFF0C;&#x628A;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x53D1;&#x9001;&#x7ED9;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();<br>var sockets = []; // &#x5B58;&#x50A8;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;socket</p>
+<p>server.on(&#x2018;connection&#x2019;, function(socket) {<br>    console.log(&#x2018;Got a new connection&#x2019;);</p>
+<pre><code>sockets.push(socket);
+
+socket.on(&apos;data&apos;, function(data) {
+    console.log(&apos;Got data: &apos;, data);
+
+    // &#x65B0;&#x589E;&#x4EE3;&#x7801;
+    sockets.forEach(function(otherSocket) {
+        if (otherSocket !== socket) {
+            otherSocket.write(data);
+        }
+    });
+});
+</code></pre><p>});</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>&#x6700;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x5E7F;&#x64AD;&#x5217;&#x8868;&#x4E2D;&#x7ED9;&#x5220;&#x9664;&#x6389;&#xFF1A;</p>
+<p>// chatServer.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;TCP&#x670D;&#x52A1;&#x5668;<br>var server = net.createServer();<br>// &#x5B58;&#x50A8;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;socket<br>var sockets = [];</p>
+<p>server.on(&#x2018;connection&#x2019;, function(socket) {<br>    console.log(&#x2018;Got a new connection&#x2019;);</p>
+<pre><code>sockets.push(socket);
+
+socket.on(&apos;data&apos;, function(data) {
+    console.log(&apos;Got data: &apos;, data);
+
+    sockets.forEach(function(otherSocket) {
+        if (otherSocket !== socket) {
+            otherSocket.write(data);
+        }
+    });
+});
+
+// &#x65B0;&#x589E;&#x4EE3;&#x7801;
+socket.on(&apos;close&apos;, function() {
+    console.log(&apos;A client connection closed&apos;);
+    var index = sockets.indexOf(socket);
+    sockets.splice(index, 1);
+});
+</code></pre><p>});</p>
+<p>server.on(&#x2018;error&#x2019;, function(err) {<br>    console.log(&#x2018;Server error: &#x2018;, err.message);<br>});</p>
+<p>server.on(&#x2018;close&#x2019;, function() {<br>    console.log(&#x2018;Server closed&#x2019;);<br>});</p>
+<p>server.listen(8080);<br>2.3 &#x7B80;&#x6613;&#x804A;&#x5929;&#x5BA4;&#x5BA2;&#x6237;&#x7AEF;</p>
+<p>&#x804A;&#x5929;&#x5BA4;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x529F;&#x80FD;&#x57FA;&#x672C;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5427;&#xFF1A;</p>
+<p>// chatClient.js</p>
+<p>var net = require(&#x2018;net&#x2019;);</p>
+<p>process.stdin.resume();<br>process.stdin.setEncoding(&#x2018;utf8&#x2019;);</p>
+<p>var client = net.connect({ port: 8080 }, function() {<br>    console.log(&#x2018;Connected to server&#x2019;);</p>
+<pre><code>// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;
+console.log(&apos;input: &apos;);
+process.stdin.on(&apos;data&apos;, function(data) {
+    // &#x53D1;&#x9001;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5230;&#x670D;&#x52A1;&#x5668;
+    console.log(&apos;input: &apos;);
+    client.write(data);
+
+    // &#x8F93;&#x5165; &apos;close&apos; &#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x5173;&#x95ED;&#x8FDE;&#x63A5;
+    if (data === &apos;close\n&apos;) {
+        client.end();
+    }
+});
+</code></pre><p>});</p>
+<p>// &#x83B7;&#x53D6;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;<br>client.on(&#x2018;data&#x2019;, function(data) {<br>    console.log(&#x2018;Other user\&#x2019;s input&#x2019;, data.toString());<br>});</p>
+<p>client.on(&#x2018;end&#x2019;, function() {<br>    console.log(&#x2018;Disconnected from server&#x2019;);<br>    // &#x9000;&#x51FA;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;<br>    process.exit();<br>});<br>&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x7528;&#x5230;&#x4E86;process&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;process&#x662F;&#x4E00;&#x4E2A;Node.js&#x7684;&#x5168;&#x5C40;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x800C;&#x65E0;&#x9700;&#x901A;&#x8FC7;require&#x65B9;&#x6CD5;&#x5F15;&#x5165;&#x3002;process&#x6A21;&#x5757;&#x5141;&#x8BB8;&#x4F60;&#x83B7;&#x5F97;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x5F53;&#x524D;Node.js&#x8FDB;&#x7A0B;&#x7684;&#x8BBE;&#x7F6E;&#x3002;process.stdin&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6765;&#x81EA;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x7684;&#x53EF;&#x8BFB;&#x6D41;&#xFF08;Readable Stream&#xFF09;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x6765;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x804A;&#x5929;&#x5BA4;&#x5427;&#xFF1A;</p>
+<p>$ node chatServer.js<br>&#x5728;&#x6253;&#x5F00;&#x591A;&#x4E2A;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>$ node chatClient.js<br>&#x7136;&#x540E;&#x5728;&#x4EFB;&#x610F;&#x8FD0;&#x884C;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5E76;&#x6309;&#x56DE;&#x8F66;&#x952E;&#xFF0C;&#x4F1A;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5176;&#x4ED6;&#x5BA2;&#x6237;&#x7AEF;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x804A;&#x5929;&#x5BA4;&#x4E86;^_^&#x3002;</p>
+<p>2.4 UDP Server</p>
+<p>UDP&#x548C;TCP&#x7C7B;&#x4F3C;&#xFF0C;&#x901A;&#x8FC7;dgram.createSocket&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x3002;</p>
+<p>UDP&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<p>// udpServer.js</p>
+<p>var dgram = require(&#x201C;dgram&#x201D;);</p>
+<p>var server = dgram.createSocket(&#x201C;udp4&#x201D;);</p>
+<p>server.on(&#x201C;error&#x201D;, function(err) {<br>    console.log(&#x201C;server error:\n&#x201D; + err.stack);<br>    server.close();<br>});</p>
+<p>// &#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;<br>server.on(&#x201C;message&#x201D;, function(msg, rinfo) {<br>    console.log(&#x201C;server got: &#x201C; + msg.toString() + &#x201C; from &#x201C; + rinfo.address + &#x201C;:&#x201D; + rinfo.port);<br>});</p>
+<p>// &#x76D1;&#x542C;&#x670D;&#x52A1;<br>server.on(&#x201C;listening&#x201D;, function() {<br>    var address = server.address();<br>    console.log(&#x201C;server listening on &#x201C; + address.address + &#x201C;:&#x201D; + address.port);<br>});</p>
+<p>server.bind(41234);<br>// server listening 0.0.0.0:41234<br>UDP&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<p>// udpClient.js</p>
+<p>var dgram = require(&#x2018;dgram&#x2019;);</p>
+<p>var client = dgram.createSocket(&#x2018;udp4&#x2019;);<br>var message = new Buffer(&#x2018;hello shiyanlou&#x2019;);</p>
+<p>client.send(message, 0, message.length, 41234, &#x2018;localhost&#x2019;, function(err, bytes) {<br>    client.close();<br>});<br>&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x5FC5;&#x987B;&#x901A;&#x8FC7;Buffer&#x521B;&#x5EFA;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x8FD0;&#x884C;&#x670D;&#x52A1;&#x7AEF;&#xFF1A;</p>
+<p>$ node udpServer.js<br>&#x518D;&#x8FD0;&#x884C;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<p>$ node udpClient.js<br>&#x6B64;&#x65F6;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x5C31;&#x4F1A;&#x6536;&#x5230;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;:</p>
+<p>server got: hello shiyanlou from 127.0.0.1:59393<br>Node.js&#x57FA;&#x7840;&#x7684;&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;&#x5C31;&#x8BB2;&#x5230;&#x8FD9;&#x91CC;&#x4E86;&#x3002;</p>
+<p>&#x4E09;&#x3001;&#x5B9E;&#x9A8C;&#x603B;&#x7ED3;</p>
+<p>&#x4F5C;&#x4E3A;web&#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#xFF0C;Node.js&#x63D0;&#x4F9B;&#x4E86;net&#x6A21;&#x5757;&#x7528;&#x4E8E;tcp&#x901A;&#x4FE1;&#xFF0C;dgram&#x6A21;&#x5757;&#x7528;&#x4E8E;udp&#x901A;&#x4FE1;<br>net.createServer()&#x7528;&#x4E8E;&#x521B;&#x5EFA;tcp&#x76D1;&#x542C;&#x670D;&#x52A1;&#x5668;&#xFF0C;net.connect()&#x7528;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;tcp&#x670D;&#x52A1;&#x5668;<br>dgram&#x6A21;&#x5757;&#x901A;&#x8FC7;dgram.createSocket()&#x521B;&#x5EFA;udp socket,&#x901A;&#x8FC7;bind()&#x76D1;&#x542C;&#x7279;&#x5B9A;&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;send()&#x5411;&#x7279;&#x5B9A;socket&#x53D1;&#x9001;&#x4FE1;&#x606F;</p>
+<p>&#x8BF7;&#x4F60;&#x7528;Node.js net&#x6A21;&#x5757;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x4E0B;&#x8F7D;&#x5668;&#xFF0C;&#x4ECE;&#x9884;&#x5148;&#x786E;&#x5B9A;&#x7684;url&#x4E2D;&#x4E0B;&#x8F7D;&#x6587;&#x4EF6;&#x5E76;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;&#x3002;&#x6B64;&#x4F5C;&#x4E1A;&#x53EF;&#x80FD;&#x6D89;&#x53CA;&#x5230;&#x4E00;&#x4E9B;&#x672A;&#x8BB2;&#x8FC7;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x8BF7;&#x81EA;&#x884C;&#x67E5;&#x9605;&#x8D44;&#x6599;&#x89E3;&#x51B3;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-net-module/" data-id="cj7490lqh0009pm8zytyx8qet" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Node-js-http-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Node-js-http-module/" class="article-date">
+  <time datetime="2017-09-01T20:55:44.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/Node-js-http-module/">Node.js-http-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2.1 &#x521B;&#x5EFA;http server</p>
+<p>&#x901A;&#x8FC7;Node.js&#x521B;&#x5EFA;http server&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>// &#x6587;&#x4EF6;&#x540D;&#xFF1A;demo.js</p>
+<p>// &#x5F15;&#x5165;http&#x6A21;&#x5757;<br>var http = require(&#x2018;http&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;http server<br>http.createServer(function (req, res) {<br>    res.writeHead(200, {&#x2018;Content-Type&#x2019;: &#x2018;text/plain&#x2019;});<br>    res.end(&#x2018;Hello World\n&#x2019;);<br>}).listen(1337, &#x2018;127.0.0.1&#x2019;);</p>
+<p>console.log(&#x2018;Server running at <a href="http://127.0.0.1:1337/" target="_blank" rel="external">http://127.0.0.1:1337/</a>&#x2018;);<br>&#x8FD0;&#x884C;&#x6B64;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>$ node demo.js<br>&#x7136;&#x540E;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:1337/&#x201D;&#xFF0C;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x4E86;&#x201C;Hello" target="_blank" rel="external">http://127.0.0.1:1337/&#x201D;&#xFF0C;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x4E86;&#x201C;Hello</a> World&#x201D;&#xFF0C;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x7684;http server&#x521B;&#x5EFA;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x8981;&#x505A;&#x7684;&#x6BD4;&#x8FD9;&#x4E2A;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;http server&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x653E;&#x5728;app&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;&#x6587;&#x4EF6;&#x5939;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>app<br>&#x251C;&#x2500;&#x2500; main.js<br>&#x251C;&#x2500;&#x2500; requestHandlers.js<br>&#x251C;&#x2500;&#x2500; router.js<br>&#x251C;&#x2500;&#x2500; server.js<br>&#x2514;&#x2500;&#x2500; views<br>    &#x251C;&#x2500;&#x2500; 404.html<br>    &#x251C;&#x2500;&#x2500; about.html<br>    &#x2514;&#x2500;&#x2500; home.html<br>&#x9996;&#x5148;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;app&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;server.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF08;&#x5176;&#x4E2D;&#x7684;&#x6CE8;&#x91CA;&#x4E3A;&#x4EE3;&#x7801;&#x89E3;&#x91CA;&#xFF09;&#xFF1A;</p>
+<p>//<br>// &#x521B;&#x5EFA;http server<br>//</p>
+<p>// &#x52A0;&#x8F7D;&#x6240;&#x9700;&#x6A21;&#x5757;<br>var http = require(&#x2018;http&#x2019;);<br>var url = require(&#x2018;url&#x2019;);<br>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// &#x8BBE;&#x7F6E;ip&#x548C;&#x7AEF;&#x53E3;<br>// &#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E9B;&#x5199;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;<br>var host = &#x2018;127.0.0.1&#x2019;,<br>    port = 8080;</p>
+<p>// &#x521B;&#x5EFA;http server<br>function start(route, handle) {<br>    // &#x53C2;&#x6570;<br>    // route  &#x5224;&#x65AD;url&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x8C03;&#x7528;handle&#x5904;&#x7406;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;404<br>    // handle &#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;url&#x8BF7;&#x6C42;</p>
+<pre><code>// &#x5904;&#x7406;request&#x8BF7;&#x6C42;
+function onRequest(req, res) {
+    // &#x4F7F;&#x7528;url.parse()&#x65B9;&#x6CD5;&#x89E3;&#x6790;url
+    // &#x5B83;&#x4F1A;&#x628A;url string&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;object
+    // &#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;url&#x4E2D;&#x7684;host&#x3001;port&#x3001;pathname&#x7B49;&#x503C;&#x4E86;
+    var pathname = url.parse(req.url).pathname;
+    console.log(&apos;Request for &apos; + pathname + &apos; received.&apos;);
+
+    // &#x5224;&#x65AD;&#x5E76;&#x5904;&#x7406;&#x4E0D;&#x540C;url&#x8BF7;&#x6C42;
+    // &#x540E;&#x9762;&#x4ECB;&#x7ECD;&#x6B64;&#x65B9;&#x6CD5;
+    route(handle, pathname, res, req);
+}
+
+// &#x4F7F;&#x7528;http.createSserver()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;http server
+// &#x5E76;&#x4F20;&#x5165;onRequest()&#x65B9;&#x6CD5;
+// &#x7136;&#x540E;&#x4F7F;&#x7528;listen()&#x65B9;&#x6CD5;&#x76D1;&#x542C;&#x6307;&#x5B9A;&#x5730;&#x5740;
+http.createServer(onRequest).listen(port, host);
+console.log(&apos;Server has started and listening on &apos; + host + &apos;:&apos; + port);
+</code></pre><p>}</p>
+<p>// &#x5BFC;&#x51FA; start &#x65B9;&#x6CD5;<br>exports.start = start;<br>&#x5728;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5BFC;&#x51FA;&#x4E86;start&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x4F60;&#x80AF;&#x5B9A;&#x6CE8;&#x610F;&#x5230;&#x4E86;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;route()&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5224;&#x65AD;&#x8BF7;&#x6C42;&#x7684;url&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x7F16;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>2.2 &#x521B;&#x5EFA;&#x8DEF;&#x7531;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;router.js&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// &#x8DEF;&#x7531;&#x51FD;&#x6570;<br>// &#x5904;&#x7406;&#x4E0D;&#x540C;url&#x7684;&#x8BF7;&#x6C42;<br>// &#x5E76;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x5185;&#x5BB9;</p>
+<p>function route(handle, pathname, res, req) {<br>    console.log(&#x2018;About to route a request for &#x2018; + pathname);</p>
+<pre><code>// &#x5224;&#x65AD;&#x6B64;url&#x662F;&#x5426;&#x5B58;&#x5728;&#x7279;&#x5B9A;&#x5904;&#x7406;&#x51FD;&#x6570;
+// &#x5B58;&#x5728;&#x5219;&#x8C03;&#x7528;handle&#x5904;&#x7406;
+// &#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;404&#x9875;&#x9762;
+if (typeof handle[pathname] === &apos;function&apos;) {
+    // &#x540E;&#x9762;&#x4ECB;&#x7ECD;handle&#x51FD;&#x6570;
+    handle[pathname](res, req);
+} else {
+    console.log(&apos;No request handler found for &apos; + pathname);
+
+    // &#x8BFB;&#x53D6;404&#x9875;&#x9762;
+    // &#x6240;&#x6709;&#x9875;&#x9762;&#x90FD;&#x5B58;&#x653E;&#x5728;view&#x6587;&#x4EF6;&#x5939;&#x4E0B;
+    var content = fs.readFileSync(&apos;./views/404.html&apos;);
+    res.writeHead(404, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+    res.write(content);
+    res.end();
+}
+</code></pre><p>}<br>// &#x5BFC;&#x51FA; route &#x65B9;&#x6CD5;<br>exports.route = route;<br>&#x5728;&#x6B64;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x8C03;&#x7528;&#x4E86;handle()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;url&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;requestHandlers.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>// &#x5904;&#x7406;url&#x8BF7;&#x6C42;</p>
+<p>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// home.html &#x4E3B;&#x9875;<br>function home(res) {<br>    console.log(&#x2018;Request handler &#x201C;home&#x201D; was called.&#x2019;);</p>
+<pre><code>// &#x8BFB;&#x53D6;home.html&#x6587;&#x4EF6;
+var content = fs.readFileSync(&apos;./views/home.html&apos;);
+res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+res.write(content);
+res.end();
+</code></pre><p>}</p>
+<p>// about.html &#x5173;&#x4E8E;&#x9875;&#x9762;<br>function about(res) {<br>    console.log(&#x2018;Request handler &#x201C;about&#x201D; was called.&#x2019;);</p>
+<pre><code>// &#x8BFB;&#x53D6;about.html&#x6587;&#x4EF6;
+var content = fs.readFileSync(&apos;./views/about.html&apos;);
+res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+res.write(content);
+res.end();
+</code></pre><p>}</p>
+<p>// &#x5BFC;&#x51FA;&#x9875;&#x9762;&#x5904;&#x7406;&#x51FD;&#x6570;<br>exports.home = home;<br>exports.about = about;<br>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x5230;response&#x3002;</p>
+<p>2.3 &#x521B;&#x5EFA;&#x4E3B;&#x7A0B;&#x5E8F;</p>
+<p>&#x521B;&#x5EFA;http server&#xFF0C;&#x5224;&#x65AD;url&#xFF0C;&#x5904;&#x7406;url&#x90FD;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#x4E3B;&#x7A0B;&#x5E8F;&#x6765;&#x8FD0;&#x884C;http server&#x4E86;&#xFF0C;&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x65B0;&#x5EFA;main.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>// &#x4E3B;&#x7A0B;&#x5E8F;</p>
+<p>// &#x5F15;&#x5165;server&#xFF0C;router&#x53CA;requestHandler<br>var server = require(&#x2018;./server&#x2019;);<br>var router = require(&#x2018;./router&#x2019;);<br>var requestHandlers = require(&#x2018;./requestHandlers&#x2019;);</p>
+<p>// &#x4FDD;&#x5B58;url&#x5904;&#x7406;&#x65B9;&#x6CD5;<br>var handle = {};<br>handle[&#x2018;/&#x2018;] = requestHandlers.home;<br>handle[&#x2018;/about&#x2019;] = requestHandlers.about;</p>
+<p>// &#x542F;&#x52A8;http server<br>server.start(router.route, handle);<br>&#x5230;&#x6B64;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7801;&#x90FD;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x6765;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x4E24;&#x4E2A;html&#x6587;&#x4EF6;&#x5427;&#x3002;</p>
+<p>2.4 &#x521B;&#x5EFA;HTML&#x6587;&#x4EF6;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;views&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x65B0;&#x5EFA;home.html&#x6587;&#x4EF6;&#x3001;about.html&#x6587;&#x4EF6;&#x548C;404.html&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>home.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>Home page</title><br>    </head><br>    <body><br>        <p>home page</p><br>    </body><br></html><br>about.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>About page</title><br>    </head><br>    <body><br>        <p>about page</p><br>    </body><br></html><br>404.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>404 page</title><br>    </head><br>    <body><br>        <p>404 page not found</p><br>    </body><br></html><br>HTML&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x5199;&#x5F97;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x81EA;&#x7531;&#x53D1;&#x6325;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x5427;&#xFF1A;</p>
+<p>$ node main.js<br>&#x8FD0;&#x884C;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#x684C;&#x9762;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;home" target="_blank" rel="external">http://127.0.0.1:8080&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;home</a> page&#x201D;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080/about&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;about" target="_blank" rel="external">http://127.0.0.1:8080/about&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;about</a> page&#x201D;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080&#x201D;&#x4E0B;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;404" target="_blank" rel="external">http://127.0.0.1:8080&#x201D;&#x4E0B;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;404</a> page not found&#x201D;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-http-module/" data-id="cj7490lq30007pm8zbdobichg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MongoDB-Cheat-Sheets" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/02/MongoDB-Cheat-Sheets/" class="article-date">
@@ -320,7 +1065,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj729sqir00028y8zgez7rnqz" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj7490lpq0003pm8z2ot13p8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +1108,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/01/nodejs-1-md/" data-id="cj729sqji000i8y8zdui2aoq8" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/01/nodejs-1-md/" data-id="cj7490lrw000ppm8z9jl4ci8q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,7 +1162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/06/29/sass-guides-md/" data-id="cj729sqjs000k8y8zhu9o06du" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/06/29/sass-guides-md/" data-id="cj7490lru000opm8zx29jj4za" class="article-share-link">Share</a>
       
       
     </footer>
@@ -453,7 +1198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/02/20/open-source-guides-md/" data-id="cj729sqjr000j8y8zpg6j032y" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/02/20/open-source-guides-md/" data-id="cj7490lrt000npm8z05nra16b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -498,288 +1243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/01/05/bootstrap/" data-id="cj729sqj200068y8zuzzxi7iq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git-github-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/10/git-github-tutorial/" class="article-date">
-  <time datetime="2016-12-10T08:50:07.000Z" itemprop="datePublished">2016-12-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/10/git-github-tutorial/">Learn Git &amp; Github 你要知道的命令没那么多</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Git&#x662F;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;, &#x4E0B;&#x8F7D;&#x53CA;&#x5B89;&#x88C5;Git&#x540E;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4EE5;&#x4E0B;&#x8BBE;&#x7F6E;</p>
-<pre><code>$ git config --global user.name &quot;Your Name&quot;
-$ git config --global user.email &quot;email@example.com&quot;
-</code></pre><p>&#x8BBE;&#x7F6E;&#x5B8C;Git&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;Github&#x7684; <strong>SSH key</strong>. &#x4F7F;&#x7528; <code>ssh-keygen -t rsa -C &quot;email@example.com&quot;</code> &#x751F;&#x6210; <strong>id_rsa.pub</strong> &#x7136;&#x540E; &#x6DFB;&#x52A0;&#x5230; Github &#x8D26;&#x6237;&#x4E2D;.</p>
-<h1 id="&#x57FA;&#x672C;&#x64CD;&#x4F5C;"><a href="#&#x57FA;&#x672C;&#x64CD;&#x4F5C;" class="headerlink" title="&#x57FA;&#x672C;&#x64CD;&#x4F5C;"></a>&#x57FA;&#x672C;&#x64CD;&#x4F5C;</h1><pre><code>## &#x521B;&#x5EFA;&#x4E0E;&#x6DFB;&#x52A0;
-# &#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;
-$ git init  
-
-# &#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;
-$ git add a
-$ git add b
-$ git add .
-$ git commit -m &quot;add 2 files.&quot;
-
-# &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;
-$ git status
-
-# &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;
-$ git diff
-</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;&#x65F6;&#x6709;2&#x6B65;&#xFF0C;&#x5148;&#x4F7F;&#x7528; <code>git add filename</code> &#x63D0;&#x4EA4;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x6682;&#x5B58;&#x533A;, &#x7136;&#x540E;&#x4F7F;&#x7528; <code>git commit -m &quot;message&quot;</code> &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;. &#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x786E;&#x4FDD; <strong>&#x201C;message&#x201D;</strong> &#x6709;&#x610F;&#x4E49;.  </p>
-<h2 id="&#x7248;&#x672C;&#x5207;&#x6362;"><a href="#&#x7248;&#x672C;&#x5207;&#x6362;" class="headerlink" title="&#x7248;&#x672C;&#x5207;&#x6362;"></a>&#x7248;&#x672C;&#x5207;&#x6362;</h2><pre><code># &#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)
-git log
-
-&#xFF03;&#x5207;&#x6362;&#x7248;&#x672C;
-git reset --hard commit_id  # &#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;commit_id&#x7684;&#x7248;&#x672C;
-git reset --hard HEAD^      # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
-git reset --hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
-
-# &#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;
-git reflog  
-</code></pre><p>&#x5F53;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x65F6;, &#x56DE;&#x9000;&#x524D;&#x7684;&#x7248;&#x672C;&#x7684;commit_id&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>git log</code> &#x67E5;&#x8BE2;, &#x53EA;&#x80FD;&#x901A;&#x8FC7; <code>git reflog</code> &#x67E5;&#x8BE2;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;commit_id.<br>e.g. &#x5F53;&#x524D;&#x7248;&#x672C;B, &#x4F7F;&#x7528; <code>git reset --hard commit_id</code> &#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;A. &#x5728;&#x7248;&#x672C;A&#x4E2D;, &#x518D;&#x60F3;&#x56DE;&#x9000;&#x5230;&#x7248;&#x672C;B&#x65F6;, &#x65E0;&#x6CD5;&#x4F7F;&#x7528; <code>git log</code> &#x83B7;&#x53D6;&#x7248;&#x672C;B&#x7684; <strong>commit_id</strong> . &#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>git reflog</code> &#x83B7;&#x53D6;.</p>
-<h2 id="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"><a href="#&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;" class="headerlink" title="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"></a>&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</h2><pre><code>git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539;
-git rm  &#xFF03; &#x5220;&#x9664;&#x6587;&#x4EF6;
-</code></pre><p>&#x8BEF;&#x5220;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>git checkout -- filename</code> &#x6062;&#x590D;.</p>
-<h1 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h1><h2 id="&#x5206;&#x652F;&#x64CD;&#x4F5C;"><a href="#&#x5206;&#x652F;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5206;&#x652F;&#x64CD;&#x4F5C;"></a>&#x5206;&#x652F;&#x64CD;&#x4F5C;</h2><pre><code># &#x521B;&#x5EFA;
-$ git branch branch_name       # &#x521B;&#x5EFA;&#x5206;&#x652F;
-$ git checkout branch_name     # &#x5207;&#x6362;&#x5206;&#x652F;
-$ git checkout -b branch_name  # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;
-
-# &#x5408;&#x5E76;
-$ git merge branch_name         &#xFF03; &#x5F53;&#x65E0;&#x6CD5;&#x5408;&#x5E76;&#x65F6;&#x9700;&#x8981;&#x624B;&#x52A8;&#x89E3;&#x51B3;&#x51B2;&#x7A81;
-$ git merge branch_name --no-ff &#xFF03; &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;
-
-# &#x5220;&#x9664;
-$ git branch -d dev
-
-# &#x63A8;&#x9001;&#x5206;&#x652F;
-$ git push origin branch_name
-
-# &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-$ git branch --set-upstream branch-name origin/branch-name
-</code></pre><p>&#x5982;&#x679C;&#x7A81;&#x7136;&#x6709;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5206;&#x652F;&#x9700;&#x8981;&#x524D;&#x53BB;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;, &#x4F7F;&#x7528; <code>git stash</code> &#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x5F53;&#x5176;&#x5B83;&#x5206;&#x652F;&#x5904;&#x7406;&#x5B8C;&#x6210;, &#x4F7F;&#x7528; <code>git stash pop</code> &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;.</p>
-<h1 id="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"><a href="#&#x6807;&#x7B7E;&#x7BA1;&#x7406;" class="headerlink" title="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"></a>&#x6807;&#x7B7E;&#x7BA1;&#x7406;</h1><pre><code># &#x521B;&#x5EFA;&#x6807;&#x7B7E;
-$ git tag tag_name
-$ git tag tag_name commit_id        # &#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x63D0;&#x4EA4;&#x521B;&#x5EFA;&#x6807;&#x7B7E;
-$ git tag -a tag_name -m &quot;message&quot;  # &#x521B;&#x5EFA;&#x6807;&#x7B7E;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x8BF4;&#x660E;
-
-# &#x67E5;&#x770B;&#x6807;&#x7B7E;
-$ git tag
-
-# &#x5220;&#x9664;&#x6807;&#x7B7E;
-$ git tag -d tag_name
-</code></pre><p>&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x88AB;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;, &#x4F7F;&#x7528; <code>git push origin --tags</code> &#x5C06;&#x6807;&#x7B7E;&#x63A8;&#x9001;&#x81F3;&#x8FDC;&#x7A0B;</p>
-<h1 id="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"><a href="#&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;" class="headerlink" title="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"></a>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</h1><h2 id="&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;"><a href="#&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;" class="headerlink" title="&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;"></a>&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;</h2><ol>
-<li>&#x5148;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Repository.</li>
-<li><p>&#x5C06;&#x672C;&#x5730;&#x7684;&#x4ED3;&#x5E93;&#x4E0E;&#x521A;&#x624D;&#x65B0;&#x5EFA;&#x7684;&#x4ED3;&#x5E93;&#x5173;&#x8054;.</p>
-<pre><code>$ git remote add origin git@github.com:username/repo_name.git
-</code></pre></li>
-<li><p>&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
-<pre><code>$ git push -u origin master  # -u &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x548C;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-</code></pre></li>
-</ol>
-<p>&#x4E4B;&#x540E;&#x6BCF;&#x6B21;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53EA;&#x9700;&#x8981; <code>git push origin master</code>.<br>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;, <strong>&#x5982;&#x679C;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;README</strong>&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5173;&#x8054;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E4B;&#x540E;&#x6267;&#x884C; <code>git pull --rebase origin master</code> &#x5C06;README&#x540C;&#x6B65;&#x81F3;&#x672C;&#x5730;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;.</p>
-<h2 id="&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;"><a href="#&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;" class="headerlink" title="&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;"></a>&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;</h2><ol>
-<li>&#x5728;Github&#x4E2D;&#x627E;&#x5230; <strong>Clone</strong> &#x9009;&#x9879;&#x4E2D;&#x6240;&#x9700;&#x9879;&#x76EE;&#x7684; <strong>SSH</strong> &#x6216;&#x8005; <strong>HTTPS</strong> &#x7684;URL.</li>
-<li>&#x5728;&#x5408;&#x9002;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x6267;&#x884C; <code>git clone  SSH or HTTPS</code>.</li>
-</ol>
-<h1 id="&#x8D21;&#x732E;&#x4EE3;&#x7801;"><a href="#&#x8D21;&#x732E;&#x4EE3;&#x7801;" class="headerlink" title="&#x8D21;&#x732E;&#x4EE3;&#x7801;"></a>&#x8D21;&#x732E;&#x4EE3;&#x7801;</h1><h2 id="Collaborators"><a href="#Collaborators" class="headerlink" title="Collaborators"></a>Collaborators</h2><p><em>Settings -&gt; Collaborators -&gt; Add collaborator</em></p>
-<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p><em>Fork -&gt; Clone -&gt; [Write Code] -&gt; Commit &amp; Push -&gt; Pull Request</em></p>
-<h1 id="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"><a href="#&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;" class="headerlink" title="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"></a>&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;</h1><p>Coming Soon</p>
-<h1 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h1><h2 id="Feature-Branch-Workflow"><a href="#Feature-Branch-Workflow" class="headerlink" title="Feature Branch Workflow"></a>Feature Branch Workflow</h2><ol>
-<li>Create a new branch<br> git checkout -b new-feature</li>
-<li>Coding<br> git status<br> git add [something]<br> git commit<br> git push -u origin new-feature</li>
-<li>Pull Request</li>
-</ol>
-<h2 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="cj729sqj800098y8z9h47n8u4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-有效的提升英文写作能力" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/24/有效的提升英文写作能力/" class="article-date">
-  <time datetime="2016-11-24T06:38:03.000Z" itemprop="datePublished">2016-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/24/有效的提升英文写作能力/">有效的提升英文写作能力</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x6700;&#x8FD1;&#x8981;&#x5199;&#x7684; <strong>paper</strong> &#x5F88;&#x591A;, &#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x76F4;&#x5728;&#x601D;&#x8003;&#x4E00;&#x4E2A;&#x95EE;&#x9898;: &#x5982;&#x4F55;&#x6709;&#x6548;&#x7684;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;. &#x67E5;&#x770B;&#x4E86;&#x4E00;&#x4E9B;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x5E76;&#x7ED3;&#x5408;&#x81EA;&#x5DF1;&#x7ECF;&#x9A8C;&#x603B;&#x7ED3;&#x4E86;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;(&#x53EA;&#x9488;&#x5BF9;Academic Writing).</p>
-<p>&#x5BF9;&#x4E8E; Academic Writing, &#x8BED;&#x6CD5;&#x548C;&#x8BCD;&#x6C47;&#x4E0D;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;. &#x53EA;&#x8981;&#x7528;&#x8BCD;&#x51C6;&#x786E;&#xFF0C;&#x8BED;&#x6CD5;&#x4E0D;&#x5F71;&#x54CD;&#x7406;&#x89E3;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x8981;&#x6C42;. &#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x6587;&#x7AE0;&#x7684; <strong>&#x5185;&#x5BB9;</strong>, <strong>&#x903B;&#x8F91;</strong> &#x548C; <strong>&#x7B80;&#x6D01;&#x7A0B;&#x5EA6;</strong>. &#x5F88;&#x591A;&#x4EBA;&#x5728;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x65F6;&#x5FFD;&#x89C6;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;, &#x5C31;&#x662F;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x4E0D;&#x5206;&#x8BED;&#x8A00;. &#x7528;&#x4E2D;&#x6587;&#x5199;&#x4E0D;&#x597D;&#x7528;&#x82F1;&#x6587;&#x5F53;&#x7136;&#x4E5F;&#x5199;&#x4E0D;&#x597D;, <em>&#x6240;&#x4EE5;&#x5728;&#x601D;&#x8003;&#x5982;&#x4F55;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x8003;&#x8651;&#x7684;&#x4E0D;&#x662F;&#x6587;&#x6CD5;&#x53E5;&#x5F0F;, &#x800C;&#x662F;&#x903B;&#x8F91;.</em> &#x4E00;&#x7BC7;&#x903B;&#x8F91;&#x597D;&#x7684;&#x6587;&#x7AE0;&#x53EF;&#x4EE5;&#x8BA9;&#x8BFB;&#x8005;&#x6BEB;&#x4E0D;&#x8D39;&#x529B;&#x7684;&#x7406;&#x89E3;. &#x5982;&#x4F55;&#x63D0;&#x5347;&#x5199;&#x4F5C;&#x903B;&#x8F91;?</p>
-<ol>
-<li>&#x5199;&#x6587;&#x7AE0;&#x548C;&#x5199;&#x4EE3;&#x7801;&#x4E00;&#x6837;, &#x5728;&#x4E0B;&#x7B14;(&#x7F16;&#x7801;)&#x524D;&#x4E00;&#x5B9A;&#x8981;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x9898;&#x76EE;(&#x9700;&#x6C42;)&#x6709;&#x5145;&#x5206;&#x7684;&#x7406;&#x89E3;.     </li>
-<li>&#x7406;&#x89E3;&#x9898;&#x76EE;(&#x9700;&#x6C42;)&#x4E4B;&#x540E;&#x786E;&#x5B9A;&#x81EA;&#x5DF1;&#x8981;&#x5199;&#x4EC0;&#x4E48;, &#x81EA;&#x5DF1;&#x7684;&#x89C2;&#x70B9;(&#x529F;&#x80FD;)&#x662F;&#x4EC0;&#x4E48;, &#x7528;&#x4EC0;&#x4E48;&#x8BBA;&#x636E;(&#x4E1A;&#x52A1;)&#x53BB;&#x652F;&#x6491;&#x81EA;&#x5DF1;&#x7684;&#x89C2;&#x70B9;. &#x4E0D;&#x8981;&#x8BF4;&#x7A7A;&#x7684;&#x4E1C;&#x897F;&#x6216;&#x8005;&#x6765;&#x56DE;&#x8BF4;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x5E76;&#x4E14;&#x8981;&#x6CE8;&#x610F;&#x4F60;&#x6240;&#x5199;&#x7684;&#x6BCF;&#x4E00;&#x53E5;&#x8BDD;&#x90FD;&#x662F;&#x6709;&#x8054;&#x7CFB;(ctx)&#x7684;.</li>
-</ol>
-<p>&#x7B80;&#x5355;&#x6E05;&#x6670;&#x7684;&#x903B;&#x8F91; + &#x4E00;&#x672C;&#x5355;&#x8BCD;&#x4E66; + &#x4E00;&#x672C;&#x8BED;&#x6CD5;&#x4E66; = &#x8BA9;&#x4EBA;&#x8212;&#x670D;&#x7684;&#x82F1;&#x6587;&#x6587;&#x7AE0;</p>
-<p>&#x4E0D;&#x9700;&#x8981;&#x6267;&#x610F;&#x8FFD;&#x6C42;&#x6F02;&#x4EAE;&#x7684;&#x957F;&#x53E5;&#x548C;&#x4E30;&#x5BCC;&#x7684;&#x7528;&#x8BCD;, &#x5728;&#x65E5;&#x5E38;&#x9605;&#x8BFB;&#x4E2D;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#x5C31;&#x597D;, &#x6CA1;&#x6709;&#x903B;&#x8F91;, &#x518D;&#x82B1;&#x5F0F;&#x7684;&#x8BCD;&#x53E5;&#x4E5F;&#x6CA1;&#x6709;&#x7528;.</p>
-<p>&#x5199;&#x4F5C;&#x63D0;&#x5347;&#x7684;&#x6838;&#x5FC3;&#x6709;2&#x4E2A;&#x90E8;&#x5206;: <strong>&#x9605;&#x8BFB;</strong> &#x548C; <strong>&#x6A21;&#x4EFF;</strong></p>
-<p><strong>&#x9605;&#x8BFB;</strong>: &#x9605;&#x8BFB;&#x662F;&#x4E00;&#x4E2A;&#x91CF;&#x53D8;&#x5F15;&#x8D77;&#x8D28;&#x53D8;&#x7684;&#x8FC7;&#x7A0B;, &#x6240;&#x4EE5;&#x4E00;&#x5B9A;&#x8981;&#x6301;&#x7EED;, &#x5C3D;&#x53EF;&#x80FD;&#x6BCF;&#x5929;&#x90FD;&#x62BD;&#x51FA;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x91CF;&#x7684;&#x9605;&#x8BFB;. &#x9605;&#x8BFB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x63D0;&#x5347;&#x9605;&#x8BFB;&#x80FD;&#x529B;, &#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#x638C;&#x63E1;&#x8BCD;&#x6C47;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684;&#x7528;&#x6CD5;&#x4EE5;&#x53CA;&#x8BED;&#x6CD5;, &#x8BA9;&#x4F60;&#x7684;&#x7528;&#x8BCD;&#x66F4;&#x51C6;&#x786E;, &#x8BED;&#x53E5;&#x66F4;&#x4E30;&#x5BCC; &#x8FD8;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;&#x522B;&#x4EBA;&#x7684;&#x5199;&#x4F5C;&#x903B;&#x8F91;. &#x9605;&#x8BFB;&#x91CF;&#x532E;&#x4E4F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x4F60;&#x7684;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x57FA;&#x672C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x677F;, &#x53E4;&#x677F;&#x5446;&#x6EDE;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;:  </p>
-<p>  Nowadays,with the rapid development of society, purpose of education being changed.There are some people who think that competition in children should be made .Others believe that children who are taught to cooperate as well as become more useful adults.</p>
-<p><strong>&#x6A21;&#x4EFF;</strong>: &#x6A21;&#x4EFF;&#x662F;&#x6700;&#x5FEB;&#x7684;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;, &#x6CA1;&#x6709;&#x4E4B;&#x4E00;. &#x63A8;&#x8350;&#x6750;&#x6599;&#xFF1A;&#x7ECF;&#x6D4E;&#x5B66;&#x4EBA;</p>
-<p>&#x201C;Write. Rewrite. When not writing or rewriting, read. I know of no shorcuts. -Larry L. King(1929-2012), writer&#x201D;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/24/有效的提升英文写作能力/" data-id="cj729sqk0000r8y8zxvnrgug4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MAC使用技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/22/MAC使用技巧/" class="article-date">
-  <time datetime="2016-11-21T17:14:42.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/MAC使用技巧/">MAC使用技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/MAC使用技巧/" data-id="cj729sqip00018y8zixd3mx62" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-underscore" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/22/underscore/" class="article-date">
-  <time datetime="2016-11-21T16:10:16.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/underscore/">underscore</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/underscore/" data-id="cj729sqjx000p8y8z8cciqj3d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/22/jQuery/" class="article-date">
-  <time datetime="2016-11-21T16:09:54.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/jQuery/">jQuery</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/jQuery/" data-id="cj729sqj9000a8y8z4ek0tkue" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/01/05/bootstrap/" data-id="cj7490lqs000bpm8zjz3jca0r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -792,7 +1256,7 @@ $ git tag -d tag_name
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -823,23 +1287,23 @@ $ git tag -d tag_name
       <ul>
         
           <li>
-            <a href="/2017/09/02/MongoDB-Cheat-Sheets/">MongoDB Cheat Sheets</a>
+            <a href="/2017/09/02/Using-Mongoose/">Using Mongoose</a>
           </li>
         
           <li>
-            <a href="/2017/09/01/nodejs-1-md/">nodejs.md</a>
+            <a href="/2017/09/02/Node-js-process-module/">Node.js-process-module</a>
           </li>
         
           <li>
-            <a href="/2017/06/29/sass-guides-md/">sass_guides.md</a>
+            <a href="/2017/09/02/Node-js-fs-module/">Node.js-fs-module</a>
           </li>
         
           <li>
-            <a href="/2017/02/20/open-source-guides-md/">open-source-guides.md</a>
+            <a href="/2017/09/02/Node-js-net-module/">Node.js-net-module</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/bootstrap/">理解和使用Bootstrap</a>
+            <a href="/2017/09/02/Node-js-http-module/">Node.js-http-module</a>
           </li>
         
       </ul>

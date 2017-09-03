@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.js-http-module | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2.1 &amp;#x521B;&amp;#x5EFA;http server &amp;#x901A;&amp;#x8FC7;Node.js&amp;#x521B;&amp;#x5EFA;http server&amp;#x975E;&amp;#x5E38;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x793A;&amp;#x4F8B;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; // &amp;#x6587;&amp;#x4EF6;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js-http-module">
+<meta property="og:url" content="http://evleblog.com/2017/09/02/Node-js-http-module/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="2.1 &amp;#x521B;&amp;#x5EFA;http server &amp;#x901A;&amp;#x8FC7;Node.js&amp;#x521B;&amp;#x5EFA;http server&amp;#x975E;&amp;#x5E38;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x793A;&amp;#x4F8B;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; // &amp;#x6587;&amp;#x4EF6;&amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-01T20:56:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js-http-module">
+<meta name="twitter:description" content="2.1 &amp;#x521B;&amp;#x5EFA;http server &amp;#x901A;&amp;#x8FC7;Node.js&amp;#x521B;&amp;#x5EFA;http server&amp;#x975E;&amp;#x5E38;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x793A;&amp;#x4F8B;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A; // &amp;#x6587;&amp;#x4EF6;&amp;#">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Node-js-http-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/Node-js-http-module/" class="article-date">
+  <time datetime="2017-09-01T20:55:44.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js-http-module
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2.1 &#x521B;&#x5EFA;http server</p>
+<p>&#x901A;&#x8FC7;Node.js&#x521B;&#x5EFA;http server&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>// &#x6587;&#x4EF6;&#x540D;&#xFF1A;demo.js</p>
+<p>// &#x5F15;&#x5165;http&#x6A21;&#x5757;<br>var http = require(&#x2018;http&#x2019;);</p>
+<p>// &#x521B;&#x5EFA;http server<br>http.createServer(function (req, res) {<br>    res.writeHead(200, {&#x2018;Content-Type&#x2019;: &#x2018;text/plain&#x2019;});<br>    res.end(&#x2018;Hello World\n&#x2019;);<br>}).listen(1337, &#x2018;127.0.0.1&#x2019;);</p>
+<p>console.log(&#x2018;Server running at <a href="http://127.0.0.1:1337/" target="_blank" rel="external">http://127.0.0.1:1337/</a>&#x2018;);<br>&#x8FD0;&#x884C;&#x6B64;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>$ node demo.js<br>&#x7136;&#x540E;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:1337/&#x201D;&#xFF0C;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x4E86;&#x201C;Hello" target="_blank" rel="external">http://127.0.0.1:1337/&#x201D;&#xFF0C;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x4E0A;&#x663E;&#x793A;&#x4E86;&#x201C;Hello</a> World&#x201D;&#xFF0C;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x7684;http server&#x521B;&#x5EFA;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x8981;&#x505A;&#x7684;&#x6BD4;&#x8FD9;&#x4E2A;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;http server&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x653E;&#x5728;app&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;&#x6587;&#x4EF6;&#x5939;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>app<br>&#x251C;&#x2500;&#x2500; main.js<br>&#x251C;&#x2500;&#x2500; requestHandlers.js<br>&#x251C;&#x2500;&#x2500; router.js<br>&#x251C;&#x2500;&#x2500; server.js<br>&#x2514;&#x2500;&#x2500; views<br>    &#x251C;&#x2500;&#x2500; 404.html<br>    &#x251C;&#x2500;&#x2500; about.html<br>    &#x2514;&#x2500;&#x2500; home.html<br>&#x9996;&#x5148;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;app&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;server.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF08;&#x5176;&#x4E2D;&#x7684;&#x6CE8;&#x91CA;&#x4E3A;&#x4EE3;&#x7801;&#x89E3;&#x91CA;&#xFF09;&#xFF1A;</p>
+<p>//<br>// &#x521B;&#x5EFA;http server<br>//</p>
+<p>// &#x52A0;&#x8F7D;&#x6240;&#x9700;&#x6A21;&#x5757;<br>var http = require(&#x2018;http&#x2019;);<br>var url = require(&#x2018;url&#x2019;);<br>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// &#x8BBE;&#x7F6E;ip&#x548C;&#x7AEF;&#x53E3;<br>// &#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E9B;&#x5199;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;<br>var host = &#x2018;127.0.0.1&#x2019;,<br>    port = 8080;</p>
+<p>// &#x521B;&#x5EFA;http server<br>function start(route, handle) {<br>    // &#x53C2;&#x6570;<br>    // route  &#x5224;&#x65AD;url&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x8C03;&#x7528;handle&#x5904;&#x7406;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;404<br>    // handle &#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;url&#x8BF7;&#x6C42;</p>
+<pre><code>// &#x5904;&#x7406;request&#x8BF7;&#x6C42;
+function onRequest(req, res) {
+    // &#x4F7F;&#x7528;url.parse()&#x65B9;&#x6CD5;&#x89E3;&#x6790;url
+    // &#x5B83;&#x4F1A;&#x628A;url string&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;object
+    // &#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;url&#x4E2D;&#x7684;host&#x3001;port&#x3001;pathname&#x7B49;&#x503C;&#x4E86;
+    var pathname = url.parse(req.url).pathname;
+    console.log(&apos;Request for &apos; + pathname + &apos; received.&apos;);
+
+    // &#x5224;&#x65AD;&#x5E76;&#x5904;&#x7406;&#x4E0D;&#x540C;url&#x8BF7;&#x6C42;
+    // &#x540E;&#x9762;&#x4ECB;&#x7ECD;&#x6B64;&#x65B9;&#x6CD5;
+    route(handle, pathname, res, req);
+}
+
+// &#x4F7F;&#x7528;http.createSserver()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;http server
+// &#x5E76;&#x4F20;&#x5165;onRequest()&#x65B9;&#x6CD5;
+// &#x7136;&#x540E;&#x4F7F;&#x7528;listen()&#x65B9;&#x6CD5;&#x76D1;&#x542C;&#x6307;&#x5B9A;&#x5730;&#x5740;
+http.createServer(onRequest).listen(port, host);
+console.log(&apos;Server has started and listening on &apos; + host + &apos;:&apos; + port);
+</code></pre><p>}</p>
+<p>// &#x5BFC;&#x51FA; start &#x65B9;&#x6CD5;<br>exports.start = start;<br>&#x5728;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5BFC;&#x51FA;&#x4E86;start&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x4F60;&#x80AF;&#x5B9A;&#x6CE8;&#x610F;&#x5230;&#x4E86;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;route()&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5224;&#x65AD;&#x8BF7;&#x6C42;&#x7684;url&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x7F16;&#x5199;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>2.2 &#x521B;&#x5EFA;&#x8DEF;&#x7531;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;router.js&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// &#x8DEF;&#x7531;&#x51FD;&#x6570;<br>// &#x5904;&#x7406;&#x4E0D;&#x540C;url&#x7684;&#x8BF7;&#x6C42;<br>// &#x5E76;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x5185;&#x5BB9;</p>
+<p>function route(handle, pathname, res, req) {<br>    console.log(&#x2018;About to route a request for &#x2018; + pathname);</p>
+<pre><code>// &#x5224;&#x65AD;&#x6B64;url&#x662F;&#x5426;&#x5B58;&#x5728;&#x7279;&#x5B9A;&#x5904;&#x7406;&#x51FD;&#x6570;
+// &#x5B58;&#x5728;&#x5219;&#x8C03;&#x7528;handle&#x5904;&#x7406;
+// &#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;404&#x9875;&#x9762;
+if (typeof handle[pathname] === &apos;function&apos;) {
+    // &#x540E;&#x9762;&#x4ECB;&#x7ECD;handle&#x51FD;&#x6570;
+    handle[pathname](res, req);
+} else {
+    console.log(&apos;No request handler found for &apos; + pathname);
+
+    // &#x8BFB;&#x53D6;404&#x9875;&#x9762;
+    // &#x6240;&#x6709;&#x9875;&#x9762;&#x90FD;&#x5B58;&#x653E;&#x5728;view&#x6587;&#x4EF6;&#x5939;&#x4E0B;
+    var content = fs.readFileSync(&apos;./views/404.html&apos;);
+    res.writeHead(404, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+    res.write(content);
+    res.end();
+}
+</code></pre><p>}<br>// &#x5BFC;&#x51FA; route &#x65B9;&#x6CD5;<br>exports.route = route;<br>&#x5728;&#x6B64;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x8C03;&#x7528;&#x4E86;handle()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;url&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;requestHandlers.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>// &#x5904;&#x7406;url&#x8BF7;&#x6C42;</p>
+<p>var fs = require(&#x2018;fs&#x2019;);</p>
+<p>// home.html &#x4E3B;&#x9875;<br>function home(res) {<br>    console.log(&#x2018;Request handler &#x201C;home&#x201D; was called.&#x2019;);</p>
+<pre><code>// &#x8BFB;&#x53D6;home.html&#x6587;&#x4EF6;
+var content = fs.readFileSync(&apos;./views/home.html&apos;);
+res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+res.write(content);
+res.end();
+</code></pre><p>}</p>
+<p>// about.html &#x5173;&#x4E8E;&#x9875;&#x9762;<br>function about(res) {<br>    console.log(&#x2018;Request handler &#x201C;about&#x201D; was called.&#x2019;);</p>
+<pre><code>// &#x8BFB;&#x53D6;about.html&#x6587;&#x4EF6;
+var content = fs.readFileSync(&apos;./views/about.html&apos;);
+res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/html&apos; });
+res.write(content);
+res.end();
+</code></pre><p>}</p>
+<p>// &#x5BFC;&#x51FA;&#x9875;&#x9762;&#x5904;&#x7406;&#x51FD;&#x6570;<br>exports.home = home;<br>exports.about = about;<br>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x5230;response&#x3002;</p>
+<p>2.3 &#x521B;&#x5EFA;&#x4E3B;&#x7A0B;&#x5E8F;</p>
+<p>&#x521B;&#x5EFA;http server&#xFF0C;&#x5224;&#x65AD;url&#xFF0C;&#x5904;&#x7406;url&#x90FD;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#x4E3B;&#x7A0B;&#x5E8F;&#x6765;&#x8FD0;&#x884C;http server&#x4E86;&#xFF0C;&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x65B0;&#x5EFA;main.js&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>// &#x4E3B;&#x7A0B;&#x5E8F;</p>
+<p>// &#x5F15;&#x5165;server&#xFF0C;router&#x53CA;requestHandler<br>var server = require(&#x2018;./server&#x2019;);<br>var router = require(&#x2018;./router&#x2019;);<br>var requestHandlers = require(&#x2018;./requestHandlers&#x2019;);</p>
+<p>// &#x4FDD;&#x5B58;url&#x5904;&#x7406;&#x65B9;&#x6CD5;<br>var handle = {};<br>handle[&#x2018;/&#x2018;] = requestHandlers.home;<br>handle[&#x2018;/about&#x2019;] = requestHandlers.about;</p>
+<p>// &#x542F;&#x52A8;http server<br>server.start(router.route, handle);<br>&#x5230;&#x6B64;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7801;&#x90FD;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x6765;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x4E24;&#x4E2A;html&#x6587;&#x4EF6;&#x5427;&#x3002;</p>
+<p>2.4 &#x521B;&#x5EFA;HTML&#x6587;&#x4EF6;</p>
+<p>&#x5728;app&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;views&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5728;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x65B0;&#x5EFA;home.html&#x6587;&#x4EF6;&#x3001;about.html&#x6587;&#x4EF6;&#x548C;404.html&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>home.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>Home page</title><br>    </head><br>    <body><br>        <p>home page</p><br>    </body><br></html><br>about.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>About page</title><br>    </head><br>    <body><br>        <p>about page</p><br>    </body><br></html><br>404.html&#x6587;&#x4EF6;&#xFF1A;</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title>404 page</title><br>    </head><br>    <body><br>        <p>404 page not found</p><br>    </body><br></html><br>HTML&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x5199;&#x5F97;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x81EA;&#x7531;&#x53D1;&#x6325;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x5427;&#xFF1A;</p>
+<p>$ node main.js<br>&#x8FD0;&#x884C;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#x684C;&#x9762;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;home" target="_blank" rel="external">http://127.0.0.1:8080&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;home</a> page&#x201D;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080/about&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;about" target="_blank" rel="external">http://127.0.0.1:8080/about&#x201D;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;about</a> page&#x201D;&#xFF0C;&#x8BBF;&#x95EE;&#x201C;<a href="http://127.0.0.1:8080&#x201D;&#x4E0B;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;404" target="_blank" rel="external">http://127.0.0.1:8080&#x201D;&#x4E0B;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x9875;&#x9762;&#x663E;&#x793A;&#x201C;404</a> page not found&#x201D;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-http-module/" data-id="cj7490lq30007pm8zbdobichg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/02/Node-js-net-module/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js-net-module
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/02/MongoDB-Cheat-Sheets/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MongoDB Cheat Sheets</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/02/Using-Mongoose/">Using Mongoose</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-process-module/">Node.js-process-module</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-fs-module/">Node.js-fs-module</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-net-module/">Node.js-net-module</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-http-module/">Node.js-http-module</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -5,17 +5,17 @@
   
   <title>Using Mongoose | Evle&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. $ npm install mongoose --save    # install mongoose Impo">
+  <meta name="description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.1$ npm install mongoose --save    # install mongoose Impo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Using Mongoose">
 <meta property="og:url" content="http://evleblog.com/2017/09/02/Using-Mongoose/index.html">
 <meta property="og:site_name" content="Evle&#39;s Blog">
-<meta property="og:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. $ npm install mongoose --save    # install mongoose Impo">
+<meta property="og:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.1$ npm install mongoose --save    # install mongoose Impo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-03T04:55:42.000Z">
+<meta property="og:updated_time" content="2017-09-03T04:57:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Mongoose">
-<meta name="twitter:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. $ npm install mongoose --save    # install mongoose Impo">
+<meta name="twitter:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.1$ npm install mongoose --save    # install mongoose Impo">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
   
@@ -90,11 +90,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Node.js and MongoDB are a pair made for each other&#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.</p>
-<pre><code>$ npm install mongoose --save    # install mongoose
-</code></pre><h2 id="Import-Mongoose"><a href="#Import-Mongoose" class="headerlink" title="Import Mongoose"></a>Import Mongoose</h2><pre><code>const mongoose = require(&apos;mongoose&apos;)    
-mongoose.connect(&apos;mongodb://localhost/mydatabase&apos;);
-</code></pre><h2 id="Defining-a-Model"><a href="#Defining-a-Model" class="headerlink" title="Defining a Model"></a>Defining a Model</h2><p>Before we can handle CRUD operations, we will need a mongoose Model. These models are constructors that we define. They represent documents which can be saved and retrieved from our database.</p>
+        <p>Node.js and MongoDB are a pair made for each other&#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install mongoose --save    <span class="comment"># install mongoose</span></span></div></pre></td></tr></table></figure></p>
+<h2 id="Import-Mongoose"><a href="#Import-Mongoose" class="headerlink" title="Import Mongoose"></a>Import Mongoose</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> mongoose = require(<span class="string">&apos;mongoose&apos;</span>)    </div><div class="line">mongoose.<span class="built_in">connect</span>(<span class="string">&apos;mongodb://localhost/mydatabase&apos;</span>);</div></pre></td></tr></table></figure>
+<h2 id="Defining-a-Model"><a href="#Defining-a-Model" class="headerlink" title="Defining a Model"></a>Defining a Model</h2><p>Before we can handle CRUD operations, we will need a mongoose Model. These models are constructors that we define. They represent documents which can be saved and retrieved from our database.</p>
 <table>
 <thead>
 <tr>
@@ -116,85 +114,14 @@ mongoose.connect(&apos;mongodb://localhost/mydatabase&apos;);
 <h3 id="Models-user-js"><a href="#Models-user-js" class="headerlink" title="Models/user.js"></a>Models/user.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&apos;mongoose&apos;</span>)</div><div class="line"><span class="keyword">var</span> Schema = mongoose.Schema</div><div class="line"></div><div class="line"><span class="keyword">var</span> userSchema = <span class="keyword">new</span> Schema({</div><div class="line">  name: <span class="built_in">String</span>,</div><div class="line">  username: { <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">unique</span>: <span class="literal">true</span> },</div><div class="line">  password: { <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> },</div><div class="line">  created_at: <span class="built_in">Date</span>,</div><div class="line">  updated_at: <span class="built_in">Date</span></div><div class="line">})</div><div class="line"></div><div class="line">userSchema.methods.dudify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="keyword">this</span>.name = <span class="keyword">this</span>.name + <span class="string">&apos;-dude&apos;</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">};</div><div class="line"></div><div class="line">userSchema.pre(<span class="string">&apos;save&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">next</span>) </span>{</div><div class="line"><span class="keyword">var</span> currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line"><span class="keyword">this</span>.updated_at = currentDate;</div><div class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.created_at)</div><div class="line">  <span class="keyword">this</span>.created_at = currentDate;</div><div class="line"></div><div class="line">  next();</div><div class="line">});</div><div class="line"></div><div class="line">userSchema.index({<span class="attr">username</span>: <span class="number">1</span>})</div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">&apos;User&apos;</span>, userSchema)</div></pre></td></tr></table></figure>
 <h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./app/models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> evle = <span class="keyword">new</span> User({</div><div class="line">  name: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  username: <span class="string">&apos;evlefsp&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line">evle.dudify(<span class="function"><span class="keyword">function</span>(<span class="params">err, name</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;Your new name is &apos;</span> + name)</div><div class="line">})</div><div class="line"></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User saved successfully!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure>
 <h1 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// create a new user</span></div><div class="line"><span class="keyword">var</span> newUser = User({</div><div class="line">  username: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// save the user</span></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User created!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure>
-<h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
-  if (err) throw err;
-  console.log(users)
-});
-</code></pre><h3 id="Find-One"><a href="#Find-One" class="headerlink" title="Find One"></a>Find One</h3><pre><code>// find by user name
-User.find({ username: &apos;evle&apos; }, function(err, user) {
-  if (err) throw err;
-  console.log(user);
-});
+<h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">User.find({}, <span class="function"><span class="keyword">function</span>(<span class="params">err, users</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(users)</div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="Find-One"><a href="#Find-One" class="headerlink" title="Find One"></a>Find One</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// find by user name</span></div><div class="line">User.find({ <span class="attr">username</span>: <span class="string">&apos;evle&apos;</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(user);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">// find by id</span></div><div class="line">User.findById(<span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(user);</div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="Using-MongoDB-query-syntax"><a href="#Using-MongoDB-query-syntax" class="headerlink" title="Using MongoDB query syntax."></a>Using MongoDB query syntax.</h3><p><strong>example: get any admin that was created in the past month</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the date 1 month ago</span></div><div class="line"><span class="keyword">var</span> monthAgo = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">monthAgo.setMonth(monthAgo.getMonth() - <span class="number">1</span>);</div><div class="line"></div><div class="line">User.find({ <span class="attr">admin</span>: <span class="literal">true</span> }).where(<span class="string">&apos;created_at&apos;</span>).gt(monthAgo).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, users</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="comment">// show the admins in the past month</span></div><div class="line">  <span class="built_in">console</span>.log(users);</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get a user with ID of 1</span></div><div class="line">User.findById(<span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="comment">// change the users location</span></div><div class="line">  user.location = <span class="string">&apos;uk&apos;</span>;</div><div class="line"></div><div class="line">  <span class="comment">// save the user</span></div><div class="line">  user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;User successfully updated!&apos;</span>);</div><div class="line">  });</div><div class="line"></div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="Find-and-Update"><a href="#Find-and-Update" class="headerlink" title="Find and Update"></a>Find and Update</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">User.findOneAndUpdate({ <span class="attr">username</span>: <span class="string">&apos;evle&apos;</span> }, { <span class="attr">username</span>: <span class="string">&apos;evlefsp&apos;</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(user);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">// Find By ID and Update</span></div><div class="line">User.findByIdAndUpdate(<span class="number">4</span>, { <span class="attr">username</span>: <span class="string">&apos;evlefsp&apos;</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(user);</div><div class="line">});</div></pre></td></tr></table></figure>
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the user evle</span></div><div class="line">User.find({ <span class="attr">username</span>: <span class="string">&apos;evle&apos;</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="comment">// delete him</span></div><div class="line">  user.remove(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;User successfully deleted!&apos;</span>);</div><div class="line">  });</div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="Find-and-Delete"><a href="#Find-and-Delete" class="headerlink" title="Find and Delete"></a>Find and Delete</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// find and delete the user</span></div><div class="line">User.findOneAndRemove({ <span class="attr">username</span>: <span class="string">&apos;evle&apos;</span> }, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="comment">// we have deleted the user</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User deleted!&apos;</span>);</div><div class="line">});</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// find the user with id 4</span></div><div class="line">User.findByIdAndRemove(<span class="number">4</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="comment">// we have deleted the user</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User deleted!&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
 
-// find by id
-User.findById(1, function(err, user) {
-  if (err) throw err;
-  console.log(user);
-});
-</code></pre><h3 id="Using-MongoDB-query-syntax"><a href="#Using-MongoDB-query-syntax" class="headerlink" title="Using MongoDB query syntax."></a>Using MongoDB query syntax.</h3><p><strong>example: get any admin that was created in the past month</strong></p>
-<pre><code>// get the date 1 month ago
-var monthAgo = new Date();
-monthAgo.setMonth(monthAgo.getMonth() - 1);
-
-User.find({ admin: true }).where(&apos;created_at&apos;).gt(monthAgo).exec(function(err, users) {
-  if (err) throw err;
-
-  // show the admins in the past month
-  console.log(users);
-});
-</code></pre><h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><pre><code>// get a user with ID of 1
-User.findById(1, function(err, user) {
-  if (err) throw err;
-
-  // change the users location
-  user.location = &apos;uk&apos;;
-
-  // save the user
-  user.save(function(err) {
-    if (err) throw err;
-
-    console.log(&apos;User successfully updated!&apos;);
-  });
-
-});
-</code></pre><h3 id="Find-and-Update"><a href="#Find-and-Update" class="headerlink" title="Find and Update"></a>Find and Update</h3><pre><code>User.findOneAndUpdate({ username: &apos;evle&apos; }, { username: &apos;evlefsp&apos; }, function(err, user) {
-  if (err) throw err;
-  console.log(user);
-});
-
-// Find By ID and Update
-User.findByIdAndUpdate(4, { username: &apos;evlefsp&apos; }, function(err, user) {
-  if (err) throw err;
-  console.log(user);
-});
-</code></pre><h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><pre><code>// get the user evle
-User.find({ username: &apos;evle&apos; }, function(err, user) {
-  if (err) throw err;
-
-  // delete him
-  user.remove(function(err) {
-    if (err) throw err;
-
-    console.log(&apos;User successfully deleted!&apos;);
-  });
-});
-</code></pre><h3 id="Find-and-Delete"><a href="#Find-and-Delete" class="headerlink" title="Find and Delete"></a>Find and Delete</h3><pre><code>// find and delete the user
-User.findOneAndRemove({ username: &apos;evle&apos; }, function(err) {
-  if (err) throw err;
-
-  // we have deleted the user
-  console.log(&apos;User deleted!&apos;);
-});
-
-
-// find the user with id 4
-User.findByIdAndRemove(4, function(err) {
-  if (err) throw err;
-
-  // we have deleted the user
-  console.log(&apos;User deleted!&apos;);
-});
-</code></pre>
       
     </div>
     <footer class="article-footer">

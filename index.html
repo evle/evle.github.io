@@ -156,8 +156,21 @@ evle.save(function(err) {
   if (err) throw err;
   console.log(&apos;User saved successfully!&apos;)
 })
-</code></pre><p>#3 Create<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// create a new user</span></div><div class="line"><span class="keyword">var</span> newUser = User({</div><div class="line">  username: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// save the user</span></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User created!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure></p>
-<h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
+</code></pre><h1 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h1><pre><code>var User = require(&apos;./models/user&apos;)
+
+// create a new user
+var newUser = User({
+  username: &apos;evle&apos;,
+  password: &apos;password&apos;
+})
+
+// save the user
+evle.save(function(err) {
+  if (err) throw err;
+
+  console.log(&apos;User created!&apos;)
+})
+</code></pre><h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
   if (err) throw err;
   console.log(users)
 });

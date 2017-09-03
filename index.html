@@ -156,10 +156,7 @@ evle.save(function(err) {
   if (err) throw err;
   console.log(&apos;User saved successfully!&apos;)
 })
-</code></pre><p>#3 Create<br>var User = require(&#x2018;./models/user&#x2019;)</p>
-<p>// create a new user<br>var newUser = User({<br>  username: &#x2018;evle&#x2019;,<br>  password: &#x2018;password&#x2019;<br>})</p>
-<p>// save the user<br>evle.save(function(err) {<br>  if (err) throw err;</p>
-<p>  console.log(&#x2018;User created!&#x2019;)<br>})</p>
+</code></pre><p>#3 Create<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// create a new user</span></div><div class="line"><span class="keyword">var</span> newUser = User({</div><div class="line">  username: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// save the user</span></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User created!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure></p>
 <h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
   if (err) throw err;
   console.log(users)
@@ -175,7 +172,7 @@ User.findById(1, function(err, user) {
   if (err) throw err;
   console.log(user);
 });
-</code></pre><h3 id="Using-MongoDB-query-syntax"><a href="#Using-MongoDB-query-syntax" class="headerlink" title="Using MongoDB query syntax."></a>Using MongoDB query syntax.</h3><p>example: get any admin that was created in the past month</p>
+</code></pre><h3 id="Using-MongoDB-query-syntax"><a href="#Using-MongoDB-query-syntax" class="headerlink" title="Using MongoDB query syntax."></a>Using MongoDB query syntax.</h3><p><strong>example: get any admin that was created in the past month</strong></p>
 <pre><code>// get the date 1 month ago
 var monthAgo = new Date();
 monthAgo.setMonth(monthAgo.getMonth() - 1);

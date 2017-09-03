@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Evle&#39;s Blog">
 <meta property="og:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. $ npm install mongoose --save    # install mongoose Impo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-03T04:54:30.000Z">
+<meta property="og:updated_time" content="2017-09-03T04:55:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Mongoose">
 <meta name="twitter:description" content="Node.js and MongoDB are a pair made for each other&amp;#xFF0C;Mongoose allows us to have access to the MongoDB commands for CRUD simply and easily. $ npm install mongoose --save    # install mongoose Impo">
@@ -113,66 +113,10 @@ mongoose.connect(&apos;mongodb://localhost/mydatabase&apos;);
 </tr>
 </tbody>
 </table>
-<h3 id="Models-user-js"><a href="#Models-user-js" class="headerlink" title="Models/user.js"></a>Models/user.js</h3><pre><code>var mongoose = require(&apos;mongoose&apos;)
-var Schema = mongoose.Schema
-
-var userSchema = new Schema({
-  name: String,
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  created_at: Date,
-  updated_at: Date
-})
-
-userSchema.methods.dudify = function() {
-  this.name = this.name + &apos;-dude&apos;
-  return this.name
-};
-
-userSchema.pre(&apos;save&apos;, function(next) {
-var currentDate = new Date();
-
-this.updated_at = currentDate;
-if (!this.created_at)
-  this.created_at = currentDate;
-
-  next();
-});
-
-userSchema.index({username: 1})
-module.exports = mongoose.model(&apos;User&apos;, userSchema)
-</code></pre><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><pre><code>var User = require(&apos;./app/models/user&apos;)
-
-var evle = new User({
-  name: &apos;evle&apos;,
-  username: &apos;evlefsp&apos;,
-  password: &apos;password&apos;
-})
-
-evle.dudify(function(err, name) {
-  if (err) throw err;
-  console.log(&apos;Your new name is &apos; + name)
-})
-
-evle.save(function(err) {
-  if (err) throw err;
-  console.log(&apos;User saved successfully!&apos;)
-})
-</code></pre><h1 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h1><pre><code>var User = require(&apos;./models/user&apos;)
-
-// create a new user
-var newUser = User({
-  username: &apos;evle&apos;,
-  password: &apos;password&apos;
-})
-
-// save the user
-evle.save(function(err) {
-  if (err) throw err;
-
-  console.log(&apos;User created!&apos;)
-})
-</code></pre><h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
+<h3 id="Models-user-js"><a href="#Models-user-js" class="headerlink" title="Models/user.js"></a>Models/user.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&apos;mongoose&apos;</span>)</div><div class="line"><span class="keyword">var</span> Schema = mongoose.Schema</div><div class="line"></div><div class="line"><span class="keyword">var</span> userSchema = <span class="keyword">new</span> Schema({</div><div class="line">  name: <span class="built_in">String</span>,</div><div class="line">  username: { <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">unique</span>: <span class="literal">true</span> },</div><div class="line">  password: { <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> },</div><div class="line">  created_at: <span class="built_in">Date</span>,</div><div class="line">  updated_at: <span class="built_in">Date</span></div><div class="line">})</div><div class="line"></div><div class="line">userSchema.methods.dudify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="keyword">this</span>.name = <span class="keyword">this</span>.name + <span class="string">&apos;-dude&apos;</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">};</div><div class="line"></div><div class="line">userSchema.pre(<span class="string">&apos;save&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">next</span>) </span>{</div><div class="line"><span class="keyword">var</span> currentDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line"><span class="keyword">this</span>.updated_at = currentDate;</div><div class="line"><span class="keyword">if</span> (!<span class="keyword">this</span>.created_at)</div><div class="line">  <span class="keyword">this</span>.created_at = currentDate;</div><div class="line"></div><div class="line">  next();</div><div class="line">});</div><div class="line"></div><div class="line">userSchema.index({<span class="attr">username</span>: <span class="number">1</span>})</div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">&apos;User&apos;</span>, userSchema)</div></pre></td></tr></table></figure>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./app/models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> evle = <span class="keyword">new</span> User({</div><div class="line">  name: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  username: <span class="string">&apos;evlefsp&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line">evle.dudify(<span class="function"><span class="keyword">function</span>(<span class="params">err, name</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;Your new name is &apos;</span> + name)</div><div class="line">})</div><div class="line"></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User saved successfully!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure>
+<h1 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">&apos;./models/user&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// create a new user</span></div><div class="line"><span class="keyword">var</span> newUser = User({</div><div class="line">  username: <span class="string">&apos;evle&apos;</span>,</div><div class="line">  password: <span class="string">&apos;password&apos;</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// save the user</span></div><div class="line">evle.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;User created!&apos;</span>)</div><div class="line">})</div></pre></td></tr></table></figure>
+<h1 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h1><h3 id="Find-All"><a href="#Find-All" class="headerlink" title="Find All"></a>Find All</h3><pre><code>User.find({}, function(err, users) {
   if (err) throw err;
   console.log(users)
 });

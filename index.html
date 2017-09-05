@@ -94,22 +94,27 @@
 <p>To change the name and/or email address recorded in existing commits, you must rewrite the entire history of your Git repository.</p>
 </blockquote>
 <ol>
-<li>Open Terminal.</li>
-<li>Create a fresh, bare clone of your repository:<br> git clone &#x2013;bare <a href="https://github.com/user/repo.git" target="_blank" rel="external">https://github.com/user/repo.git</a><br> cd repo.git</li>
+<li><p>Open Terminal.  </p>
+</li>
+<li><p>Create a fresh, bare clone of your repository:<br> git clone &#x2013;bare <a href="https://github.com/user/repo.git" target="_blank" rel="external">https://github.com/user/repo.git</a><br> cd repo.git</p>
+</li>
 <li><p>Copy and paste the script, replacing the following variables based on the information you gathered:</p>
  <figure class="highlight julia"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh</span></div><div class="line">git filter-branch --env-filter &apos;</div><div class="line">OLD_EMAIL=<span class="string">&quot;your-old-email@example.com&quot;</span></div><div class="line">CORRECT_NAME=<span class="string">&quot;Your Correct Name&quot;</span></div><div class="line">CORRECT_EMAIL=<span class="string">&quot;your-correct-email@example.com&quot;</span></div><div class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$GIT_COMMITTER_EMAIL</span>&quot;</span> = <span class="string">&quot;<span class="variable">$OLD_EMAIL</span>&quot;</span> ]</div><div class="line">then</div><div class="line">    <span class="keyword">export</span> GIT_COMMITTER_NAME=<span class="string">&quot;<span class="variable">$CORRECT_NAME</span>&quot;</span></div><div class="line">    <span class="keyword">export</span> GIT_COMMITTER_EMAIL=<span class="string">&quot;<span class="variable">$CORRECT_EMAIL</span>&quot;</span></div><div class="line">fi</div><div class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$GIT_AUTHOR_EMAIL</span>&quot;</span> = <span class="string">&quot;<span class="variable">$OLD_EMAIL</span>&quot;</span> ]</div><div class="line">then</div><div class="line">    <span class="keyword">export</span> GIT_AUTHOR_NAME=<span class="string">&quot;<span class="variable">$CORRECT_NAME</span>&quot;</span></div><div class="line">    <span class="keyword">export</span> GIT_AUTHOR_EMAIL=<span class="string">&quot;<span class="variable">$CORRECT_EMAIL</span>&quot;</span></div><div class="line">fi</div><div class="line">&apos; --tag-name-filter cat -- --branches --tags</div></pre></td></tr></table></figure>
 </li>
 <li><p>Press <code>Enter</code> to run the script.</p>
 </li>
-<li>Review the new Git history for errors: <code>git log</code></li>
-<li>Push the new Git history to GitHub: <code>git push --force --tags origin &apos;refs/heads/*&apos;</code></li>
-<li>Clean up the temporary clone: <code>cd .. &amp; rm -rf repo.git</code>    </li>
+<li><p>Review the new Git history for errors: <code>git log</code>  </p>
+</li>
+<li><p>Push the new Git history to GitHub: <code>git push --force --tags origin &apos;refs/heads/*&apos;</code>  </p>
+</li>
+<li><p>Clean up the temporary clone: <code>cd .. &amp; rm -rf repo.git</code>    </p>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/06/Contributions-Lose/" data-id="cj781dz2n0000lh8zpbcldpr1" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/06/Contributions-Lose/" data-id="cj781g5gq0002n38zt6crhvuv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/04/YDKJ-JS-Review/" data-id="cj7818aqm0009kp8z02ktpg56" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/04/YDKJ-JS-Review/" data-id="cj781g5hc000cn38zvbqs72m9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -208,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/Using-Mongoose/" data-id="cj7818aqi0008kp8z3xyl16yz" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/Using-Mongoose/" data-id="cj781g5hb000an38zh67w1v3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +322,7 @@ cluster.on(&apos;exit&apos;, function(worker, code, signal) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/Node-js-process-module/" data-id="cj7818aqf0007kp8z3y8d65z3" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-process-module/" data-id="cj781g5ha0009n38zvrydrv38" class="article-share-link">Share</a>
       
       
     </footer>
@@ -450,7 +455,7 @@ fs.readFile(&apos;./test2.txt&apos;, &apos;utf-8&apos;, function(err, data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/Node-js-fs-module/" data-id="cj7818aqb0005kp8zecbvegc9" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-fs-module/" data-id="cj781g5gy0006n38zr1594jmt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -639,7 +644,7 @@ process.stdin.on(&apos;data&apos;, function(data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/Node-js-net-module/" data-id="cj7818aqe0006kp8z9pksieyc" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-net-module/" data-id="cj781g5h00008n38z2sopdynt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -767,7 +772,7 @@ res.end();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/Node-js-http-module/" data-id="cj7818aqa0004kp8zvsdk0d7g" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/Node-js-http-module/" data-id="cj781g5gz0007n38zbkc5m0or" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1031,7 +1036,7 @@ res.end();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj7818aq90003kp8ztllxcjdu" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj781g5gw0005n38z6k2efvol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1074,7 +1079,7 @@ res.end();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/01/nodejs-1-md/" data-id="cj7818ara000nkp8z1ftvn7lc" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/01/nodejs-1-md/" data-id="cj781g5ht000pn38z91r29qln" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1128,7 +1133,7 @@ res.end();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/06/29/sass-guides-md/" data-id="cj7818arc000qkp8zrvrg7k6s" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/06/29/sass-guides-md/" data-id="cj781g5hu000sn38zedt23a2g" class="article-share-link">Share</a>
       
       
     </footer>

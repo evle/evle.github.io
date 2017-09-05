@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>修复 Github Contributions 未被记录和显示 | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5F53;&amp;#x672C;&amp;#x5730; git &amp;#x90AE;&amp;#x7BB1;&amp;#x4E0E; GitHub &amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;#x65F6;, &amp;#x6240;&amp;#x63A8;&amp;#x9001;&amp;#x7684; Contributions &amp;#x4E0D;&amp;#x4F1A;&amp;#x88AB; GitHub&amp;#x8BB0;&amp;#x5F55;&amp;#x5E76;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修复 Github Contributions 未被记录和显示">
+<meta property="og:url" content="http://evleblog.com/2017/09/06/Contributions-Lose/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="&amp;#x5F53;&amp;#x672C;&amp;#x5730; git &amp;#x90AE;&amp;#x7BB1;&amp;#x4E0E; GitHub &amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;#x65F6;, &amp;#x6240;&amp;#x63A8;&amp;#x9001;&amp;#x7684; Contributions &amp;#x4E0D;&amp;#x4F1A;&amp;#x88AB; GitHub&amp;#x8BB0;&amp;#x5F55;&amp;#x5E76;&amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-05T20:17:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修复 Github Contributions 未被记录和显示">
+<meta name="twitter:description" content="&amp;#x5F53;&amp;#x672C;&amp;#x5730; git &amp;#x90AE;&amp;#x7BB1;&amp;#x4E0E; GitHub &amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;#x65F6;, &amp;#x6240;&amp;#x63A8;&amp;#x9001;&amp;#x7684; Contributions &amp;#x4E0D;&amp;#x4F1A;&amp;#x88AB; GitHub&amp;#x8BB0;&amp;#x5F55;&amp;#x5E76;&amp;#">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Contributions-Lose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/06/Contributions-Lose/" class="article-date">
+  <time datetime="2017-09-05T19:49:42.000Z" itemprop="datePublished">2017-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      修复 Github Contributions 未被记录和显示
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br>&#x5F53;&#x672C;&#x5730; <em>git</em> &#x90AE;&#x7BB1;&#x4E0E; <em>GitHub</em> &#x4E0D;&#x4E00;&#x81F4;&#x65F6;, &#x6240;&#x63A8;&#x9001;&#x7684; Contributions &#x4E0D;&#x4F1A;&#x88AB; GitHub&#x8BB0;&#x5F55;&#x5E76;&#x663E;&#x793A;  </p>
+<p><strong>Solution:</strong> (For Mac)</p>
+<blockquote>
+<p>To change the name and/or email address recorded in existing commits, you must rewrite the entire history of your Git repository.</p>
+</blockquote>
+<ol>
+<li>Open Terminal.</li>
+<li>Create a fresh, bare clone of your repository:<br> git clone &#x2013;bare <a href="https://github.com/user/repo.git" target="_blank" rel="external">https://github.com/user/repo.git</a><br> cd repo.git</li>
+<li><p>Copy and paste the script, replacing the following variables based on the information you gathered:</p>
+ <figure class="highlight julia"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh</span></div><div class="line">git filter-branch --env-filter &apos;</div><div class="line">OLD_EMAIL=<span class="string">&quot;your-old-email@example.com&quot;</span></div><div class="line">CORRECT_NAME=<span class="string">&quot;Your Correct Name&quot;</span></div><div class="line">CORRECT_EMAIL=<span class="string">&quot;your-correct-email@example.com&quot;</span></div><div class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$GIT_COMMITTER_EMAIL</span>&quot;</span> = <span class="string">&quot;<span class="variable">$OLD_EMAIL</span>&quot;</span> ]</div><div class="line">then</div><div class="line">    <span class="keyword">export</span> GIT_COMMITTER_NAME=<span class="string">&quot;<span class="variable">$CORRECT_NAME</span>&quot;</span></div><div class="line">    <span class="keyword">export</span> GIT_COMMITTER_EMAIL=<span class="string">&quot;<span class="variable">$CORRECT_EMAIL</span>&quot;</span></div><div class="line">fi</div><div class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$GIT_AUTHOR_EMAIL</span>&quot;</span> = <span class="string">&quot;<span class="variable">$OLD_EMAIL</span>&quot;</span> ]</div><div class="line">then</div><div class="line">    <span class="keyword">export</span> GIT_AUTHOR_NAME=<span class="string">&quot;<span class="variable">$CORRECT_NAME</span>&quot;</span></div><div class="line">    <span class="keyword">export</span> GIT_AUTHOR_EMAIL=<span class="string">&quot;<span class="variable">$CORRECT_EMAIL</span>&quot;</span></div><div class="line">fi</div><div class="line">&apos; --tag-name-filter cat -- --branches --tags</div></pre></td></tr></table></figure>
+</li>
+<li><p>Press <code>Enter</code> to run the script.</p>
+</li>
+<li>Review the new Git history for errors: <code>git log</code></li>
+<li>Push the new Git history to GitHub: <code>git push --force --tags origin &apos;refs/heads/*&apos;</code></li>
+<li>Clean up the temporary clone: <code>cd .. &amp; rm -rf repo.git</code>    </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/06/Contributions-Lose/" data-id="cj781dz2n0000lh8zpbcldpr1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/04/YDKJ-JS-Review/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">YDKJ-JS-Review</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/06/Contributions-Lose/">修复 Github Contributions 未被记录和显示</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/YDKJ-JS-Review/">YDKJ-JS-Review</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Using-Mongoose/">Using Mongoose</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-process-module/">Node.js-process-module</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/02/Node-js-fs-module/">Node.js-fs-module</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

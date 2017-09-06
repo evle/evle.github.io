@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/02/20/open-source-guides-md/" data-id="cj781g5ht000qn38zumtpwlxa" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/02/20/open-source-guides-md/" data-id="cj78mzz9v000rfr8z9r9ra9qb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/01/05/bootstrap/" data-id="cj781g5hg000fn38z98cwbbwx" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/01/05/bootstrap/" data-id="cj78mzz9k000ffr8z1cpwa59h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +187,18 @@ $ git commit -m &quot;add 2 files.&quot;
 $ git status
 
 # &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;
-$ git diff
+$ git diff  # &#x5DE5;&#x4F5C;&#x533A;&#x4E0E;&#x7F13;&#x5B58;&#x533A;&#x7684;&#x5DEE;&#x5F02;
+$ git diff branch-a branch-b
+$ git diff branch
+
+# &#x5386;&#x53F2;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;
+$ git log # &#x67E5;&#x770B;&#x6240;&#x6709;commit&#x8BB0;&#x5F55;
+$ git log filename  # &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x8BB0;&#x5F55;
+
+# &#x67E5;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x4F5C;&#x8005;
+$ git blame filename
+
+# &#x6587;&#x4EF6;&#x6062;&#x590D;
 </code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;&#x65F6;&#x6709;2&#x6B65;&#xFF0C;&#x5148;&#x4F7F;&#x7528; <code>git add filename</code> &#x63D0;&#x4EA4;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x6682;&#x5B58;&#x533A;, &#x7136;&#x540E;&#x4F7F;&#x7528; <code>git commit -m &quot;message&quot;</code> &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;. &#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x786E;&#x4FDD; <strong>&#x201C;message&#x201D;</strong> &#x6709;&#x610F;&#x4E49;.  </p>
 <h2 id="&#x7248;&#x672C;&#x5207;&#x6362;"><a href="#&#x7248;&#x672C;&#x5207;&#x6362;" class="headerlink" title="&#x7248;&#x672C;&#x5207;&#x6362;"></a>&#x7248;&#x672C;&#x5207;&#x6362;</h2><pre><code># &#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)
 git log
@@ -200,28 +211,91 @@ git reset --hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&
 # &#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;
 git reflog  
 </code></pre><p>&#x5F53;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x65F6;, &#x56DE;&#x9000;&#x524D;&#x7684;&#x7248;&#x672C;&#x7684;commit_id&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>git log</code> &#x67E5;&#x8BE2;, &#x53EA;&#x80FD;&#x901A;&#x8FC7; <code>git reflog</code> &#x67E5;&#x8BE2;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;commit_id.<br>e.g. &#x5F53;&#x524D;&#x7248;&#x672C;B, &#x4F7F;&#x7528; <code>git reset --hard commit_id</code> &#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;A. &#x5728;&#x7248;&#x672C;A&#x4E2D;, &#x518D;&#x60F3;&#x56DE;&#x9000;&#x5230;&#x7248;&#x672C;B&#x65F6;, &#x65E0;&#x6CD5;&#x4F7F;&#x7528; <code>git log</code> &#x83B7;&#x53D6;&#x7248;&#x672C;B&#x7684; <strong>commit_id</strong> . &#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>git reflog</code> &#x83B7;&#x53D6;.</p>
-<h2 id="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"><a href="#&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;" class="headerlink" title="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"></a>&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</h2><pre><code>git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539;
-git rm  &#xFF03; &#x5220;&#x9664;&#x6587;&#x4EF6;
+<h2 id="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"><a href="#&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;" class="headerlink" title="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"></a>&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</h2><pre><code># &#x64A4;&#x9500;&#x5728;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x7684;&#x63D0;&#x4EA4; (&#x5DF2; add &#x672A; commit)
+git reset HEAD filename
+git checkout filename
+
+# &#x64A4;&#x9500;&#x63D0;&#x4EA4;
+git revert HEAD # &#x64A4;&#x9500;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;
+git revert commit_id
+
+# &#x67E5;&#x770B;&#x67D0;&#x6B21;&#x63D0;&#x4EA4;&#x4FEE;&#x6539;&#x7684;&#x5185;&#x5BB9;
+$ git show commit_id
+
+# &#x5220;&#x9664;&#x88AB; tracked &#x7684;&#x6587;&#x4EF6;
+rm filename
+git status
+
+# -----&gt; &#x6062;&#x590D;
+git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539; or &#x6062;&#x590D;&#x8BEF;&#x5220;&#x6587;&#x4EF6;
+
+# or ----&gt; &#x786E;&#x5B9A;&#x5220;&#x9664;
+git rm filename  # &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x6587;&#x4EF6;
+git commit -m &quot;message&quot;
 </code></pre><p>&#x8BEF;&#x5220;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>git checkout -- filename</code> &#x6062;&#x590D;.</p>
-<h1 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h1><h2 id="&#x5206;&#x652F;&#x64CD;&#x4F5C;"><a href="#&#x5206;&#x652F;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5206;&#x652F;&#x64CD;&#x4F5C;"></a>&#x5206;&#x652F;&#x64CD;&#x4F5C;</h2><pre><code># &#x521B;&#x5EFA;
+<h1 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h1><h2 id="&#x5E38;&#x7528;&#x5206;&#x652F;"><a href="#&#x5E38;&#x7528;&#x5206;&#x652F;" class="headerlink" title="&#x5E38;&#x7528;&#x5206;&#x652F;"></a>&#x5E38;&#x7528;&#x5206;&#x652F;</h2><ul>
+<li>master branch:</li>
+<li>develop branch:</li>
+<li>temporary branch: adding new feature or hotfix</li>
+</ul>
+<h2 id="&#x5206;&#x652F;&#x64CD;&#x4F5C;"><a href="#&#x5206;&#x652F;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5206;&#x652F;&#x64CD;&#x4F5C;"></a>&#x5206;&#x652F;&#x64CD;&#x4F5C;</h2><pre><code># &#x521B;&#x5EFA;
 $ git branch branch_name       # &#x521B;&#x5EFA;&#x5206;&#x652F;
 $ git checkout branch_name     # &#x5207;&#x6362;&#x5206;&#x652F;
 $ git checkout -b branch_name  # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;
 
 # &#x5408;&#x5E76;
-$ git merge branch_name         &#xFF03; &#x5F53;&#x65E0;&#x6CD5;&#x5408;&#x5E76;&#x65F6;&#x9700;&#x8981;&#x624B;&#x52A8;&#x89E3;&#x51B3;&#x51B2;&#x7A81;
-$ git merge branch_name --no-ff &#xFF03; &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;
+$ git merge branch_name         &#xFF03; &#x5408;&#x5E76;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;
+$ git merge --no-ff -m &quot;message&quot; branch_name  &#xFF03; &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;
 
-# &#x5220;&#x9664;
+# &#x7EBF;&#x6027;&#x5408;&#x5E76;
+$ git checkout some-feature     # &#x5408;&#x5E76; some-feature &#x5230; origin
+$ git rebase origin
+# &#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x540E;
+$ git add filename
+$ git rebase --continue
+# &#x7EC8;&#x6B62;&#x5408;&#x5E76;
+$ git rebase --abort
+
+# &#x67E5;&#x770B;&#x5408;&#x5E76;&#x60C5;&#x51B5;
+$ git log --graph --pretty=oneline
+
+# &#x5220;&#x9664;  
 $ git branch -d dev
+# &#x6062;&#x590D;
+$ git log --branches=&quot;branch_name&quot;  
+$ git branch branch_name commit_id
+
+# &#x5206;&#x652F;&#x91CD;&#x547D;&#x540D;
+$ git branch -m old_name new_name
 
 # &#x63A8;&#x9001;&#x5206;&#x652F;
 $ git push origin branch_name
 
 # &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
 $ git branch --set-upstream branch-name origin/branch-name
-</code></pre><p>&#x5982;&#x679C;&#x7A81;&#x7136;&#x6709;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5206;&#x652F;&#x9700;&#x8981;&#x524D;&#x53BB;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;, &#x4F7F;&#x7528; <code>git stash</code> &#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x5F53;&#x5176;&#x5B83;&#x5206;&#x652F;&#x5904;&#x7406;&#x5B8C;&#x6210;, &#x4F7F;&#x7528; <code>git stash pop</code> &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;.</p>
-<h1 id="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"><a href="#&#x6807;&#x7B7E;&#x7BA1;&#x7406;" class="headerlink" title="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"></a>&#x6807;&#x7B7E;&#x7BA1;&#x7406;</h1><pre><code># &#x521B;&#x5EFA;&#x6807;&#x7B7E;
+</code></pre><p>&#x5982;&#x679C;&#x7A81;&#x7136;&#x6709;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5206;&#x652F;&#x9700;&#x8981;&#x524D;&#x53BB;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;, &#x4F7F;&#x7528; <code>git stash</code> &#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x5F53;&#x5176;&#x5B83;&#x5206;&#x652F;&#x5904;&#x7406;&#x5B8C;&#x6210;, &#x4F7F;&#x7528; <code>git stash apply</code> &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x76F8;&#x5173;&#x547D;&#x4EE4;: <code>git stash list</code>, <code>git stash apply stash@{2}</code></p>
+<pre><code># &#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x64CD;&#x4F5C;
+# &#x4FEE;&#x6539;&#x8FDC;&#x7A0B;Repo&#x5730;&#x5740;
+$ git remote set-url origin remote_repo
+
+# &#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x66F4;&#x65B0;
+$ git fetch origin master
+$ git log -p master ..origin/master
+$ git merge origin/master
+
+$ git pull  # fetch + merge
+
+# &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
+$ git brach -r
+
+# &#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
+$ git checkout b local_branch remote_branch
+$ git fetch origin remote_branch:local_branch
+$ git branch --set-upstream
+
+# &#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
+$ git push origin :branch_name
+</code></pre><h1 id="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"><a href="#&#x6807;&#x7B7E;&#x7BA1;&#x7406;" class="headerlink" title="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"></a>&#x6807;&#x7B7E;&#x7BA1;&#x7406;</h1><pre><code># &#x521B;&#x5EFA;&#x6807;&#x7B7E;
 $ git tag tag_name
 $ git tag tag_name commit_id        # &#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x63D0;&#x4EA4;&#x521B;&#x5EFA;&#x6807;&#x7B7E;
 $ git tag -a tag_name -m &quot;message&quot;  # &#x521B;&#x5EFA;&#x6807;&#x7B7E;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x8BF4;&#x660E;
@@ -248,12 +322,26 @@ $ git tag -d tag_name
 </ol>
 <h1 id="&#x8D21;&#x732E;&#x4EE3;&#x7801;"><a href="#&#x8D21;&#x732E;&#x4EE3;&#x7801;" class="headerlink" title="&#x8D21;&#x732E;&#x4EE3;&#x7801;"></a>&#x8D21;&#x732E;&#x4EE3;&#x7801;</h1><h2 id="Collaborators"><a href="#Collaborators" class="headerlink" title="Collaborators"></a>Collaborators</h2><p><em>Settings -&gt; Collaborators -&gt; Add collaborator</em></p>
 <h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p><em>Fork -&gt; Clone -&gt; [Write Code] -&gt; Commit &amp; Push -&gt; Pull Request</em></p>
-<h1 id="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"><a href="#&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;" class="headerlink" title="&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;"></a>&#x642D;&#x5EFA;Github&#x670D;&#x52A1;&#x5668;</h1><p>Coming Soon</p>
-<h1 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h1><h2 id="Github-workflow"><a href="#Github-workflow" class="headerlink" title="Github workflow"></a>Github workflow</h2><h2 id="Developer"><a href="#Developer" class="headerlink" title="Developer"></a>Developer</h2>
+<h1 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h1><h2 id="Github-workflow"><a href="#Github-workflow" class="headerlink" title="Github workflow"></a>Github workflow</h2><ol>
+<li><p><strong>Create a brach</strong><br>Branch name should be descriptive e.g., <strong>refactor-authentication</strong>, <strong>Fixes-#31</strong>  </p>
+</li>
+<li><p><strong>Add commits</strong><br>Writing clear commit messages is extremely important.  </p>
+</li>
+<li><p><strong>Open a Pull Request</strong>  </p>
+</li>
+<li><p><strong>Discuss and review your code</strong>  </p>
+</li>
+<li><p><strong>Deploy</strong>  </p>
+</li>
+<li><p><strong>Merge</strong>  </p>
+</li>
+</ol>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>A collection of useful <strong>.gitignore</strong> templates: <a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a><br>Example: remove node_modules from git repo<br>    <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r <span class="comment">--cached node_modules</span></div><div class="line">git <span class="keyword">commit</span> -m <span class="string">&apos;Remove the now ignored directory node_modules&apos;</span></div><div class="line">git push origin <span class="keyword">master</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="cj781g5hg000gn38z41y31bx1" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="cj78mzz9i000efr8zaox5kf9g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +390,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/24/有效的提升英文写作能力/" data-id="cj781g5i4000zn38z4ir579un" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/24/有效的提升英文写作能力/" data-id="cj78mzza5000yfr8zd6j97znc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -339,7 +427,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/MAC使用技巧/" data-id="cj781g5gu0003n38zwm85z9ry" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/MAC使用技巧/" data-id="cj78mzz8s0002fr8ztrxr7w57" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +464,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/underscore/" data-id="cj781g5hv000tn38zffeddngz" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/underscore/" data-id="cj78mzz9y000ufr8z4ksg2c5d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,7 +501,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/jQuery/" data-id="cj781g5hh000hn38z2qc3iylj" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/jQuery/" data-id="cj78mzz9l000hfr8z5aqj2ott" class="article-share-link">Share</a>
       
       
     </footer>
@@ -450,7 +538,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/javascript-Promise/" data-id="cj781g5ho000kn38z7csxmdru" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/javascript-Promise/" data-id="cj78mzz9o000kfr8zxwrhlf1e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,7 +575,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/javascript-AJAX/" data-id="cj781g5hj000in38zzumnmoxr" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/javascript-AJAX/" data-id="cj78mzz9n000ifr8z33p8mwk0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,7 +612,7 @@ $ git tag -d tag_name
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/javascript-DOM/" data-id="cj781g5hk000jn38z8nzj2o0o" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2016/11/22/javascript-DOM/" data-id="cj78mzz9n000jfr8ziztm7vwi" class="article-share-link">Share</a>
       
       
     </footer>

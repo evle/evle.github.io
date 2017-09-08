@@ -66,6 +66,270 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MongoDB-Cheat-Sheets" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/MongoDB-Cheat-Sheets/" class="article-date">
+  <time datetime="2017-09-01T19:10:57.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/MongoDB-Cheat-Sheets/">MongoDB Cheat Sheets</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Executables"><a href="#Executables" class="headerlink" title="Executables"></a>Executables</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>MySQL/Oracle</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database Server</td>
+<td>mysqld/oracle</td>
+<td>mongod</td>
+</tr>
+<tr>
+<td>Database Client</td>
+<td>mysql/sqlplus</td>
+<td>mongo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><table>
+<thead>
+<tr>
+<th>SQL Terms/Concepts</th>
+<th>MongoDB Terms/Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document or BSON document</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td>embedded documents and linking</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key(default _id)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>Displays the database that you&#x2019;re currently using.</td>
+</tr>
+<tr>
+<td>show dbs</td>
+<td>Displays the databases available on the server.</td>
+</tr>
+<tr>
+<td>use <db></db></td>
+<td>Create or switch database</td>
+</tr>
+<tr>
+<td>db.dropDatabase()</td>
+<td>Drop database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.createCollection(&#x201C;user&#x201D;)</td>
+<td>Create collection</td>
+</tr>
+<tr>
+<td>db.COLLECTION_NAME.drop()</td>
+<td>Delete collection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Basic-CRUD-Operations"><a href="#Basic-CRUD-Operations" class="headerlink" title="Basic CRUD Operations"></a>Basic CRUD Operations</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.insert({name: &#x201C;evle&#x201D;,age: 18})</td>
+<td></td>
+</tr>
+<tr>
+<td>db.user.ensureIndex( { user_id: 1, age: -1 } )</td>
+<td>Index</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.find()</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.find({ status: &#x201C;A&#x201D; }</td>
+<td>status = A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}})</td>
+<td>Only update the first one.</td>
+</tr>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}},{multi:ture})</td>
+<td>Update all</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.remove( )</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.remove({ status: &#x201C;D&#x201D; })</td>
+<td>status = D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit()</td>
+<td></td>
+</tr>
+<tr>
+<td>skip()</td>
+<td></td>
+</tr>
+<tr>
+<td>sort()</td>
+<td></td>
+</tr>
+<tr>
+<td>$lt</td>
+<td></td>
+</tr>
+<tr>
+<td>$lte</td>
+<td></td>
+</tr>
+<tr>
+<td>$gt</td>
+<td></td>
+</tr>
+<tr>
+<td>$gte</td>
+<td></td>
+</tr>
+<tr>
+<td>$ne</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+</tr>
+<tr>
+<td>OR</td>
+<td></td>
+</tr>
+<tr>
+<td>aggregate()</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj7bln1ee00058s8z961x6qvx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-nodejs-1-md" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/01/nodejs-1-md/" class="article-date">
@@ -608,42 +872,6 @@ $ git tag -d tag_name
 
 
   
-    <article id="post-javascript-Promise" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/22/javascript-Promise/" class="article-date">
-  <time datetime="2016-11-21T16:09:29.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/javascript-Promise/">Javascript Promise</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/javascript-Promise/" data-id="cj7bln1ez000k8s8zgg4ria39" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -682,6 +910,10 @@ $ git tag -d tag_name
           </li>
         
           <li>
+            <a href="/2017/09/07/Electron-Desktop-Apps-with-JavaScript/">Electron 使用JavaScript开发桌面应用</a>
+          </li>
+        
+          <li>
             <a href="/2017/09/06/Create-a-modal-with-HTML-CSS-JS/">Create-a-modal-with-HTML-CSS-JS</a>
           </li>
         
@@ -691,10 +923,6 @@ $ git tag -d tag_name
         
           <li>
             <a href="/2017/09/04/YDKJ-JS-Review/">YDKJ-JS-Review</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/02/Using-Mongoose/">Using Mongoose</a>
           </li>
         
       </ul>

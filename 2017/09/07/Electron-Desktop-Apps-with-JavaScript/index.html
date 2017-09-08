@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Electron 使用JavaScript开发桌面应用 | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is Electron Open source library for creating cross-platform desktop applications with HTML, CSS &amp;amp; JavaScript Apps can be packaged for Windows, Mac &amp;amp; Linux  Why I learn Electron&amp;#x5B66;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron 使用JavaScript开发桌面应用">
+<meta property="og:url" content="http://evleblog.com/2017/09/07/Electron-Desktop-Apps-with-JavaScript/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="What is Electron Open source library for creating cross-platform desktop applications with HTML, CSS &amp;amp; JavaScript Apps can be packaged for Windows, Mac &amp;amp; Linux  Why I learn Electron&amp;#x5B66;&amp;#x">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-08T08:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron 使用JavaScript开发桌面应用">
+<meta name="twitter:description" content="What is Electron Open source library for creating cross-platform desktop applications with HTML, CSS &amp;amp; JavaScript Apps can be packaged for Windows, Mac &amp;amp; Linux  Why I learn Electron&amp;#x5B66;&amp;#x">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Electron-Desktop-Apps-with-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/07/Electron-Desktop-Apps-with-JavaScript/" class="article-date">
+  <time datetime="2017-09-07T06:12:07.000Z" itemprop="datePublished">2017-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Electron 使用JavaScript开发桌面应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="What-is-Electron"><a href="#What-is-Electron" class="headerlink" title="What is Electron"></a>What is Electron</h1><ul>
+<li>Open source library for creating cross-platform desktop applications with HTML, CSS &amp; JavaScript</li>
+<li>Apps can be packaged for Windows, Mac &amp; Linux</li>
+</ul>
+<h1 id="Why-I-learn-Electron"><a href="#Why-I-learn-Electron" class="headerlink" title="Why I learn Electron"></a>Why I learn Electron</h1><p>&#x5B66;&#x4E60;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x548C;&#x5B66;&#x4E60;&#x7F16;&#x7A0B;&#x662F;&#x4E24;&#x4E2A;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x6982;&#x5FF5;<br>Learning out of context is more difficult than learning with relatable context.  </p>
+<p>&#x5982;&#x679C;&#x628A; Nodejs, HTML5, CSS, JavaScript &#x5212;&#x5206;&#x4E3A;&#x72EC;&#x7ACB;&#x7684;&#x90E8;&#x5206;&#x53BB;&#x5B66;&#x4E60;&#x662F;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;.<br>If you just initially focus on the syntax, you learn without context.</p>
+<p>Electron&#x5E94;&#x7528;&#x5C06;Nodejs, HTML, CSS, JavaScript&#x7ED3;&#x5408;&#x5230;&#x4E86;&#x4E00;&#x8D77;, &#x4E3A;&#x5B66;Javascript&#x5168;&#x6808;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;context<br>Besides, it allow us to be able to develop Desktop Application.  </p>
+<p>&#x4F7F;&#x7528;Electron&#x53BB;&#x521B;&#x9020;&#x4E00;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E1C;&#x897F; Just for Fun<br>there are a lot of awesome apps build with Electron such as VS code, Atom, and Flow.</p>
+<h1 id="&#x5B89;&#x88C5;-amp-&#x8FD0;&#x884C;"><a href="#&#x5B89;&#x88C5;-amp-&#x8FD0;&#x884C;" class="headerlink" title="&#x5B89;&#x88C5; &amp; &#x8FD0;&#x884C;"></a>&#x5B89;&#x88C5; &amp; &#x8FD0;&#x884C;</h1><pre><code><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -<span class="keyword">g</span> electron</div><div class="line"></div><div class="line"><span class="keyword">mkdir</span> electron-<span class="keyword">app</span></div><div class="line"><span class="keyword">cd</span> electron-<span class="keyword">app</span></div><div class="line">npm install electron -<span class="keyword">save</span></div></pre></td></tr></table></figure>
+</code></pre><p><strong>&#x4FEE;&#x6539;</strong> <em>package.json</em><br>    <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="string">&quot;scripts&quot;</span>: {</div><div class="line">  <span class="string">&quot;start&quot;</span>: <span class="string">&quot;electron .&quot;</span></div><div class="line">},</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p><strong>&#x8FD0;&#x884C;:</strong> <code>npm start</code></p>
+<h1 id="Say-something"><a href="#Say-something" class="headerlink" title="Say something"></a>Say something</h1><h1 id="Native-Node-Libraries"><a href="#Native-Node-Libraries" class="headerlink" title="Native Node Libraries"></a>Native Node Libraries</h1><h1 id="Menus"><a href="#Menus" class="headerlink" title="Menus"></a>Menus</h1><h1 id="System-temporary"><a href="#System-temporary" class="headerlink" title="System temporary"></a>System temporary</h1><h1 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h1><h1 id="Webview"><a href="#Webview" class="headerlink" title="Webview"></a>Webview</h1><h1 id="Audio-amp-Video-Capturing"><a href="#Audio-amp-Video-Capturing" class="headerlink" title="Audio &amp; Video Capturing"></a>Audio &amp; Video Capturing</h1><h1 id="Defining-Shortcus"><a href="#Defining-Shortcus" class="headerlink" title="Defining Shortcus"></a>Defining Shortcus</h1><h1 id="Packaging-Apps"><a href="#Packaging-Apps" class="headerlink" title="Packaging Apps"></a>Packaging Apps</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/07/Electron-Desktop-Apps-with-JavaScript/" data-id="cj7blok3k00009b8zzfldrdy0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/07/visual-studio-code/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          visual-studio-code
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/06/Create-a-modal-with-HTML-CSS-JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Create-a-modal-with-HTML-CSS-JS</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/visual-studio-code/">visual-studio-code</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/07/Electron-Desktop-Apps-with-JavaScript/">Electron 使用JavaScript开发桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/06/Create-a-modal-with-HTML-CSS-JS/">Create-a-modal-with-HTML-CSS-JS</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/06/Contributions-Lose/">修复 Github Contributions 未被记录和显示</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/04/YDKJ-JS-Review/">YDKJ-JS-Review</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

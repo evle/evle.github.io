@@ -99,39 +99,52 @@
 <h2 id="&#x9759;&#x6001;&#x8DEF;&#x7531;"><a href="#&#x9759;&#x6001;&#x8DEF;&#x7531;" class="headerlink" title="&#x9759;&#x6001;&#x8DEF;&#x7531;"></a>&#x9759;&#x6001;&#x8DEF;&#x7531;</h2><p><strong>App.vue:</strong><br>&#x9996;&#x5148;, &#x5728;<code>App.vue</code>&#x4E2D;&#x4E3A;&#x9700;&#x8981;&#x8DF3;&#x8F6C;&#x7684;Item&#x6DFB;&#x52A0;&#x8FDE;&#x63A5;&#x901A;&#x8FC7;<router-link>&#x5982;&#x4E0B;&#xFF1A;<br>  <figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;</span></span></span><span class="template-variable">{name:&apos;Home&apos;}</span><span class="xml"><span class="tag"><span class="string">&quot;</span>&gt;</span>Home <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></div></pre></td></tr></table></figure></router-link></p>
 <p>&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x4E3A;Home&#x548C;About&#x6DFB;&#x52A0;&#x4E86;&#x8DF3;&#x8F6C;&#x94FE;&#x63A5;, Home&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x7279;&#x522B;&#x7684;&#x6DFB;&#x52A0;&#x94FE;&#x63A5;&#x7684;&#x65B9;&#x5F0F;, <code>name</code>&#x4F1A;&#x4F20;&#x9012;&#x81F3;<code>router/index.js</code>&#x4E2D;, &#x4ECE;&#x800C;&#x5BFB;&#x627E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84;&#x5E76;&#x7ED1;&#x5B9A;component. About&#x4F7F;&#x7528;&#x4E86;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x94FE;&#x63A5;&#x6DFB;&#x52A0;&#x65B9;&#x5F0F;.  </p>
 <p><strong>router/index.js</strong><br>&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;: &#x8BBE;&#x7F6E;path, name &#x4EE5;&#x53CA; component.<br>    <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">    routes: [</div><div class="line">       {</div><div class="line">         path: <span class="string">&apos;/home&apos;</span>,</div><div class="line">         name: <span class="string">&apos;Home&apos;</span>,</div><div class="line">         component: Home</div><div class="line">       },</div><div class="line">       {</div><div class="line">         path: <span class="string">&apos;/about&apos;</span>,</div><div class="line">         name: <span class="string">&apos;About&apos;</span>,</div><div class="line">         component: About</div><div class="line">       }</div><div class="line">     ]</div><div class="line">    ```  </div><div class="line"></div><div class="line">&#x5B8C;&#x6210;&#x8DEF;&#x7531;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x5728;`components`&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x521B;&#x5EFA;&#x8DEF;&#x7531;&#x6240;&#x7ED1;&#x5B9A;&#x7684;component&#x5373;&#x53EF;.</div><div class="line"></div><div class="line">## &#x52A8;&#x6001;&#x8DEF;&#x7531;</div><div class="line"><span class="number">1.</span> &#x6DFB;&#x52A0;&#x8DF3;&#x8F6C;&#x94FE;&#x63A5;</div><div class="line">**App.vue:**:</div></pre></td></tr></table></figure></p>
-<p><router-link to="/weather/bj">BeiJing</router-link></p>
-<p><router-link to="/weather/sh">ShangHai</router-link></p>
-<p><router-link to="/weather/gz">Guangzhou</router-link></p>
-<p><router-view></router-view><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">2. </span>&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;</div><div class="line"><span class="strong">**router/index.js:**</span></div></pre></td></tr></table></figure></p>
-<p>routes: [<br> {<br>    path: &#x2018;/weather/:id&#x2019;,<br>    name: &#x2018;Weather&#x2019;,<br>    component: Weather<br>  }<br>]<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#x52A8;&#x6001;&#x8DEF;&#x7531;, &#x6211;&#x4EEC;&#x9700;&#x7528;&#x4E00;&#x4E2A;http client(&#x672C;&#x6587;&#x53EA;&#x4F7F;&#x7528; <span class="strong">*axios*</span>).  </div><div class="line">&#x5F53;&#x7528;&#x6237;&#x70B9;&#x51FB; *<span class="strong">*App.vue*</span>* &#x4E2D;&#x7684;&#x94FE;&#x63A5;&#x65F6;, &#x94FE;&#x63A5;&#x4F1A;&#x643A;&#x5E26;&#x53C2;&#x6570;&#x5E76;&#x8DF3;&#x8F6C;&#x81F3; *<span class="strong">*router/index.js*</span><span class="strong">*. &#x5728; *</span><span class="strong">*router/index.js*</span>* &#x4E2D;, &#x6211;&#x4EEC;&#x4E3A; *<span class="strong">*path*</span>* &#x7ED1;&#x5B9A; *<span class="strong">*component*</span><span class="strong">*. &#x4E0B;&#x9762;&#x6765;&#x5B9E;&#x73B0; *</span><span class="strong">*component*</span>* &#x6839;&#x636E;&#x7528;&#x6237;&#x4F20;&#x9012;&#x7684;&#x57CE;&#x5E02;&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x57CE;&#x5E02;&#x7684;&#x5929;&#x6C14;&#x72B6;&#x51B5;.</div></pre></td></tr></table></figure></p>
-<p>  import axios from &#x2018;axios&#x2019;</p>
-<p>  export default {<br>      name: &#x2018;Weather&#x2019;,<br>      data() {<br>          return {<br>              weather: {},<br>              city: {},<br>              temperature: {},<br>              condition: {}<br>          }<br>      },</p>
-<pre><code>created() {
-    this.fetchData()
-},
+<pre><code>&lt;router-link to=&quot;/weather/bj&quot;&gt;BeiJing&lt;/router-link&gt;
+&lt;router-link to=&quot;/weather/sh&quot;&gt;ShangHai&lt;/router-link&gt;
+&lt;router-link to=&quot;/weather/gz&quot;&gt;Guangzhou&lt;/router-link&gt;
+&lt;router-view&gt;&lt;/router-view&gt;
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">2. </span>&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;</div><div class="line"><span class="strong">**router/index.js:**</span></div></pre></td></tr></table></figure>
+</code></pre><p>  routes: [<br>   {<br>      path: &#x2018;/weather/:id&#x2019;,<br>      name: &#x2018;Weather&#x2019;,<br>      component: Weather<br>    }<br>  ]<br>  <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#x52A8;&#x6001;&#x8DEF;&#x7531;, &#x6211;&#x4EEC;&#x9700;&#x7528;&#x4E00;&#x4E2A;http client(&#x672C;&#x6587;&#x53EA;&#x4F7F;&#x7528; <span class="strong">*axios*</span>).  </div><div class="line">&#x5F53;&#x7528;&#x6237;&#x70B9;&#x51FB; *<span class="strong">*App.vue*</span>* &#x4E2D;&#x7684;&#x94FE;&#x63A5;&#x65F6;, &#x94FE;&#x63A5;&#x4F1A;&#x643A;&#x5E26;&#x53C2;&#x6570;&#x5E76;&#x8DF3;&#x8F6C;&#x81F3; *<span class="strong">*router/index.js*</span><span class="strong">*. &#x5728; *</span><span class="strong">*router/index.js*</span>* &#x4E2D;, &#x6211;&#x4EEC;&#x4E3A; *<span class="strong">*path*</span>* &#x7ED1;&#x5B9A; *<span class="strong">*component*</span><span class="strong">*. &#x4E0B;&#x9762;&#x6765;&#x5B9E;&#x73B0; *</span><span class="strong">*component*</span>* &#x6839;&#x636E;&#x7528;&#x6237;&#x4F20;&#x9012;&#x7684;&#x57CE;&#x5E02;&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x57CE;&#x5E02;&#x7684;&#x5929;&#x6C14;&#x72B6;&#x51B5;.</div></pre></td></tr></table></figure></p>
+<pre><code>import axios from &apos;axios&apos;
 
-watch: {
-    &apos;$route&apos;: &apos;fetchData&apos;
-},
+export default {
+    name: &apos;Weather&apos;,
+    data() {
+        return {
+            weather: {},
+            city: {},
+            temperature: {},
+            condition: {}
+        }
+    },
 
-methods: {
-    fetchData() {
-        axios.get(&apos;https://weixin.jirengu.com/weather/now?cityid=&apos; + this.$route.params.id)
-            .then((resp) =&gt; {
-                this.weather = resp.data.weather[0]
-                this.city = this.weather.city_name
-                this.temperature = this.weather.now.temperature
-                this.condition = this.weather.now.text
+    created() {
+        this.fetchData()
+    },
 
-                console.log(resp)
-            })
-            .catch((err) =&gt; {
-                console.log(err)
-            })
+    watch: {
+        &apos;$route&apos;: &apos;fetchData&apos;
+    },
+
+    methods: {
+        fetchData() {
+            axios.get(&apos;https://weixin.jirengu.com/weather/now?cityid=&apos; + this.$route.params.id)
+                .then((resp) =&gt; {
+                    this.weather = resp.data.weather[0]
+                    this.city = this.weather.city_name
+                    this.temperature = this.weather.now.temperature
+                    this.condition = this.weather.now.text
+
+                    console.log(resp)
+                })
+                .catch((err) =&gt; {
+                    console.log(err)
+                })
+        }
     }
 }
-</code></pre><p>  }<br>  <code>``
-&#x8BE5;&#x7EC4;&#x4EF6;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x9996;&#x5148;&#x8C03;&#x7528;</code>fetchData()<code>&#x4ECE;&#x5929;&#x6C14;API&#x5F53;&#x524D;&#x57CE;&#x5E02;&#x7684;&#x5929;&#x6C14;&#x72B6;&#x51B5;.</code>$route.params.id<code>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x8DEF;&#x7531;&#x4E2D;&#x4F20;&#x9012;&#x7684;&#x57CE;&#x5E02;&#x53C2;&#x6570;. &#x56E0;&#x4E3A;VueRouter&#x7EC4;&#x4EF6;&#x53EA;&#x6E32;&#x67D3;&#x4E00;&#x6B21;, &#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;[watch](https://vuejs.org/v2/guide/computed.html#ad)hook&#x624B;&#x52A8;&#x66F4;&#x65B0;</code>$route`&#x7684;&#x53D8;&#x5316;.  </p>
+```
+</code></pre><p>  &#x8BE5;&#x7EC4;&#x4EF6;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x9996;&#x5148;&#x8C03;&#x7528;<code>fetchData()</code>&#x4ECE;&#x5929;&#x6C14;API&#x5F53;&#x524D;&#x57CE;&#x5E02;&#x7684;&#x5929;&#x6C14;&#x72B6;&#x51B5;. <code>$route.params.id</code>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x8DEF;&#x7531;&#x4E2D;&#x4F20;&#x9012;&#x7684;&#x57CE;&#x5E02;&#x53C2;&#x6570;. &#x56E0;&#x4E3A;VueRouter&#x7EC4;&#x4EF6;&#x53EA;&#x6E32;&#x67D3;&#x4E00;&#x6B21;, &#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;<a href="https://vuejs.org/v2/guide/computed.html#ad" target="_blank" rel="external">watch</a>hook&#x624B;&#x52A8;&#x66F4;&#x65B0;<code>$route</code>&#x7684;&#x53D8;&#x5316;.  </p>
 <p><a href="https://github.com/evle/vue-router-example" target="_blank" rel="external">&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x5B8C;&#x6574;&#x4EE3;&#x7801;</a></p>
 
       

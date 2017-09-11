@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用 Vue Router | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5728;&amp;#x8BB2; vue-router &amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E4B;&amp;#x524D;, &amp;#x5148;&amp;#x6765;&amp;#x5206;&amp;#x6790;&amp;#x4E00;&amp;#x4E0B; vue app &amp;#x4E2D;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;. &amp;#x4EE5;&amp;#x9ED8;&amp;#x8BA4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Vue Router">
+<meta property="og:url" content="http://evleblog.com/2017/09/11/vue-router/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="&amp;#x5728;&amp;#x8BB2; vue-router &amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E4B;&amp;#x524D;, &amp;#x5148;&amp;#x6765;&amp;#x5206;&amp;#x6790;&amp;#x4E00;&amp;#x4E0B; vue app &amp;#x4E2D;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;. &amp;#x4EE5;&amp;#x9ED8;&amp;#x8BA4">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-11T05:56:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 Vue Router">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x8BB2; vue-router &amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E4B;&amp;#x524D;, &amp;#x5148;&amp;#x6765;&amp;#x5206;&amp;#x6790;&amp;#x4E00;&amp;#x4E0B; vue app &amp;#x4E2D;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;. &amp;#x4EE5;&amp;#x9ED8;&amp;#x8BA4">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue-router" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/11/vue-router/" class="article-date">
+  <time datetime="2017-09-10T17:36:48.000Z" itemprop="datePublished">2017-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用 Vue Router
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5728;&#x8BB2; <strong>vue-router</strong> &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E4B;&#x524D;, &#x5148;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B; vue app &#x4E2D;&#x7684;&#x6587;&#x4EF6;. &#x4EE5;&#x9ED8;&#x8BA4;&#x9879;&#x76EE;&#x4E3A;&#x4F8B;(<code>vue init webpack vue-app</code>), &#x4E00;&#x4E2A; vue app &#x662F;&#x7531;&#x591A;&#x4E2A; <strong>component</strong> &#x7EC4;&#x6210;&#x7684;.</p>
+<p>&#x4E00;&#x4E2A; <strong>component</strong> &#x4E2D;&#x5305;&#x542B;:</p>
+<ul>
+<li><templete> : &#x663E;&#x793A;&#x7ED9;&#x7528;&#x6237;&#x7684;&#x9875;&#x9762;&#x5143;&#x7D20;</templete></li>
+<li><script> : 操作数据(设置, 通信)</li>
+<li><style> : 添加样式(添加scoped属性使样式只对该component生效)</li>
+</ul>
+<p>启动程序后, <code>main.js</code>开始创建 Vue实例并且挂载到 <code>index.html</code>中的<code>#app</code> div中. 然后设置<code>App</code>为第一个运行的component.</p>
+<h2 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h2><p><strong>App.vue:</strong><br>首先, 在<code>App.vue</code>中为需要跳转的Item添加连接通过<router-link>如下：<br>  <figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;name:'Home'&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>Home <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>在这里我们使用了两种方法分别为Home和About添加了跳转链接, Home使用了一种特别的添加链接的方式, <code>name</code>会传递至<code>router/index.js</code>中, 从而寻找跳转路径并绑定component. About使用了最常见的链接添加方式.  </p>
+<p><strong>router/index.js</strong><br>设置路由: 设置path, name 以及 component.<br>    <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">    routes: [</div><div class="line">       &#123;</div><div class="line">         path: <span class="string">'/home'</span>,</div><div class="line">         name: <span class="string">'Home'</span>,</div><div class="line">         component: Home</div><div class="line">       &#125;,</div><div class="line">       &#123;</div><div class="line">         path: <span class="string">'/about'</span>,</div><div class="line">         name: <span class="string">'About'</span>,</div><div class="line">         component: About</div><div class="line">       &#125;</div><div class="line">     ]</div><div class="line">    ```  </div><div class="line"></div><div class="line">完成路由设置后，在`components`文件夹中创建路由所绑定的component即可.</div><div class="line"></div><div class="line">## 动态路由</div><div class="line"><span class="number">1.</span> 添加跳转链接</div><div class="line">**App.vue:**:</div></pre></td></tr></table></figure></p>
+<p><router-link to="/weather/bj">BeiJing</router-link></p>
+<p><router-link to="/weather/sh">ShangHai</router-link></p>
+<p><router-link to="/weather/gz">Guangzhou</router-link></p>
+<p><router-view></router-view><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">2. </span>设置路由</div><div class="line"><span class="strong">**router/index.js:**</span></div></pre></td></tr></table></figure></p>
+<p>routes: [<br> {<br>    path: ‘/weather/:id’,<br>    name: ‘Weather’,<br>    component: Weather<br>  }<br>]<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">为了演示动态路由, 我们需用一个http client(本文只使用 <span class="strong">*axios*</span>).  </div><div class="line">当用户点击 *<span class="strong">*App.vue*</span>* 中的链接时, 链接会携带参数并跳转至 *<span class="strong">*router/index.js*</span><span class="strong">*. 在 *</span><span class="strong">*router/index.js*</span>* 中, 我们为 *<span class="strong">*path*</span>* 绑定 *<span class="strong">*component*</span><span class="strong">*. 下面来实现 *</span><span class="strong">*component*</span>* 根据用户传递的城市来获取当前城市的天气状况.</div></pre></td></tr></table></figure></p>
+<p>  import axios from ‘axios’</p>
+<p>  export default {<br>      name: ‘Weather’,<br>      data() {<br>          return {<br>              weather: {},<br>              city: {},<br>              temperature: {},<br>              condition: {}<br>          }<br>      },</p>
+<pre><code>created() {
+    this.fetchData()
+},
+
+watch: {
+    &apos;$route&apos;: &apos;fetchData&apos;
+},
+
+methods: {
+    fetchData() {
+        axios.get(&apos;https://weixin.jirengu.com/weather/now?cityid=&apos; + this.$route.params.id)
+            .then((resp) =&gt; {
+                this.weather = resp.data.weather[0]
+                this.city = this.weather.city_name
+                this.temperature = this.weather.now.temperature
+                this.condition = this.weather.now.text
+
+                console.log(resp)
+            })
+            .catch((err) =&gt; {
+                console.log(err)
+            })
+    }
+}
+</code></pre><p>  }<br>  <code>``
+该组件在创建时首先调用</code>fetchData()<code>从天气API当前城市的天气状况.</code>$route.params.id<code>可以获取路由中传递的城市参数. 因为VueRouter组件只渲染一次, 需要添加一个[watch](https://vuejs.org/v2/guide/computed.html#ad)hook手动更新</code>$route`的变化.  </p>
+<p><a href="https://github.com/evle/vue-router-example">点击查看完整代码</a></p>
+</script></li></ul>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/11/vue-router/" data-id="cj7fraasg0000my8zc2hk5690" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/07/visual-studio-code/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">visual-studio-code</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/11/vue-router/">使用 Vue Router</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/07/visual-studio-code/">visual-studio-code</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/07/Electron-Desktop-Apps-with-JavaScript/">Electron 使用Node.js 开发桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/06/Create-a-modal-with-HTML-CSS-JS/">Create-a-modal-with-HTML-CSS-JS</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/06/Contributions-Lose/">修复 Github Contributions 未被记录和显示</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

@@ -66,6 +66,270 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MongoDB-Cheat-Sheets" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/02/MongoDB-Cheat-Sheets/" class="article-date">
+  <time datetime="2017-09-01T19:10:57.000Z" itemprop="datePublished">2017-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/02/MongoDB-Cheat-Sheets/">MongoDB Cheat Sheets</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Executables"><a href="#Executables" class="headerlink" title="Executables"></a>Executables</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>MySQL/Oracle</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database Server</td>
+<td>mysqld/oracle</td>
+<td>mongod</td>
+</tr>
+<tr>
+<td>Database Client</td>
+<td>mysql/sqlplus</td>
+<td>mongo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><table>
+<thead>
+<tr>
+<th>SQL Terms/Concepts</th>
+<th>MongoDB Terms/Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document or BSON document</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td>embedded documents and linking</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key(default _id)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>Displays the database that you&#x2019;re currently using.</td>
+</tr>
+<tr>
+<td>show dbs</td>
+<td>Displays the databases available on the server.</td>
+</tr>
+<tr>
+<td>use <db></db></td>
+<td>Create or switch database</td>
+</tr>
+<tr>
+<td>db.dropDatabase()</td>
+<td>Drop database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.createCollection(&#x201C;user&#x201D;)</td>
+<td>Create collection</td>
+</tr>
+<tr>
+<td>db.COLLECTION_NAME.drop()</td>
+<td>Delete collection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Basic-CRUD-Operations"><a href="#Basic-CRUD-Operations" class="headerlink" title="Basic CRUD Operations"></a>Basic CRUD Operations</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.insert({name: &#x201C;evle&#x201D;,age: 18})</td>
+<td></td>
+</tr>
+<tr>
+<td>db.user.ensureIndex( { user_id: 1, age: -1 } )</td>
+<td>Index</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.find()</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.find({ status: &#x201C;A&#x201D; }</td>
+<td>status = A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}})</td>
+<td>Only update the first one.</td>
+</tr>
+<tr>
+<td>db.user.update({&#x2018;name&#x2019;:&#x2019;evle&#x2019;},{$set:{&#x2018;name&#x2019;:&#x2019;max lee&#x2019;}},{multi:ture})</td>
+<td>Update all</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.remove( )</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.remove({ status: &#x201C;D&#x201D; })</td>
+<td>status = D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit()</td>
+<td></td>
+</tr>
+<tr>
+<td>skip()</td>
+<td></td>
+</tr>
+<tr>
+<td>sort()</td>
+<td></td>
+</tr>
+<tr>
+<td>$lt</td>
+<td></td>
+</tr>
+<tr>
+<td>$lte</td>
+<td></td>
+</tr>
+<tr>
+<td>$gt</td>
+<td></td>
+</tr>
+<tr>
+<td>$gte</td>
+<td></td>
+</tr>
+<tr>
+<td>$ne</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+</tr>
+<tr>
+<td>OR</td>
+<td></td>
+</tr>
+<tr>
+<td>aggregate()</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/02/MongoDB-Cheat-Sheets/" data-id="cj80piuop000f1m8zwyaaghpp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sass-guides-md" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/29/sass-guides-md/" class="article-date">
@@ -673,60 +937,6 @@ $ git tag -d tag_name
 
 
   
-    <article id="post-使用GitHub+Hexo搭建个人博客(三)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/" class="article-date">
-  <time datetime="2016-03-09T12:27:57.000Z" itemprop="datePublished">2016-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/">使用GitHub+Hexo搭建个人博客(三)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;<br><!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 --></p>
-<ul>
-<li><a href="#&#x8349;&#x7A3F;&#x529F;&#x80FD;-">&#x8349;&#x7A3F;&#x529F;&#x80FD; #</a><ul>
-<li><a href="#&#x6DFB;&#x52A0;404&#x9875;&#x9762;-">&#x6DFB;&#x52A0;404&#x9875;&#x9762; ##</a></li>
-<li><a href="#cname-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;">CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;</a></li>
-<li><a href="#&#x7EDF;&#x8BA1;">&#x7EDF;&#x8BA1;</a></li>
-<li><a href="#&#x6362;&#x673A;&#x5668;">&#x6362;&#x673A;&#x5668;</a></li>
-<li><a href="#sitemap-">sitemap ##</a></li>
-<li><a href="#&#x76EE;&#x5F55;-">&#x76EE;&#x5F55; ##</a></li>
-<li><a href="#&#x9876;&#x90E8;&#x8FD4;&#x56DE;-">&#x9876;&#x90E8;&#x8FD4;&#x56DE; ##</a></li>
-<li><a href="#&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;-">&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B; ##</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h1 id="&#x8349;&#x7A3F;&#x529F;&#x80FD;"><a href="#&#x8349;&#x7A3F;&#x529F;&#x80FD;" class="headerlink" title="&#x8349;&#x7A3F;&#x529F;&#x80FD;"></a>&#x8349;&#x7A3F;&#x529F;&#x80FD;</h1><p>&#x5728;&#x7F16;&#x5199;&#x957F;&#x7BC7;&#x6587;&#x7AE0;&#x6216;&#x8005;&#x4E0D;&#x80FD;&#x53CA;&#x65F6;&#x5B8C;&#x6210;&#x7684;&#x6587;&#x7AE0;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>hexo new draft filename</code> &#x547D;&#x4EE4;&#x6765;&#x5C06;&#x6587;&#x7AE0;&#x65B0;&#x5EFA;&#x5728; <strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;<strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x8349;&#x7A3F;&#x6587;&#x4EF6;&#x4E0D;&#x4F1A;&#x5728;&#x90E8;&#x7F72;&#x65F6;&#x88AB;&#x4E0A;&#x4F20;&#x5230;Blog. &#x5F53;&#x6587;&#x7AE0;&#x7F16;&#x5199;&#x5B8C;&#x65F6;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>hexo publish draft filename</code> &#x547D;&#x4EE4;&#x5C06; <strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x8F6C;&#x79FB;&#x5230; <strong>_posts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x90E8;&#x7F72;&#x3002;</p>
-<h2 id="&#x6DFB;&#x52A0;404&#x9875;&#x9762;"><a href="#&#x6DFB;&#x52A0;404&#x9875;&#x9762;" class="headerlink" title="&#x6DFB;&#x52A0;404&#x9875;&#x9762;"></a>&#x6DFB;&#x52A0;404&#x9875;&#x9762;</h2><p>&#x5728; <strong>source</strong> &#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <strong>404.html</strong> &#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>hexo g -d</code>&#x76F4;&#x63A5;&#x751F;&#x6210;&#x9875;&#x9762;&#x3002;404&#x9875;&#x9762;&#x53EA;&#x5BF9;&#x4E8E;&#x7ED1;&#x5B9A;&#x4E86;&#x9876;&#x7EA7;&#x57DF;&#x540D;&#x7684;&#x535A;&#x5BA2;&#x6709;&#x6548;&#x3002;</p>
-<h2 id="CNAME-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;"><a href="#CNAME-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;" class="headerlink" title="CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;"></a>CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;</h2><p>&#x5BF9;&#x4E8E;&#x7ED1;&#x5B9A;&#x4E86;&#x9876;&#x7EA7;&#x57DF;&#x540D;&#x7684;&#x535A;&#x5BA2;&#xFF0C;CNAME&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x5B58;&#x653E;&#x5728; <strong>source</strong> &#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
-<h2 id="&#x7EDF;&#x8BA1;"><a href="#&#x7EDF;&#x8BA1;" class="headerlink" title="&#x7EDF;&#x8BA1;"></a>&#x7EDF;&#x8BA1;</h2><h2 id="&#x6362;&#x673A;&#x5668;"><a href="#&#x6362;&#x673A;&#x5668;" class="headerlink" title="&#x6362;&#x673A;&#x5668;"></a>&#x6362;&#x673A;&#x5668;</h2><h2 id="sitemap"><a href="#sitemap" class="headerlink" title="sitemap"></a>sitemap</h2><h2 id="&#x76EE;&#x5F55;"><a href="#&#x76EE;&#x5F55;" class="headerlink" title="&#x76EE;&#x5F55;"></a>&#x76EE;&#x5F55;</h2><h2 id="&#x9876;&#x90E8;&#x8FD4;&#x56DE;"><a href="#&#x9876;&#x90E8;&#x8FD4;&#x56DE;" class="headerlink" title="&#x9876;&#x90E8;&#x8FD4;&#x56DE;"></a>&#x9876;&#x90E8;&#x8FD4;&#x56DE;</h2><h2 id="&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;"><a href="#&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;" class="headerlink" title="&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;"></a>&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/" data-id="cj80piup2000u1m8zgefi814k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -765,6 +975,10 @@ $ git tag -d tag_name
           </li>
         
           <li>
+            <a href="/2017/09/25/vue-crash/">Vue 速成(1) 从jQuery到Vue</a>
+          </li>
+        
+          <li>
             <a href="/2017/09/25/bootstrap4/">你该如何学习和使用Bootstrap</a>
           </li>
         
@@ -774,10 +988,6 @@ $ git tag -d tag_name
         
           <li>
             <a href="/2017/09/13/H5-File-API/">H5-File-API</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/13/H5-DROP-API/">H5-DROP-API</a>
           </li>
         
       </ul>

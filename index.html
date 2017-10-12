@@ -66,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-html-css-dashboard" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GraphQL-Queries" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/25/html-css-dashboard/" class="article-date">
-  <time datetime="2017-09-25T14:47:08.000Z" itemprop="datePublished">2017-09-25</time>
+    <a href="/2017/10/12/GraphQL-Queries/" class="article-date">
+  <time datetime="2017-10-12T13:31:45.000Z" itemprop="datePublished">2017-10-12</time>
 </a>
     
   </div>
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/html-css-dashboard/">html-css-dashboard</a>
+      <a class="article-title" href="/2017/10/12/GraphQL-Queries/">GraphQL-Queries</a>
     </h1>
   
 
@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/html-css-dashboard/" data-id="cj80piuox000n1m8z2xp7ll8m" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/12/GraphQL-Queries/" data-id="cj8oi6qma0004zw8zr8xtk1r9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,10 +102,10 @@
 
 
   
-    <article id="post-vue-crash" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hapi-intro" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/25/vue-crash/" class="article-date">
-  <time datetime="2017-09-25T14:46:09.000Z" itemprop="datePublished">2017-09-25</time>
+    <a href="/2017/10/12/hapi-intro/" class="article-date">
+  <time datetime="2017-10-11T17:21:12.000Z" itemprop="datePublished">2017-10-12</time>
 </a>
     
   </div>
@@ -116,7 +116,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/vue-crash/">Vue 速成(1) 从jQuery到Vue</a>
+      <a class="article-title" href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
     </h1>
   
 
@@ -124,121 +124,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>jQuery: write less, do more<br>&#x672C;&#x6559;&#x7A0B;&#x662F;Vue&#x901F;&#x6210;&#x7CFB;&#x5217;&#x7B2C;&#x4E00;&#x7BC7;, &#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528;Vue&#x5B8C;&#x6210;&#x90A3;&#x4E9B;&#x6211;&#x4EEC;&#x5E38;&#x7528;jQuery&#x505A;&#x7684;&#x4E8B;&#x60C5;.</p>
-<p><strong>Install:</strong><br>CDN:<br>        <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vue&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">        ```   </div><div class="line">or NPM:</div></pre></td></tr></table></figure></p>
-<pre><code>    $ npm install vue
-    <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Events</span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-&lt;div id=&quot;app&quot;&gt;
-  &lt;button @click=&quot;clickMe&quot;&gt;&lt;/button&gt;
-  &lt;input @change=&quot;changeText&quot; v-model=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Enter your name&quot; /&gt;
-&lt;/div&gt;
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-new Vue({
-    el: &apos;#app&apos;,
-    data: {
-      name:&apos;&apos;
-    },
-    methods: {
-        clickMe(){
-          alert(&apos;Hello&apos;);
-        },
-        changeText() {
-            alert(&apos;Your name is: &apos; + this.name);
-        }
-    }
-});
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Binding classes</span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-&lt;div id=&quot;app&quot;&gt;
-  &lt;div id=&quot;content&quot; :class=&quot;className&quot;&gt;
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  &lt;/div&gt;
-&lt;/div&gt;
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-new Vue({
-    el:&apos;#app&apos;,
-    data:{
-      className:&apos;red&apos;
-    }
-  });
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">CSS:</span></div></pre></td></tr></table></figure>
-
-.red{
-  color:red;
-}
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Update an element&apos;s content  </span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-&lt;div id=&quot;app&quot;&gt;
-  &lt;div v-html=&quot;content&quot; id=&quot;content&quot;&gt;&lt;/div&gt;
-  &lt;input type=&quot;text&quot; placeholder=&quot;input something&quot; v-model=&quot;content&quot; /&gt;
-&lt;/div&gt;
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-new Vue({
-  el: &apos;#app&apos;,
-  data:{
-    content:&apos;&apos;
-  }
-  })
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Toggle the visibility of an element</span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-&lt;div id=&quot;app&quot;&gt;
-  &lt;div id=&quot;content&quot; v-if=&quot;visible&quot;&gt;Lorem ipsum dolor sit amet, consectetur &lt;/div&gt;
-  &lt;button @click=&quot;visible = !visible&quot;&gt;&lt;/button&gt;
-&lt;/div&gt;
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-new Vue({
-  el: &apos;#app&apos;,
-  data: {
-   visible=true  
- }
-  })
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Building a select input from an array</span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-  &lt;div id=&quot;app&quot;&gt;
-    &lt;select&gt;
-      &lt;option v-for=&quot;item in items&quot;:value=&quot;item&quot;&gt;{{item}}&lt;/option&gt;
-    &lt;/select
-  &lt;/div&gt;
-  <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-new Vue({
-  el:&apos;#app&apos;,
-  data:{
-    country:[&apos;China&apos;, &apos;Korea&apos;, &apos;Japan&apos;]
-  }
-  })
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Making Ajax requests</span></span></div><div class="line">HTML:</div></pre></td></tr></table></figure>
-
-&lt;div id=&quot;app&quot;&gt;
-  &lt;h1&gt;List of users&lt;/h1&gt;
-  &lt;ul id=&quot;users&quot;&gt;
-    &lt;li v-for=&quot;user in users&quot;&gt;{{user.first_name}}&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/div&gt;
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">JAVASCRIPT:</span></div></pre></td></tr></table></figure>
-
-    new Vue({
-      el:&apos;#app&apos;,
-      data:{
-        users: null
-      },
-      mounted: function(){
-        this.$http.get(&apos;https://reqres.in/api/users).then(response=&gt;{
-          this.users = response.body.data
-          })
-      }
-      })
-    ```
-</code></pre>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/vue-crash/" data-id="cj80pka720000258zrjrhwbb4" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/12/hapi-intro/" data-id="cj8oi6qmp000ozw8zesn26k6v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -248,10 +138,10 @@ new Vue({
 
 
   
-    <article id="post-bootstrap4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-node-express-restful" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/25/bootstrap4/" class="article-date">
-  <time datetime="2017-09-25T09:04:37.000Z" itemprop="datePublished">2017-09-25</time>
+    <a href="/2017/10/12/node-express-restful/" class="article-date">
+  <time datetime="2017-10-11T17:20:30.000Z" itemprop="datePublished">2017-10-12</time>
 </a>
     
   </div>
@@ -262,7 +152,7 @@ new Vue({
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/bootstrap4/">你该如何学习和使用Bootstrap</a>
+      <a class="article-title" href="/2017/10/12/node-express-restful/">node-express-restful</a>
     </h1>
   
 
@@ -270,17 +160,117 @@ new Vue({
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&#x5F88;&#x591A;&#x4EBA;&#x5728;&#x5B66;&#x4E60;Boostrap&#x65F6;&#x90FD;&#x5B58;&#x5728;&#x56F0;&#x60D1;.&#x72B9;&#x8C6B;&#x8BE5;&#x4E0D;&#x8BE5;&#x4F7F;&#x7528;Bootstrap,&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;:<br>&#x201C;&#x4F7F;&#x7528;Bootstrap&#x505A;&#x7684;&#x7F51;&#x9875;&#x90FD;&#x4E00;&#x6837;, &#x6211;&#x4E00;&#x773C;&#x5C31;&#x80FD;&#x770B;&#x51FA;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x662F;&#x4E0D;&#x662F;&#x7528;Bootstrap&#x505A;&#x7684;&#x201D;. &#x53E6;&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;<br>&#x53E6;&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;:<br>&#x201D;&#x6211;&#x4EEC;&#x6CA1;&#x5FC5;&#x8981;&#x5C06;&#x65F6;&#x95F4;&#x6D6A;&#x8D39;&#x5728;&#x5B66;&#x4E60;Bootstrap&#x7684;&#x5927;&#x91CF;&#x7EC4;&#x4EF6;&#x4E0A;,&#x8FD9;&#x5E76;&#x4E0D;&#x80FD;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6C34;&#x5E73;.Bootstrap&#x53EA;&#x9002;&#x5408;&#x7528;&#x6765;&#x8BBE;&#x8BA1;&#x539F;&#x578B;(prototyping),&#x5B66;&#x4E60;Bootstrap&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x95F4;&#x4E0D;&#x5982;&#x7528;&#x6765;&#x770B;Boostrap&#x7684;&#x6E90;&#x7801;, &#x5B66;&#x4E60;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;. &#x8FD9;&#x6837;&#x624D;&#x4F1A;&#x63D0;&#x9AD8;&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x6C34;&#x5E73;.&#x201D;</p>
-<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8BE5;&#x5230;&#x5E95;&#x600E;&#x4E48;&#x5B66;&#x4E60;&#x548C;&#x4F7F;&#x7528;Bootstrap 4&#xFF1F; </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/12/node-express-restful/" data-id="cj8oi6qmu000vzw8z85beekxv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vanillajs-vs-framework" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/10/vanillajs-vs-framework/" class="article-date">
+  <time datetime="2017-10-10T08:01:30.000Z" itemprop="datePublished">2017-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/vanillajs-vs-framework/">Vanillajs vs. Framework</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Did you ever wonder, &#x201C;Which JS framework should I use?&#x201D;. There are so many, and all of them want to help you build awesome web applications. However, the biggest one is that people start using frameworks and libraries without even thinking about how to solve the problem without them. </p>
+<p><strong>Fing a balance between using Vanillajs and using a framework, more importantly, try to understand how it work while use a framework</strong></p>
+<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line"><span class="comment">// code</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&apos;DOMContentLoaded&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line"><span class="comment">// code</span></div><div class="line">})</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="string">&apos;a&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="comment">// code&#x2026;</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line">[].forEach.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;a&apos;</span>), <span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>{</div><div class="line">  el.addEventListener(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="comment">// code&#x2026;</span></div><div class="line">  })</div><div class="line">})</div></pre></td></tr></table></figure>
+<h2 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">var</span> divs = $(<span class="string">&apos;div&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;div&apos;</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">var</span> newDiv = $(<span class="string">&apos;&lt;div/&gt;&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> newDiv = <span class="built_in">document</span>.createElement(<span class="string">&apos;div&apos;</span>)</div></pre></td></tr></table></figure>
+<h2 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="string">&apos;img&apos;</span>).filter(<span class="string">&apos;:first&apos;</span>).attr(<span class="string">&apos;alt&apos;</span>, <span class="string">&apos;My image&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">&apos;img&apos;</span>).setAttribute(<span class="string">&apos;alt&apos;</span>, <span class="string">&apos;My image&apos;</span>)</div></pre></td></tr></table></figure>
+<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">newDiv.addClass(<span class="string">&apos;foo&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line">newDiv.classList.add(<span class="string">&apos;foo&apos;</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">newDiv.toggleClass(<span class="string">&apos;foo&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line">newDiv.classList.toggle(<span class="string">&apos;foo&apos;</span>)</div></pre></td></tr></table></figure>
+<h2 id="Manipulation"><a href="#Manipulation" class="headerlink" title="Manipulation"></a>Manipulation</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="string">&apos;body&apos;</span>).append($(<span class="string">&apos;&lt;p/&gt;&apos;</span>))</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createElement(<span class="string">&apos;p&apos;</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">var</span> clonedElement = $(<span class="string">&apos;#about&apos;</span>).clone()</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> clonedElement = <span class="built_in">document</span>.getElementById(<span class="string">&apos;about&apos;</span>).cloneNode(<span class="literal">true</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="string">&apos;#wrap&apos;</span>).empty()</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> wrap = <span class="built_in">document</span>.getElementById(<span class="string">&apos;wrap&apos;</span>)</div><div class="line"><span class="keyword">while</span>(wrap.firstChild) wrap.removeChild(wrap.firstChild)</div></pre></td></tr></table></figure>
+<h2 id="Transversing"><a href="#Transversing" class="headerlink" title="Transversing"></a>Transversing</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">var</span> parent = $(<span class="string">&apos;#about&apos;</span>).parent()</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">&apos;about&apos;</span>).parentNode</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">if</span>($(<span class="string">&apos;#wrap&apos;</span>).is(<span class="string">&apos;:empty&apos;</span>))</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">&apos;wrap&apos;</span>).hasChildNodes())</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line"><span class="keyword">var</span> nextElement = $(<span class="string">&apos;#wrap&apos;</span>).next()</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> nextElement = <span class="built_in">document</span>.getElementById(<span class="string">&apos;wrap&apos;</span>).nextSibling</div></pre></td></tr></table></figure>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$.get(<span class="string">&apos;//example.com&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> httpRequest = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">httpRequest.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">}</div><div class="line">httpRequest.open(<span class="string">&apos;GET&apos;</span>, url)</div><div class="line">httpRequest.send()</div></pre></td></tr></table></figure>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$.post(<span class="string">&apos;//example.com&apos;</span>, { <span class="attr">username</span>: username }, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="keyword">var</span> httpRequest = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">httpRequest.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">}</div><div class="line">httpRequest.setRequestHeader(<span class="string">&apos;Content-Type&apos;</span>, <span class="string">&apos;application/x-www-form-urlencoded&apos;</span>)</div><div class="line">httpRequest.open(<span class="string">&apos;POST&apos;</span>, url)</div><div class="line">httpRequest.send(<span class="string">&apos;username=&apos;</span> + <span class="built_in">encodeURIComponent</span>(username))</div></pre></td></tr></table></figure>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$.getJSON(<span class="string">&apos;//openexchangerates.org/latest.json?callback=?&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">})</div><div class="line"></div><div class="line"><span class="comment">// Vanilla</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">data</span>) </span>{</div><div class="line">  <span class="comment">// code</span></div><div class="line">}</div><div class="line"><span class="keyword">var</span> scr = <span class="built_in">document</span>.createElement(<span class="string">&apos;script&apos;</span>)</div><div class="line">scr.src = <span class="string">&apos;//openexchangerates.org/latest.json?callback=formatCurrency&apos;</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(scr)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/10/vanillajs-vs-framework/" data-id="cj8oi6qmv000xzw8zxbx2koi7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-authenticate-nodejs-jwt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/03/authenticate-nodejs-jwt/" class="article-date">
+  <time datetime="2017-10-02T18:25:44.000Z" itemprop="datePublished">2017-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/03/authenticate-nodejs-jwt/">Node with Token Based Authentication</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In this article, we are going to deal with something as follows:</p>
 <ol>
-<li>&#x638C;&#x63E1;&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;Bootstrap&#x7EC4;&#x4EF6;,&#x8BA9;Bootstrap&#x5E94;&#x7528;&#x5728;&#x771F;&#x5B9E;&#x7684;&#x4E16;&#x754C;&#x91CC;</li>
-<li>&#x638C;&#x63E1;Bootstrap&#x5E03;&#x5C40;&#x7CFB;&#x7EDF;,&#x9AD8;&#x6548;&#x7684;&#x5B9E;&#x73B0;&#x54CD;&#x5E94;&#x5F0F;&#x5E03;&#x5C40;</li>
+<li>Have routes</li>
+<li>A user will authenticate by passing in a name and a password and get back a token</li>
+<li>The user will store this token on their client-side and send it for every request</li>
+<li>we will validate this token and if all is good, pass back information in JSON format</li>
+</ol>
+<h3 id="Prepare-for-Happy-Hacking"><a href="#Prepare-for-Happy-Hacking" class="headerlink" title="Prepare for Happy Hacking"></a>Prepare for Happy Hacking</h3><ol>
+<li><p>Create a Project and Install dependencies</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mkdir node-token-jwt </span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> node-token-jwt</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm init</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm install express body-parser morgan mongoose jsonwebtoken --save</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Create a Mongoose model</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># node-token-jwt/models/user.js</div><div class="line"></div><div class="line"><span class="comment">// get an instance of mongoose and mongoose.Schema</span></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&apos;mongoose&apos;</span>);</div><div class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</div><div class="line"></div><div class="line"><span class="comment">// set up a mongoose model and pass it using module.exports</span></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">&apos;User&apos;</span>, <span class="keyword">new</span> Schema({ </div><div class="line">    name: <span class="built_in">String</span>, </div><div class="line">    password: <span class="built_in">String</span>, </div><div class="line">    admin: <span class="built_in">Boolean</span> </div><div class="line">}));</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create a Config File</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># node-token-jwt/config.js</span></div><div class="line"></div><div class="line"><span class="keyword">module</span>.exports = {</div><div class="line">    <span class="string">&apos;secret&apos;</span>: <span class="string">&apos;ilovescotchyscotch&apos;</span>,</div><div class="line">    <span class="string">&apos;database&apos;</span>: <span class="string">&apos;mongodb://noder:noderauth&amp;54;&apos;</span></div><div class="line"></div><div class="line">};</div></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/bootstrap4/" data-id="cj80piuow000m1m8zht2gnkh0" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/03/authenticate-nodejs-jwt/" data-id="cj8oi6qmk000fzw8zmgdezomw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,10 +280,10 @@ new Vue({
 
 
   
-    <article id="post-MAC使用技巧" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-json-web-tokens" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/15/MAC使用技巧/" class="article-date">
-  <time datetime="2017-09-14T20:21:00.000Z" itemprop="datePublished">2017-09-15</time>
+    <a href="/2017/10/02/json-web-tokens/" class="article-date">
+  <time datetime="2017-10-02T10:39:33.000Z" itemprop="datePublished">2017-10-02</time>
 </a>
     
   </div>
@@ -304,7 +294,7 @@ new Vue({
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/MAC使用技巧/">MAC使用技巧</a>
+      <a class="article-title" href="/2017/10/02/json-web-tokens/">Json Web Tokens</a>
     </h1>
   
 
@@ -312,173 +302,31 @@ new Vue({
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="&#x5E38;&#x7528;&#x529F;&#x80FD;"><a href="#&#x5E38;&#x7528;&#x529F;&#x80FD;" class="headerlink" title="&#x5E38;&#x7528;&#x529F;&#x80FD;"></a>&#x5E38;&#x7528;&#x529F;&#x80FD;</h2><table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>space</td>
-<td>&#x9884;&#x89C8;</td>
-</tr>
-<tr>
-<td>enter</td>
-<td>&#x91CD;&#x547D;&#x540D;</td>
-</tr>
-<tr>
-<td>command + shft + y</td>
-<td>&#x4FBF;&#x7B7E;</td>
-</tr>
-<tr>
-<td>F4</td>
-<td>&#x5E94;&#x7528;</td>
-</tr>
-<tr>
-<td>shift + command + delete</td>
-<td>&#x6E05;&#x7A7A;&#x56DE;&#x6536;&#x7AD9;</td>
-</tr>
-<tr>
-<td>command + h</td>
-<td>&#x9690;&#x85CF;&#x7A97;&#x53E3;</td>
-</tr>
-<tr>
-<td>command + q</td>
-<td>&#x9000;&#x51FA;</td>
-</tr>
-<tr>
-<td>command + w</td>
-<td>&#x5173;&#x95ED;</td>
-</tr>
-<tr>
-<td>command +  delete</td>
-<td>&#x5220;&#x9664;&#x6389;&#x8BE5;&#x6587;&#x4EF6;</td>
-</tr>
-<tr>
-<td>control + space</td>
-<td>&#x5207;&#x6362;&#x8F93;&#x5165;&#x6CD5;</td>
-</tr>
-<tr>
-<td>command + space</td>
-<td>spotlight</td>
-</tr>
-<tr>
-<td>command + k</td>
-<td>&#x6E05;&#x5C4F;</td>
-</tr>
-<tr>
-<td>ctrl + w</td>
-<td>&#x6E05;&#x5F53;&#x524D;&#x884C;</td>
-</tr>
-<tr>
-<td>ctrl + c</td>
-<td>&#x6253;&#x65AD;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x6D4F;&#x89C8;&#x5668;"><a href="#&#x6D4F;&#x89C8;&#x5668;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;"></a>&#x6D4F;&#x89C8;&#x5668;</h2><table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Command + R</td>
-<td>&#x5237;&#x65B0;</td>
-</tr>
-<tr>
-<td>alt + command + i</td>
-<td>chrome developer tools</td>
-</tr>
-<tr>
-<td>command + t</td>
-<td>&#x65B0;&#x6807;&#x7B7E;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x7F16;&#x8F91;&#x4E0E;&#x79FB;&#x52A8;"><a href="#&#x7F16;&#x8F91;&#x4E0E;&#x79FB;&#x52A8;" class="headerlink" title="&#x7F16;&#x8F91;&#x4E0E;&#x79FB;&#x52A8;"></a>&#x7F16;&#x8F91;&#x4E0E;&#x79FB;&#x52A8;</h2><table>
-<thead>
-<tr>
-<th>command</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command + delete</td>
-<td>&#x5220;&#x9664;&#x5149;&#x6807;&#x4E4B;&#x524D;&#x6574;&#x884C;</td>
-</tr>
-<tr>
-<td>command + up/down/left/right</td>
-<td>&#x9996;/&#x5C3E;/&#x884C;&#x9996;/&#x884C;&#x672B;</td>
-</tr>
-<tr>
-<td>alt + left/right</td>
-<td>&#x8DE8;&#x5355;&#x8BCD;&#x79FB;&#x52A8; &#x5DE6;/&#x53F3;</td>
-</tr>
-<tr>
-<td>fn+delete</td>
-<td>&#x5220;&#x9664;&#x5149;&#x6807;&#x4E4B;&#x540E;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x622A;&#x56FE;"><a href="#&#x622A;&#x56FE;" class="headerlink" title="&#x622A;&#x56FE;"></a>&#x622A;&#x56FE;</h2><table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>shift + command +3</td>
-<td>&#x622A;&#x53D6;&#x5F53;&#x524D;&#x6574;&#x4F53;&#x753B;&#x5230;&#x684C;&#x9762;</td>
-</tr>
-<tr>
-<td>shift + command + 4</td>
-<td>&#x9F20;&#x6807;&#x622A;&#x56FE;&#x5230;&#x684C;&#x9762;</td>
-</tr>
-<tr>
-<td>shift + command + 4</td>
-<td>&#x4F7F;&#x7528;&#x7A7A;&#x683C;&#x952E; &#x622A;&#x53D6;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x5230;&#x684C;&#x9762;</td>
-</tr>
-<tr>
-<td></td>
-<td>+ ctrl &#x622A;&#x56FE;&#x590D;&#x5236;&#x5230;&#x526A;&#x8D34;&#x677F;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x7FFB;&#x8BD1;&#x4E0E;&#x53D1;&#x97F3;"><a href="#&#x7FFB;&#x8BD1;&#x4E0E;&#x53D1;&#x97F3;" class="headerlink" title="&#x7FFB;&#x8BD1;&#x4E0E;&#x53D1;&#x97F3;"></a>&#x7FFB;&#x8BD1;&#x4E0E;&#x53D1;&#x97F3;</h2><table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>say</td>
-<td>&#x53D1;&#x97F3;</td>
-</tr>
-<tr>
-<td>option + esc</td>
-<td>&#x53D1;&#x97F3;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x672C;</td>
-</tr>
-<tr>
-<td>ctrl + command + d</td>
-<td>&#x67E5;&#x8BE2;&#x9009;&#x4E2D;&#x6587;&#x672C;</td>
-</tr>
-</tbody>
-</table>
+        <p>Token based authentication is prominent everywhere on the web nowadays. With most every web company using an API, tokens are the best way to handle authentication for multiple users.</p>
+<h4 id="How-Token-Based-Works"><a href="#How-Token-Based-Works" class="headerlink" title="How Token Based Works?"></a>How Token Based Works?</h4><ol>
+<li>User Requests Access with Username / Password</li>
+<li>Application validates credentials</li>
+<li>Application provides a signed token to the client</li>
+<li>Client stores that token and sends it along with every request</li>
+<li>Server verifies token and responds with data</li>
+</ol>
+<p><strong>Every single request will require the token</strong>. This token should be sent in the HTTP header so that we keep with the idea of stateless HTTP requests. Set server to accept requests from all domains using <code>Access-Control-Allow-Origin: *</code></p>
+<h4 id="The-Benefits-of-Tokens"><a href="#The-Benefits-of-Tokens" class="headerlink" title="The Benefits of Tokens"></a>The Benefits of Tokens</h4><ol>
+<li>Stateless and Scalable</li>
+<li>Security</li>
+<li>Extensibility</li>
+<li>Multiple Platforms and Domains</li>
+<li>Standards Based</li>
+</ol>
+<h4 id="Json-Web-Token-JWT"><a href="#Json-Web-Token-JWT" class="headerlink" title="Json Web Token(JWT)"></a>Json Web Token(JWT)</h4><p>JWT can berak down into 3 part: <strong>header</strong>, <strong>playload</strong> and <strong>signature</strong></p>
+<h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><p>The header carries 2 parts:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>, # declaring the type</div><div class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>  # the hashing algorithm <span class="keyword">to</span> use</div><div class="line">}</div><div class="line"></div><div class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9  # base64encode</div></pre></td></tr></table></figure></p>
+<h5 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h5><p>Payload also called JWT Claims, this is where we will put the information that we want to transmit and other information about our token. There are multiple claims that we can provide. This includes registered claim names, public claim names, and private claim names.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">{</span></div><div class="line"><span class="attr">  &quot;iss&quot;:</span> <span class="string">github.com&quot;,</span>    <span class="comment"># registered claims</span></div><div class="line"><span class="attr">  &quot;exp&quot;:</span> <span class="number">1300819380</span><span class="string">,</span>        <span class="comment"># registered claims</span></div><div class="line"><span class="attr">  &quot;name&quot;:</span> <span class="string">&quot;Chris Sevilleja&quot;</span><span class="string">,</span>    <span class="comment"># public claims</span></div><div class="line"><span class="attr">  &quot;admin&quot;:</span> <span class="literal">true</span>         <span class="comment"># public claims</span></div><div class="line"><span class="string">}</span></div><div class="line"></div><div class="line"><span class="string">eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0</span>  <span class="comment"># base64encode</span></div></pre></td></tr></table></figure></p>
+<h5 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h5><p>This signature is made up of a hash of the three components: the header, the payload and secret.<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var encodedString = <span class="keyword">base64UrlEncode(header) </span>+ <span class="string">&quot;.&quot;</span> + <span class="keyword">base64UrlEncode(payload);</span></div><div class="line"><span class="keyword"></span></div><div class="line"><span class="keyword">HMACSHA256(encodedString, </span><span class="string">&apos;secret&apos;</span>)<span class="comment">;</span></div><div class="line"></div><div class="line"><span class="comment"># full JWT</span></div><div class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0.<span class="number">03</span>f<span class="number">329983b</span><span class="number">86f</span>7d9a<span class="number">9f</span><span class="number">5f</span>ef85305880101d5e302afafa20154d<span class="number">094b</span><span class="number">229f</span>75773</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/15/MAC使用技巧/" data-id="cj80piuoo000d1m8z4q1s08ms" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/02/json-web-tokens/" data-id="cj8oi6qmr000qzw8zyxtoo5st" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,10 +336,10 @@ new Vue({
 
 
   
-    <article id="post-H5-File-API" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-h5-common-api" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/13/H5-File-API/" class="article-date">
-  <time datetime="2017-09-12T18:36:30.000Z" itemprop="datePublished">2017-09-13</time>
+    <a href="/2017/10/01/h5-common-api/" class="article-date">
+  <time datetime="2017-10-01T12:09:16.000Z" itemprop="datePublished">2017-10-01</time>
 </a>
     
   </div>
@@ -502,7 +350,68 @@ new Vue({
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-File-API/">H5-File-API</a>
+      <a class="article-title" href="/2017/10/01/h5-common-api/">H5 Common API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Prepare-for-Happy-Hacking"><a href="#Prepare-for-Happy-Hacking" class="headerlink" title="Prepare for Happy Hacking"></a>Prepare for Happy Hacking</h2><h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><p>HTML:</p>
+<ul>
+<li>create text: <code>{}</code></li>
+<li>count items: <code>$</code></li>
+<li>ciblings: <code>+</code></li>
+<li>grouping: <code>()</code></li>
+<li>climb-up: <code>^</code></li>
+<li>child: <code>&gt;</code></li>
+<li>attributes: <code>[]</code></li>
+<li>multiplication: <code>*</code></li>
+</ul>
+<p>CSS Abbreviations:</p>
+<ul>
+<li>padding: <code>pd</code></li>
+<li>margin: <code>mg</code></li>
+</ul>
+<h2 id="Form-API"><a href="#Form-API" class="headerlink" title="Form API"></a>Form API</h2><p><code>&lt;input type=&quot;email&quot; /&gt;</code><br><code>&lt;input type=&quot;url&quot; /&gt;</code><br><code>&lt;input type=&quot;number&quot; /&gt;</code><br><code>&lt;input type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; value=&quot;0&quot;/&gt;</code><br><code>&lt;input type=&quot;date&quot; /&gt;</code><br><code>&lt;input type=&quot;search&quot; /&gt;</code><br><code>&lt;input type=&quot;color&quot; /&gt;</code><br><code>&lt;input type=&quot;file&quot; /&gt;</code></p>
+<h2 id="File-API"><a href="#File-API" class="headerlink" title="File API"></a>File API</h2><h3 id="1-Selecting-Files"><a href="#1-Selecting-Files" class="headerlink" title="1. Selecting Files"></a>1. Selecting Files</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="VMMPER" data-default-tab="js,result" data-user="evle" data-embed-version="2" data-pen-title="File API" class="codepen">See the Pen <a href="https://codepen.io/evle/pen/VMMPER/" target="_blank" rel="external">File API</a> by evle (<a href="https://codepen.io/evle" target="_blank" rel="external">@evle</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script> 
+
+<h3 id="2-Rendering-Files"><a href="#2-Rendering-Files" class="headerlink" title="2. Rendering Files"></a>2. Rendering Files</h3><p></p><p data-height="300" data-theme-id="31454" data-slug-hash="jGGBzz" data-default-tab="js,result" data-user="evle" data-embed-version="2" data-pen-title="HTML5 Read File" class="codepen">See the Pen <a href="https://codepen.io/evle/pen/jGGBzz/" target="_blank" rel="external">HTML5 Read File</a> by evle (<a href="https://codepen.io/evle" target="_blank" rel="external">@evle</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="Drop-API"><a href="#Drop-API" class="headerlink" title="Drop API"></a>Drop API</h2><h2 id="Notification-API"><a href="#Notification-API" class="headerlink" title="Notification API"></a>Notification API</h2><h2 id="Web-Storage"><a href="#Web-Storage" class="headerlink" title="Web Storage"></a>Web Storage</h2><h2 id="communication-API"><a href="#communication-API" class="headerlink" title="communication API"></a>communication API</h2><p>##Web work / web SQL </p>
+<h2 id="location-API"><a href="#location-API" class="headerlink" title="location API"></a>location API</h2><h2 id="Histroy-API"><a href="#Histroy-API" class="headerlink" title="Histroy API"></a>Histroy API</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/01/h5-common-api/" data-id="cj8oi6qmo000lzw8zrt97b73y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-angular4-4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/01/angular4-4/" class="article-date">
+  <time datetime="2017-09-30T18:11:05.000Z" itemprop="datePublished">2017-10-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/01/angular4-4/">Learn Angular 4 from Scratch(4)</a>
     </h1>
   
 
@@ -514,7 +423,7 @@ new Vue({
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-File-API/" data-id="cj80piuoj00061m8zgimju472" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-4/" data-id="cj8oi6qmk000ezw8zcsfkl4kx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,10 +433,10 @@ new Vue({
 
 
   
-    <article id="post-H5-DROP-API" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-angular4-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/13/H5-DROP-API/" class="article-date">
-  <time datetime="2017-09-12T18:35:55.000Z" itemprop="datePublished">2017-09-13</time>
+    <a href="/2017/10/01/angular4-3/" class="article-date">
+  <time datetime="2017-09-30T18:11:02.000Z" itemprop="datePublished">2017-10-01</time>
 </a>
     
   </div>
@@ -538,7 +447,7 @@ new Vue({
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-DROP-API/">H5-DROP-API</a>
+      <a class="article-title" href="/2017/10/01/angular4-3/">Learn Angular 4 from Scratch(3)</a>
     </h1>
   
 
@@ -550,7 +459,7 @@ new Vue({
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-DROP-API/" data-id="cj80piuog00031m8zm1of69wq" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-3/" data-id="cj8oi6qmj000dzw8znrtidwah" class="article-share-link">Share</a>
       
       
     </footer>
@@ -560,10 +469,10 @@ new Vue({
 
 
   
-    <article id="post-H5-Notification-API" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-angular4-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/13/H5-Notification-API/" class="article-date">
-  <time datetime="2017-09-12T18:35:19.000Z" itemprop="datePublished">2017-09-13</time>
+    <a href="/2017/10/01/angular4-2/" class="article-date">
+  <time datetime="2017-09-30T18:10:58.000Z" itemprop="datePublished">2017-10-01</time>
 </a>
     
   </div>
@@ -574,7 +483,7 @@ new Vue({
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-Notification-API/">H5-Notification-API</a>
+      <a class="article-title" href="/2017/10/01/angular4-2/">Learn Angular 4 from Scratch(2)</a>
     </h1>
   
 
@@ -586,115 +495,7 @@ new Vue({
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-Notification-API/" data-id="cj80piuok00081m8z8i8pyxpo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-H5-WebStorage" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/13/H5-WebStorage/" class="article-date">
-  <time datetime="2017-09-12T18:33:57.000Z" itemprop="datePublished">2017-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-WebStorage/">H5-WebStorage</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-WebStorage/" data-id="cj80piuom000b1m8zw92skks3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-H5-Communication-API" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/13/H5-Communication-API/" class="article-date">
-  <time datetime="2017-09-12T18:33:30.000Z" itemprop="datePublished">2017-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-Communication-API/">H5-Communication-API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-Communication-API/" data-id="cj80piuoh00041m8z25g2bm9f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-H5-Web-SQL-API" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/13/H5-Web-SQL-API/" class="article-date">
-  <time datetime="2017-09-12T18:33:15.000Z" itemprop="datePublished">2017-09-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/13/H5-Web-SQL-API/">H5-Web-SQL-API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/13/H5-Web-SQL-API/" data-id="cj80piuol00091m8z7t8qxb2n" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-2/" data-id="cj8oi6qmf0009zw8z3nyjrx61" class="article-share-link">Share</a>
       
       
     </footer>
@@ -707,7 +508,7 @@ new Vue({
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -725,7 +526,7 @@ new Vue({
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
     </div>
   </div>
 
@@ -738,23 +539,23 @@ new Vue({
       <ul>
         
           <li>
-            <a href="/2017/09/25/html-css-dashboard/">html-css-dashboard</a>
+            <a href="/2017/10/12/GraphQL-Queries/">GraphQL-Queries</a>
           </li>
         
           <li>
-            <a href="/2017/09/25/vue-crash/">Vue 速成(1) 从jQuery到Vue</a>
+            <a href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
           </li>
         
           <li>
-            <a href="/2017/09/25/bootstrap4/">你该如何学习和使用Bootstrap</a>
+            <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
           </li>
         
           <li>
-            <a href="/2017/09/15/MAC使用技巧/">MAC使用技巧</a>
+            <a href="/2017/10/10/vanillajs-vs-framework/">Vanillajs vs. Framework</a>
           </li>
         
           <li>
-            <a href="/2017/09/13/H5-File-API/">H5-File-API</a>
+            <a href="/2017/10/03/authenticate-nodejs-jwt/">Node with Token Based Authentication</a>
           </li>
         
       </ul>

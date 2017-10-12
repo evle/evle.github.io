@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node with Token Based Authentication | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In this article, we are going to deal with something as follows:  Have routes A user will authenticate by passing in a name and a password and get back a token The user will store this token on their">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node with Token Based Authentication">
+<meta property="og:url" content="http://evleblog.com/2017/10/03/authenticate-nodejs-jwt/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="In this article, we are going to deal with something as follows:  Have routes A user will authenticate by passing in a name and a password and get back a token The user will store this token on their">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-02T18:53:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node with Token Based Authentication">
+<meta name="twitter:description" content="In this article, we are going to deal with something as follows:  Have routes A user will authenticate by passing in a name and a password and get back a token The user will store this token on their">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-authenticate-nodejs-jwt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/03/authenticate-nodejs-jwt/" class="article-date">
+  <time datetime="2017-10-02T18:25:44.000Z" itemprop="datePublished">2017-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node with Token Based Authentication
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In this article, we are going to deal with something as follows:</p>
+<ol>
+<li>Have routes</li>
+<li>A user will authenticate by passing in a name and a password and get back a token</li>
+<li>The user will store this token on their client-side and send it for every request</li>
+<li>we will validate this token and if all is good, pass back information in JSON format</li>
+</ol>
+<h3 id="Prepare-for-Happy-Hacking"><a href="#Prepare-for-Happy-Hacking" class="headerlink" title="Prepare for Happy Hacking"></a>Prepare for Happy Hacking</h3><ol>
+<li><p>Create a Project and Install dependencies</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mkdir node-token-jwt </span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> node-token-jwt</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm init</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm install express body-parser morgan mongoose jsonwebtoken --save</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Create a Mongoose model</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># node-token-jwt/models/user.js</div><div class="line"></div><div class="line"><span class="comment">// get an instance of mongoose and mongoose.Schema</span></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">&apos;mongoose&apos;</span>);</div><div class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</div><div class="line"></div><div class="line"><span class="comment">// set up a mongoose model and pass it using module.exports</span></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">&apos;User&apos;</span>, <span class="keyword">new</span> Schema({ </div><div class="line">    name: <span class="built_in">String</span>, </div><div class="line">    password: <span class="built_in">String</span>, </div><div class="line">    admin: <span class="built_in">Boolean</span> </div><div class="line">}));</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create a Config File</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># node-token-jwt/config.js</span></div><div class="line"></div><div class="line"><span class="keyword">module</span>.exports = {</div><div class="line">    <span class="string">&apos;secret&apos;</span>: <span class="string">&apos;ilovescotchyscotch&apos;</span>,</div><div class="line">    <span class="string">&apos;database&apos;</span>: <span class="string">&apos;mongodb://noder:noderauth&amp;54;&apos;</span></div><div class="line"></div><div class="line">};</div></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/03/authenticate-nodejs-jwt/" data-id="cj8oi6qmk000fzw8zmgdezomw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/10/vanillajs-vs-framework/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vanillajs vs. Framework
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/02/json-web-tokens/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Json Web Tokens</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/12/GraphQL-Queries/">GraphQL-Queries</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/10/vanillajs-vs-framework/">Vanillajs vs. Framework</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/03/authenticate-nodejs-jwt/">Node with Token Based Authentication</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Json Web Tokens | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Token based authentication is prominent everywhere on the web nowadays. With most every web company using an API, tokens are the best way to handle authentication for multiple users. How Token Based W">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Json Web Tokens">
+<meta property="og:url" content="http://evleblog.com/2017/10/02/json-web-tokens/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="Token based authentication is prominent everywhere on the web nowadays. With most every web company using an API, tokens are the best way to handle authentication for multiple users. How Token Based W">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-02T18:23:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Json Web Tokens">
+<meta name="twitter:description" content="Token based authentication is prominent everywhere on the web nowadays. With most every web company using an API, tokens are the best way to handle authentication for multiple users. How Token Based W">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-json-web-tokens" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/02/json-web-tokens/" class="article-date">
+  <time datetime="2017-10-02T10:39:33.000Z" itemprop="datePublished">2017-10-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Json Web Tokens
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Token based authentication is prominent everywhere on the web nowadays. With most every web company using an API, tokens are the best way to handle authentication for multiple users.</p>
+<h4 id="How-Token-Based-Works"><a href="#How-Token-Based-Works" class="headerlink" title="How Token Based Works?"></a>How Token Based Works?</h4><ol>
+<li>User Requests Access with Username / Password</li>
+<li>Application validates credentials</li>
+<li>Application provides a signed token to the client</li>
+<li>Client stores that token and sends it along with every request</li>
+<li>Server verifies token and responds with data</li>
+</ol>
+<p><strong>Every single request will require the token</strong>. This token should be sent in the HTTP header so that we keep with the idea of stateless HTTP requests. Set server to accept requests from all domains using <code>Access-Control-Allow-Origin: *</code></p>
+<h4 id="The-Benefits-of-Tokens"><a href="#The-Benefits-of-Tokens" class="headerlink" title="The Benefits of Tokens"></a>The Benefits of Tokens</h4><ol>
+<li>Stateless and Scalable</li>
+<li>Security</li>
+<li>Extensibility</li>
+<li>Multiple Platforms and Domains</li>
+<li>Standards Based</li>
+</ol>
+<h4 id="Json-Web-Token-JWT"><a href="#Json-Web-Token-JWT" class="headerlink" title="Json Web Token(JWT)"></a>Json Web Token(JWT)</h4><p>JWT can berak down into 3 part: <strong>header</strong>, <strong>playload</strong> and <strong>signature</strong></p>
+<h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><p>The header carries 2 parts:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>, # declaring the type</div><div class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>  # the hashing algorithm <span class="keyword">to</span> use</div><div class="line">}</div><div class="line"></div><div class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9  # base64encode</div></pre></td></tr></table></figure></p>
+<h5 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h5><p>Payload also called JWT Claims, this is where we will put the information that we want to transmit and other information about our token. There are multiple claims that we can provide. This includes registered claim names, public claim names, and private claim names.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">{</span></div><div class="line"><span class="attr">  &quot;iss&quot;:</span> <span class="string">github.com&quot;,</span>    <span class="comment"># registered claims</span></div><div class="line"><span class="attr">  &quot;exp&quot;:</span> <span class="number">1300819380</span><span class="string">,</span>        <span class="comment"># registered claims</span></div><div class="line"><span class="attr">  &quot;name&quot;:</span> <span class="string">&quot;Chris Sevilleja&quot;</span><span class="string">,</span>    <span class="comment"># public claims</span></div><div class="line"><span class="attr">  &quot;admin&quot;:</span> <span class="literal">true</span>         <span class="comment"># public claims</span></div><div class="line"><span class="string">}</span></div><div class="line"></div><div class="line"><span class="string">eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0</span>  <span class="comment"># base64encode</span></div></pre></td></tr></table></figure></p>
+<h5 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h5><p>This signature is made up of a hash of the three components: the header, the payload and secret.<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var encodedString = <span class="keyword">base64UrlEncode(header) </span>+ <span class="string">&quot;.&quot;</span> + <span class="keyword">base64UrlEncode(payload);</span></div><div class="line"><span class="keyword"></span></div><div class="line"><span class="keyword">HMACSHA256(encodedString, </span><span class="string">&apos;secret&apos;</span>)<span class="comment">;</span></div><div class="line"></div><div class="line"><span class="comment"># full JWT</span></div><div class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0.<span class="number">03</span>f<span class="number">329983b</span><span class="number">86f</span>7d9a<span class="number">9f</span><span class="number">5f</span>ef85305880101d5e302afafa20154d<span class="number">094b</span><span class="number">229f</span>75773</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/02/json-web-tokens/" data-id="cj8oi6qmr000qzw8zyxtoo5st" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/03/authenticate-nodejs-jwt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node with Token Based Authentication
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/01/h5-common-api/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">H5 Common API</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/12/GraphQL-Queries/">GraphQL-Queries</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/10/vanillajs-vs-framework/">Vanillajs vs. Framework</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/03/authenticate-nodejs-jwt/">Node with Token Based Authentication</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

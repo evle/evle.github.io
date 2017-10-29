@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Evle&#39;s Blog">
 <meta property="og:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-06T06:19:40.000Z">
+<meta property="og:updated_time" content="2017-10-29T08:03:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learn Git &amp; Github 你要知道的没那么多">
 <meta name="twitter:description" content="Git&amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x4E3B;&amp;#x6D41;&amp;#x7684;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&amp;#x7CFB;&amp;#x7EDF;, &amp;#x4E0B;&amp;#x8F7D;&amp;#x53CA;&amp;#x5B89;&amp;#x88C5;Git&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x8FDB;">
@@ -122,37 +122,37 @@ $ git blame filename
 # &#x6587;&#x4EF6;&#x6062;&#x590D;
 </code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;&#x65F6;&#x6709;2&#x6B65;&#xFF0C;&#x5148;&#x4F7F;&#x7528; <code>git add filename</code> &#x63D0;&#x4EA4;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x6682;&#x5B58;&#x533A;, &#x7136;&#x540E;&#x4F7F;&#x7528; <code>git commit -m &quot;message&quot;</code> &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;. &#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x786E;&#x4FDD; <strong>&#x201C;message&#x201D;</strong> &#x6709;&#x610F;&#x4E49;.  </p>
 <h2 id="&#x7248;&#x672C;&#x5207;&#x6362;"><a href="#&#x7248;&#x672C;&#x5207;&#x6362;" class="headerlink" title="&#x7248;&#x672C;&#x5207;&#x6362;"></a>&#x7248;&#x672C;&#x5207;&#x6362;</h2><pre><code># &#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)
-git log
+$ git log
 
 &#xFF03;&#x5207;&#x6362;&#x7248;&#x672C;
-git reset --hard commit_id  # &#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;commit_id&#x7684;&#x7248;&#x672C;
-git reset --hard HEAD^      # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
-git reset --hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
+$ git reset --hard commit_id  # &#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;commit_id&#x7684;&#x7248;&#x672C;
+$ git reset --hard HEAD^      # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
+$ git reset --hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
 
 # &#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;
-git reflog  
+$ git reflog  
 </code></pre><p>&#x5F53;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x65F6;, &#x56DE;&#x9000;&#x524D;&#x7684;&#x7248;&#x672C;&#x7684;commit_id&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>git log</code> &#x67E5;&#x8BE2;, &#x53EA;&#x80FD;&#x901A;&#x8FC7; <code>git reflog</code> &#x67E5;&#x8BE2;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;commit_id.<br>e.g. &#x5F53;&#x524D;&#x7248;&#x672C;B, &#x4F7F;&#x7528; <code>git reset --hard commit_id</code> &#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;A. &#x5728;&#x7248;&#x672C;A&#x4E2D;, &#x518D;&#x60F3;&#x56DE;&#x9000;&#x5230;&#x7248;&#x672C;B&#x65F6;, &#x65E0;&#x6CD5;&#x4F7F;&#x7528; <code>git log</code> &#x83B7;&#x53D6;&#x7248;&#x672C;B&#x7684; <strong>commit_id</strong> . &#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>git reflog</code> &#x83B7;&#x53D6;.</p>
 <h2 id="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"><a href="#&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;" class="headerlink" title="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"></a>&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</h2><pre><code># &#x64A4;&#x9500;&#x5728;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x7684;&#x63D0;&#x4EA4; (&#x5DF2; add &#x672A; commit)
-git reset HEAD filename
-git checkout filename
+$ git reset HEAD filename
+$ git checkout filename
 
 # &#x64A4;&#x9500;&#x63D0;&#x4EA4;
-git revert HEAD # &#x64A4;&#x9500;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;
-git revert commit_id
+$ git revert HEAD # &#x64A4;&#x9500;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;
+$ git revert commit_id
 
 # &#x67E5;&#x770B;&#x67D0;&#x6B21;&#x63D0;&#x4EA4;&#x4FEE;&#x6539;&#x7684;&#x5185;&#x5BB9;
 $ git show commit_id
 
 # &#x5220;&#x9664;&#x88AB; tracked &#x7684;&#x6587;&#x4EF6;
-rm filename
-git status
+$ rm filename
+$ git status
 
 # -----&gt; &#x6062;&#x590D;
-git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539; or &#x6062;&#x590D;&#x8BEF;&#x5220;&#x6587;&#x4EF6;
+$ git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539; or &#x6062;&#x590D;&#x8BEF;&#x5220;&#x6587;&#x4EF6;
 
 # or ----&gt; &#x786E;&#x5B9A;&#x5220;&#x9664;
-git rm filename  # &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x6587;&#x4EF6;
-git commit -m &quot;message&quot;
+$ git rm filename  # &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x6587;&#x4EF6;
+$ git commit -m &quot;message&quot;
 </code></pre><p>&#x8BEF;&#x5220;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>git checkout -- filename</code> &#x6062;&#x590D;.</p>
 <h1 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h1><h2 id="&#x5E38;&#x7528;&#x5206;&#x652F;"><a href="#&#x5E38;&#x7528;&#x5206;&#x652F;" class="headerlink" title="&#x5E38;&#x7528;&#x5206;&#x652F;"></a>&#x5E38;&#x7528;&#x5206;&#x652F;</h2><ul>
 <li>master branch:</li>

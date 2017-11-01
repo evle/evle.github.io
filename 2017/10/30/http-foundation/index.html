@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTTP Foundation | Evle&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP Foundation">
+<meta property="og:url" content="http://evleblog.com/2017/10/30/http-foundation/index.html">
+<meta property="og:site_name" content="Evle&#39;s Blog">
+<meta property="og:description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-01T06:01:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP Foundation">
+<meta name="twitter:description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+  
+    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Evle&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Open Your Mind</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-http-foundation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/30/http-foundation/" class="article-date">
+  <time datetime="2017-10-30T14:35:56.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTTP Foundation
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The sercet of programing is &#x201C;practice&#x201D;<br>Practice is a habit.</p>
+<p>Practice is a routine.</p>
+<p>Practice does not need to remember.</p>
+<p>Practice comes by practicing.</p>
+<p>Practice needs dedication and commitment.</p>
+<h2 id="Basic-Features"><a href="#Basic-Features" class="headerlink" title="Basic Features"></a>Basic Features</h2><ol>
+<li>HTTP is connectionless<br>The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.</li>
+<li>HTTP is media independent<br>It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.</li>
+<li>HTTP is stateless<br>As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.</li>
+</ol>
+<h2 id="HTTP-Parameters"><a href="#HTTP-Parameters" class="headerlink" title="HTTP Parameters"></a>HTTP Parameters</h2><ul>
+<li>HTTP Version: <code>HTTP/1.0</code></li>
+<li>Uniform Resource Identifiers: <code>http://ABC.com/%7Esmith/home.html</code></li>
+<li>Date/Time Formats: <code>Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123</code></li>
+<li>Character Sets: <code>US-ASCII</code></li>
+<li>Content Encodings: <code>Accept-encoding: gzip</code></li>
+<li>Media Types: <code>Accept: image/gif</code></li>
+<li>Language Tags: <code>en, en-US, en-cockney, i-cherokee, x-pig-latin</code></li>
+</ul>
+<h2 id="HTTP-Message"><a href="#HTTP-Message" class="headerlink" title="HTTP Message"></a>HTTP Message</h2><p>The generic message format consists of the following four items</p>
+<ol>
+<li>A Start-line</li>
+<li>Header field</li>
+<li>An empty line</li>
+<li>Message-body</li>
+</ol>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><p>HTTP request to fetch <strong>hello.html</strong> page from the web server running on tutorialspoint.com<br><strong>Client request</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> <span class="string">/hello.htm</span> HTTP/1.1</div><div class="line"><span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</div><div class="line"><span class="attribute">Host</span>: www.tutorialspoint.com</div><div class="line"><span class="attribute">Accept-Language</span>: en-us</div><div class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</div><div class="line"><span class="attribute">Connection</span>: Keep-Alive</div></pre></td></tr></table></figure></p>
+<p><strong>Server response</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Date</span>: Mon, 27 Jul 2009 12:28:53 GMT</div><div class="line"><span class="attribute">Server</span>: Apache/2.2.14 (Win32)</div><div class="line"><span class="attribute">Last-Modified</span>: Wed, 22 Jul 2009 19:15:56 GMT</div><div class="line"><span class="attribute">Content-Length</span>: 88</div><div class="line"><span class="attribute">Content-Type</span>: text/html</div><div class="line"><span class="attribute">Connection</span>: Closed</div></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/30/http-foundation/" data-id="cj9gmwrwq000hpm35pubqcvsr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/25/learn-meteor-by-building-apps/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">learn-meteor-by-building-apps</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/30/http-foundation/">HTTP Foundation</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/25/learn-meteor-by-building-apps/">learn-meteor-by-building-apps</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/GraphQL-Queries/">GraphQL Queries</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Sangwoo Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
+  
+</body>
+</html>

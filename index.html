@@ -66,6 +66,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-http-foundation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/30/http-foundation/" class="article-date">
+  <time datetime="2017-10-30T14:35:56.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/http-foundation/">HTTP Foundation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The sercet of programing is &#x201C;practice&#x201D;<br>Practice is a habit.</p>
+<p>Practice is a routine.</p>
+<p>Practice does not need to remember.</p>
+<p>Practice comes by practicing.</p>
+<p>Practice needs dedication and commitment.</p>
+<h2 id="Basic-Features"><a href="#Basic-Features" class="headerlink" title="Basic Features"></a>Basic Features</h2><ol>
+<li>HTTP is connectionless<br>The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.</li>
+<li>HTTP is media independent<br>It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.</li>
+<li>HTTP is stateless<br>As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.</li>
+</ol>
+<h2 id="HTTP-Parameters"><a href="#HTTP-Parameters" class="headerlink" title="HTTP Parameters"></a>HTTP Parameters</h2><ul>
+<li>HTTP Version: <code>HTTP/1.0</code></li>
+<li>Uniform Resource Identifiers: <code>http://ABC.com/%7Esmith/home.html</code></li>
+<li>Date/Time Formats: <code>Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123</code></li>
+<li>Character Sets: <code>US-ASCII</code></li>
+<li>Content Encodings: <code>Accept-encoding: gzip</code></li>
+<li>Media Types: <code>Accept: image/gif</code></li>
+<li>Language Tags: <code>en, en-US, en-cockney, i-cherokee, x-pig-latin</code></li>
+</ul>
+<h2 id="HTTP-Message"><a href="#HTTP-Message" class="headerlink" title="HTTP Message"></a>HTTP Message</h2><p>The generic message format consists of the following four items</p>
+<ol>
+<li>A Start-line</li>
+<li>Header field</li>
+<li>An empty line</li>
+<li>Message-body</li>
+</ol>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><p>HTTP request to fetch <strong>hello.html</strong> page from the web server running on tutorialspoint.com<br><strong>Client request</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> <span class="string">/hello.htm</span> HTTP/1.1</div><div class="line"><span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</div><div class="line"><span class="attribute">Host</span>: www.tutorialspoint.com</div><div class="line"><span class="attribute">Accept-Language</span>: en-us</div><div class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</div><div class="line"><span class="attribute">Connection</span>: Keep-Alive</div></pre></td></tr></table></figure></p>
+<p><strong>Server response</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Date</span>: Mon, 27 Jul 2009 12:28:53 GMT</div><div class="line"><span class="attribute">Server</span>: Apache/2.2.14 (Win32)</div><div class="line"><span class="attribute">Last-Modified</span>: Wed, 22 Jul 2009 19:15:56 GMT</div><div class="line"><span class="attribute">Content-Length</span>: 88</div><div class="line"><span class="attribute">Content-Type</span>: text/html</div><div class="line"><span class="attribute">Connection</span>: Closed</div></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/10/30/http-foundation/" data-id="cj9gmwrwq000hpm35pubqcvsr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-learn-meteor-by-building-apps" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/25/learn-meteor-by-building-apps/" class="article-date">
@@ -95,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/25/learn-meteor-by-building-apps/" data-id="cj9731mvi000rad35bubqww4z" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/25/learn-meteor-by-building-apps/" data-id="cj9gmwrwx000rpm35dadz5pk7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/12/GraphQL-Queries/" data-id="cj9731mv00003ad35bt0actpo" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/12/GraphQL-Queries/" data-id="cj9gmwrwj0005pm35mrvlse6b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/12/hapi-intro/" data-id="cj9731mve000lad35mhkb7ctd" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/12/hapi-intro/" data-id="cj9gmwrws000kpm35vfmt7epq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -204,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/12/node-express-restful/" data-id="cj9731mvk000vad35ma6ff3j8" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/12/node-express-restful/" data-id="cj9gmwrwx000spm35xu0gldcm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/10/vanillajs-vs-framework/" data-id="cj9731mvm000yad35gclhn0bt" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/10/vanillajs-vs-framework/" data-id="cj9gmwrx0000wpm3567863zju" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/03/authenticate-nodejs-jwt/" data-id="cj9731mvb000had35alqcs2z5" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/03/authenticate-nodejs-jwt/" data-id="cj9gmwrwp000epm35v7iyxuo7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/02/json-web-tokens/" data-id="cj9731mvg000pad35j6tuhu6u" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/02/json-web-tokens/" data-id="cj9gmwrwu000opm35jpjgjvu4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -427,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/h5-common-api/" data-id="cj9731mvd000kad356nw9y9pd" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/h5-common-api/" data-id="cj9gmwrwr000ipm35uue4wcw5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,43 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/angular4-4/" data-id="cj9731mv7000cad351ywranqo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-angular4-3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/01/angular4-3/" class="article-date">
-  <time datetime="2017-09-30T18:11:02.000Z" itemprop="datePublished">2017-10-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/01/angular4-3/">Learn Angular 4 from Scratch(3)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/angular4-3/" data-id="cj9731mv7000dad3535a1oz1s" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-4/" data-id="cj9gmwrwn000bpm35wpktfdto" class="article-share-link">Share</a>
       
       
     </footer>
@@ -543,6 +571,10 @@
       <ul>
         
           <li>
+            <a href="/2017/10/30/http-foundation/">HTTP Foundation</a>
+          </li>
+        
+          <li>
             <a href="/2017/10/25/learn-meteor-by-building-apps/">learn-meteor-by-building-apps</a>
           </li>
         
@@ -556,10 +588,6 @@
         
           <li>
             <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/10/vanillajs-vs-framework/">Vanillajs vs. Framework</a>
           </li>
         
       </ul>

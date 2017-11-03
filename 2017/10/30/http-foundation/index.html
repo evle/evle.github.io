@@ -5,17 +5,17 @@
   
   <title>HTTP Foundation | Evle&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+  <meta name="description" content="Basic Features HTTP is connectionlessThe HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP Foundation">
 <meta property="og:url" content="http://evleblog.com/2017/10/30/http-foundation/index.html">
 <meta property="og:site_name" content="Evle&#39;s Blog">
-<meta property="og:description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+<meta property="og:description" content="Basic Features HTTP is connectionlessThe HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-01T06:01:06.000Z">
+<meta property="og:updated_time" content="2017-11-01T11:27:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Foundation">
-<meta name="twitter:description" content="The sercet of programing is &amp;#x201C;practice&amp;#x201D;Practice is a habit. Practice is a routine. Practice does not need to remember. Practice comes by practicing. Practice needs dedication and commitme">
+<meta name="twitter:description" content="Basic Features HTTP is connectionlessThe HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server">
   
     <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
   
@@ -90,12 +90,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The sercet of programing is &#x201C;practice&#x201D;<br>Practice is a habit.</p>
-<p>Practice is a routine.</p>
-<p>Practice does not need to remember.</p>
-<p>Practice comes by practicing.</p>
-<p>Practice needs dedication and commitment.</p>
-<h2 id="Basic-Features"><a href="#Basic-Features" class="headerlink" title="Basic Features"></a>Basic Features</h2><ol>
+        <h2 id="Basic-Features"><a href="#Basic-Features" class="headerlink" title="Basic Features"></a>Basic Features</h2><ol>
 <li>HTTP is connectionless<br>The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.</li>
 <li>HTTP is media independent<br>It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.</li>
 <li>HTTP is stateless<br>As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.</li>
@@ -109,20 +104,19 @@
 <li>Media Types: <code>Accept: image/gif</code></li>
 <li>Language Tags: <code>en, en-US, en-cockney, i-cherokee, x-pig-latin</code></li>
 </ul>
-<h2 id="HTTP-Message"><a href="#HTTP-Message" class="headerlink" title="HTTP Message"></a>HTTP Message</h2><p>The generic message format consists of the following four items</p>
+<h2 id="HTTP-Message"><a href="#HTTP-Message" class="headerlink" title="HTTP Message"></a>HTTP Message</h2><p>HTTP Server&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;(Apache, Node), &#x901A;&#x8FC7;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#x5E76;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;HTTP&#x54CD;&#x5E94;&#x6570;&#x636E;.<br>HTTP &#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x7B26;(Uniform Resrouce Identifiers)&#x6765;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x548C;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;.</p>
+<p>The generic message format consists of the following four items</p>
 <ol>
 <li>A Start-line</li>
 <li>Header field</li>
 <li>An empty line</li>
 <li>Message-body</li>
 </ol>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><p>HTTP request to fetch <strong>hello.html</strong> page from the web server running on tutorialspoint.com<br><strong>Client request</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> <span class="string">/hello.htm</span> HTTP/1.1</div><div class="line"><span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</div><div class="line"><span class="attribute">Host</span>: www.tutorialspoint.com</div><div class="line"><span class="attribute">Accept-Language</span>: en-us</div><div class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</div><div class="line"><span class="attribute">Connection</span>: Keep-Alive</div></pre></td></tr></table></figure></p>
-<p><strong>Server response</strong><br><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Date</span>: Mon, 27 Jul 2009 12:28:53 GMT</div><div class="line"><span class="attribute">Server</span>: Apache/2.2.14 (Win32)</div><div class="line"><span class="attribute">Last-Modified</span>: Wed, 22 Jul 2009 19:15:56 GMT</div><div class="line"><span class="attribute">Content-Length</span>: 88</div><div class="line"><span class="attribute">Content-Type</span>: text/html</div><div class="line"><span class="attribute">Connection</span>: Closed</div></pre></td></tr></table></figure></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/30/http-foundation/" data-id="cj9gmwrwq000hpm35pubqcvsr" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/30/http-foundation/" data-id="cj9gmz4mw000isj35btywww0c" class="article-share-link">Share</a>
       
       
     </footer>

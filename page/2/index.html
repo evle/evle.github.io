@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/angular4-3/" data-id="cj9gmwrwl0009pm35j7vwswlo" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-3/" data-id="cj9gmz4mo0007sj35wgzedu0h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/angular4-2/" data-id="cj9gmwrwm000apm35q59fr26x" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-2/" data-id="cj9gmz4mp0008sj357myjpxu1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/10/01/angular4-1/" data-id="cj9gmwrwl0008pm35mycazxr9" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/10/01/angular4-1/" data-id="cj9gmz4mq0009sj35xwa40pwi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -340,17 +340,18 @@
 <h4 id="requestHandlers-js"><a href="#requestHandlers-js" class="headerlink" title="requestHandlers.js"></a>requestHandlers.js</h4><p>&#x5904;&#x7406;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">home</span>(<span class="params">res</span>) </span>{</div><div class="line">    <span class="keyword">const</span> content = fs.readFileSync(<span class="string">&apos;./views/home.html&apos;</span>);</div><div class="line">    res.writeHead(<span class="number">404</span>, {<span class="string">&apos;Content-Type&apos;</span>: <span class="string">&apos;text/html&apos;</span>});</div><div class="line">    res.write(content);</div><div class="line">    res.end();</div><div class="line">}</div><div class="line"></div><div class="line">exports.home = home;</div></pre></td></tr></table></figure></p>
 <h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><h3 id="&#x6784;&#x5EFA;&#x9879;&#x76EE;"><a href="#&#x6784;&#x5EFA;&#x9879;&#x76EE;" class="headerlink" title="&#x6784;&#x5EFA;&#x9879;&#x76EE;"></a>&#x6784;&#x5EFA;&#x9879;&#x76EE;</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="keyword">node</span><span class="title">-express</span> &amp;&amp; cd <span class="keyword">node</span><span class="title">-express</span></div><div class="line">$ npm init</div><div class="line">$ npm i --save express</div></pre></td></tr></table></figure>
 <h3 id="Code-Base"><a href="#Code-Base" class="headerlink" title="Code Base"></a>Code Base</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&apos;express&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = express();</div><div class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</div><div class="line"></div><div class="line">app.get(<span class="string">&apos;/&apos;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</div><div class="line">    res.send(<span class="string">&apos;Hello Express&apos;</span>);</div><div class="line">});</div><div class="line"></div><div class="line">app.listen(port, <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Server is running at port <span class="subst">${port}</span>`</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
-<h3 id="&#x83B7;&#x53D6;Query"><a href="#&#x83B7;&#x53D6;Query" class="headerlink" title="&#x83B7;&#x53D6;Query"></a>&#x83B7;&#x53D6;Query</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="attr">q</span> = req.query.q;</div><div class="line"><span class="keyword">let</span> <span class="attr">md5Value</span> = utility.md5(q);</div><div class="line">res.send(md5Value);</div></pre></td></tr></table></figure>
+<h3 id="&#x83B7;&#x53D6;Query"><a href="#&#x83B7;&#x53D6;Query" class="headerlink" title="&#x83B7;&#x53D6;Query"></a>&#x83B7;&#x53D6;Query</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// http://localhost:<span class="number">3000</span>/?<span class="attr">q=something</span></div><div class="line"><span class="keyword">let</span> <span class="attr">q</span> = req.query.q;</div><div class="line"><span class="keyword">let</span> <span class="attr">md5Value</span> = utility.md5(q);</div><div class="line">res.send(md5Value);</div></pre></td></tr></table></figure>
 <h3 id="Web-Scraping"><a href="#Web-Scraping" class="headerlink" title="Web Scraping"></a>Web Scraping</h3><p>Web scraping is a technique in data extraction where you pull information from websites.<br>&#x4F9D;&#x8D56;&#x6A21;&#x5757;: <code>superagent</code>, <code>cheerio</code></p>
 <h4 id="superagent"><a href="#superagent" class="headerlink" title="superagent"></a>superagent</h4><h5 id="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;"><a href="#&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;" class="headerlink" title="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;"></a>&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;</h5><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">superagent.get(<span class="string">&apos;https://github.com/topics/nodejs&apos;</span>)</div><div class="line">        .<span class="keyword">end</span>(<span class="function"><span class="keyword">function</span> <span class="params">(err, content)</span></span>{</div><div class="line">          console.<span class="built_in">log</span>(content);</div><div class="line">        }</div></pre></td></tr></table></figure>
-<h4 id="cheerio"><a href="#cheerio" class="headerlink" title="cheerio"></a>cheerio</h4><h5 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h5><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> $ = cheerio.load(content.<span class="keyword">text</span>);</div><div class="line"><span class="keyword">const</span> $ = cheerio.load(<span class="comment">&apos;<span class="doctag">&lt;ul id=&quot;fruits&quot;&gt;</span>...<span class="doctag">&lt;/ul&gt;</span>&apos;);</span></div></pre></td></tr></table></figure>
+<h4 id="cheerio"><a href="#cheerio" class="headerlink" title="cheerio"></a>cheerio</h4><p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">read more</a><br><a href="https://github.com/evle/top-rated-movies-scraping" target="_blank" rel="external">&#x5B9E;&#x4F8B;: &#x83B7;&#x53D6;&#x8BC4;&#x5206;&#x6700;&#x9AD8;&#x7684;&#x7535;&#x5F71;&#x4ECE;http://www.imdb.com</a></p>
+<h5 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h5><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> $ = cheerio.load(content.<span class="keyword">text</span>);</div><div class="line"><span class="keyword">const</span> $ = cheerio.load(<span class="comment">&apos;<span class="doctag">&lt;ul id=&quot;fruits&quot;&gt;</span>...<span class="doctag">&lt;/ul&gt;</span>&apos;);</span></div></pre></td></tr></table></figure>
 <h5 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;.apple&apos;</span>, <span class="string">&apos;#fruits&apos;</span>).text()</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;ul .pear&apos;</span>).attr(<span class="string">&apos;class&apos;</span>)</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;li[class=orange]&apos;</span>).html()</span></div></pre></td></tr></table></figure>
 <h5 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;ul&apos;</span>).attr(<span class="string">&apos;id&apos;</span>)</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;.apple&apos;</span>).attr(<span class="string">&apos;id&apos;</span>, <span class="string">&apos;favorite&apos;</span>).html()</span></div></pre></td></tr></table></figure>
-
+<h4 id="eventproxy"><a href="#eventproxy" class="headerlink" title="eventproxy"></a>eventproxy</h4><h4 id="Travis-CI-Test-and-Deploy-with-Confidence"><a href="#Travis-CI-Test-and-Deploy-with-Confidence" class="headerlink" title="Travis CI - Test and Deploy with Confidence"></a>Travis CI - Test and Deploy with Confidence</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/node-from-zero-to-hero/" data-id="cj9gmwrwy000tpm357r3auccp" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/30/node-from-zero-to-hero/" data-id="cj9gmz4n1000rsj358mqz0miz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/express-crash-course/" data-id="cj9gmwrws000jpm35fc871xmz" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/30/express-crash-course/" data-id="cj9gmz4mv000hsj35fz6n8ey7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/rethinkdb-crash-course/" data-id="cj9gmwrwz000vpm35lvlvwb8t" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/30/rethinkdb-crash-course/" data-id="cj9gmz4n3000usj3526qg8mg1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -458,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/loopback-crash-course/" data-id="cj9gmwrww000qpm35t281q6ey" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/30/loopback-crash-course/" data-id="cj9gmz4n1000ssj352pp24tn6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/docker-crash-course/" data-id="cj9gmwrwp000fpm358o1tfep8" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/30/docker-crash-course/" data-id="cj9gmz4mu000fsj3571nn2935" class="article-share-link">Share</a>
       
       
     </footer>
@@ -544,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/29/ionic-crash-1/" data-id="cj9gmwrwt000lpm35hno3ck41" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/29/ionic-crash-1/" data-id="cj9gmz4my000msj350lmagama" class="article-share-link">Share</a>
       
       
     </footer>
@@ -580,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-hybrid-app/" data-id="cj9gmwrx50012pm35mlt1d7g7" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-hybrid-app/" data-id="cj9gmz4n70012sj35cowswm4u" class="article-share-link">Share</a>
       
       
     </footer>

@@ -66,6 +66,200 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-rethinkdb-crash-course" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/30/rethinkdb-crash-course/" class="article-date">
+  <time datetime="2017-09-29T21:29:11.000Z" itemprop="datePublished">2017-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/rethinkdb-crash-course/">rethinkdb-crash-course</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/30/rethinkdb-crash-course/" data-id="cj9kt1m8g000z7r35hflyqolo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-loopback-crash-course" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/30/loopback-crash-course/" class="article-date">
+  <time datetime="2017-09-29T21:28:53.000Z" itemprop="datePublished">2017-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/loopback-crash-course/">loopback-crash-course</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/30/loopback-crash-course/" data-id="cj9kt1m8d000v7r35brpc0vdy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-docker-crash-course" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/30/docker-crash-course/" class="article-date">
+  <time datetime="2017-09-29T21:28:39.000Z" itemprop="datePublished">2017-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/30/docker-crash-course/">docker-crash-course</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/30/docker-crash-course/" data-id="cj9kt1m87000k7r35flzzq7v2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ionic-crash-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/29/ionic-crash-1/" class="article-date">
+  <time datetime="2017-09-29T06:07:54.000Z" itemprop="datePublished">2017-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/29/ionic-crash-1/">Ionic Crash Course(1) Using Reddit API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The reason for using ionic is simple, build mobile app with html,css and js. In this course, we&#x2019;re going to build a dead simple app using Reddit API that inspired by Brad Traversy.</p>
+<h2 id="Prepare-for-happy-hacking"><a href="#Prepare-for-happy-hacking" class="headerlink" title="Prepare for happy hacking"></a>Prepare for happy hacking</h2><h5 id="1-Install-inoic"><a href="#1-Install-inoic" class="headerlink" title="1. Install inoic"></a>1. Install inoic</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g cordova ionic</div></pre></td></tr></table></figure>
+<h5 id="2-Build-a-inoic-app"><a href="#2-Build-a-inoic-app" class="headerlink" title="2. Build a inoic app"></a>2. Build a inoic app</h5><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic <span class="literal">start</span> myApp tabs</div></pre></td></tr></table></figure>
+<h5 id="3-Run"><a href="#3-Run" class="headerlink" title="3. Run"></a>3. Run</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> myApp</div><div class="line">ionic serve</div></pre></td></tr></table></figure>
+<h2 id="Project-Structure"><a href="#Project-Structure" class="headerlink" title="Project Structure"></a>Project Structure</h2><p><code>src/app/app.module.ts</code>: entroy point</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>so far, we have created a ionic tabs app that using Reddit API, next, let&#x2019;s take a look at Ionic&#x2019;s common components and APIs and how to use them. </p>
+<p>Action Sheets<br>Alerts<br>Badges</p>
+<h4 id="Buttons"><a href="#Buttons" class="headerlink" title="Buttons"></a>Buttons</h4><p><button ion-button="">Button</button><br>color: color=&#x201D;dark&#x201D;<br>outline<br>clear<br>round<br>block<br>full<br>large/small/medium<br>start/end<br>icon-only<br>add an icon component inside <ion-icon name="home">Home<ion-icon></ion-icon></ion-icon></p>
+<h4 id="Cards"><a href="#Cards" class="headerlink" title="Cards"></a>Cards</h4><p>Checkbox<br>DateTime<br>FABs<br>Gestures</p>
+<h4 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h4><h4 id="Icons"><a href="#Icons" class="headerlink" title="Icons"></a>Icons</h4><h4 id="Inputs"><a href="#Inputs" class="headerlink" title="Inputs"></a>Inputs</h4><h4 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h4><h4 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h4><p>Menus<br>Modals<br>Navigation<br>Popover<br>Radio</p>
+<h4 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h4><h4 id="Searchbar"><a href="#Searchbar" class="headerlink" title="Searchbar"></a>Searchbar</h4><p>Segment</p>
+<h4 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h4><h4 id="Slides"><a href="#Slides" class="headerlink" title="Slides"></a>Slides</h4><p>Tabs</p>
+<h4 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h4><h4 id="Toggle"><a href="#Toggle" class="headerlink" title="Toggle"></a>Toggle</h4><p>Toolbar</p>
+<p><a href="https://ionicframework.com/docs/ionicons/" target="_blank" rel="external">more ionicons</a></p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/29/ionic-crash-1/" data-id="cj9kt1m8b000r7r35zt5f78bj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-hybrid-app" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/26/vue-hybrid-app/" class="article-date">
+  <time datetime="2017-09-25T22:30:00.000Z" itemprop="datePublished">2017-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/26/vue-hybrid-app/">Vue 速成(10) Hybrid App</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://evleblog.com/2017/09/26/vue-hybrid-app/" data-id="cj9kt1m8p00177r35zg8sfcaj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vue-hacknews-app" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/26/vue-hacknews-app/" class="article-date">
@@ -92,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-hacknews-app/" data-id="cj9gmz4n70011sj35mgv91jcz" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-hacknews-app/" data-id="cj9kt1m8p00167r352jpsu2yh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-google-keep-app/" data-id="cj9gmz4n60010sj352icqlgak" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-google-keep-app/" data-id="cj9kt1m8o00157r35xpd4im4t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-desktop-app/" data-id="cj9gmz4n5000zsj353qiy3xrj" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-desktop-app/" data-id="cj9kt1m8j00147r35bdpwbcbt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-todo-app/" data-id="cj9gmz4na0015sj35gy3a8sq2" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-todo-app/" data-id="cj9kt1maf001b7r35268eqwyu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,217 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-unit-test/" data-id="cj9gmz4nc0016sj35ah9ja6y0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue-crud" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/26/vue-crud/" class="article-date">
-  <time datetime="2017-09-25T22:01:31.000Z" itemprop="datePublished">2017-09-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/26/vue-crud/">Vue 速成(4) Realtime CRUD App</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>  Deepstream deepstream is a powerful websocket server   that syncs realtime data between browsers, smartphones, backends and the IoT</p>
-</blockquote>
-<p>&#x672C;&#x7AE0;&#x4F7F;&#x7528;<a href="https://deepstreamhub.com" target="_blank" rel="external">Deepstream</a>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;Vue&#x5B9E;&#x65F6;&#x7684;CRUD&#x5E94;&#x7528;: &#x5728;&#x7EBF;&#x534F;&#x540C;&#x7F16;&#x8F91;&#x6587;&#x6863;</p>
-<h2 id="&#x51C6;&#x5907;-Deepstream"><a href="#&#x51C6;&#x5907;-Deepstream" class="headerlink" title="&#x51C6;&#x5907;: Deepstream"></a>&#x51C6;&#x5907;: Deepstream</h2><p><strong>&#x5B89;&#x88C5;</strong><br>        <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span>cask <span class="keyword">install </span>deepstream</div></pre></td></tr></table></figure></p>
-<p><strong>&#x8FD0;&#x884C;</strong><br>        <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deepstream <span class="literal">start</span></div></pre></td></tr></table></figure></p>
-<p>Note: &#x5982;&#x679C;&#x8FD0;&#x884C;&#x5931;&#x8D25;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A; <em>6020</em> &#x7AEF;&#x53E3;&#x6216; <em>8080</em> &#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x4E86;, &#x5148;&#x542F;&#x52A8; <strong>deepstream server</strong> &#x7136;&#x540E;&#x518D;&#x8FD0;&#x884C;8080&#x7AEF;&#x53E3;&#x7684;&#x5E94;&#x7528;.</p>
-<p>## </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-crud/" data-id="cj9gmz4n5000ysj354b8qxhgj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue-sate" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/26/vue-sate/" class="article-date">
-  <time datetime="2017-09-25T21:59:26.000Z" itemprop="datePublished">2017-09-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/26/vue-sate/">Vue 速成(3) State Management</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/26/vue-sate/" data-id="cj9gmz4n90014sj35egtj5j1m" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-html-css-dashboard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/25/html-css-dashboard/" class="article-date">
-  <time datetime="2017-09-25T14:47:08.000Z" itemprop="datePublished">2017-09-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/html-css-dashboard/">html-css-dashboard</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/html-css-dashboard/" data-id="cj9gmz4mx000lsj354uv23qhv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue-crash" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/25/vue-crash/" class="article-date">
-  <time datetime="2017-09-25T14:46:09.000Z" itemprop="datePublished">2017-09-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/vue-crash/">Vue 速成(1) 从jQuery到Vue</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jQuery-write-less-do-more"><a href="#jQuery-write-less-do-more" class="headerlink" title="jQuery: write less, do more"></a>jQuery: write less, do more</h3><p>&#x672C;&#x6559;&#x7A0B;&#x662F;Vue&#x901F;&#x6210;&#x7CFB;&#x5217;&#x7B2C;&#x4E00;&#x7BC7;, &#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528;Vue&#x5B8C;&#x6210;&#x90A3;&#x4E9B;&#x6211;&#x4EEC;&#x5E38;&#x7528;jQuery&#x505A;&#x7684;&#x4E8B;&#x60C5;.</p>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p><strong>CDN:</strong><br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vue&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>or NPM:</strong><br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install vue</span></div></pre></td></tr></table></figure></p>
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>HTML:<br>    <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> id=<span class="string">&quot;app&quot;</span>&gt;</div><div class="line">  &lt;<span class="selector-tag">button</span> @click=<span class="string">&quot;clickMe&quot;</span>&gt;&lt;/button&gt;</div><div class="line">  &lt;<span class="selector-tag">input</span> @change=<span class="string">&quot;changeText&quot;</span> v-model=<span class="string">&quot;name&quot;</span> type=<span class="string">&quot;text&quot;</span> placeholder=<span class="string">&quot;Enter your name&quot;</span> /&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br>    <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>({</div><div class="line">    <span class="attribute">el</span>: <span class="string">&apos;#app&apos;</span>,</div><div class="line">    <span class="attribute">data</span>: {</div><div class="line">      <span class="attribute">name</span>:<span class="string">&apos;&apos;</span></div><div class="line">    },</div><div class="line">    <span class="attribute">methods</span>: {</div><div class="line">        clickMe(){</div><div class="line">          alert(<span class="string">&apos;Hello&apos;</span>);</div><div class="line">        },</div><div class="line">        changeText() {</div><div class="line">            <span class="selector-tag">alert</span>(<span class="string">&apos;Your name is: &apos;</span> + this.name);</div><div class="line">        }</div><div class="line">    }</div><div class="line">});</div></pre></td></tr></table></figure></p>
-<h2 id="Binding-classes"><a href="#Binding-classes" class="headerlink" title="Binding classes"></a>Binding classes</h2><p>HTML:<br>    <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">&quot;app&quot;</span>&gt;</div><div class="line">  &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">&quot;content&quot;</span> :<span class="built_in">class</span>=<span class="string">&quot;className&quot;</span>&gt;</div><div class="line">  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor <span class="keyword">in</span> reprehenderit <span class="keyword">in</span> voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt <span class="keyword">in</span> culpa qui officia deserunt mollit anim <span class="built_in">id</span> est laborum.</div><div class="line">  &lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br>    <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>({</div><div class="line">    <span class="attribute">el</span>:<span class="string">&apos;#app&apos;</span>,</div><div class="line">    <span class="attribute">data</span>:{</div><div class="line">      <span class="attribute">className</span>:<span class="string">&apos;red&apos;</span></div><div class="line">    }</div><div class="line">  });</div></pre></td></tr></table></figure></p>
-<p>CSS:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.red</span>{</div><div class="line">  <span class="attribute">color</span>:red;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-<h2 id="Update-an-element&#x2019;s-content"><a href="#Update-an-element&#x2019;s-content" class="headerlink" title="Update an element&#x2019;s content"></a>Update an element&#x2019;s content</h2><p>HTML:<br>    <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">&quot;app&quot;</span>&gt;</div><div class="line">  &lt;<span class="keyword">div</span> v-html=<span class="string">&quot;content&quot;</span> <span class="built_in">id</span>=<span class="string">&quot;content&quot;</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;input type=<span class="string">&quot;text&quot;</span> placeholder=<span class="string">&quot;input something&quot;</span> v-model=<span class="string">&quot;content&quot;</span> /&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br>    <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>({</div><div class="line">  <span class="attribute">el</span>: <span class="string">&apos;#app&apos;</span>,</div><div class="line">  <span class="attribute">data</span>:{</div><div class="line">    <span class="attribute">content</span>:<span class="string">&apos;&apos;</span></div><div class="line">  }</div><div class="line">  })</div></pre></td></tr></table></figure></p>
-<h2 id="Toggle-the-visibility-of-an-element"><a href="#Toggle-the-visibility-of-an-element" class="headerlink" title="Toggle the visibility of an element"></a>Toggle the visibility of an element</h2><p>HTML:<br>    <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">&quot;app&quot;</span>&gt;</div><div class="line">  &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">&quot;content&quot;</span> v-<span class="keyword">if</span>=<span class="string">&quot;visible&quot;</span>&gt;Lorem ipsum dolor sit amet, consectetur &lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;button @click=<span class="string">&quot;visible = !visible&quot;</span>&gt;&lt;/button&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br>    <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>({</div><div class="line">  <span class="attribute">el</span>: <span class="string">&apos;#app&apos;</span>,</div><div class="line">  data: {</div><div class="line">   visible=true  </div><div class="line"> }</div><div class="line">  })</div></pre></td></tr></table></figure></p>
-<h2 id="Building-a-select-input-from-an-array"><a href="#Building-a-select-input-from-an-array" class="headerlink" title="Building a select input from an array"></a>Building a select input from an array</h2><p>HTML:<br>      <figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">select</span>&gt;</span></span></div><div class="line"><span class="xml">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;item in items&quot;</span><span class="attr">:value</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><span class="template-variable">{{item}}</span><span class="xml"><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">select</span></span></span></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br>    <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>({</div><div class="line">  <span class="attribute">el</span>:<span class="string">&apos;#app&apos;</span>,</div><div class="line">  <span class="attribute">data</span>:{</div><div class="line">    <span class="attribute">country</span>:[<span class="string">&apos;China&apos;</span>, <span class="string">&apos;Korea&apos;</span>, <span class="string">&apos;Japan&apos;</span>]</div><div class="line">  }</div><div class="line">  })</div></pre></td></tr></table></figure></p>
-<h2 id="Making-Ajax-requests"><a href="#Making-Ajax-requests" class="headerlink" title="Making Ajax requests"></a>Making Ajax requests</h2><p>HTML:<br>    <figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>List of users<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;users&quot;</span>&gt;</span></span></div><div class="line"><span class="xml">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;user in users&quot;</span>&gt;</span></span><span class="template-variable">{{user.first_name}}</span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>JAVASCRIPT:<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">new Vue({</div><div class="line">  el:&apos;#app&apos;,</div><div class="line">  data:{</div><div class="line">    users: null</div><div class="line">  },</div><div class="line">  mounted: function(){</div><div class="line">    this.$http.get(&apos;https<span class="symbol">://reqres</span>.in/api/users).then(<span class="name">response=&gt;</span>{</div><div class="line">      this.users = response.body.data</div><div class="line">      })</div><div class="line">  }</div><div class="line">  })</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/vue-crash/" data-id="cj9gmz4n4000wsj35u12ymdso" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bootstrap4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/25/bootstrap4/" class="article-date">
-  <time datetime="2017-09-25T09:04:37.000Z" itemprop="datePublished">2017-09-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/bootstrap4/">你该如何学习和使用Bootstrap</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x5F88;&#x591A;&#x4EBA;&#x5728;&#x5B66;&#x4E60;Boostrap&#x65F6;&#x90FD;&#x5B58;&#x5728;&#x56F0;&#x60D1;.&#x72B9;&#x8C6B;&#x8BE5;&#x4E0D;&#x8BE5;&#x4F7F;&#x7528;Bootstrap,&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;:<br>&#x201C;&#x4F7F;&#x7528;Bootstrap&#x505A;&#x7684;&#x7F51;&#x9875;&#x90FD;&#x4E00;&#x6837;, &#x6211;&#x4E00;&#x773C;&#x5C31;&#x80FD;&#x770B;&#x51FA;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x662F;&#x4E0D;&#x662F;&#x7528;Bootstrap&#x505A;&#x7684;&#x201D;. &#x53E6;&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;<br>&#x53E6;&#x4E00;&#x4E9B;&#x4EBA;&#x8BA4;&#x4E3A;:<br>&#x201D;&#x6211;&#x4EEC;&#x6CA1;&#x5FC5;&#x8981;&#x5C06;&#x65F6;&#x95F4;&#x6D6A;&#x8D39;&#x5728;&#x5B66;&#x4E60;Bootstrap&#x7684;&#x5927;&#x91CF;&#x7EC4;&#x4EF6;&#x4E0A;,&#x8FD9;&#x5E76;&#x4E0D;&#x80FD;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6C34;&#x5E73;.Bootstrap&#x53EA;&#x9002;&#x5408;&#x7528;&#x6765;&#x8BBE;&#x8BA1;&#x539F;&#x578B;(prototyping),&#x5B66;&#x4E60;Bootstrap&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x95F4;&#x4E0D;&#x5982;&#x7528;&#x6765;&#x770B;Boostrap&#x7684;&#x6E90;&#x7801;, &#x5B66;&#x4E60;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;. &#x8FD9;&#x6837;&#x624D;&#x4F1A;&#x63D0;&#x9AD8;&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x6C34;&#x5E73;.&#x201D;</p>
-<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8BE5;&#x5230;&#x5E95;&#x600E;&#x4E48;&#x5B66;&#x4E60;&#x548C;&#x4F7F;&#x7528;Bootstrap 4&#xFF1F; </p>
-<ol>
-<li>&#x638C;&#x63E1;&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;Bootstrap&#x7EC4;&#x4EF6;,&#x8BA9;Bootstrap&#x5E94;&#x7528;&#x5728;&#x771F;&#x5B9E;&#x7684;&#x4E16;&#x754C;&#x91CC;</li>
-<li>&#x638C;&#x63E1;Bootstrap&#x5E03;&#x5C40;&#x7CFB;&#x7EDF;,&#x9AD8;&#x6548;&#x7684;&#x5B9E;&#x73B0;&#x54CD;&#x5E94;&#x5F0F;&#x5E03;&#x5C40;</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/25/bootstrap4/" data-id="cj9gmz4ms000csj35ci8dt0gg" class="article-share-link">Share</a>
+      <a data-url="http://evleblog.com/2017/09/26/vue-unit-test/" data-id="cj9kt1mac00197r356g1vl3w8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,7 +443,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -477,7 +461,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
     </div>
   </div>
 
@@ -490,23 +474,23 @@
       <ul>
         
           <li>
-            <a href="/2017/10/30/http-foundation/">HTTP Foundation</a>
+            <a href="/2017/11/03/build-serverless-app-5/">build-serverless-app-5</a>
           </li>
         
           <li>
-            <a href="/2017/10/25/learn-meteor-by-building-apps/">learn-meteor-by-building-apps</a>
+            <a href="/2017/11/03/build-serverless-app-4/">build-serverless-app-4</a>
           </li>
         
           <li>
-            <a href="/2017/10/12/GraphQL-Queries/">GraphQL Queries</a>
+            <a href="/2017/11/03/build-serverless-app-3/">build-serverless-app-3</a>
           </li>
         
           <li>
-            <a href="/2017/10/12/hapi-intro/">Hapi.js Intro</a>
+            <a href="/2017/11/03/build-serverless-app-2/">build-serverless-app-2</a>
           </li>
         
           <li>
-            <a href="/2017/10/12/node-express-restful/">node-express-restful</a>
+            <a href="/2017/11/03/build-serverless-app-1/">Building Serverless Web Application 1</a>
           </li>
         
       </ul>

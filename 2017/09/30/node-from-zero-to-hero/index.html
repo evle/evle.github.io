@@ -2,131 +2,132 @@
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>Node.js Foundation | Evle&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Prepare for happy hacking Node.js Installation: brew install node REPL mode: node   Execution: node app.js  &amp;#x67E5;&amp;#x770B;Node.js API NPM Usage:NPM &amp;#x662F;node.js&amp;#x7684;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Node.js Foundation">
-<meta property="og:url" content="http://evleblog.com/2017/09/30/node-from-zero-to-hero/index.html">
-<meta property="og:site_name" content="Evle&#39;s Blog">
-<meta property="og:description" content="Prepare for happy hacking Node.js Installation: brew install node REPL mode: node   Execution: node app.js  &amp;#x67E5;&amp;#x770B;Node.js API NPM Usage:NPM &amp;#x662F;node.js&amp;#x7684;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-02T15:19:37.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.js Foundation">
-<meta name="twitter:description" content="Prepare for happy hacking Node.js Installation: brew install node REPL mode: node   Execution: node app.js  &amp;#x67E5;&amp;#x770B;Node.js API NPM Usage:NPM &amp;#x662F;node.js&amp;#x7684;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x">
-  
-    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Evle&#39;s Blog
+  </title>
   <link rel="stylesheet" href="/css/style.css">
-  
-
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Evle&#39;s Blog</a>
-      </h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+    
+      <link rel="icon" href="/images/favicon.ico">
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Open Your Mind</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
-      </div>
-    </div>
-  </div>
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+  <body>
+  <a href="https://github.com/evle" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="d-flex justify-content-between align-items-center">
+<div class="logo">
+ <a href="/">Evle&#39;s Blog</a>
+</div>
+
+<nav class="d-inline-flex">
+  <ul class="nav">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/"> Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/archives"> Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/category/"> Category</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/search"> Search</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/about/"> About</a>
+    </li>
+    
+  </ul>
+</nav>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-node-from-zero-to-hero" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/30/node-from-zero-to-hero/" class="article-date">
-  <time datetime="2017-09-29T21:30:16.000Z" itemprop="datePublished">2017-09-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Node.js Foundation
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+   <div id="main-content"> 
       
-        <h2 id="Prepare-for-happy-hacking"><a href="#Prepare-for-happy-hacking" class="headerlink" title="Prepare for happy hacking"></a>Prepare for happy hacking</h2><ul>
+         <article class="post">
+  <div class="post-title">
+    <h2 class="title">
+      Node.js Foundation
+    </h2>
+  </div>
+
+  <div class="post-meta">
+    <span class="post-date">
+      Publish on 2017-12-15
+    </span>
+  </div>
+
+  <div class="post-content">
+    <h2 id="Prepare-for-happy-hacking"><a href="#Prepare-for-happy-hacking" class="headerlink" title="Prepare for happy hacking"></a>Prepare for happy hacking</h2><ul>
 <li>Node.js Installation: <code>brew install node</code></li>
 <li>REPL mode: <code>node</code>  </li>
 <li>Execution: <code>node app.js</code></li>
 </ul>
-<p><a href="https://nodejs.org/api/" target="_blank" rel="external">&#x67E5;&#x770B;Node.js API</a></p>
-<h3 id="NPM-Usage"><a href="#NPM-Usage" class="headerlink" title="NPM Usage:"></a>NPM Usage:</h3><p><em>NPM</em> &#x662F;node.js&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x5728;&#x5F00;&#x59CB;node.js&#x9879;&#x76EE;&#x4E4B;&#x524D;&#xFF0C;&#x901A;&#x5E38;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;<code>package.json</code>&#x6587;&#x4EF6;&#x6765;&#x7BA1;&#x7406;&#x7B2C;&#x4E09;&#x5305;&#x4EE5;&#x53CA;&#x9879;&#x76EE;&#x4FE1;&#x606F;.</p>
+<p><a href="https://nodejs.org/api/" target="_blank" rel="noopener">查看Node.js API</a></p>
+<h3 id="NPM-Usage"><a href="#NPM-Usage" class="headerlink" title="NPM Usage:"></a>NPM Usage:</h3><p><em>NPM</em> 是node.js的第三方包管理工具，在开始node.js项目之前，通常在该目录下创建<code>package.json</code>文件来管理第三包以及项目信息.</p>
 <ol>
-<li><p>&#x521D;&#x59CB;&#x5316;<code>package.json</code>&#x6587;&#x4EF6;</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm init</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x641C;&#x7D22; nodejs &#x7B2C;&#x4E09;&#x65B9;&#x5305;</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm search express</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;&#x7B2C;&#x4E09;&#x65B9;&#x5305;</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> npm install -g express  <span class="comment">// &#x5168;&#x5C40;&#x5B89;&#x88C5;</span></div><div class="line"><span class="symbol">$</span> npm install --save express <span class="comment">// &#x672C;&#x76EE;&#x5F55;&#x4E0B;&#x5B89;&#x88C5;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x66F4;&#x65B0;</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm update express</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5378;&#x8F7D;</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm uninstall express</span></div></pre></td></tr></table></figure>
-</li>
+<li>初始化<code>package.json</code>文件<pre><code>$ npm init
+</code></pre></li>
+<li>搜索 nodejs 第三方包<pre><code>$ npm search express
+</code></pre></li>
+<li>安装第三方包<pre><code>$ npm install -g express  // 全局安装
+$ npm install --save express // 本目录下安装
+</code></pre></li>
+<li>更新<pre><code>$ npm update express
+</code></pre></li>
+<li>卸载<pre><code>$ npm uninstall express
+</code></pre></li>
 </ol>
-<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>&#x5BFC;&#x51FA;&#xFF1A;<code>exports</code>&#x6216;&#x8005;<code>module.exports</code><br>&#x5BFC;&#x5165;&#xFF1A;<code>require</code><br><strong>index.js</strong>:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hello = require(&apos;./hello&apos;);</div><div class="line"><span class="keyword">const</span> <span class="keyword">Cat</span> = require(&apos;./<span class="keyword">cat</span>&apos;);</div><div class="line"></div><div class="line">hello.hello();</div><div class="line"></div><div class="line">let <span class="keyword">cat</span> = new <span class="keyword">Cat</span>();</div><div class="line"><span class="keyword">cat</span>.eat();</div><div class="line"><span class="keyword">cat</span>.<span class="keyword">sleep</span>();</div></pre></td></tr></table></figure></p>
-<p><strong>hello.js</strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span></span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;hello from hello.js&apos;</span>);</div><div class="line">}</div><div class="line">exports.hello = hello;</div></pre></td></tr></table></figure></p>
-<p><strong>cat.js</strong>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cat</span>(<span class="params"></span>)</span>{</div><div class="line">  <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span> <span class="title">eat</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;eat&apos;</span>);</div><div class="line">  }</div><div class="line">  <span class="keyword">this</span>.sleep = <span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;sleep&apos;</span>);</div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = cat;</div></pre></td></tr></table></figure></p>
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>node.js&#x7684;&#x7279;&#x6027;&#x4E4B;&#x4E00;&#x5C31;&#x662F; <strong>event-driven</strong>&#xFF0C;&#x6BD4;&#x5982;<code>fs.readStream</code>&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x65F6;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;. &#x6240;&#x6709;&#x50CF;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x4E8B;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x662F;<code>events.EventEmitter</code>&#x7684; <em>instance</em>. EventEmitter&#x7684; <em>instance</em> &#x901A;&#x5E38;&#x4F1A;&#x51FA;&#x53D1;<code>error</code>&#x4E8B;&#x4EF6;,&#x4F8B;&#x5982;<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.mkdir(<span class="string">&apos;./newdir&apos;</span>, <span class="function"><span class="params">(err)</span> =&gt;</span> {}))</div></pre></td></tr></table></figure></p>
-<h3 id="&#x76D1;&#x542C;&#x4E8B;&#x4EF6;"><a href="#&#x76D1;&#x542C;&#x4E8B;&#x4EF6;" class="headerlink" title="&#x76D1;&#x542C;&#x4E8B;&#x4EF6;"></a>&#x76D1;&#x542C;&#x4E8B;&#x4EF6;</h3><p><code>emitter.on(event, listener)</code> or <code>emitter.addListener(event, listener)</code><br>&#x53EA;&#x751F;&#x6548;&#x4E00;&#x6B21;:<code>emitter.once(event, listener)</code></p>
-<h3 id="&#x79FB;&#x9664;&#x76D1;&#x542C;"><a href="#&#x79FB;&#x9664;&#x76D1;&#x542C;" class="headerlink" title="&#x79FB;&#x9664;&#x76D1;&#x542C;"></a>&#x79FB;&#x9664;&#x76D1;&#x542C;</h3><p><code>removeListern(event, listener)</code><br>&#x5168;&#x90E8;&#x79FB;&#x9664;: <code>removeAllListeners()</code></p>
-<h3 id="&#x8BBE;&#x7F6E;-&#x67E5;&#x8BE2;-&#x76D1;&#x542C;&#x5668;&#x4E2A;&#x6570;"><a href="#&#x8BBE;&#x7F6E;-&#x67E5;&#x8BE2;-&#x76D1;&#x542C;&#x5668;&#x4E2A;&#x6570;" class="headerlink" title="&#x8BBE;&#x7F6E;/&#x67E5;&#x8BE2; &#x76D1;&#x542C;&#x5668;&#x4E2A;&#x6570;"></a>&#x8BBE;&#x7F6E;/&#x67E5;&#x8BE2; &#x76D1;&#x542C;&#x5668;&#x4E2A;&#x6570;</h3><p>&#x8BBE;&#x7F6E;&#xFF1A;<code>events.EventEmitter.defaultMaxListeners = 20;</code><br>&#x67E5;&#x8BE2;&#xFF1A;<code>const cnt = events.EventEmitter.listenerCount(server, &apos;myevent&apos;);</code></p>
-<h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server.<span class="literal">on</span>(<span class="string">&apos;myevent&apos;</span>, <span class="function"><span class="params">(arg)</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;receive event: &apos;</span> + arg);</div><div class="line">});</div><div class="line"></div><div class="line">server.emit(<span class="string">&apos;myevent&apos;</span>, <span class="string">&apos;it\&apos;me&apos;</span>);</div></pre></td></tr></table></figure>
-<h2 id="fs-module"><a href="#fs-module" class="headerlink" title="fs module"></a>fs module</h2><p><code>require(&apos;fs&apos;)</code> for file operation</p>
-<h3 id="&#x5220;&#x9664;&#x6587;&#x4EF6;"><a href="#&#x5220;&#x9664;&#x6587;&#x4EF6;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x4EF6;"></a>&#x5220;&#x9664;&#x6587;&#x4EF6;</h3><p><code>fs.unlink(&apos;filename&apos;, (err) =&gt; {})</code></p>
-<h3 id="&#x521B;&#x5EFA;&#x76EE;&#x5F55;"><a href="#&#x521B;&#x5EFA;&#x76EE;&#x5F55;" class="headerlink" title="&#x521B;&#x5EFA;&#x76EE;&#x5F55;"></a>&#x521B;&#x5EFA;&#x76EE;&#x5F55;</h3><p><code>fs.mkdir(&apos;./newdir&apos;, (err) =&gt; {})</code></p>
-<h3 id="&#x8BFB;&#x53D6;&#x76EE;&#x5F55;"><a href="#&#x8BFB;&#x53D6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BFB;&#x53D6;&#x76EE;&#x5F55;"></a>&#x8BFB;&#x53D6;&#x76EE;&#x5F55;</h3><p><code>fs.readdir(&apos;./&apos;, (err, files) =&gt; {})</code></p>
-<h3 id="&#x8BFB;-&#x5199;&#x6587;&#x4EF6;"><a href="#&#x8BFB;-&#x5199;&#x6587;&#x4EF6;" class="headerlink" title="&#x8BFB;/&#x5199;&#x6587;&#x4EF6;"></a>&#x8BFB;/&#x5199;&#x6587;&#x4EF6;</h3><p><code>fs.readFile(&apos;filename&apos;, &apos;utf-8&apos;, (err, data) =&gt; {})</code><br><code>fs.writeFile(&apos;filename&apos;, &apos;something new&apos;, { &apos;flag&apos;:&apos;a+&apos;}, (err, data) =&gt; {})</code></p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>导出：<code>exports</code>或者<code>module.exports</code><br>导入：<code>require</code><br><strong>index.js</strong>:</p>
+<pre><code>const hello = require(&#39;./hello&#39;);
+const Cat = require(&#39;./cat&#39;);
+
+hello.hello();
+
+let cat = new Cat();
+cat.eat();
+cat.sleep();
+</code></pre><p><strong>hello.js</strong>:</p>
+<pre><code>function hello{
+  console.log(&#39;hello from hello.js&#39;);
+}
+exports.hello = hello;
+</code></pre><p><strong>cat.js</strong>:</p>
+<pre><code>function cat(){
+  this.eat = function eat(){
+    console.log(&#39;eat&#39;);
+  }
+  this.sleep = function sleep(){
+    console.log(&#39;sleep&#39;);
+  }
+}
+
+module.exports = cat;
+</code></pre><h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>node.js的特性之一就是 <strong>event-driven</strong>，比如<code>fs.readStream</code>在读取文件时会产生一个事件. 所有像这样可以产生事件的对象都是<code>events.EventEmitter</code>的 <em>instance</em>. EventEmitter的 <em>instance</em> 通常会出发<code>error</code>事件,例如</p>
+<pre><code>fs.mkdir(&#39;./newdir&#39;, (err) =&gt; {}))
+</code></pre><h3 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h3><p><code>emitter.on(event, listener)</code> or <code>emitter.addListener(event, listener)</code><br>只生效一次:<code>emitter.once(event, listener)</code></p>
+<h3 id="移除监听"><a href="#移除监听" class="headerlink" title="移除监听"></a>移除监听</h3><p><code>removeListern(event, listener)</code><br>全部移除: <code>removeAllListeners()</code></p>
+<h3 id="设置-查询-监听器个数"><a href="#设置-查询-监听器个数" class="headerlink" title="设置/查询 监听器个数"></a>设置/查询 监听器个数</h3><p>设置：<code>events.EventEmitter.defaultMaxListeners = 20;</code><br>查询：<code>const cnt = events.EventEmitter.listenerCount(server, &#39;myevent&#39;);</code></p>
+<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><pre><code>server.on(&#39;myevent&#39;, (arg) =&gt; {
+    console.log(&#39;receive event: &#39; + arg);
+});
+
+server.emit(&#39;myevent&#39;, &#39;it\&#39;me&#39;);
+</code></pre><h2 id="fs-module"><a href="#fs-module" class="headerlink" title="fs module"></a>fs module</h2><p><code>require(&#39;fs&#39;)</code> for file operation</p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p><code>fs.unlink(&#39;filename&#39;, (err) =&gt; {})</code></p>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p><code>fs.mkdir(&#39;./newdir&#39;, (err) =&gt; {})</code></p>
+<h3 id="读取目录"><a href="#读取目录" class="headerlink" title="读取目录"></a>读取目录</h3><p><code>fs.readdir(&#39;./&#39;, (err, files) =&gt; {})</code></p>
+<h3 id="读-写文件"><a href="#读-写文件" class="headerlink" title="读/写文件"></a>读/写文件</h3><p><code>fs.readFile(&#39;filename&#39;, &#39;utf-8&#39;, (err, data) =&gt; {})</code><br><code>fs.writeFile(&#39;filename&#39;, &#39;something new&#39;, { &#39;flag&#39;:&#39;a+&#39;}, (err, data) =&gt; {})</code></p>
 <table>
 <thead>
 <tr>
@@ -137,220 +138,305 @@
 <tbody>
 <tr>
 <td>r</td>
-<td>&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;</td>
+<td>读取文件，文件不存在时报错</td>
 </tr>
 <tr>
 <td>r+</td>
-<td>&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;</td>
+<td>读取并写入文件，文件不存在时报错</td>
 </tr>
 <tr>
 <td>rs</td>
-<td>&#x4EE5;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;</td>
+<td>以同步方式读取文件，文件不存在时报错</td>
 </tr>
 <tr>
 <td>rs+</td>
-<td>&#x4EE5;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x62A5;&#x9519;</td>
+<td>以同步方式读取并写入文件，文件不存在时报错</td>
 </tr>
 <tr>
 <td>w</td>
-<td>&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x6E05;&#x7A7A;</td>
+<td>写入文件，文件不存在则创建，存在则清空</td>
 </tr>
 <tr>
 <td>wx</td>
-<td>&#x548C;w&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;</td>
+<td>和w一样，但是文件存在时会报错</td>
 </tr>
 <tr>
 <td>w+</td>
-<td>&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#xFF0C;&#x5B58;&#x5728;&#x5219;&#x6E05;&#x7A7A;</td>
+<td>读取并写入文件，文件不存在则创建，存在则清空</td>
 </tr>
 <tr>
 <td>wx+</td>
-<td>&#x548C;w+&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;</td>
+<td>和w+一样，但是文件存在时会报错</td>
 </tr>
 <tr>
 <td>a</td>
-<td>&#x4EE5;&#x8FFD;&#x52A0;&#x65B9;&#x5F0F;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;</td>
+<td>以追加方式写入文件，文件不存在则创建</td>
 </tr>
 <tr>
 <td>ax</td>
-<td>&#x548C;a&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;</td>
+<td>和a一样，但是文件存在时会报错</td>
 </tr>
 <tr>
 <td>a+</td>
-<td>&#x8BFB;&#x53D6;&#x5E76;&#x8FFD;&#x52A0;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;</td>
+<td>读取并追加写入文件，文件不存在则创建</td>
 </tr>
 <tr>
 <td>ax+</td>
-<td>&#x548C;a+&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x62A5;&#x9519;</td>
+<td>和a+一样，但是文件存在时会报错</td>
 </tr>
 </tbody>
 </table>
-<h3 id="&#x8BFB;-&#x5199;"><a href="#&#x8BFB;-&#x5199;" class="headerlink" title="&#x8BFB;/&#x5199;"></a>&#x8BFB;/&#x5199;</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</div><div class="line"></div><div class="line">fs.open(<span class="string">&apos;filename&apos;</span>, <span class="string">&apos;w+&apos;</span>, <span class="function">(<span class="params">err, fd</span>) =&gt;</span> {</div><div class="line">    <span class="keyword">if</span> (err) {</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Write</span></div><div class="line">    <span class="keyword">let</span> bufWriter = <span class="keyword">new</span> Buffer(<span class="string">&apos;node.js from zero to hero!&apos;</span>);</div><div class="line"></div><div class="line">    fs.write(fd, bufWriter, <span class="number">0</span>, bufWriter.length, <span class="number">0</span>, <span class="function">(<span class="params">err, bytes, buffer</span>) =&gt;</span> {</div><div class="line">        <span class="keyword">if</span> (err) {</div><div class="line">            <span class="keyword">throw</span> err;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;W: &apos;</span> + buffer.slice(<span class="number">0</span>, bytes));</div><div class="line">    });</div><div class="line"></div><div class="line">    <span class="comment">// Read</span></div><div class="line">    <span class="keyword">let</span> bufReader = <span class="keyword">new</span> Buffer(<span class="number">255</span>);</div><div class="line">    fs.read(fd, bufReader, <span class="number">0</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="function">(<span class="params">err, bytes, buffer</span>) =&gt;</span> {</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;R: &apos;</span> + buffer.slice(<span class="number">0</span>, bytes));</div><div class="line">    });</div><div class="line"></div><div class="line">    fs.close(fd);</div><div class="line">});</div></pre></td></tr></table></figure>
-<h2 id="process"><a href="#process" class="headerlink" title="process"></a>process</h2><p>process &#x4E5F;&#x662F; EventEmiter&#x7684;&#x4E00;&#x4E2A; <em>instance</em></p>
-<h3 id="&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;"><a href="#&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;" class="headerlink" title="&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;"></a>&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;</h3><p>Node.js&#x652F;&#x6301;&#x6807;&#x51C6;&#x7684; <a href="http://man7.org/linux/man-pages/man7/signal.7.html" target="_blank" rel="external"><em>POSIX signal</em></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example: Interrupt from keyboard(control-c)</span></div><div class="line"></div><div class="line">process.stdin.resume(); <span class="comment">// begin reading from stdin</span></div><div class="line"></div><div class="line">process.on(<span class="string">&apos;SIGINT&apos;</span>, () =&gt; {</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;Received SIGINT.  Press Control-D to exit.&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure></p>
-<h3 id="&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x6D41;"><a href="#&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x6D41;" class="headerlink" title="&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x6D41;"></a>&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x6D41;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">process.stdin.setEncoding(<span class="string">&apos;utf8&apos;</span>);</div><div class="line"></div><div class="line">process.stdin.on(<span class="string">&apos;readable&apos;</span>, () =&gt; {</div><div class="line">    <span class="keyword">const</span> chunk = process.stdin.read();</div><div class="line">    <span class="keyword">if</span> (chunk) {</div><div class="line">        process.stdout.write(<span class="string">`data: <span class="subst">${chunk}</span>`</span>);</div><div class="line">    }</div><div class="line">});</div><div class="line"></div><div class="line">process.stdin.on(<span class="string">&apos;end&apos;</span>, () =&gt; {</div><div class="line">    process.stdout.write(<span class="string">&apos;end&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
-<h2 id="net-amp-dgram-module"><a href="#net-amp-dgram-module" class="headerlink" title="net &amp; dgram module"></a>net &amp; dgram module</h2><p><code>require(&apos;net&apos;)</code> for building TCP server<br><code>require(&apos;dgram&apos;)</code> for building UDP server</p>
-<h3 id="TCP-Server"><a href="#TCP-Server" class="headerlink" title="TCP Server"></a>TCP Server</h3><h4 id="&#x521B;&#x5EFA;TCP-Server"><a href="#&#x521B;&#x5EFA;TCP-Server" class="headerlink" title="&#x521B;&#x5EFA;TCP Server"></a>&#x521B;&#x5EFA;TCP Server</h4><p><code>const server = net.createServer((socket) =&gt; {})</code></p>
-<h4 id="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;"><a href="#&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;" class="headerlink" title="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;"></a>&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;</h4><p><code>socket.on(&apos;data&apos;, (data) =&gt; {})</code></p>
-<h4 id="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;"><a href="#&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;" class="headerlink" title="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;"></a>&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</h4><p><code>socket.write(&apos;message&apos;)</code>  </p>
-<h4 id="&#x76D1;&#x542C;"><a href="#&#x76D1;&#x542C;" class="headerlink" title="&#x76D1;&#x542C;"></a>&#x76D1;&#x542C;</h4><p><code>server.listen(port, () =&gt; { &apos;server is running&apos;})</code></p>
-<h3 id="TCP-Client"><a href="#TCP-Client" class="headerlink" title="TCP Client"></a>TCP Client</h3><h4 id="&#x8FDE;&#x63A5;TCP-Server"><a href="#&#x8FDE;&#x63A5;TCP-Server" class="headerlink" title="&#x8FDE;&#x63A5;TCP Server"></a>&#x8FDE;&#x63A5;TCP Server</h4><p><code>const client = net.connect({port: 8080}, function() {});</code></p>
-<h4 id="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;"><a href="#&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;" class="headerlink" title="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;:"></a>&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;:</h4><p><code>client.write(&apos;message&apos;)</code></p>
-<h4 id="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;"><a href="#&#x63A5;&#x6536;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;" class="headerlink" title="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;"></a>&#x63A5;&#x6536;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;</h4><p><code>client.on(&apos;data&apos;, (data) =&gt; {})</code></p>
-<h4 id="&#x65AD;&#x5F00;&#x8FDE;&#x63A5;"><a href="#&#x65AD;&#x5F00;&#x8FDE;&#x63A5;" class="headerlink" title="&#x65AD;&#x5F00;&#x8FDE;&#x63A5;"></a>&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</h4><p><code>client.end()</code></p>
-<h3 id="UDP-Server"><a href="#UDP-Server" class="headerlink" title="UDP Server"></a>UDP Server</h3><h4 id="&#x521B;&#x5EFA;UDP-Server"><a href="#&#x521B;&#x5EFA;UDP-Server" class="headerlink" title="&#x521B;&#x5EFA;UDP Server"></a>&#x521B;&#x5EFA;UDP Server</h4><p><code>const server = dgram.createSocket(&apos;udp4&apos;)</code></p>
-<h4 id="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x6D88;&#x606F;"><a href="#&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x6D88;&#x606F;" class="headerlink" title="&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x6D88;&#x606F;"></a>&#x63A5;&#x6536;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x6D88;&#x606F;</h4><p><code>server.on(&apos;message&apos;, (msg, client) =&gt; { client.port/address})</code></p>
-<h4 id="&#x76D1;&#x542C;-1"><a href="#&#x76D1;&#x542C;-1" class="headerlink" title="&#x76D1;&#x542C;"></a>&#x76D1;&#x542C;</h4><p><code>server.on(&apos;listening&apos;,() =&gt; { server listening on server.address()})</code></p>
-<h4 id="&#x7ED1;&#x5B9A;"><a href="#&#x7ED1;&#x5B9A;" class="headerlink" title="&#x7ED1;&#x5B9A;"></a>&#x7ED1;&#x5B9A;</h4><p><code>server.bind(port)</code></p>
-<h3 id="UDP-Client"><a href="#UDP-Client" class="headerlink" title="UDP Client"></a>UDP Client</h3><h4 id="&#x521B;&#x5EFA;UDP-Client"><a href="#&#x521B;&#x5EFA;UDP-Client" class="headerlink" title="&#x521B;&#x5EFA;UDP Client"></a>&#x521B;&#x5EFA;UDP Client</h4><p><code>const client = dgram.createSocket(&apos;udp4&apos;)</code></p>
-<h4 id="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;-1"><a href="#&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;-1" class="headerlink" title="&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;"></a>&#x53D1;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;</h4><p><code>client.send(msg, msg.length, port, address, callback())</code></p>
-<h3 id="Example-Chat"><a href="#Example-Chat" class="headerlink" title="Example: Chat"></a>Example: Chat</h3><p><strong>Server.js</strong><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">const net = <span class="built_in">require</span>(<span class="string">&apos;net&apos;</span>);</div><div class="line"></div><div class="line">const sockets = [];</div><div class="line">const server = net.createServer();</div><div class="line"></div><div class="line">server.<span class="literal">on</span>(<span class="string">&apos;connection&apos;</span>, <span class="function"><span class="params">(socket)</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;A client connected&apos;</span>);</div><div class="line">    sockets.push(socket);</div><div class="line"></div><div class="line">    socket.<span class="literal">on</span>(<span class="string">&apos;data&apos;</span>, <span class="function"><span class="params">(data)</span> =&gt;</span> {</div><div class="line">        sockets.forEach(<span class="function"><span class="params">(sock)</span> =&gt;</span> {</div><div class="line">            <span class="keyword">if</span> (sock != socket) {</div><div class="line">                sock.write(data);</div><div class="line">            }</div><div class="line">        });</div><div class="line">    });</div><div class="line"></div><div class="line">    socket.<span class="literal">on</span>(<span class="string">&apos;close&apos;</span>, <span class="function"><span class="params">(data)</span> =&gt;</span> {</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;A client connection closed&apos;</span>);</div><div class="line">        let index = sockets.indexOf(socket);</div><div class="line">        socket.splice(index, <span class="number">1</span>);</div><div class="line">    });</div><div class="line">});</div><div class="line"></div><div class="line">server.listen(<span class="number">3333</span>);</div></pre></td></tr></table></figure></p>
-<p><strong>Client.js</strong><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const net = <span class="built_in">require</span>(<span class="string">&apos;net&apos;</span>);</div><div class="line"></div><div class="line">process.stdin.resume();</div><div class="line"></div><div class="line">const client = net.connect(<span class="number">3333</span>, <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;Connected to server&apos;</span>);</div><div class="line">});</div><div class="line"></div><div class="line">process.stdin.<span class="literal">on</span>(<span class="string">&apos;data&apos;</span>, <span class="function"><span class="params">(data)</span> =&gt;</span> {</div><div class="line">    client.write(data);</div><div class="line">});</div><div class="line"></div><div class="line">client.<span class="literal">on</span>(<span class="string">&apos;data&apos;</span>, <span class="function"><span class="params">(data)</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(data.toString());</div><div class="line">});</div></pre></td></tr></table></figure></p>
-<h3 id="http-module"><a href="#http-module" class="headerlink" title="http module"></a>http module</h3><p>Using <code>http</code> module to build a <strong>Web Server</strong>.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">app</div><div class="line">&#x251C;&#x2500;&#x2500; app.js</div><div class="line">&#x251C;&#x2500;&#x2500; requestHandlers.js</div><div class="line">&#x251C;&#x2500;&#x2500; router.js</div><div class="line">&#x251C;&#x2500;&#x2500; server.js</div><div class="line">&#x2514;&#x2500;&#x2500; views</div><div class="line">    &#x251C;&#x2500;&#x2500; <span class="number">404</span>.html</div><div class="line">    &#x2514;&#x2500;&#x2500; home.html</div></pre></td></tr></table></figure></p>
-<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><p><strong>app.js</strong> &#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;&#x5E76;&#x4E14;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&apos;./server&apos;</span>);</div><div class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">&apos;./router&apos;</span>);</div><div class="line"><span class="keyword">const</span> requestHandlers = <span class="built_in">require</span>(<span class="string">&apos;./requestHandlers&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> handle = {};</div><div class="line">handle[<span class="string">&apos;/&apos;</span>] = requestHandlers.home;</div><div class="line"></div><div class="line">server.start(router.route, handle);</div></pre></td></tr></table></figure></p>
-<h4 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h4><p>&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x5668;, &#x5C06;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7ED9;&#x8DEF;&#x7531;&#x5904;&#x7406;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&apos;http&apos;</span>);</div><div class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&apos;url&apos;</span>);</div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> host = <span class="string">&apos;127.0.0.1&apos;</span>;</div><div class="line"><span class="keyword">const</span> port = <span class="number">8080</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">route, handle</span>) </span>{</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">req, res</span>) </span>{</div><div class="line">        <span class="keyword">const</span> pathname = url.parse(req.url).pathname;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;Request for &apos;</span> + pathname + <span class="string">&apos; received.&apos;</span>);</div><div class="line"></div><div class="line">        route(handle, pathname, res, req);</div><div class="line">    }</div><div class="line"></div><div class="line">    http.createServer(onRequest).listen(port, host);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;Sever has started and listenning on&apos;</span> + host + <span class="string">&apos;:&apos;</span> + port);</div><div class="line">}</div><div class="line"></div><div class="line">exports.start = start;</div></pre></td></tr></table></figure></p>
-<h4 id="router-js"><a href="#router-js" class="headerlink" title="router.js"></a>router.js</h4><p>&#x5224;&#x65AD;&#x8DEF;&#x7531;&#x662F;&#x5426;&#x5408;&#x6CD5;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">route</span>(<span class="params">handle, pathname, res, req</span>) </span>{</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> handle[pathname] === <span class="string">&apos;function&apos;</span>) {</div><div class="line">        handle[pathname](res, req);</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        <span class="keyword">var</span> content = fs.readFileSync(<span class="string">&apos;./views/404.html&apos;</span>);</div><div class="line">        res.writeHead(<span class="number">404</span>, { <span class="string">&apos;Content-Type&apos;</span>: <span class="string">&apos;text/html&apos;</span> });</div><div class="line">        res.write(content);</div><div class="line">        res.end();</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">exports.route = route;</div></pre></td></tr></table></figure></p>
-<h4 id="requestHandlers-js"><a href="#requestHandlers-js" class="headerlink" title="requestHandlers.js"></a>requestHandlers.js</h4><p>&#x5904;&#x7406;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">home</span>(<span class="params">res</span>) </span>{</div><div class="line">    <span class="keyword">const</span> content = fs.readFileSync(<span class="string">&apos;./views/home.html&apos;</span>);</div><div class="line">    res.writeHead(<span class="number">404</span>, {<span class="string">&apos;Content-Type&apos;</span>: <span class="string">&apos;text/html&apos;</span>});</div><div class="line">    res.write(content);</div><div class="line">    res.end();</div><div class="line">}</div><div class="line"></div><div class="line">exports.home = home;</div></pre></td></tr></table></figure></p>
-<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><h3 id="&#x6784;&#x5EFA;&#x9879;&#x76EE;"><a href="#&#x6784;&#x5EFA;&#x9879;&#x76EE;" class="headerlink" title="&#x6784;&#x5EFA;&#x9879;&#x76EE;"></a>&#x6784;&#x5EFA;&#x9879;&#x76EE;</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir <span class="keyword">node</span><span class="title">-express</span> &amp;&amp; cd <span class="keyword">node</span><span class="title">-express</span></div><div class="line">$ npm init</div><div class="line">$ npm i --save express</div></pre></td></tr></table></figure>
-<h3 id="Code-Base"><a href="#Code-Base" class="headerlink" title="Code Base"></a>Code Base</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&apos;express&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = express();</div><div class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</div><div class="line"></div><div class="line">app.get(<span class="string">&apos;/&apos;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</div><div class="line">    res.send(<span class="string">&apos;Hello Express&apos;</span>);</div><div class="line">});</div><div class="line"></div><div class="line">app.listen(port, <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Server is running at port <span class="subst">${port}</span>`</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
-<h3 id="&#x83B7;&#x53D6;Query"><a href="#&#x83B7;&#x53D6;Query" class="headerlink" title="&#x83B7;&#x53D6;Query"></a>&#x83B7;&#x53D6;Query</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// http://localhost:<span class="number">3000</span>/?<span class="attr">q=something</span></div><div class="line"><span class="keyword">let</span> <span class="attr">q</span> = req.query.q;</div><div class="line"><span class="keyword">let</span> <span class="attr">md5Value</span> = utility.md5(q);</div><div class="line">res.send(md5Value);</div></pre></td></tr></table></figure>
-<h3 id="Web-Scraping"><a href="#Web-Scraping" class="headerlink" title="Web Scraping"></a>Web Scraping</h3><p>Web scraping is a technique in data extraction where you pull information from websites.<br>&#x4F9D;&#x8D56;&#x6A21;&#x5757;: <code>superagent</code>, <code>cheerio</code></p>
-<h4 id="superagent"><a href="#superagent" class="headerlink" title="superagent"></a>superagent</h4><h5 id="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;"><a href="#&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;" class="headerlink" title="&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;"></a>&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x5185;&#x5BB9;</h5><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">superagent.get(<span class="string">&apos;https://github.com/topics/nodejs&apos;</span>)</div><div class="line">        .<span class="keyword">end</span>(<span class="function"><span class="keyword">function</span> <span class="params">(err, content)</span></span>{</div><div class="line">          console.<span class="built_in">log</span>(content);</div><div class="line">        }</div></pre></td></tr></table></figure>
-<h4 id="cheerio"><a href="#cheerio" class="headerlink" title="cheerio"></a>cheerio</h4><p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">read more</a><br><a href="https://github.com/evle/top-rated-movies-scraping" target="_blank" rel="external">&#x5B9E;&#x4F8B;: &#x83B7;&#x53D6;&#x8BC4;&#x5206;&#x6700;&#x9AD8;&#x7684;&#x7535;&#x5F71;&#x4ECE;http://www.imdb.com</a></p>
-<h5 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h5><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> $ = cheerio.load(content.<span class="keyword">text</span>);</div><div class="line"><span class="keyword">const</span> $ = cheerio.load(<span class="comment">&apos;<span class="doctag">&lt;ul id=&quot;fruits&quot;&gt;</span>...<span class="doctag">&lt;/ul&gt;</span>&apos;);</span></div></pre></td></tr></table></figure>
-<h5 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;.apple&apos;</span>, <span class="string">&apos;#fruits&apos;</span>).text()</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;ul .pear&apos;</span>).attr(<span class="string">&apos;class&apos;</span>)</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;li[class=orange]&apos;</span>).html()</span></div></pre></td></tr></table></figure>
-<h5 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;ul&apos;</span>).attr(<span class="string">&apos;id&apos;</span>)</span></div><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">&apos;.apple&apos;</span>).attr(<span class="string">&apos;id&apos;</span>, <span class="string">&apos;favorite&apos;</span>).html()</span></div></pre></td></tr></table></figure>
-<h4 id="eventproxy"><a href="#eventproxy" class="headerlink" title="eventproxy"></a>eventproxy</h4><h4 id="Travis-CI-Test-and-Deploy-with-Confidence"><a href="#Travis-CI-Test-and-Deploy-with-Confidence" class="headerlink" title="Travis CI - Test and Deploy with Confidence"></a>Travis CI - Test and Deploy with Confidence</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/09/30/node-from-zero-to-hero/" data-id="cj9kt1m8f000y7r35qid8fjfe" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/10/01/angular4-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Learn Angular 4 from Scratch(1)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/09/30/express-crash-course/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">express-crash-course</div>
-    </a>
-  
-</nav>
+<h3 id="读-写"><a href="#读-写" class="headerlink" title="读/写"></a>读/写</h3><pre><code>const fs = require(&#39;fs&#39;);
 
-  
+fs.open(&#39;filename&#39;, &#39;w+&#39;, (err, fd) =&gt; {
+    if (err) {
+        throw err;
+    }
+
+    // Write
+    let bufWriter = new Buffer(&#39;node.js from zero to hero!&#39;);
+
+    fs.write(fd, bufWriter, 0, bufWriter.length, 0, (err, bytes, buffer) =&gt; {
+        if (err) {
+            throw err;
+        }
+
+        console.log(&#39;W: &#39; + buffer.slice(0, bytes));
+    });
+
+    // Read
+    let bufReader = new Buffer(255);
+    fs.read(fd, bufReader, 0, 100, 0, (err, bytes, buffer) =&gt; {
+        console.log(&#39;R: &#39; + buffer.slice(0, bytes));
+    });
+
+    fs.close(fd);
+});
+</code></pre><h2 id="process"><a href="#process" class="headerlink" title="process"></a>process</h2><p>process 也是 EventEmiter的一个 <em>instance</em></p>
+<h3 id="信号事件"><a href="#信号事件" class="headerlink" title="信号事件"></a>信号事件</h3><p>Node.js支持标准的 <a href="http://man7.org/linux/man-pages/man7/signal.7.html" target="_blank" rel="noopener"><em>POSIX signal</em></a></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Example: Interrupt from keyboard(control-c)</span>
+
+process<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// begin reading from stdin</span>
+
+process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'SIGINT'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Received SIGINT.  Press Control-D to exit.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="获取输入流"><a href="#获取输入流" class="headerlink" title="获取输入流"></a>获取输入流</h3><pre class="line-numbers language-javascript"><code class="language-javascript">process<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span><span class="token function">setEncoding</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+process<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'readable'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> chunk <span class="token operator">=</span> process<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>chunk<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        process<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`data: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>chunk<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+process<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    process<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="net-amp-dgram-module"><a href="#net-amp-dgram-module" class="headerlink" title="net &amp; dgram module"></a>net &amp; dgram module</h2><p><code>require(&#39;net&#39;)</code> for building TCP server<br><code>require(&#39;dgram&#39;)</code> for building UDP server</p>
+<h3 id="TCP-Server"><a href="#TCP-Server" class="headerlink" title="TCP Server"></a>TCP Server</h3><h4 id="创建TCP-Server"><a href="#创建TCP-Server" class="headerlink" title="创建TCP Server"></a>创建TCP Server</h4><p><code>const server = net.createServer((socket) =&gt; {})</code></p>
+<h4 id="接收来自客户端的消息"><a href="#接收来自客户端的消息" class="headerlink" title="接收来自客户端的消息"></a>接收来自客户端的消息</h4><p><code>socket.on(&#39;data&#39;, (data) =&gt; {})</code></p>
+<h4 id="发送数据给客户端："><a href="#发送数据给客户端：" class="headerlink" title="发送数据给客户端："></a>发送数据给客户端：</h4><p><code>socket.write(&#39;message&#39;)</code>  </p>
+<h4 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h4><p><code>server.listen(port, () =&gt; { &#39;server is running&#39;})</code></p>
+<h3 id="TCP-Client"><a href="#TCP-Client" class="headerlink" title="TCP Client"></a>TCP Client</h3><h4 id="连接TCP-Server"><a href="#连接TCP-Server" class="headerlink" title="连接TCP Server"></a>连接TCP Server</h4><p><code>const client = net.connect({port: 8080}, function() {});</code></p>
+<h4 id="发送数据给服务器端"><a href="#发送数据给服务器端" class="headerlink" title="发送数据给服务器端:"></a>发送数据给服务器端:</h4><p><code>client.write(&#39;message&#39;)</code></p>
+<h4 id="接收来自服务器的消息"><a href="#接收来自服务器的消息" class="headerlink" title="接收来自服务器的消息"></a>接收来自服务器的消息</h4><p><code>client.on(&#39;data&#39;, (data) =&gt; {})</code></p>
+<h4 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h4><p><code>client.end()</code></p>
+<h3 id="UDP-Server"><a href="#UDP-Server" class="headerlink" title="UDP Server"></a>UDP Server</h3><h4 id="创建UDP-Server"><a href="#创建UDP-Server" class="headerlink" title="创建UDP Server"></a>创建UDP Server</h4><p><code>const server = dgram.createSocket(&#39;udp4&#39;)</code></p>
+<h4 id="接收来自客户端消息"><a href="#接收来自客户端消息" class="headerlink" title="接收来自客户端消息"></a>接收来自客户端消息</h4><p><code>server.on(&#39;message&#39;, (msg, client) =&gt; { client.port/address})</code></p>
+<h4 id="监听-1"><a href="#监听-1" class="headerlink" title="监听"></a>监听</h4><p><code>server.on(&#39;listening&#39;,() =&gt; { server listening on server.address()})</code></p>
+<h4 id="绑定"><a href="#绑定" class="headerlink" title="绑定"></a>绑定</h4><p><code>server.bind(port)</code></p>
+<h3 id="UDP-Client"><a href="#UDP-Client" class="headerlink" title="UDP Client"></a>UDP Client</h3><h4 id="创建UDP-Client"><a href="#创建UDP-Client" class="headerlink" title="创建UDP Client"></a>创建UDP Client</h4><p><code>const client = dgram.createSocket(&#39;udp4&#39;)</code></p>
+<h4 id="发送数据给服务器端-1"><a href="#发送数据给服务器端-1" class="headerlink" title="发送数据给服务器端"></a>发送数据给服务器端</h4><p><code>client.send(msg, msg.length, port, address, callback())</code></p>
+<h3 id="Example-Chat"><a href="#Example-Chat" class="headerlink" title="Example: Chat"></a>Example: Chat</h3><p><strong>Server.js</strong></p>
+<pre><code>const net = require(&#39;net&#39;);
+
+const sockets = [];
+const server = net.createServer();
+
+server.on(&#39;connection&#39;, (socket) =&gt; {
+    console.log(&#39;A client connected&#39;);
+    sockets.push(socket);
+
+    socket.on(&#39;data&#39;, (data) =&gt; {
+        sockets.forEach((sock) =&gt; {
+            if (sock != socket) {
+                sock.write(data);
+            }
+        });
+    });
+
+    socket.on(&#39;close&#39;, (data) =&gt; {
+        console.log(&#39;A client connection closed&#39;);
+        let index = sockets.indexOf(socket);
+        socket.splice(index, 1);
+    });
+});
+
+server.listen(3333);
+</code></pre><p><strong>Client.js</strong></p>
+<pre><code>const net = require(&#39;net&#39;);
+
+process.stdin.resume();
+
+const client = net.connect(3333, () =&gt; {
+    console.log(&#39;Connected to server&#39;);
+});
+
+process.stdin.on(&#39;data&#39;, (data) =&gt; {
+    client.write(data);
+});
+
+client.on(&#39;data&#39;, (data) =&gt; {
+    console.log(data.toString());
+});
+</code></pre><h3 id="http-module"><a href="#http-module" class="headerlink" title="http module"></a>http module</h3><p>Using <code>http</code> module to build a <strong>Web Server</strong>.</p>
+<pre><code>app
+├── app.js
+├── requestHandlers.js
+├── router.js
+├── server.js
+└── views
+    ├── 404.html
+    └── home.html
+</code></pre><h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><p><strong>app.js</strong> 是程序的入口，设置路由并且启动服务器.</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> server <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./server'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./router'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> requestHandlers <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./requestHandlers'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> handle <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+handle<span class="token punctuation">[</span><span class="token string">'/'</span><span class="token punctuation">]</span> <span class="token operator">=</span> requestHandlers<span class="token punctuation">.</span>home<span class="token punctuation">;</span>
+
+server<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span>route<span class="token punctuation">,</span> handle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h4><p>创建服务器, 将服务器接收到的客户端请求传递给路由处理</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> host <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> port <span class="token operator">=</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">start</span><span class="token punctuation">(</span>route<span class="token punctuation">,</span> handle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">onRequest</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> pathname <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>pathname<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Request for '</span> <span class="token operator">+</span> pathname <span class="token operator">+</span> <span class="token string">' received.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">route</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> pathname<span class="token punctuation">,</span> res<span class="token punctuation">,</span> req<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span>onRequest<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Sever has started and listenning on'</span> <span class="token operator">+</span> host <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>start <span class="token operator">=</span> start<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="router-js"><a href="#router-js" class="headerlink" title="router.js"></a>router.js</h4><p>判断路由是否合法</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">route</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> pathname<span class="token punctuation">,</span> res<span class="token punctuation">,</span> req<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> handle<span class="token punctuation">[</span>pathname<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        handle<span class="token punctuation">[</span>pathname<span class="token punctuation">]</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> req<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> content <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./views/404.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'text/html'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>route <span class="token operator">=</span> route<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="requestHandlers-js"><a href="#requestHandlers-js" class="headerlink" title="requestHandlers.js"></a>requestHandlers.js</h4><p>处理每个请求</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">home</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> content <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span><span class="token string">'./views/home.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'text/html'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span>home <span class="token operator">=</span> home<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><h3 id="构建项目"><a href="#构建项目" class="headerlink" title="构建项目"></a>构建项目</h3><pre><code>$ mkdir node-express &amp;&amp; cd node-express
+$ npm init
+$ npm i --save express
+</code></pre><h3 id="Code-Base"><a href="#Code-Base" class="headerlink" title="Code Base"></a>Code Base</h3><pre><code>const express = require(&#39;express&#39;);
+
+const app = express();
+const port = 3000;
+
+app.get(&#39;/&#39;, (req, res) =&gt; {
+    res.send(&#39;Hello Express&#39;);
+});
+
+app.listen(port, () =&gt; {
+    console.log(`Server is running at port ${port}`);
+});
+</code></pre><h3 id="获取Query"><a href="#获取Query" class="headerlink" title="获取Query"></a>获取Query</h3><pre><code>// http://localhost:3000/?q=something
+let q = req.query.q;
+let md5Value = utility.md5(q);
+res.send(md5Value);
+</code></pre><h3 id="Web-Scraping"><a href="#Web-Scraping" class="headerlink" title="Web Scraping"></a>Web Scraping</h3><p>Web scraping is a technique in data extraction where you pull information from websites.<br>依赖模块: <code>superagent</code>, <code>cheerio</code></p>
+<h4 id="superagent"><a href="#superagent" class="headerlink" title="superagent"></a>superagent</h4><h5 id="获取指定网页内容"><a href="#获取指定网页内容" class="headerlink" title="获取指定网页内容"></a>获取指定网页内容</h5><pre><code>superagent.get(&#39;https://github.com/topics/nodejs&#39;)
+        .end(function (err, content){
+          console.log(content);
+        }
+</code></pre><h4 id="cheerio"><a href="#cheerio" class="headerlink" title="cheerio"></a>cheerio</h4><p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">read more</a><br><a href="https://github.com/evle/top-rated-movies-scraping" target="_blank" rel="noopener">实例: 获取评分最高的电影从http://www.imdb.com</a></p>
+<h5 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h5><pre><code>const $ = cheerio.load(content.text);
+const $ = cheerio.load(&#39;&lt;ul id=&quot;fruits&quot;&gt;...&lt;/ul&gt;&#39;);
+</code></pre><h5 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h5><pre><code>$(&#39;.apple&#39;, &#39;#fruits&#39;).text()
+$(&#39;ul .pear&#39;).attr(&#39;class&#39;)
+$(&#39;li[class=orange]&#39;).html()
+</code></pre><h5 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h5><pre><code>$(&#39;ul&#39;).attr(&#39;id&#39;)
+$(&#39;.apple&#39;).attr(&#39;id&#39;, &#39;favorite&#39;).html()
+</code></pre><h4 id="eventproxy"><a href="#eventproxy" class="headerlink" title="eventproxy"></a>eventproxy</h4><h4 id="Travis-CI-Test-and-Deploy-with-Confidence"><a href="#Travis-CI-Test-and-Deploy-with-Confidence" class="headerlink" title="Travis CI - Test and Deploy with Confidence"></a>Travis CI - Test and Deploy with Confidence</h4>
+  </div>
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
+ 
+        
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
-    </div>
-  </div>
+          
+     </main>
 
+            <footer class="d-flex justify-content-around align-items-center text-white">
+ 
+<div></div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-5/">build-serverless-app-5</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-4/">build-serverless-app-4</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-3/">build-serverless-app-3</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-2/">build-serverless-app-2</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-1/">Building Serverless Web Application 1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+     
+      <div>
+      &copy;
+      2017
+        Max Lee
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Sangwoo Lee<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+
+<div class="">
+  <div class="">
+      Powered by
+      <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
+
+ 
+ <div class="">
+    Theme -
+    <a href="git@github.com:evle/min.git" target="_blank">Min</a>
+ </div>
+ 
+ </div>
+
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+       
+             
+  </body>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-  </div>
-  
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
-  
-</body>
 </html>

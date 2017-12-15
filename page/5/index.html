@@ -2,94 +2,465 @@
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>Evle&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Evle&#39;s Blog">
-<meta property="og:url" content="http://evleblog.com/page/5/index.html">
-<meta property="og:site_name" content="Evle&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Evle&#39;s Blog">
-  
-    <link rel="alternate" href="/atom.xml" title="Evle&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Evle&#39;s Blog
+  </title>
   <link rel="stylesheet" href="/css/style.css">
-  
-
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Evle&#39;s Blog</a>
-      </h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+    
+      <link rel="icon" href="/images/favicon.ico">
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Open Your Mind</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://evleblog.com"></form>
-      </div>
-    </div>
-  </div>
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+  <body>
+  <a href="https://github.com/evle" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="d-flex justify-content-between align-items-center">
+<div class="logo">
+ <a href="/">Evle&#39;s Blog</a>
+</div>
+
+<nav class="d-inline-flex">
+  <ul class="nav">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/"> Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/archives"> Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/category/"> Category</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/search"> Search</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/about/"> About</a>
+    </li>
+    
+  </ul>
+</nav>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-sass-guides-md" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/29/sass-guides-md/" class="article-date">
-  <time datetime="2017-06-28T17:17:04.000Z" itemprop="datePublished">2017-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/sass-guides-md/">sass_guides.md</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+   <div id="main-content"> 
       
+         
+<section class="d-flex flex-column align-items-center">
+
+  
+  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2017/09/07/Electron-Desktop-Apps-with-JavaScript/">
+          Electron 使用Node.js 开发桌面应用
+        </a>
+      </div>
+
+      <div class="card-text">
+        <h2 id="What-is-Electron"><a href="#What-is-Electron" class="headerlink" title="What is Electron"></a>What is Electron</h2><ul>
+<li>Open source library for creating cross-platform desktop applications with HTML, CSS &amp; JavaScript</li>
+<li>Apps can be packaged for Windows, Mac &amp; Linux</li>
+</ul>
+<h2 id="Why-I-learn-Electron"><a href="#Why-I-learn-Electron" class="headerlink" title="Why I learn Electron"></a>Why I learn Electron</h2><p>学习编程语言和学习编程是两个完全不同的概念<br>Learning out of context is more difficult than learning with relatable context.  </p>
+<p>如果把 Nodejs, HTML5, CSS, JavaScript 划分为独立的部分去学习是没有意义的.<br>If you just initially focus on the syntax, you learn without context.</p>
+<p>Electron应用将Nodejs, HTML, CSS, JavaScript结合到了一起, 为学Javascript全栈提供了一个context<br>Besides, it allow us to be able to develop Desktop Application.  </p>
+<p>使用Electron去创造一些有趣的东西 Just for Fun<br>there are a lot of awesome apps build with Electron such as VS code, Atom, and Flow.</p>
+<h2 id="安装-amp-运行"><a href="#安装-amp-运行" class="headerlink" title="安装 &amp; 运行"></a>安装 &amp; 运行</h2><pre><code>    npm install -g electron
+    mkdir electron-app
+    cd electron-app
+</code></pre><p><strong>修改</strong> <em>package.json</em></p>
+<pre><code>```
+...
+&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;electron .&quot;
+},
+...
+```
+</code></pre><p><strong>运行:</strong> <code>npm start</code></p>
+<h2 id="Main-amp-Renderer-Processes"><a href="#Main-amp-Renderer-Processes" class="headerlink" title="Main &amp; Renderer Processes"></a>Main &amp; Renderer Processes</h2><p>Renderer process不支持所有的APIs, 但Main process支持,Renderer process 和 Main process的交互<br>很重要</p>
+<p><code>node-integration</code> mode: 该模式默认开启，可以使你运行Node代码在browser window.<br>但是有一些库会和<code>node-integration</code>不兼容比如jquery, 除了不兼容外,<code>node-integration</code>也存在<br>安全问题,比如黑客inject <script> tag在browser window的话, 可以直接利用Node代码访问文件系统.<br>所以在必要时候在使用该模式.<br><code>preload</code> script可以访问 Node APIs 无论<code>node-integration</code>是否开启.</p>
+<h2 id="Using-Node-Module"><a href="#Using-Node-Module" class="headerlink" title="Using Node Module"></a>Using Node Module</h2><p>Electron构建与Node之上，因此可以在Electron使用Node模块. 这意味着很多问题已经有现成的解决方案，只要倒入别人在NPM上发布的包<br>就可以了. 本节教你如何使用 <a href="https://nodejs.org/api/">Node built-in Module</a>和 <a href="">Node module from NPM</a></p>
+<h2 id="Application-Lifecycle"><a href="#Application-Lifecycle" class="headerlink" title="Application Lifecycle"></a>Application Lifecycle</h2><p>当启动一个Electron应用时发生了什么?</p>
+<ul>
+<li>Electron的Node runtime 开始运行</li>
+<li>加载所需要的库</li>
+<li>加载你的 main模块 并且执行<br>The main module is the one that you’ve defined in your package.json file. And while an application can spawn multiple renderer processes, there can only be one main process. It controls the whole state of your application and you can react to different events that may occur.</li>
+</ul>
+<p>main module 控制整个应用的生命周期 通过 EventEmitter</p>
+<p>Startup<br>When code is loaded, the app module emits it’s first event: the ready event.<br>其实第一个emit的event是<code>will-finish-launching</code>. 与<code>ready</code>事件相同</p>
+<p>Quitting</p>
+<ol>
+<li><code>window-all-closed</code>：程序在该事件下停止<br>因为在Mac系统下, 关闭窗口后应用不用关闭,需要按Cmd+q才能真正的关闭，所以可以用以下方法停止程序运行在Mac上<pre><code> app.on(‘window-all-closed’, () =&gt; {
+   if (process.platform !== ‘darwin’) {
+     app.quit();
+   }
+ });
+</code></pre></li>
+<li><code>activate</code>: 用户点击dock icon应用会出现, 使用<code>activate</code>捕获这个事件<pre><code> app.on(‘activate’, () =&gt; {
+ if (mainWindow === null) {
+   createMainWindow();
+ }
+ });
+</code></pre></li>
+</ol>
+<p>before-quit<br>quit</p>
+<p>程序防止崩溃,使用f uncaughtException</p>
+<pre><code>```
+const electron = require(&#39;electron&#39;);
+const app = electron.app;
+
+process.on(&#39;uncaughtException&#39;, (err) =&gt; {
+  console.log(&#39;application almost crashed!&#39;, err);
+});
+
+app.on(&#39;ready&#39;, () =&gt; {
+  setTimeout(() =&gt; {
+    nonExistentFunc();
+  }, 2000);
+});
+```
+</code></pre><h2 id="Platform-Detection"><a href="#Platform-Detection" class="headerlink" title="Platform Detection"></a>Platform Detection</h2><p>翻译 Google Play Music Desktop Player UNOFFICIAL</p>
+<h2 id="Custom-Frames"><a href="#Custom-Frames" class="headerlink" title="Custom Frames"></a>Custom Frames</h2><h2 id="Desktop-Integrations"><a href="#Desktop-Integrations" class="headerlink" title="Desktop Integrations"></a>Desktop Integrations</h2><h2 id="Defining-Shortcuts"><a href="#Defining-Shortcuts" class="headerlink" title="Defining Shortcuts"></a>Defining Shortcuts</h2><h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h2><h2 id="Menus"><a href="#Menus" class="headerlink" title="Menus"></a>Menus</h2><h2 id="System-temporary"><a href="#System-temporary" class="headerlink" title="System temporary"></a>System temporary</h2><h2 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h2><h2 id="Webview"><a href="#Webview" class="headerlink" title="Webview"></a>Webview</h2><h2 id="Audio-amp-Video-Capturing"><a href="#Audio-amp-Video-Capturing" class="headerlink" title="Audio &amp; Video Capturing"></a>Audio &amp; Video Capturing</h2><h2 id="Packaging-Apps"><a href="#Packaging-Apps" class="headerlink" title="Packaging Apps"></a>Packaging Apps</h2><h2 id="Automatic-Updates"><a href="#Automatic-Updates" class="headerlink" title="Automatic Updates"></a>Automatic Updates</h2></script></p>
+      </div>
+
+      <div class="card-text">
+        2017-09-07
+      </div>
+
+    </article>
+
+    </div>
+    
+  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2017/09/06/Contributions-Lose/">
+          修复 Github Contributions 未被记录和显示
+        </a>
+      </div>
+
+      <div class="card-text">
+        <p><br>当本地 <strong>git</strong> 邮箱与 <strong>GitHub</strong> 不一致时, 所推送的 Contributions 不会被 GitHub记录并显示  </p>
+<p><strong>Solution:</strong> (<strong>For Mac</strong>)</p>
+<blockquote>
+<p>To change the name and/or email address recorded in existing commits, you must rewrite the entire history of your Git repository.</p>
+</blockquote>
+<ol>
+<li><p>Open Terminal.  </p>
+</li>
+<li><p>Create a fresh, bare clone of your repository:</p>
+<pre><code> git clone --bare https://github.com/user/repo.git
+ cd repo.git
+</code></pre></li>
+<li>Copy and paste the script, replacing the following variables based on the information you gathered:<pre><code> #!/bin/sh
+ git filter-branch --env-filter &#39;
+ OLD_EMAIL=&quot;your-old-email@example.com&quot;
+ CORRECT_NAME=&quot;Your Correct Name&quot;
+ CORRECT_EMAIL=&quot;your-correct-email@example.com&quot;
+ if [ &quot;$GIT_COMMITTER_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]
+ then
+     export GIT_COMMITTER_NAME=&quot;$CORRECT_NAME&quot;
+     export GIT_COMMITTER_EMAIL=&quot;$CORRECT_EMAIL&quot;
+ fi
+ if [ &quot;$GIT_AUTHOR_EMAIL&quot; = &quot;$OLD_EMAIL&quot; ]
+ then
+     export GIT_AUTHOR_NAME=&quot;$CORRECT_NAME&quot;
+     export GIT_AUTHOR_EMAIL=&quot;$CORRECT_EMAIL&quot;
+ fi
+ &#39; --tag-name-filter cat -- --branches --tags
+</code></pre></li>
+<li>Press <code>Enter</code> to run the script.</li>
+<li><p>Review the new Git history for errors: <code>git log</code>  </p>
+</li>
+<li><p>Push the new Git history to GitHub: <code>git push --force --tags origin &#39;refs/heads/*&#39;</code>  </p>
+</li>
+<li><p>Clean up the temporary clone: <code>cd .. &amp; rm -rf repo.git</code>    </p>
+</li>
+</ol>
+
+      </div>
+
+      <div class="card-text">
+        2017-09-06
+      </div>
+
+    </article>
+
+    </div>
+    
+  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2017/09/02/MongoDB-Cheat-Sheets/">
+          MongoDB Cheat Sheets
+        </a>
+      </div>
+
+      <div class="card-text">
+        <h2 id="Executables"><a href="#Executables" class="headerlink" title="Executables"></a>Executables</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>MySQL/Oracle</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database Server</td>
+<td>mysqld/oracle</td>
+<td>mongod</td>
+</tr>
+<tr>
+<td>Database Client</td>
+<td>mysql/sqlplus</td>
+<td>mongo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><table>
+<thead>
+<tr>
+<th>SQL Terms/Concepts</th>
+<th>MongoDB Terms/Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document or BSON document</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td>embedded documents and linking</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key(default _id)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>Displays the database that you’re currently using.</td>
+</tr>
+<tr>
+<td>show dbs</td>
+<td>Displays the databases available on the server.</td>
+</tr>
+<tr>
+<td>use <db></db></td>
+<td>Create or switch database</td>
+</tr>
+<tr>
+<td>db.dropDatabase()</td>
+<td>Drop database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.createCollection(“user”)</td>
+<td>Create collection</td>
+</tr>
+<tr>
+<td>db.COLLECTION_NAME.drop()</td>
+<td>Delete collection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Basic-CRUD-Operations"><a href="#Basic-CRUD-Operations" class="headerlink" title="Basic CRUD Operations"></a>Basic CRUD Operations</h2><h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.insert({name: “evle”,age: 18})</td>
+<td></td>
+</tr>
+<tr>
+<td>db.user.ensureIndex( { user_id: 1, age: -1 } )</td>
+<td>Index</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.find()</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.find({ status: “A” }</td>
+<td>status = A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.user.update({‘name’:’evle’},{$set:{‘name’:’max lee’}})</td>
+<td>Only update the first one.</td>
+</tr>
+<tr>
+<td>db.user.update({‘name’:’evle’},{$set:{‘name’:’max lee’}},{multi:ture})</td>
+<td>Update all</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><table>
+<thead>
+<tr>
+<th>MongoDB Schema Statements</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db.users.remove( )</td>
+<td></td>
+</tr>
+<tr>
+<td>db.users.remove({ status: “D” })</td>
+<td>status = D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit()</td>
+<td></td>
+</tr>
+<tr>
+<td>skip()</td>
+<td></td>
+</tr>
+<tr>
+<td>sort()</td>
+<td></td>
+</tr>
+<tr>
+<td>$lt</td>
+<td></td>
+</tr>
+<tr>
+<td>$lte</td>
+<td></td>
+</tr>
+<tr>
+<td>$gt</td>
+<td></td>
+</tr>
+<tr>
+<td>$gte</td>
+<td></td>
+</tr>
+<tr>
+<td>$ne</td>
+<td></td>
+</tr>
+<tr>
+<td>AND</td>
+<td></td>
+</tr>
+<tr>
+<td>OR</td>
+<td></td>
+</tr>
+<tr>
+<td>aggregate()</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+
+      <div class="card-text">
+        2017-09-02
+      </div>
+
+    </article>
+
+    </div>
+    
+  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2017/06/29/sass-guides-md/">
+          sass_guides.md
+        </a>
+      </div>
+
+      <div class="card-text">
         <p>sudo gem install sass</p>
-<p>&#x7F16;&#x8BD1;<br>sass main.scss main.css</p>
+<p>编译<br>sass main.scss main.css</p>
 <p>Nesting</p>
 <p>.parent {<br>  color: blue;<br>  .child {<br>    font-size: 12px;<br>  }<br>}</p>
 <p>Variables<br>$translucent-white: rgba(255,255,255,0.3);<br>background-color: $translucent-white;</p>
@@ -107,238 +478,223 @@
 </ol>
 <p>Numbers<br>Strings<br>Booleans<br>null<br>Lists<br>Maps</p>
 
-      
+      </div>
+
+      <div class="card-text">
+        2017-06-29
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/06/29/sass-guides-md/" data-id="cj9kt1m8g00107r35cd6x2yqo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+    
   
-</article>
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2017/01/05/bootstrap/">
+          理解和使用Bootstrap
+        </a>
+      </div>
 
-
-  
-    <article id="post-bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/bootstrap/" class="article-date">
-  <time datetime="2017-01-04T17:07:40.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/bootstrap/">理解和使用Bootstrap</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+      <div class="card-text">
         <blockquote>
 <p>Bootstrap is front-end <strong>framework</strong> for <strong>faster</strong> and <strong>easier</strong> responsive web development.</p>
 </blockquote>
-<p>&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x7406;&#x89E3;Bootstrap&#xFF0C;&#x5728;&#x9605;&#x8BFB;&#x8BE5;&#x6559;&#x7A0B;&#x524D;&#x7684;&#x57FA;&#x7840;&#x5DE5;&#x4F5C;:</p>
+<p>为了更好的理解Bootstrap，在阅读该教程前的基础工作:</p>
 <ol>
-<li>&#x627E;&#x4E00;&#x4E2A;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5DE5;&#x5177;(&#x63A8;&#x8350;Atom)</li>
-<li>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7F51;&#x9875;&#x5E76;&#x52A0;&#x8F7D;Bootstrap(&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;)<br>&#x590D;&#x5236;&#x4EE5;&#x4E0B;&#x6587;&#x4EF6;&#x81F3;&#x65B0;&#x5EFA;&#x7684; <strong>HTML</strong> &#x9875;&#x9762;&#x4E2D; <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Basic Bootstrap Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Optional Bootstrap theme --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
+<li>找一个你喜欢的代码编辑工具(推荐Atom)</li>
+<li>新建一个网页并加载Bootstrap(推荐使用以下方法加载)<br>复制以下文件至新建的 <strong>HTML</strong> 页面中<pre><code> &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+     &lt;meta charset=&quot;utf-8&quot;&gt;
+     &lt;title&gt;Basic Bootstrap Template&lt;/title&gt;
+     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;
+     &lt;!-- Optional Bootstrap theme --&gt;
+     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css&quot; integrity=&quot;sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp&quot; crossorigin=&quot;anonymous&quot;&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;h1&gt;Hello, world!&lt;/h1&gt;
+     &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+     &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot; integrity=&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</code></pre></li>
 </ol>
-<h1 id="&#x5E03;&#x5C40;"><a href="#&#x5E03;&#x5C40;" class="headerlink" title="&#x5E03;&#x5C40;"></a>&#x5E03;&#x5C40;</h1><h2 id="Grid-System"><a href="#Grid-System" class="headerlink" title="Grid System"></a>Grid System</h2><h2 id="Fixed-Layout"><a href="#Fixed-Layout" class="headerlink" title="Fixed Layout"></a>Fixed Layout</h2><h2 id="Fluid-Layout"><a href="#Fluid-Layout" class="headerlink" title="Fluid Layout"></a>Fluid Layout</h2><h1 id="&#x63A7;&#x4EF6;"><a href="#&#x63A7;&#x4EF6;" class="headerlink" title="&#x63A7;&#x4EF6;"></a>&#x63A7;&#x4EF6;</h1><h1 id="&#x7EC3;&#x4E60;"><a href="#&#x7EC3;&#x4E60;" class="headerlink" title="&#x7EC3;&#x4E60;"></a>&#x7EC3;&#x4E60;</h1><h1 id="&#x5B9E;&#x8DF5;"><a href="#&#x5B9E;&#x8DF5;" class="headerlink" title="&#x5B9E;&#x8DF5;"></a>&#x5B9E;&#x8DF5;</h1>
-      
+<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="Grid-System"><a href="#Grid-System" class="headerlink" title="Grid System"></a>Grid System</h2><h2 id="Fixed-Layout"><a href="#Fixed-Layout" class="headerlink" title="Fixed Layout"></a>Fixed Layout</h2><h2 id="Fluid-Layout"><a href="#Fluid-Layout" class="headerlink" title="Fluid Layout"></a>Fluid Layout</h2><h1 id="控件"><a href="#控件" class="headerlink" title="控件"></a>控件</h1><h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1>
+      </div>
+
+      <div class="card-text">
+        2017-01-05
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2017/01/05/bootstrap/" data-id="cj9kt1m82000d7r35z74d9xtn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git-github-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/10/git-github-tutorial/" class="article-date">
-  <time datetime="2016-12-10T08:50:07.000Z" itemprop="datePublished">2016-12-10</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/10/git-github-tutorial/">Learn Git &amp; Github 你要知道的没那么多</a>
-    </h1>
-  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2016/12/10/git-github-tutorial/">
+          Learn Git &amp; Github 你要知道的没那么多
+        </a>
+      </div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Git&#x662F;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;, &#x4E0B;&#x8F7D;&#x53CA;&#x5B89;&#x88C5;Git&#x540E;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4EE5;&#x4E0B;&#x8BBE;&#x7F6E;</p>
-<pre><code>$ git config --global user.name &quot;Your Name&quot;
-$ git config --global user.email &quot;email@example.com&quot;
-</code></pre><p>&#x8BBE;&#x7F6E;&#x5B8C;Git&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;Github&#x7684; <strong>SSH key</strong>. &#x4F7F;&#x7528; <code>ssh-keygen -t rsa -C &quot;email@example.com&quot;</code> &#x751F;&#x6210; <strong>id_rsa.pub</strong> &#x7136;&#x540E; &#x6DFB;&#x52A0;&#x5230; Github &#x8D26;&#x6237;&#x4E2D;.</p>
-<h1 id="&#x57FA;&#x672C;&#x64CD;&#x4F5C;"><a href="#&#x57FA;&#x672C;&#x64CD;&#x4F5C;" class="headerlink" title="&#x57FA;&#x672C;&#x64CD;&#x4F5C;"></a>&#x57FA;&#x672C;&#x64CD;&#x4F5C;</h1><pre><code>## &#x521B;&#x5EFA;&#x4E0E;&#x6DFB;&#x52A0;
-# &#x5728;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x65B0;&#x5EFA;&#x4ED3;&#x5E93;
-$ git init  
+      <div class="card-text">
+        <p>Git是目前主流的分布式版本控制系统, 下载及安装Git后需要进行以下设置</p>
+<pre><code>    $ git config --global user.name &quot;Your Name&quot;
+    $ git config --global user.email &quot;email@example.com&quot;
+</code></pre><p>设置完Git之后设置Github的 <strong>SSH key</strong>. 使用 <code>ssh-keygen -t rsa -C &quot;email@example.com&quot;</code> 生成 <strong>id_rsa.pub</strong> 然后 添加到 Github 账户中.</p>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><pre><code>    ## 创建与添加
+    # 在新建的文件夹内执行以下命令新建仓库
+    $ git init  
 
-# &#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;
-$ git add a
-$ git add b
-$ git add .
-$ git commit -m &quot;add 2 files.&quot;
+    # 添加文件至仓库
+    $ git add a
+    $ git add b
+    $ git add .
+    $ git commit -m &quot;add 2 files.&quot;
 
-# &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x72B6;&#x6001;
-$ git status
+    # 获取当前工作区状态
+    $ git status
 
-# &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x6539;&#x52A8;
-$ git diff  # &#x5DE5;&#x4F5C;&#x533A;&#x4E0E;&#x7F13;&#x5B58;&#x533A;&#x7684;&#x5DEE;&#x5F02;
-$ git diff branch-a branch-b
-$ git diff branch
+    # 查看文件改动
+    $ git diff  # 工作区与缓存区的差异
+    $ git diff branch-a branch-b
+    $ git diff branch
 
-# &#x5386;&#x53F2;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;
-$ git log # &#x67E5;&#x770B;&#x6240;&#x6709;commit&#x8BB0;&#x5F55;
-$ git log filename  # &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x8BB0;&#x5F55;
+    # 历史提交记录
+    $ git log # 查看所有commit记录
+    $ git log filename  # 查看文件修改记录
 
-# &#x67E5;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x4F5C;&#x8005;
-$ git blame filename
+    # 查看代码的作者
+    $ git blame filename
 
-# &#x6587;&#x4EF6;&#x6062;&#x590D;
-</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x81F3;&#x4ED3;&#x5E93;&#x65F6;&#x6709;2&#x6B65;&#xFF0C;&#x5148;&#x4F7F;&#x7528; <code>git add filename</code> &#x63D0;&#x4EA4;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x6682;&#x5B58;&#x533A;, &#x7136;&#x540E;&#x4F7F;&#x7528; <code>git commit -m &quot;message&quot;</code> &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x63D0;&#x4EA4;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;. &#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x786E;&#x4FDD; <strong>&#x201C;message&#x201D;</strong> &#x6709;&#x610F;&#x4E49;.  </p>
-<h2 id="&#x7248;&#x672C;&#x5207;&#x6362;"><a href="#&#x7248;&#x672C;&#x5207;&#x6362;" class="headerlink" title="&#x7248;&#x672C;&#x5207;&#x6362;"></a>&#x7248;&#x672C;&#x5207;&#x6362;</h2><pre><code># &#x67E5;&#x770B;commit&#x8BB0;&#x5F55;(&#x83B7;&#x53D6;commit_id)
-$ git log
+    # 文件恢复
+</code></pre><p>需要注意的是在添加文件至仓库时有2步，先使用 <code>git add filename</code> 提交单个文件到暂存区, 然后使用 <code>git commit -m &quot;message&quot;</code> 将暂存区的文件提交到当前分支. 还有一点要注意的是确保 <strong>“message”</strong> 有意义.  </p>
+<h2 id="版本切换"><a href="#版本切换" class="headerlink" title="版本切换"></a>版本切换</h2><pre><code>    # 查看commit记录(获取commit_id)
+    $ git log
 
-&#xFF03;&#x5207;&#x6362;&#x7248;&#x672C;
-$ git reset --hard commit_id  # &#x5207;&#x6362;&#x5230;&#x6307;&#x5B9A;commit_id&#x7684;&#x7248;&#x672C;
-$ git reset --hard HEAD^      # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
-$ git reset --hard HEAD^^     # &#x5207;&#x6362;&#x5230;&#x4E0A;&#x4E0A;&#x4E2A;&#x7248;&#x672C;
+    ＃切换版本
+    $ git reset --hard commit_id  # 切换到指定commit_id的版本
+    $ git reset --hard HEAD^      # 切换到上个版本
+    $ git reset --hard HEAD^^     # 切换到上上个版本
 
-# &#x67E5;&#x770B;&#x5386;&#x53F2;&#x547D;&#x4EE4;
-$ git reflog  
-</code></pre><p>&#x5F53;&#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x65F6;, &#x56DE;&#x9000;&#x524D;&#x7684;&#x7248;&#x672C;&#x7684;commit_id&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>git log</code> &#x67E5;&#x8BE2;, &#x53EA;&#x80FD;&#x901A;&#x8FC7; <code>git reflog</code> &#x67E5;&#x8BE2;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;commit_id.<br>e.g. &#x5F53;&#x524D;&#x7248;&#x672C;B, &#x4F7F;&#x7528; <code>git reset --hard commit_id</code> &#x56DE;&#x9000;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;A. &#x5728;&#x7248;&#x672C;A&#x4E2D;, &#x518D;&#x60F3;&#x56DE;&#x9000;&#x5230;&#x7248;&#x672C;B&#x65F6;, &#x65E0;&#x6CD5;&#x4F7F;&#x7528; <code>git log</code> &#x83B7;&#x53D6;&#x7248;&#x672C;B&#x7684; <strong>commit_id</strong> . &#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>git reflog</code> &#x83B7;&#x53D6;.</p>
-<h2 id="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"><a href="#&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;" class="headerlink" title="&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;"></a>&#x64A4;&#x9500;&#x4E0E;&#x5220;&#x9664;</h2><pre><code># &#x64A4;&#x9500;&#x5728;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x7684;&#x63D0;&#x4EA4; (&#x5DF2; add &#x672A; commit)
-$ git reset HEAD filename
-$ git checkout filename
+    # 查看历史命令
+    $ git reflog  
+</code></pre><p>当回退到之前的版本时, 回退前的版本的commit_id无法通过 <code>git log</code> 查询, 只能通过 <code>git reflog</code> 查询历史版本的commit_id.<br>e.g. 当前版本B, 使用 <code>git reset --hard commit_id</code> 回退到之前的版本A. 在版本A中, 再想回退到版本B时, 无法使用 <code>git log</code> 获取版本B的 <strong>commit_id</strong> . 但可以通过 <code>git reflog</code> 获取.</p>
+<h2 id="撤销与删除"><a href="#撤销与删除" class="headerlink" title="撤销与删除"></a>撤销与删除</h2><pre><code>    # 撤销在暂存区中的提交 (已 add 未 commit)
+    $ git reset HEAD filename
+    $ git checkout filename
 
-# &#x64A4;&#x9500;&#x63D0;&#x4EA4;
-$ git revert HEAD # &#x64A4;&#x9500;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;
-$ git revert commit_id
+    # 撤销提交
+    $ git revert HEAD # 撤销最近一次提交
+    $ git revert commit_id
 
-# &#x67E5;&#x770B;&#x67D0;&#x6B21;&#x63D0;&#x4EA4;&#x4FEE;&#x6539;&#x7684;&#x5185;&#x5BB9;
-$ git show commit_id
+    # 查看某次提交修改的内容
+    $ git show commit_id
 
-# &#x5220;&#x9664;&#x88AB; tracked &#x7684;&#x6587;&#x4EF6;
-$ rm filename
-$ git status
+    # 删除被 tracked 的文件
+    $ rm filename
+    $ git status
 
-# -----&gt; &#x6062;&#x590D;
-$ git checkout -- filename  # &#x629B;&#x5F03;&#x5F53;&#x524D;&#x4FEE;&#x6539; or &#x6062;&#x590D;&#x8BEF;&#x5220;&#x6587;&#x4EF6;
+    # -----&gt; 恢复
+    $ git checkout -- filename  # 抛弃当前修改 or 恢复误删文件
 
-# or ----&gt; &#x786E;&#x5B9A;&#x5220;&#x9664;
-$ git rm filename  # &#x5220;&#x9664;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x6587;&#x4EF6;
-$ git commit -m &quot;message&quot;
-</code></pre><p>&#x8BEF;&#x5220;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>git checkout -- filename</code> &#x6062;&#x590D;.</p>
-<h1 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h1><h2 id="&#x5E38;&#x7528;&#x5206;&#x652F;"><a href="#&#x5E38;&#x7528;&#x5206;&#x652F;" class="headerlink" title="&#x5E38;&#x7528;&#x5206;&#x652F;"></a>&#x5E38;&#x7528;&#x5206;&#x652F;</h2><ul>
+    # or ----&gt; 确定删除
+    $ git rm filename  # 删除暂存区中文件
+    $ git commit -m &quot;message&quot;
+</code></pre><p>误删的文件也可以使用 <code>git checkout -- filename</code> 恢复.</p>
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="常用分支"><a href="#常用分支" class="headerlink" title="常用分支"></a>常用分支</h2><ul>
 <li>master branch:</li>
 <li>develop branch:</li>
 <li>temporary branch: adding new feature or hotfix</li>
 </ul>
-<h2 id="&#x5206;&#x652F;&#x64CD;&#x4F5C;"><a href="#&#x5206;&#x652F;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5206;&#x652F;&#x64CD;&#x4F5C;"></a>&#x5206;&#x652F;&#x64CD;&#x4F5C;</h2><pre><code># &#x521B;&#x5EFA;
-$ git branch branch_name       # &#x521B;&#x5EFA;&#x5206;&#x652F;
-$ git checkout branch_name     # &#x5207;&#x6362;&#x5206;&#x652F;
-$ git checkout -b branch_name  # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>    # 创建
+    $ git branch branch_name       # 创建分支
+    $ git checkout branch_name     # 切换分支
+    $ git checkout -b branch_name  # 创建并切换分支
 
-# &#x5408;&#x5E76;
-$ git merge branch_name         &#xFF03; &#x5408;&#x5E76;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;
-$ git merge --no-ff -m &quot;message&quot; branch_name  &#xFF03; &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;
+    # 合并
+    $ git merge branch_name         ＃ 合并指定分支到当前分支
+    $ git merge --no-ff -m &quot;message&quot; branch_name  ＃ 禁用快速合并
 
-# &#x7EBF;&#x6027;&#x5408;&#x5E76;
-$ git checkout some-feature     # &#x5408;&#x5E76; some-feature &#x5230; origin
-$ git rebase origin
-# &#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x540E;
-$ git add filename
-$ git rebase --continue
-# &#x7EC8;&#x6B62;&#x5408;&#x5E76;
-$ git rebase --abort
+    # 线性合并
+    $ git checkout some-feature     # 合并 some-feature 到 origin
+    $ git rebase origin
+    # 解决冲突后
+    $ git add filename
+    $ git rebase --continue
+    # 终止合并
+    $ git rebase --abort
 
-# &#x67E5;&#x770B;&#x5408;&#x5E76;&#x60C5;&#x51B5;
-$ git log --graph --pretty=oneline
+    # 查看合并情况
+    $ git log --graph --pretty=oneline
 
-# &#x5220;&#x9664;  
-$ git branch -d dev
-# &#x6062;&#x590D;
-$ git log --branches=&quot;branch_name&quot;  
-$ git branch branch_name commit_id
+    # 删除  
+    $ git branch -d dev
+    # 恢复
+    $ git log --branches=&quot;branch_name&quot;  
+    $ git branch branch_name commit_id
 
-# &#x5206;&#x652F;&#x91CD;&#x547D;&#x540D;
-$ git branch -m old_name new_name
+    # 分支重命名
+    $ git branch -m old_name new_name
 
-# &#x63A8;&#x9001;&#x5206;&#x652F;
-$ git push origin branch_name
+    # 推送分支
+    $ git push origin branch_name
 
-# &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-$ git branch --set-upstream branch-name origin/branch-name
-</code></pre><p>&#x5982;&#x679C;&#x7A81;&#x7136;&#x6709;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5206;&#x652F;&#x9700;&#x8981;&#x524D;&#x53BB;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;, &#x4F7F;&#x7528; <code>git stash</code> &#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x5F53;&#x5176;&#x5B83;&#x5206;&#x652F;&#x5904;&#x7406;&#x5B8C;&#x6210;, &#x4F7F;&#x7528; <code>git stash apply</code> &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;. &#x76F8;&#x5173;&#x547D;&#x4EE4;: <code>git stash list</code>, <code>git stash apply stash@{2}</code></p>
-<pre><code># &#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x64CD;&#x4F5C;
-# &#x4FEE;&#x6539;&#x8FDC;&#x7A0B;Repo&#x5730;&#x5740;
-$ git remote set-url origin remote_repo
+    # 关联本地分支与远程分支
+    $ git branch --set-upstream branch-name origin/branch-name
+</code></pre><p>如果突然有高优先级的分支需要前去处理的时候, 使用 <code>git stash</code> 可以保存当前工作现场. 当其它分支处理完成, 使用 <code>git stash apply</code> 恢复工作现场. 相关命令: <code>git stash list</code>, <code>git stash apply stash@{2}</code></p>
+<pre><code>    # 远程分支操作
+    # 修改远程Repo地址
+    $ git remote set-url origin remote_repo
 
-# &#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x66F4;&#x65B0;
-$ git fetch origin master
-$ git log -p master ..origin/master
-$ git merge origin/master
+    # 获取远程仓库更新
+    $ git fetch origin master
+    $ git log -p master ..origin/master
+    $ git merge origin/master
 
-$ git pull  # fetch + merge
+    $ git pull  # fetch + merge
 
-# &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-$ git brach -r
+    # 查看远程分支
+    $ git brach -r
 
-# &#x83B7;&#x53D6;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-$ git checkout b local_branch remote_branch
-$ git fetch origin remote_branch:local_branch
-$ git branch --set-upstream
+    # 获取远程分支
+    $ git checkout b local_branch remote_branch
+    $ git fetch origin remote_branch:local_branch
+    $ git branch --set-upstream
 
-# &#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
-$ git push origin :branch_name
-</code></pre><h1 id="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"><a href="#&#x6807;&#x7B7E;&#x7BA1;&#x7406;" class="headerlink" title="&#x6807;&#x7B7E;&#x7BA1;&#x7406;"></a>&#x6807;&#x7B7E;&#x7BA1;&#x7406;</h1><pre><code># &#x521B;&#x5EFA;&#x6807;&#x7B7E;
-$ git tag tag_name
-$ git tag tag_name commit_id        # &#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x63D0;&#x4EA4;&#x521B;&#x5EFA;&#x6807;&#x7B7E;
-$ git tag -a tag_name -m &quot;message&quot;  # &#x521B;&#x5EFA;&#x6807;&#x7B7E;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x8BF4;&#x660E;
+    # 删除远程分支
+    $ git push origin :branch_name
+</code></pre><h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><pre><code>    # 创建标签
+    $ git tag tag_name
+    $ git tag tag_name commit_id        # 为指定的提交创建标签
+    $ git tag -a tag_name -m &quot;message&quot;  # 创建标签同时指定说明
 
-# &#x67E5;&#x770B;&#x6807;&#x7B7E;
-$ git tag
+    # 查看标签
+    $ git tag
 
-# &#x5220;&#x9664;&#x6807;&#x7B7E;
-$ git tag -d tag_name
-</code></pre><p>&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x88AB;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;, &#x4F7F;&#x7528; <code>git push origin --tags</code> &#x5C06;&#x6807;&#x7B7E;&#x63A8;&#x9001;&#x81F3;&#x8FDC;&#x7A0B;</p>
-<h1 id="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"><a href="#&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;" class="headerlink" title="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;"></a>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</h1><h2 id="&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;"><a href="#&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;" class="headerlink" title="&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;"></a>&#x4ECE;&#x672C;&#x5730;&#x63A8;&#x9001;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;</h2><ol>
-<li>&#x5148;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Repository.</li>
-<li><p>&#x5C06;&#x672C;&#x5730;&#x7684;&#x4ED3;&#x5E93;&#x4E0E;&#x521A;&#x624D;&#x65B0;&#x5EFA;&#x7684;&#x4ED3;&#x5E93;&#x5173;&#x8054;.</p>
-<pre><code>$ git remote add origin git@github.com:username/repo_name.git
+    # 删除标签
+    $ git tag -d tag_name
+</code></pre><p>标签默认不会被推送到远程, 使用 <code>git push origin --tags</code> 将标签推送至远程</p>
+<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><h2 id="从本地推送至服务器端"><a href="#从本地推送至服务器端" class="headerlink" title="从本地推送至服务器端"></a>从本地推送至服务器端</h2><ol>
+<li>先在Github上新建一个Repository.</li>
+<li><p>将本地的仓库与刚才新建的仓库关联.</p>
+<pre><code> $ git remote add origin git@github.com:username/repo_name.git
 </code></pre></li>
-<li><p>&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
-<pre><code>$ git push -u origin master  # -u &#x5173;&#x8054;&#x672C;&#x5730;&#x5206;&#x652F;&#x548C;&#x8FDC;&#x7A0B;&#x5206;&#x652F;
+<li><p>推送本地仓库至远程仓库</p>
+<pre><code> $ git push -u origin master  # -u 关联本地分支和远程分支
 </code></pre></li>
 </ol>
-<p>&#x4E4B;&#x540E;&#x6BCF;&#x6B21;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53EA;&#x9700;&#x8981; <code>git push origin master</code>.<br>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x70B9;&#x8981;&#x6CE8;&#x610F;, <strong>&#x5982;&#x679C;&#x5728;Github&#x4E0A;&#x65B0;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;README</strong>&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5173;&#x8054;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E4B;&#x540E;&#x6267;&#x884C; <code>git pull --rebase origin master</code> &#x5C06;README&#x540C;&#x6B65;&#x81F3;&#x672C;&#x5730;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x63A8;&#x9001;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x81F3;&#x8FDC;&#x7A0B;.</p>
-<h2 id="&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;"><a href="#&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;" class="headerlink" title="&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;"></a>&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x514B;&#x9686;&#x81F3;&#x672C;&#x5730;</h2><ol>
-<li>&#x5728;Github&#x4E2D;&#x627E;&#x5230; <strong>Clone</strong> &#x9009;&#x9879;&#x4E2D;&#x6240;&#x9700;&#x9879;&#x76EE;&#x7684; <strong>SSH</strong> &#x6216;&#x8005; <strong>HTTPS</strong> &#x7684;URL.</li>
-<li>&#x5728;&#x5408;&#x9002;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x6267;&#x884C; <code>git clone  SSH or HTTPS</code>.</li>
+<p>之后每次提交代码至服务器端只需要 <code>git push origin master</code>.<br>这里有一点要注意, <strong>如果在Github上新建的项目自动生成了README</strong>，需要在关联本地仓库与远程仓库之后执行 <code>git pull --rebase origin master</code> 将README同步至本地之后，再推送本地仓库至远程.</p>
+<h2 id="从服务器端克隆至本地"><a href="#从服务器端克隆至本地" class="headerlink" title="从服务器端克隆至本地"></a>从服务器端克隆至本地</h2><ol>
+<li>在Github中找到 <strong>Clone</strong> 选项中所需项目的 <strong>SSH</strong> 或者 <strong>HTTPS</strong> 的URL.</li>
+<li>在合适的文件夹里执行 <code>git clone  SSH or HTTPS</code>.</li>
 </ol>
-<h1 id="&#x8D21;&#x732E;&#x4EE3;&#x7801;"><a href="#&#x8D21;&#x732E;&#x4EE3;&#x7801;" class="headerlink" title="&#x8D21;&#x732E;&#x4EE3;&#x7801;"></a>&#x8D21;&#x732E;&#x4EE3;&#x7801;</h1><h2 id="Collaborators"><a href="#Collaborators" class="headerlink" title="Collaborators"></a>Collaborators</h2><p><em>Settings -&gt; Collaborators -&gt; Add collaborator</em></p>
+<h1 id="贡献代码"><a href="#贡献代码" class="headerlink" title="贡献代码"></a>贡献代码</h1><h2 id="Collaborators"><a href="#Collaborators" class="headerlink" title="Collaborators"></a>Collaborators</h2><p><em>Settings -&gt; Collaborators -&gt; Add collaborator</em></p>
 <h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p><em>Fork -&gt; Clone -&gt; [Write Code] -&gt; Commit &amp; Push -&gt; Pull Request</em></p>
 <h1 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h1><h2 id="Github-workflow"><a href="#Github-workflow" class="headerlink" title="Github workflow"></a>Github workflow</h2><ol>
 <li><p><strong>Create a brach</strong><br>Branch name should be descriptive e.g., <strong>refactor-authentication</strong>, <strong>Fixes-#31</strong>  </p>
@@ -354,482 +710,432 @@ $ git tag -d tag_name
 <li><p><strong>Merge</strong>  </p>
 </li>
 </ol>
-<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>A collection of useful <strong>.gitignore</strong> templates: <a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a><br>Example: remove node_modules from git repo<br>    <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r <span class="comment">--cached node_modules</span></div><div class="line">git <span class="keyword">commit</span> -m <span class="string">&apos;Remove the now ignored directory node_modules&apos;</span></div><div class="line">git push origin <span class="keyword">master</span></div></pre></td></tr></table></figure></p>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>A collection of useful <strong>.gitignore</strong> templates: <a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a><br>Example: remove node_modules from git repo</p>
+<pre><code>```
+git rm -r --cached node_modules
+git commit -m &#39;Remove the now ignored directory node_modules&#39;
+git push origin master
+```
+</code></pre>
+      </div>
 
-      
+      <div class="card-text">
+        2016-12-10
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/12/10/git-github-tutorial/" data-id="cj9kt1m88000l7r359cswgkwi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+    
   
-</article>
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2016/11/24/有效的提升英文写作能力/">
+          有效的提升英文写作能力
+        </a>
+      </div>
 
-
-  
-    <article id="post-有效的提升英文写作能力" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/24/有效的提升英文写作能力/" class="article-date">
-  <time datetime="2016-11-24T06:38:03.000Z" itemprop="datePublished">2016-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/24/有效的提升英文写作能力/">有效的提升英文写作能力</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x6700;&#x8FD1;&#x8981;&#x5199;&#x7684; <strong>paper</strong> &#x5F88;&#x591A;, &#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x76F4;&#x5728;&#x601D;&#x8003;&#x4E00;&#x4E2A;&#x95EE;&#x9898;: &#x5982;&#x4F55;&#x6709;&#x6548;&#x7684;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;. &#x67E5;&#x770B;&#x4E86;&#x4E00;&#x4E9B;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x5E76;&#x7ED3;&#x5408;&#x81EA;&#x5DF1;&#x7ECF;&#x9A8C;&#x603B;&#x7ED3;&#x4E86;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;(&#x53EA;&#x9488;&#x5BF9;Academic Writing).</p>
-<p>&#x5BF9;&#x4E8E; Academic Writing, &#x8BED;&#x6CD5;&#x548C;&#x8BCD;&#x6C47;&#x4E0D;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;. &#x53EA;&#x8981;&#x7528;&#x8BCD;&#x51C6;&#x786E;&#xFF0C;&#x8BED;&#x6CD5;&#x4E0D;&#x5F71;&#x54CD;&#x7406;&#x89E3;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x8981;&#x6C42;. &#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x6587;&#x7AE0;&#x7684; <strong>&#x5185;&#x5BB9;</strong>, <strong>&#x903B;&#x8F91;</strong> &#x548C; <strong>&#x7B80;&#x6D01;&#x7A0B;&#x5EA6;</strong>. &#x5F88;&#x591A;&#x4EBA;&#x5728;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x65F6;&#x5FFD;&#x89C6;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;, &#x5C31;&#x662F;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x4E0D;&#x5206;&#x8BED;&#x8A00;. &#x7528;&#x4E2D;&#x6587;&#x5199;&#x4E0D;&#x597D;&#x7528;&#x82F1;&#x6587;&#x5F53;&#x7136;&#x4E5F;&#x5199;&#x4E0D;&#x597D;, <em>&#x6240;&#x4EE5;&#x5728;&#x601D;&#x8003;&#x5982;&#x4F55;&#x63D0;&#x5347;&#x82F1;&#x6587;&#x5199;&#x4F5C;&#x80FD;&#x529B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x8003;&#x8651;&#x7684;&#x4E0D;&#x662F;&#x6587;&#x6CD5;&#x53E5;&#x5F0F;, &#x800C;&#x662F;&#x903B;&#x8F91;.</em> &#x4E00;&#x7BC7;&#x903B;&#x8F91;&#x597D;&#x7684;&#x6587;&#x7AE0;&#x53EF;&#x4EE5;&#x8BA9;&#x8BFB;&#x8005;&#x6BEB;&#x4E0D;&#x8D39;&#x529B;&#x7684;&#x7406;&#x89E3;. &#x5982;&#x4F55;&#x63D0;&#x5347;&#x5199;&#x4F5C;&#x903B;&#x8F91;?</p>
+      <div class="card-text">
+        <p>最近要写的 <strong>paper</strong> 很多, 在写的时候一直在思考一个问题: 如何有效的提升英文写作能力. 查看了一些相关资料并结合自己经验总结了一种有效提升英文写作能力的解决方案(只针对Academic Writing).</p>
+<p>对于 Academic Writing, 语法和词汇不是最重要的. 只要用词准确，语法不影响理解就达到了基本的要求. 最重要的是文章的 <strong>内容</strong>, <strong>逻辑</strong> 和 <strong>简洁程度</strong>. 很多人在英文写作时忽视了一个问题, 就是写作能力不分语言. 用中文写不好用英文当然也写不好, <em>所以在思考如何提升英文写作能力的时候，首先要考虑的不是文法句式, 而是逻辑.</em> 一篇逻辑好的文章可以让读者毫不费力的理解. 如何提升写作逻辑?</p>
 <ol>
-<li>&#x5199;&#x6587;&#x7AE0;&#x548C;&#x5199;&#x4EE3;&#x7801;&#x4E00;&#x6837;, &#x5728;&#x4E0B;&#x7B14;(&#x7F16;&#x7801;)&#x524D;&#x4E00;&#x5B9A;&#x8981;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x9898;&#x76EE;(&#x9700;&#x6C42;)&#x6709;&#x5145;&#x5206;&#x7684;&#x7406;&#x89E3;.     </li>
-<li>&#x7406;&#x89E3;&#x9898;&#x76EE;(&#x9700;&#x6C42;)&#x4E4B;&#x540E;&#x786E;&#x5B9A;&#x81EA;&#x5DF1;&#x8981;&#x5199;&#x4EC0;&#x4E48;, &#x81EA;&#x5DF1;&#x7684;&#x89C2;&#x70B9;(&#x529F;&#x80FD;)&#x662F;&#x4EC0;&#x4E48;, &#x7528;&#x4EC0;&#x4E48;&#x8BBA;&#x636E;(&#x4E1A;&#x52A1;)&#x53BB;&#x652F;&#x6491;&#x81EA;&#x5DF1;&#x7684;&#x89C2;&#x70B9;. &#x4E0D;&#x8981;&#x8BF4;&#x7A7A;&#x7684;&#x4E1C;&#x897F;&#x6216;&#x8005;&#x6765;&#x56DE;&#x8BF4;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x5E76;&#x4E14;&#x8981;&#x6CE8;&#x610F;&#x4F60;&#x6240;&#x5199;&#x7684;&#x6BCF;&#x4E00;&#x53E5;&#x8BDD;&#x90FD;&#x662F;&#x6709;&#x8054;&#x7CFB;(ctx)&#x7684;.</li>
+<li>写文章和写代码一样, 在下笔(编码)前一定要对自己的题目(需求)有充分的理解.     </li>
+<li>理解题目(需求)之后确定自己要写什么, 自己的观点(功能)是什么, 用什么论据(业务)去支撑自己的观点. 不要说空的东西或者来回说一个东西并且要注意你所写的每一句话都是有联系(ctx)的.</li>
 </ol>
-<p>&#x7B80;&#x5355;&#x6E05;&#x6670;&#x7684;&#x903B;&#x8F91; + &#x4E00;&#x672C;&#x5355;&#x8BCD;&#x4E66; + &#x4E00;&#x672C;&#x8BED;&#x6CD5;&#x4E66; = &#x8BA9;&#x4EBA;&#x8212;&#x670D;&#x7684;&#x82F1;&#x6587;&#x6587;&#x7AE0;</p>
-<p>&#x4E0D;&#x9700;&#x8981;&#x6267;&#x610F;&#x8FFD;&#x6C42;&#x6F02;&#x4EAE;&#x7684;&#x957F;&#x53E5;&#x548C;&#x4E30;&#x5BCC;&#x7684;&#x7528;&#x8BCD;, &#x5728;&#x65E5;&#x5E38;&#x9605;&#x8BFB;&#x4E2D;&#x6162;&#x6162;&#x79EF;&#x7D2F;&#x5C31;&#x597D;, &#x6CA1;&#x6709;&#x903B;&#x8F91;, &#x518D;&#x82B1;&#x5F0F;&#x7684;&#x8BCD;&#x53E5;&#x4E5F;&#x6CA1;&#x6709;&#x7528;.</p>
-<p>&#x5199;&#x4F5C;&#x63D0;&#x5347;&#x7684;&#x6838;&#x5FC3;&#x6709;2&#x4E2A;&#x90E8;&#x5206;: <strong>&#x9605;&#x8BFB;</strong> &#x548C; <strong>&#x6A21;&#x4EFF;</strong></p>
-<p><strong>&#x9605;&#x8BFB;</strong>: &#x9605;&#x8BFB;&#x662F;&#x4E00;&#x4E2A;&#x91CF;&#x53D8;&#x5F15;&#x8D77;&#x8D28;&#x53D8;&#x7684;&#x8FC7;&#x7A0B;, &#x6240;&#x4EE5;&#x4E00;&#x5B9A;&#x8981;&#x6301;&#x7EED;, &#x5C3D;&#x53EF;&#x80FD;&#x6BCF;&#x5929;&#x90FD;&#x62BD;&#x51FA;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x91CF;&#x7684;&#x9605;&#x8BFB;. &#x9605;&#x8BFB;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x63D0;&#x5347;&#x9605;&#x8BFB;&#x80FD;&#x529B;, &#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#x638C;&#x63E1;&#x8BCD;&#x6C47;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684;&#x7528;&#x6CD5;&#x4EE5;&#x53CA;&#x8BED;&#x6CD5;, &#x8BA9;&#x4F60;&#x7684;&#x7528;&#x8BCD;&#x66F4;&#x51C6;&#x786E;, &#x8BED;&#x53E5;&#x66F4;&#x4E30;&#x5BCC; &#x8FD8;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;&#x522B;&#x4EBA;&#x7684;&#x5199;&#x4F5C;&#x903B;&#x8F91;. &#x9605;&#x8BFB;&#x91CF;&#x532E;&#x4E4F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x4F60;&#x7684;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x57FA;&#x672C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x677F;, &#x53E4;&#x677F;&#x5446;&#x6EDE;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;:  </p>
+<p>简单清晰的逻辑 + 一本单词书 + 一本语法书 = 让人舒服的英文文章</p>
+<p>不需要执意追求漂亮的长句和丰富的用词, 在日常阅读中慢慢积累就好, 没有逻辑, 再花式的词句也没有用.</p>
+<p>写作提升的核心有2个部分: <strong>阅读</strong> 和 <strong>模仿</strong></p>
+<p><strong>阅读</strong>: 阅读是一个量变引起质变的过程, 所以一定要持续, 尽可能每天都抽出时间进行一定量的阅读. 阅读的过程中不仅仅是提升阅读能力, 更重要的是掌握词汇在上下文中的用法以及语法, 让你的用词更准确, 语句更丰富 还可以学习别人的写作逻辑. 阅读量匮乏的情况下会导致你的每篇文章基本都是一个模板, 古板呆滞像下面这样:  </p>
 <p>  Nowadays,with the rapid development of society, purpose of education being changed.There are some people who think that competition in children should be made .Others believe that children who are taught to cooperate as well as become more useful adults.</p>
-<p><strong>&#x6A21;&#x4EFF;</strong>: &#x6A21;&#x4EFF;&#x662F;&#x6700;&#x5FEB;&#x7684;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;, &#x6CA1;&#x6709;&#x4E4B;&#x4E00;. &#x63A8;&#x8350;&#x6750;&#x6599;&#xFF1A;&#x7ECF;&#x6D4E;&#x5B66;&#x4EBA;</p>
-<p>&#x201C;Write. Rewrite. When not writing or rewriting, read. I know of no shorcuts. -Larry L. King(1929-2012), writer&#x201D;</p>
+<p><strong>模仿</strong>: 模仿是最快的学习方法, 没有之一. 推荐材料：经济学人</p>
+<p>“Write. Rewrite. When not writing or rewriting, read. I know of no shorcuts. -Larry L. King(1929-2012), writer”</p>
 
-      
+      </div>
+
+      <div class="card-text">
+        2016-11-24
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/24/有效的提升英文写作能力/" data-id="cj9kt1mak001h7r351vzy12ol" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+    
   
-</article>
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2016/11/22/jQuery/">
+          jQuery Crash
+        </a>
+      </div>
 
+      <div class="card-text">
+        <h2 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h2><pre><code>    //$(&#39;h1&#39;).hide();
+        //$(&#39;h1#heading1&#39;).hide();
+        //$(&#39;.heading2&#39;).hide();
+        //$(&#39;p span&#39;).css(&#39;color&#39;, &#39;red&#39;);
+        $(&#39;ul#list li:first&#39;).css(&#39;color&#39;, &#39;red&#39;);
+        $(&#39;ul#list li:last&#39;).css(&#39;color&#39;, &#39;green&#39;);
+        $(&#39;ul#list li:even&#39;).css(&#39;background-color&#39;, &#39;yellow&#39;);
+        $(&#39;ul#list li:odd&#39;).css(&#39;background-color&#39;, &#39;#cccccc&#39;);
+        $(&#39;ul#list li:nth-child(3n)&#39;).css(&#39;list-style&#39;, &#39;none&#39;);
+        $(&#39;:text&#39;).hide();
+        $(&#39;[href]&#39;).css(&#39;color&#39;, &#39;red&#39;);
+        $(&#39;a[href=&quot;http://yahoo.com&quot;]&#39;).css(&#39;color&#39;, &#39;green&#39;);
+</code></pre><h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><pre><code>
+        $(document).ready(function(){
+            /*
+            $(&#39;#btn1&#39;).click(function(){
+                alert(&#39;Button Clicked!&#39;);
+            });
+            $(&#39;#btn1&#39;).on(&#39;click&#39;, function(){
+                alert(&#39;Button Clicked!&#39;);
+            });
+            $(&#39;#btn1&#39;).on(&#39;click&#39;, function(){
+                //$(&#39;.para1&#39;).hide();
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn2&#39;).on(&#39;click&#39;, function(){
+                $(&#39;.para1&#39;).show();
+            });
 
-  
-    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/22/jQuery/" class="article-date">
-  <time datetime="2016-11-21T16:09:54.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/jQuery/">jQuery Crash</a>
-    </h1>
-  
+            $(&#39;#btn1&#39;).dblclick(function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).hover(function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).on(&#39;mouseenter&#39;, function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).on(&#39;mouseleave&#39;, function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).on(&#39;mousemove&#39;, function(){
+                $(&#39;.para1&#39;).toggle();
+            });
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h2><figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//<span class="string">$(</span><span class="string">&apos;h1&apos;</span>).hide();</div><div class="line">	//<span class="string">$(</span><span class="string">&apos;h1#heading1&apos;</span>).hide();</div><div class="line">	//<span class="string">$(</span><span class="string">&apos;.heading2&apos;</span>).hide();</div><div class="line">	//<span class="string">$(</span><span class="string">&apos;p span&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;red&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;ul#list li:first&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;red&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;ul#list li:last&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;green&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;ul#list li:even&apos;</span>).css(<span class="string">&apos;background-color&apos;</span>, <span class="string">&apos;yellow&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;ul#list li:odd&apos;</span>).css(<span class="string">&apos;background-color&apos;</span>, <span class="string">&apos;#cccccc&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;ul#list li:nth-child(3n)&apos;</span>).css(<span class="string">&apos;list-style&apos;</span>, <span class="string">&apos;none&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;:text&apos;</span>).hide();</div><div class="line">	<span class="string">$(</span><span class="string">&apos;[href]&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;red&apos;</span>);</div><div class="line">	<span class="string">$(</span><span class="string">&apos;a[href=&quot;http://yahoo.com&quot;]&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;green&apos;</span>);</div></pre></td></tr></table></figure>
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">$</span><span class="bash">(document).ready(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line">	/*</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).click(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line">		alert(&apos;Button Clicked!&apos;);</div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line">		alert(&apos;Button Clicked!&apos;);</div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line">		//$(&apos;.para1&apos;).hide();</div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn2&apos;</span>).on(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).show();</span></div><div class="line">	});</div><div class="line">	</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).dblclick(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).hover(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;mouseenter&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;mouseleave&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;mousemove&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"></div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;mousedown&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).on(<span class="string">&apos;mouseup&apos;</span>, <span class="function"><span class="title">function</span></span>(){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;.para1&apos;</span>).toggle();</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#btn1&apos;</span>).click(<span class="keyword">function</span>(e){</span></div><div class="line">		//alert(e.currentTarget.id);</div><div class="line">		//alert(e.currentTarget.innerHTML);</div><div class="line">		//alert(e.currentTarget.outerHTML);</div><div class="line">		//alert(e.currentTarget.className);</div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(document).on(<span class="string">&apos;mousemove&apos;</span>, <span class="keyword">function</span>(e){</span></div><div class="line"><span class="meta">		$</span><span class="bash">(<span class="string">&apos;#coords&apos;</span>).html(<span class="string">&apos;Coords: Y: &apos;</span>+e.clientY+<span class="string">&quot; X: &quot;</span>+e.clientX);</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;input&apos;</span>).focus(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line">		//alert(&apos;Focus&apos;);</div><div class="line"><span class="meta">		$</span><span class="bash">(this).css(<span class="string">&apos;background&apos;</span>, <span class="string">&apos;pink&apos;</span>);</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;input&apos;</span>).blur(<span class="function"><span class="title">function</span></span>(){</span></div><div class="line">		//alert(&apos;Focus&apos;);</div><div class="line"><span class="meta">		$</span><span class="bash">(this).css(<span class="string">&apos;background&apos;</span>, <span class="string">&apos;white&apos;</span>);</span></div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;input&apos;</span>).keyup(<span class="keyword">function</span>(e){</span></div><div class="line">		console.log(e.target.value);</div><div class="line">	});</div><div class="line">	*/</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;select#gender&apos;</span>).change(<span class="keyword">function</span>(e){</span></div><div class="line">		alert(e.target.value);</div><div class="line">	});</div><div class="line"><span class="meta">	$</span><span class="bash">(<span class="string">&apos;#form&apos;</span>).submit(<span class="keyword">function</span>(e){</span></div><div class="line">		e.preventDefault();</div><div class="line">		var name = $(&apos;input#name&apos;).val();</div><div class="line">		console.log(name);</div><div class="line">	});</div><div class="line">});</div></pre></td></tr></table></figure>
-<h2 id="Effects-animation"><a href="#Effects-animation" class="headerlink" title="Effects animation"></a>Effects animation</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">			$(<span class="string">&apos;#btnFadeOut&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).fadeOut(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">					$(<span class="string">&apos;#btnFadeOut&apos;</span>).text(<span class="string">&apos;Its Gone&apos;</span>);</div><div class="line">				});</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnFadeIn&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).fadeIn(<span class="number">3000</span>);</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnFadeTog&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).fadeToggle(<span class="number">1000</span>);</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnSlideDown&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).slideDown(<span class="number">3000</span>);</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnSlideUp&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).slideUp(<span class="number">3000</span>);</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnSlideTog&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).slideToggle(<span class="number">3000</span>);</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#btnStop&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box&apos;</span>).stop();</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#moveRight&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box2&apos;</span>).animate({</div><div class="line">					left: <span class="number">500</span>,</div><div class="line">					height: <span class="string">&apos;300px&apos;</span>,</div><div class="line">					width:<span class="string">&apos;300px&apos;</span>,</div><div class="line">					opacity: <span class="string">&apos;0.5&apos;</span></div><div class="line">				});</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#moveLeft&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				$(<span class="string">&apos;#box2&apos;</span>).animate({</div><div class="line">					left: <span class="number">0</span>,</div><div class="line">					height: <span class="string">&apos;100px&apos;</span>,</div><div class="line">					width: <span class="string">&apos;100px&apos;</span>,</div><div class="line">					opacity:<span class="string">&apos;1&apos;</span></div><div class="line">				});</div><div class="line">			});</div><div class="line">			$(<span class="string">&apos;#moveAround&apos;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">				<span class="keyword">var</span> box = $(<span class="string">&apos;#box2&apos;</span>);</div><div class="line">				box.animate({</div><div class="line">					left: <span class="number">300</span></div><div class="line">				});</div><div class="line">				box.animate({</div><div class="line">					top: <span class="number">300</span></div><div class="line">				});</div><div class="line">				box.animate({</div><div class="line">					left:<span class="number">0</span>,</div><div class="line">					top: <span class="number">300</span></div><div class="line">				});</div><div class="line">				box.animate({</div><div class="line">					left: <span class="number">0</span>,</div><div class="line">					top:<span class="number">0</span></div><div class="line">				});</div><div class="line">			});</div><div class="line">		});</div></pre></td></tr></table></figure>
-<h2 id="DOM-manipulation"><a href="#DOM-manipulation" class="headerlink" title="DOM manipulation"></a>DOM manipulation</h2><figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="string">$(</span>document).ready(function(){</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p.para1&apos;</span>).css(<span class="string">&apos;color&apos;</span>, <span class="string">&apos;red&apos;</span>);</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p.para1&apos;</span>).css({color:<span class="string">&apos;red&apos;</span>,background:<span class="string">&apos;#ccc&apos;</span>});</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p.para2&apos;</span>).addClass(<span class="string">&apos;myClass&apos;</span>);</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p.para2&apos;</span>).removeClass(<span class="string">&apos;myClass&apos;</span>);</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;#btn1&apos;</span>).click(function(){</div><div class="line">				//<span class="string">$(</span><span class="string">&apos;p.para2&apos;</span>).toggleClass(<span class="string">&apos;myClass&apos;</span>);</div><div class="line">			//});</div><div class="line">			/*</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;#myDiv&apos;</span>).text(<span class="string">&apos;Hello World&apos;</span>);</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;#myDiv&apos;</span>).html(<span class="string">&apos;&lt;h3&gt;Hello World&lt;/h3&gt;&apos;</span>);</div><div class="line">			//alert(<span class="string">$(</span><span class="string">&apos;#myDiv&apos;</span>).text());</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).append(<span class="string">&apos;&lt;li&gt;Append List Item&lt;/li&gt;&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).prepend(<span class="string">&apos;&lt;li&gt;Prepend List Item&lt;/li&gt;&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;.para1&apos;</span>).appendTo(<span class="string">&apos;.para2&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;.para1&apos;</span>).prependTo(<span class="string">&apos;.para2&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).before(<span class="string">&apos;&lt;h4&gt;Hello&lt;/h4&gt;&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).after(<span class="string">&apos;&lt;h4&gt;World&lt;/h4&gt;&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).empty();</div><div class="line">			<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).detach();</div><div class="line">			<span class="string">$(</span><span class="string">&apos;a&apos;</span>).attr(<span class="string">&apos;target&apos;</span>, <span class="string">&apos;_blank&apos;</span>);</div><div class="line">			alert(<span class="string">$(</span><span class="string">&apos;a&apos;</span>).attr(<span class="string">&apos;href&apos;</span>));</div><div class="line">			<span class="string">$(</span><span class="string">&apos;a&apos;</span>).removeAttr(<span class="string">&apos;target&apos;</span>);</div><div class="line">			*/</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p&apos;</span>).wrap(<span class="string">&apos;&lt;h1&gt;&apos;</span>);</div><div class="line">			//<span class="string">$(</span><span class="string">&apos;p&apos;</span>).wrapAll(<span class="string">&apos;&lt;h1&gt;&apos;</span>);</div><div class="line">			<span class="string">$(</span><span class="string">&apos;#newItem&apos;</span>).keyup(function(e){</div><div class="line">				var code = e.which;</div><div class="line">				if(code == <span class="number">13</span>){</div><div class="line">					e.preventDefault();</div><div class="line">					<span class="string">$(</span><span class="string">&apos;ul&apos;</span>).append(<span class="string">&apos;&lt;li&gt;&apos;</span>+e.target.value+<span class="string">&apos;&lt;/li&gt;&apos;</span>);</div><div class="line">				}</div><div class="line">			});</div><div class="line">			/*</div><div class="line">			var myArr = [<span class="string">&apos;Brad&apos;</span>, <span class="string">&apos;Kelley&apos;</span>, <span class="string">&apos;Nate&apos;</span>, <span class="string">&apos;Jose&apos;</span>];</div><div class="line">			<span class="string">$.</span>each(myArr, function(i, val){</div><div class="line">				<span class="string">$(</span><span class="string">&apos;#users&apos;</span>).append(<span class="string">&apos;&lt;li&gt;&apos;</span>+val+<span class="string">&apos;&lt;/li&gt;&apos;</span>);</div><div class="line">			});</div><div class="line">			*/</div><div class="line">			var newArr = <span class="string">$(</span><span class="string">&apos;ul#list li&apos;</span>).toArray();</div><div class="line">			<span class="string">$.</span>each(newArr, function(i, val){</div><div class="line">				console.log(val.innerHTML);</div><div class="line">			});</div><div class="line">		});</div></pre></td></tr></table></figure>
-<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2>
-      
+            $(&#39;#btn1&#39;).on(&#39;mousedown&#39;, function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).on(&#39;mouseup&#39;, function(){
+                $(&#39;.para1&#39;).toggle();
+            });
+            $(&#39;#btn1&#39;).click(function(e){
+                //alert(e.currentTarget.id);
+                //alert(e.currentTarget.innerHTML);
+                //alert(e.currentTarget.outerHTML);
+                //alert(e.currentTarget.className);
+            });
+            $(document).on(&#39;mousemove&#39;, function(e){
+                $(&#39;#coords&#39;).html(&#39;Coords: Y: &#39;+e.clientY+&quot; X: &quot;+e.clientX);
+            });
+            $(&#39;input&#39;).focus(function(){
+                //alert(&#39;Focus&#39;);
+                $(this).css(&#39;background&#39;, &#39;pink&#39;);
+            });
+            $(&#39;input&#39;).blur(function(){
+                //alert(&#39;Focus&#39;);
+                $(this).css(&#39;background&#39;, &#39;white&#39;);
+            });
+            $(&#39;input&#39;).keyup(function(e){
+                console.log(e.target.value);
+            });
+            */
+            $(&#39;select#gender&#39;).change(function(e){
+                alert(e.target.value);
+            });
+            $(&#39;#form&#39;).submit(function(e){
+                e.preventDefault();
+                var name = $(&#39;input#name&#39;).val();
+                console.log(name);
+            });
+        });
+</code></pre><h2 id="Effects-animation"><a href="#Effects-animation" class="headerlink" title="Effects animation"></a>Effects animation</h2><pre><code>$(document).ready(function(){
+            $(&#39;#btnFadeOut&#39;).click(function(){
+                $(&#39;#box&#39;).fadeOut(3000, function(){
+                    $(&#39;#btnFadeOut&#39;).text(&#39;Its Gone&#39;);
+                });
+            });
+            $(&#39;#btnFadeIn&#39;).click(function(){
+                $(&#39;#box&#39;).fadeIn(3000);
+            });
+            $(&#39;#btnFadeTog&#39;).click(function(){
+                $(&#39;#box&#39;).fadeToggle(1000);
+            });
+            $(&#39;#btnSlideDown&#39;).click(function(){
+                $(&#39;#box&#39;).slideDown(3000);
+            });
+            $(&#39;#btnSlideUp&#39;).click(function(){
+                $(&#39;#box&#39;).slideUp(3000);
+            });
+            $(&#39;#btnSlideTog&#39;).click(function(){
+                $(&#39;#box&#39;).slideToggle(3000);
+            });
+            $(&#39;#btnStop&#39;).click(function(){
+                $(&#39;#box&#39;).stop();
+            });
+            $(&#39;#moveRight&#39;).click(function(){
+                $(&#39;#box2&#39;).animate({
+                    left: 500,
+                    height: &#39;300px&#39;,
+                    width:&#39;300px&#39;,
+                    opacity: &#39;0.5&#39;
+                });
+            });
+            $(&#39;#moveLeft&#39;).click(function(){
+                $(&#39;#box2&#39;).animate({
+                    left: 0,
+                    height: &#39;100px&#39;,
+                    width: &#39;100px&#39;,
+                    opacity:&#39;1&#39;
+                });
+            });
+            $(&#39;#moveAround&#39;).click(function(){
+                var box = $(&#39;#box2&#39;);
+                box.animate({
+                    left: 300
+                });
+                box.animate({
+                    top: 300
+                });
+                box.animate({
+                    left:0,
+                    top: 300
+                });
+                box.animate({
+                    left: 0,
+                    top:0
+                });
+            });
+        });
+</code></pre><h2 id="DOM-manipulation"><a href="#DOM-manipulation" class="headerlink" title="DOM manipulation"></a>DOM manipulation</h2><pre><code>$(document).ready(function(){
+            //$(&#39;p.para1&#39;).css(&#39;color&#39;, &#39;red&#39;);
+            //$(&#39;p.para1&#39;).css({color:&#39;red&#39;,background:&#39;#ccc&#39;});
+            //$(&#39;p.para2&#39;).addClass(&#39;myClass&#39;);
+            //$(&#39;p.para2&#39;).removeClass(&#39;myClass&#39;);
+            //$(&#39;#btn1&#39;).click(function(){
+                //$(&#39;p.para2&#39;).toggleClass(&#39;myClass&#39;);
+            //});
+            /*
+            //$(&#39;#myDiv&#39;).text(&#39;Hello World&#39;);
+            //$(&#39;#myDiv&#39;).html(&#39;&lt;h3&gt;Hello World&lt;/h3&gt;&#39;);
+            //alert($(&#39;#myDiv&#39;).text());
+            $(&#39;ul&#39;).append(&#39;&lt;li&gt;Append List Item&lt;/li&gt;&#39;);
+            $(&#39;ul&#39;).prepend(&#39;&lt;li&gt;Prepend List Item&lt;/li&gt;&#39;);
+            $(&#39;.para1&#39;).appendTo(&#39;.para2&#39;);
+            $(&#39;.para1&#39;).prependTo(&#39;.para2&#39;);
+            $(&#39;ul&#39;).before(&#39;&lt;h4&gt;Hello&lt;/h4&gt;&#39;);
+            $(&#39;ul&#39;).after(&#39;&lt;h4&gt;World&lt;/h4&gt;&#39;);
+            $(&#39;ul&#39;).empty();
+            $(&#39;ul&#39;).detach();
+            $(&#39;a&#39;).attr(&#39;target&#39;, &#39;_blank&#39;);
+            alert($(&#39;a&#39;).attr(&#39;href&#39;));
+            $(&#39;a&#39;).removeAttr(&#39;target&#39;);
+            */
+            //$(&#39;p&#39;).wrap(&#39;&lt;h1&gt;&#39;);
+            //$(&#39;p&#39;).wrapAll(&#39;&lt;h1&gt;&#39;);
+            $(&#39;#newItem&#39;).keyup(function(e){
+                var code = e.which;
+                if(code == 13){
+                    e.preventDefault();
+                    $(&#39;ul&#39;).append(&#39;&lt;li&gt;&#39;+e.target.value+&#39;&lt;/li&gt;&#39;);
+                }
+            });
+            /*
+            var myArr = [&#39;Brad&#39;, &#39;Kelley&#39;, &#39;Nate&#39;, &#39;Jose&#39;];
+            $.each(myArr, function(i, val){
+                $(&#39;#users&#39;).append(&#39;&lt;li&gt;&#39;+val+&#39;&lt;/li&gt;&#39;);
+            });
+            */
+            var newArr = $(&#39;ul#list li&#39;).toArray();
+            $.each(newArr, function(i, val){
+                console.log(val.innerHTML);
+            });
+        });
+</code></pre><h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2>
+      </div>
+
+      <div class="card-text">
+        2016-11-22
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/22/jQuery/" data-id="cj9kt1m8c000s7r356lr1sogb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-WebSocket" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/21/WebSocket/" class="article-date">
-  <time datetime="2016-11-21T10:32:11.000Z" itemprop="datePublished">2016-11-21</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/21/WebSocket/">WebSocket</a>
-    </h1>
-  
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2016/11/21/WebSocket/">
+          WebSocket
+        </a>
+      </div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
+      <div class="card-text">
+        <p>预计完成时间 2016－12-30之前</p>
 
-      
+      </div>
+
+      <div class="card-text">
+        2016-11-21
+      </div>
+
+    </article>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/21/WebSocket/" data-id="cj9kt1m7x00077r35tb7tu1u3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+    
   
-</article>
+  <div id="d-article" class="card card-width">
+    <article class="card-body">
+      <div class="card-title">
+        <a class="card-link" href="/2016/11/18/koa2/">
+          koa2
+        </a>
+      </div>
 
-
-  
-    <article id="post-koa2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/18/koa2/" class="article-date">
-  <time datetime="2016-11-18T08:32:19.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/koa2/">koa2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+      <div class="card-text">
         <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 <ul>
 <li><a href="#koa2">koa2</a><ul>
-<li><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;">&#x73AF;&#x5883;&#x642D;&#x5EFA;</a></li>
-<li><a href="#koa2-&#x4F7F;&#x7528;&#x6D41;&#x7A0B;">Koa2 &#x4F7F;&#x7528;&#x6D41;&#x7A0B;</a></li>
+<li><a href="#环境搭建">环境搭建</a></li>
+<li><a href="#koa2-使用流程">Koa2 使用流程</a></li>
 <li><a href="#middleware">Middleware</a></li>
 <li><a href="#koa-router">koa-router</a></li>
-<li><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;">&#x6A21;&#x7248;&#x5F15;&#x64CE;</a></li>
+<li><a href="#模版引擎">模版引擎</a></li>
 <li><a href="#mvc">MVC</a></li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
-<p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
+<p>预计完成时间 2016－12-30之前</p>
 <h1 id="koa2"><a href="#koa2" class="headerlink" title="koa2"></a>koa2</h1><blockquote>
 <p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
 </blockquote>
-<h2 id="&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="headerlink" title="&#x73AF;&#x5883;&#x642D;&#x5EFA;"></a>&#x73AF;&#x5883;&#x642D;&#x5EFA;</h2><ol>
-<li><p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x5E76;&#x5728;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA; <code>app.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&apos;koa&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; {</div><div class="line">    <span class="keyword">await</span> next();</div><div class="line">    ctx.response.type = <span class="string">&apos;text/html&apos;</span>;</div><div class="line">    ctx.response.body = <span class="string">&apos;&lt;h1&gt;Hello, koa2!&lt;/h1&gt;&apos;</span>;</div><div class="line">});</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">&apos;app started at port 3000...&apos;</span>);</div></pre></td></tr></table></figure>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ol>
+<li><p>新建一个目录并在目录中新建 <code>app.js</code></p>
+<pre><code> const Koa = require(&#39;koa&#39;);
+
+ const app = new Koa();
+
+ app.use(async (ctx, next) =&gt; {
+     await next();
+     ctx.response.type = &#39;text/html&#39;;
+     ctx.response.body = &#39;&lt;h1&gt;Hello, koa2!&lt;/h1&gt;&#39;;
+ });
+
+ app.listen(3000);
+ console.log(&#39;app started at port 3000...&#39;);
+</code></pre></li>
+<li><p>在目录中新建 <code>package.js</code> 并添加依赖包</p>
+<pre><code> {
+   &quot;dependencies&quot;: {
+       &quot;babel-core&quot;: &quot;6.13.2&quot;,
+       &quot;babel-polyfill&quot;: &quot;6.13.0&quot;,
+       &quot;babel-preset-es2015-node6&quot;: &quot;0.3.0&quot;,
+       &quot;babel-preset-stage-3&quot;: &quot;6.5.0&quot;,
+       &quot;koa&quot;: &quot;2.0.0&quot;
+       }
+ }
+</code></pre><p>添加完成之后，在当前目录下使用 <code>npm instll</code> 命令安装所添加的依赖包  </p>
 </li>
-<li><p>&#x5728;&#x76EE;&#x5F55;&#x4E2D;&#x65B0;&#x5EFA; <code>package.js</code> &#x5E76;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#x5305;</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  <span class="attr">&quot;dependencies&quot;</span>: {</div><div class="line">      <span class="attr">&quot;babel-core&quot;</span>: <span class="string">&quot;6.13.2&quot;</span>,</div><div class="line">      <span class="attr">&quot;babel-polyfill&quot;</span>: <span class="string">&quot;6.13.0&quot;</span>,</div><div class="line">      <span class="attr">&quot;babel-preset-es2015-node6&quot;</span>: <span class="string">&quot;0.3.0&quot;</span>,</div><div class="line">      <span class="attr">&quot;babel-preset-stage-3&quot;</span>: <span class="string">&quot;6.5.0&quot;</span>,</div><div class="line">      <span class="attr">&quot;koa&quot;</span>: <span class="string">&quot;2.0.0&quot;</span></div><div class="line">      }</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x4F7F;&#x7528; <code>npm instll</code> &#x547D;&#x4EE4;&#x5B89;&#x88C5;&#x6240;&#x6DFB;&#x52A0;&#x7684;&#x4F9D;&#x8D56;&#x5305;  </p>
-</li>
-<li><p>&#x65B0;&#x5EFA;&#x81EA;&#x52A8;&#x8F6C;&#x7801;&#x6587;&#x4EF6; <code>start.js</code></p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">register</span> = <span class="keyword">require</span>(<span class="string">&apos;babel-core/register&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">register</span>(<span class="comment">{</span></div><div class="line"><span class="comment">    presets: [&apos;stage-3&apos;]</span></div><div class="line"><span class="comment">}</span>);</div><div class="line"></div><div class="line"><span class="keyword">require</span>(<span class="string">&apos;./app.js&apos;</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C; <code>node start</code> &#x547D;&#x4EE4;&#x540E;&#x8BBF;&#x95EE; <strong>localhost:3000</strong> &#xFF0C;&#x5982;&#x679C;&#x663E;&#x793A; <code>Hello, koa2!</code> &#x5219;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x6210;&#x529F;.</p>
-</li>
+<li><p>新建自动转码文件 <code>start.js</code></p>
+<pre><code> var register = require(&#39;babel-core/register&#39;);
+
+ register({
+     presets: [&#39;stage-3&#39;]
+ });
+
+ require(&#39;./app.js&#39;);
+</code></pre></li>
+<li>在当前目录下执行 <code>node start</code> 命令后访问 <strong>localhost:3000</strong> ，如果显示 <code>Hello, koa2!</code> 则环境配置成功.</li>
 </ol>
-<h2 id="Koa2-&#x4F7F;&#x7528;&#x6D41;&#x7A0B;"><a href="#Koa2-&#x4F7F;&#x7528;&#x6D41;&#x7A0B;" class="headerlink" title="Koa2 &#x4F7F;&#x7528;&#x6D41;&#x7A0B;"></a>Koa2 &#x4F7F;&#x7528;&#x6D41;&#x7A0B;</h2><p>Koa2&#x7684;&#x4F7F;&#x7528;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h2 id="Koa2-使用流程"><a href="#Koa2-使用流程" class="headerlink" title="Koa2 使用流程"></a>Koa2 使用流程</h2><p>Koa2的使用流程如下：</p>
 <ol>
-<li>Import &#x2018;koa&#x2019; class</li>
+<li>Import ‘koa’ class</li>
 <li>Create a Koa object;</li>
 <li>Request handing</li>
 <li>Listen on a specific port  </li>
 </ol>
-<p>&#x6BCF;&#x5F53;&#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3;&#x6536;&#x5230;&#x4E00;&#x4E2A;http&#x8BF7;&#x6C42;&#xFF0C;Koa2&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x901A;&#x8FC7; <code>app.use()</code>&#x6CE8;&#x518C;&#x7684; <strong>async</strong> &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4F20;&#x5165; <code>ctx</code> &#x548C; <code>next</code>&#x53C2;&#x6570;&#x3002;<code>ctx</code> &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;&#x6BD4;&#x5982;<code>ctx.response.body &#xFF1D; &#x2018;&lt;p&gt; unless you show me how&#x2019;</code>. <code>next</code> &#x53C2;&#x6570;&#x7528;&#x6765;&#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A; <strong>async</strong> &#x51FD;&#x6570;&#x3002;</p>
-<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>async</strong> &#x51FD;&#x6570;&#x5C31;&#x662F;middleware. &#x901A;&#x8FC7; <code>app.use()</code> &#x53EF;&#x4EE5;&#x6CE8;&#x518C;middleware&#x5E76;&#x4E14; <code>app.use()</code> &#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x51B3;&#x5B9A;&#x4E86;middleware&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;, &#x4F7F;&#x7528; <code>await next()</code> &#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;middleware. &#x901A;&#x8FC7;middleware&#x7684;&#x7EC4;&#x5408;&#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x529F;&#x80FD;&#x662F;Koa2&#x7684;&#x7CBE;&#x9AD3;&#x3002;   </p>
-<p>Middleware &#x7EC4;&#x5408;&#x793A;&#x4F8B;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&apos;koa&apos;</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; {</div><div class="line">  <span class="built_in">console</span>.log(ctx.request.method +<span class="string">&apos;,&apos;</span>+ctx.request.url);</div><div class="line">  <span class="keyword">await</span> next();</div><div class="line">});</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt;{</div><div class="line">  <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  <span class="keyword">await</span> next();</div><div class="line">  <span class="keyword">const</span> ms = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - start;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;&#x5904;&#x7406;&#x6240;&#x6D88;&#x8017;&#x65F6;&#x95F4;: &apos;</span> + ms);</div><div class="line">});</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; {</div><div class="line">  <span class="keyword">await</span> next();</div><div class="line">  ctx.response.type = <span class="string">&apos;text/html&apos;</span>;</div><div class="line">  ctx.response.body = <span class="string">&apos;&lt;h1&gt;Hello, koa2&lt;/h1&gt;&apos;</span>;</div><div class="line">});</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">&apos;app started at port 3000...&apos;</span>);</div></pre></td></tr></table></figure></p>
-<h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="&#x6A21;&#x7248;&#x5F15;&#x64CE;"><a href="#&#x6A21;&#x7248;&#x5F15;&#x64CE;" class="headerlink" title="&#x6A21;&#x7248;&#x5F15;&#x64CE;"></a>&#x6A21;&#x7248;&#x5F15;&#x64CE;</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/18/koa2/" data-id="cj9kt1m8d000u7r35beiiik0j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+<p>每当监听的端口收到一个http请求，Koa2就会调用通过 <code>app.use()</code>注册的 <strong>async</strong> 函数，并传入 <code>ctx</code> 和 <code>next</code>参数。<code>ctx</code> 可以设置返回内容比如<code>ctx.response.body ＝ ‘&lt;p&gt; unless you show me how’</code>. <code>next</code> 参数用来调用下一个 <strong>async</strong> 函数。</p>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>async</strong> 函数就是middleware. 通过 <code>app.use()</code> 可以注册middleware并且 <code>app.use()</code> 的调用顺序决定了middleware的执行顺序, 使用 <code>await next()</code> 调用下一个middleware. 通过middleware的组合实现各种功能是Koa2的精髓。   </p>
+<p>Middleware 组合示例:</p>
+<pre><code>    const Koa = require(&#39;koa&#39;);
 
+    const app = new Koa();
 
-  
-    <article id="post-单元测试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/18/单元测试/" class="article-date">
-  <time datetime="2016-11-18T07:34:08.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/单元测试/">单元测试</a>
-    </h1>
-  
+    app.use(async (ctx, next) =&gt; {
+      console.log(ctx.request.method +&#39;,&#39;+ctx.request.url);
+      await next();
+    });
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#x6216;&#x8005;&#x6A21;&#x5757;&#x3002;&#x7F16;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x53EF;&#x4EE5;&#x63D0;&#x5347;&#x6211;&#x4EEC;&#x7684;&#x7F16;&#x7801;&#x6548;&#x7387;&#xFF0C;&#x5C24;&#x5176;&#x5728;&#x7ECF;&#x5E38;&#x6539;&#x52A8;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x3002;&#x5F53;&#x4F60;&#x7F16;&#x5199;&#x5B8C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x53BB;&#x6D4B;&#x8BD5;&#x81EA;&#x5DF1;&#x7684;&#x6A21;&#x5757;&#x662F;&#x5426;&#x6709;Bug&#x3002;&#x4F46;&#x5F53;&#x4EE3;&#x7801;&#x6709;&#x6539;&#x52A8;&#xFF0C;&#x4F60;&#x8FD8;&#x9700;&#x8981;&#x518D;&#x6B21;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x53BB;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x65E0;&#x7591;&#x964D;&#x4F4E;&#x4E86;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;<strong> &#x53EA;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801; </strong> &#xFF0C;&#x4EE5;&#x540E;&#x6BCF;&#x5F53;&#x4EE3;&#x7801;&#x6539;&#x52A8;&#x65F6;&#x5373;&#x53EF;&#x7528;&#x5DF2;&#x7F16;&#x5199;&#x7684;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6765;&#x6D4B;&#x8BD5;&#x6539;&#x52A8;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x6709;Bug&#x3002;</p>
+    app.use(async (ctx, next) =&gt;{
+      const start = new Date().getTime();
+      await next();
+      const ms = new Date().getTime() - start;
+      console.log(&#39;处理所消耗时间: &#39; + ms);
+    });
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/18/单元测试/" data-id="cj9kt1mai001f7r35fr73d3e6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+    app.use(async (ctx, next) =&gt; {
+      await next();
+      ctx.response.type = &#39;text/html&#39;;
+      ctx.response.body = &#39;&lt;h1&gt;Hello, koa2&lt;/h1&gt;&#39;;
+    });
 
-
-  
-    <article id="post-使用Atom-Markdown记录笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/17/使用Atom-Markdown记录笔记/" class="article-date">
-  <time datetime="2016-11-17T10:02:06.000Z" itemprop="datePublished">2016-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/使用Atom-Markdown记录笔记/">使用Atom+Markdown记录笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;</p>
-<h3 id="&#x4F7F;&#x7528;Atom-Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;"><a href="#&#x4F7F;&#x7528;Atom-Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;" class="headerlink" title="&#x4F7F;&#x7528;Atom+Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;"></a>&#x4F7F;&#x7528;Atom+Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;</h3><p>&#x76F8;&#x6BD4;Sublime Text3, Atom&#x7684;Markdown&#x63D2;&#x4EF6;&#x63D0;&#x4F9B;&#x4E86;&#x5B9E;&#x65F6;&#x9884;&#x89C8;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x4EEC;&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;&#x66F4;&#x52A0;&#x9AD8;&#x6548;.</p>
-<ol>
-<li><p><a href="https://atom.io/" target="_blank" rel="external">Download</a> Atom</p>
-</li>
-<li><p>Install Markdown Plugins<br>&#x6253;&#x5F00;Atom&#xFF0C;&#x6309;&#x4E0B; <code>Shift + cmd + p</code> &#x540E;&#x8F93;&#x5165; <code>install package</code> &#x56DE;&#x8F66;,&#x641C;&#x7D22; <code>Markdown</code> &#x540E;&#x5B89;&#x88C5; <strong>Markdown Preview Plus</strong>&#xFF0C;<strong>Markdown-writer</strong> &#x548C; <strong>Markdown toc</strong>.</p>
-</li>
-</ol>
-<p>&#x5B89;&#x88C5;&#x597D;&#x4E86;&#x4EE5;&#x4E0A;&#x5DE5;&#x5177;&#x4E4B;&#x540E;, &#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Atom+Markdown&#x6765;&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;&#x4E86;.</p>
-<ol>
-<li>&#x6253;&#x5F00;Atom&#x5E76;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x4EE5; <strong>md</strong> &#x683C;&#x5F0F;&#x7ED3;&#x5C3E;&#x7684;&#x6587;&#x4EF6;</li>
-<li>&#x4F7F;&#x7528;Markdown&#x8BED;&#x6CD5;&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;</li>
-<li>&#x4F7F;&#x7528; <code>ctrl + shift + m</code> &#x5B9E;&#x65F6;&#x9884;&#x89C8;&#x7B14;&#x8BB0;&#x5185;&#x5BB9;, &#x5982;&#x4E0B;&#x56FE;    </li>
-</ol>
-<p><img src="/2016/11/17/&#x4F7F;&#x7528;Atom-Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;/Screen Shot 2016-11-17 at 4.43.50 PM.png" alt="">  </p>
-<p><strong>Tips</strong>&#xFF1A;<br>&#x63D2;&#x5165;&#x76EE;&#x5F55;&#xFF1A; <code>Ctrl + Alt + C</code><br>&#x63D2;&#x5165;&#x94FE;&#x63A5;&#xFF1A; <code>Cmd + Shift + K</code><br>&#x63D2;&#x5165;&#x56FE;&#x7247;&#xFF1A; <code>Cmd + Shift + I</code><br>&#x66F4;&#x591A;&#x5FEB;&#x6377;&#x952E;&#xFF1A; <code>Packages -&gt; Markdown Writer -&gt; Open Cheat Sheet</code><br>&#x81EA;&#x52A8;&#x8865;&#x5168;&#xFF1A;<code>img</code>+ <code>tab</code></p>
-<h3 id="&#x4F7F;&#x7528;Atom&#x63A8;&#x9001;&#x7B14;&#x8BB0;&#x81F3;&#x535A;&#x5BA2;"><a href="#&#x4F7F;&#x7528;Atom&#x63A8;&#x9001;&#x7B14;&#x8BB0;&#x81F3;&#x535A;&#x5BA2;" class="headerlink" title="&#x4F7F;&#x7528;Atom&#x63A8;&#x9001;&#x7B14;&#x8BB0;&#x81F3;&#x535A;&#x5BA2;"></a>&#x4F7F;&#x7528;Atom&#x63A8;&#x9001;&#x7B14;&#x8BB0;&#x81F3;&#x535A;&#x5BA2;</h3><p>&#x901A;&#x8FC7;&#x5B89;&#x88C5; <code>terminal-plus</code> &#x63D2;&#x4EF6;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x5B8C;&#x6210;&#x540E;&#x76F4;&#x63A5;&#x5728;Atom&#x4E2D;&#x4E0A;&#x4F20;&#x7B14;&#x8BB0;&#x5230;&#x535A;&#x5BA2;&#x4E2D;.</p>
-<ol>
-<li><p>&#x5B89;&#x88C5; <code>terminal-plus</code> &#x63D2;&#x4EF6;<br><strong>terminal-plus</strong> &#x5728;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;Atom&#x4E2D;&#x6709;Bug&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5B89;&#x88C5; <strong>terminal-plus</strong> &#x5E76;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;.  </p>
-<ul>
-<li>&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x5E76;&#x8F93;&#x5165; <code>apm install LarsKumbier/terminal-plus</code></li>
-<li>&#x6253;&#x5F00; <code>~/.atom/packages/terminal-plus/styles/themes/standard.less</code> &#x5E76;&#x4FEE;&#x6539;<code>background-color: transparent;</code>  </li>
-</ul>
-</li>
-<li><p>&#x5728;Atom&#x4E2D;&#x6309;&#x4E0B; <code>Shift + cmd + t</code> &#x8C03;&#x7528;&#x7EC8;&#x7AEF;&#xFF0C;&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;<code>Hexo d -g</code>  </p>
-</li>
-</ol>
-<p><img src="/2016/11/17/&#x4F7F;&#x7528;Atom-Markdown&#x8BB0;&#x5F55;&#x7B14;&#x8BB0;/Screen Shot 2016-11-17 at 6.09.28 PM.png" alt="">  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/11/17/使用Atom-Markdown记录笔记/" data-id="cj9kt1mag001c7r35kdqq2i3g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用GitHub+Hexo搭建个人博客(三)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/" class="article-date">
-  <time datetime="2016-03-09T12:27:57.000Z" itemprop="datePublished">2016-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/">使用GitHub+Hexo搭建个人博客(三)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x9884;&#x8BA1;&#x5B8C;&#x6210;&#x65F6;&#x95F4; 2016&#xFF0D;12-30&#x4E4B;&#x524D;<br><!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 --></p>
-<ul>
-<li><a href="#&#x8349;&#x7A3F;&#x529F;&#x80FD;-">&#x8349;&#x7A3F;&#x529F;&#x80FD; #</a><ul>
-<li><a href="#&#x6DFB;&#x52A0;404&#x9875;&#x9762;-">&#x6DFB;&#x52A0;404&#x9875;&#x9762; ##</a></li>
-<li><a href="#cname-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;">CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;</a></li>
-<li><a href="#&#x7EDF;&#x8BA1;">&#x7EDF;&#x8BA1;</a></li>
-<li><a href="#&#x6362;&#x673A;&#x5668;">&#x6362;&#x673A;&#x5668;</a></li>
-<li><a href="#sitemap-">sitemap ##</a></li>
-<li><a href="#&#x76EE;&#x5F55;-">&#x76EE;&#x5F55; ##</a></li>
-<li><a href="#&#x9876;&#x90E8;&#x8FD4;&#x56DE;-">&#x9876;&#x90E8;&#x8FD4;&#x56DE; ##</a></li>
-<li><a href="#&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;-">&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B; ##</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h1 id="&#x8349;&#x7A3F;&#x529F;&#x80FD;"><a href="#&#x8349;&#x7A3F;&#x529F;&#x80FD;" class="headerlink" title="&#x8349;&#x7A3F;&#x529F;&#x80FD;"></a>&#x8349;&#x7A3F;&#x529F;&#x80FD;</h1><p>&#x5728;&#x7F16;&#x5199;&#x957F;&#x7BC7;&#x6587;&#x7AE0;&#x6216;&#x8005;&#x4E0D;&#x80FD;&#x53CA;&#x65F6;&#x5B8C;&#x6210;&#x7684;&#x6587;&#x7AE0;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>hexo new draft filename</code> &#x547D;&#x4EE4;&#x6765;&#x5C06;&#x6587;&#x7AE0;&#x65B0;&#x5EFA;&#x5728; <strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;<strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x8349;&#x7A3F;&#x6587;&#x4EF6;&#x4E0D;&#x4F1A;&#x5728;&#x90E8;&#x7F72;&#x65F6;&#x88AB;&#x4E0A;&#x4F20;&#x5230;Blog. &#x5F53;&#x6587;&#x7AE0;&#x7F16;&#x5199;&#x5B8C;&#x65F6;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>hexo publish draft filename</code> &#x547D;&#x4EE4;&#x5C06; <strong>_drafts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x8F6C;&#x79FB;&#x5230; <strong>_posts</strong> &#x76EE;&#x5F55;&#x4E2D;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x90E8;&#x7F72;&#x3002;</p>
-<h2 id="&#x6DFB;&#x52A0;404&#x9875;&#x9762;"><a href="#&#x6DFB;&#x52A0;404&#x9875;&#x9762;" class="headerlink" title="&#x6DFB;&#x52A0;404&#x9875;&#x9762;"></a>&#x6DFB;&#x52A0;404&#x9875;&#x9762;</h2><p>&#x5728; <strong>source</strong> &#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <strong>404.html</strong> &#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>hexo g -d</code>&#x76F4;&#x63A5;&#x751F;&#x6210;&#x9875;&#x9762;&#x3002;404&#x9875;&#x9762;&#x53EA;&#x5BF9;&#x4E8E;&#x7ED1;&#x5B9A;&#x4E86;&#x9876;&#x7EA7;&#x57DF;&#x540D;&#x7684;&#x535A;&#x5BA2;&#x6709;&#x6548;&#x3002;</p>
-<h2 id="CNAME-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;"><a href="#CNAME-&#x5B58;&#x653E;&#x4F4D;&#x7F6E;" class="headerlink" title="CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;"></a>CNAME &#x5B58;&#x653E;&#x4F4D;&#x7F6E;</h2><p>&#x5BF9;&#x4E8E;&#x7ED1;&#x5B9A;&#x4E86;&#x9876;&#x7EA7;&#x57DF;&#x540D;&#x7684;&#x535A;&#x5BA2;&#xFF0C;CNAME&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x5B58;&#x653E;&#x5728; <strong>source</strong> &#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
-<h2 id="&#x7EDF;&#x8BA1;"><a href="#&#x7EDF;&#x8BA1;" class="headerlink" title="&#x7EDF;&#x8BA1;"></a>&#x7EDF;&#x8BA1;</h2><h2 id="&#x6362;&#x673A;&#x5668;"><a href="#&#x6362;&#x673A;&#x5668;" class="headerlink" title="&#x6362;&#x673A;&#x5668;"></a>&#x6362;&#x673A;&#x5668;</h2><h2 id="sitemap"><a href="#sitemap" class="headerlink" title="sitemap"></a>sitemap</h2><h2 id="&#x76EE;&#x5F55;"><a href="#&#x76EE;&#x5F55;" class="headerlink" title="&#x76EE;&#x5F55;"></a>&#x76EE;&#x5F55;</h2><h2 id="&#x9876;&#x90E8;&#x8FD4;&#x56DE;"><a href="#&#x9876;&#x90E8;&#x8FD4;&#x56DE;" class="headerlink" title="&#x9876;&#x90E8;&#x8FD4;&#x56DE;"></a>&#x9876;&#x90E8;&#x8FD4;&#x56DE;</h2><h2 id="&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;"><a href="#&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;" class="headerlink" title="&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;"></a>&#x6807;&#x7B7E;&#x53CA;&#x5206;&#x7C7B;</h2><h2 id="&#x4EE3;&#x7801;&#x7247;&#x6BB5;"><a href="#&#x4EE3;&#x7801;&#x7247;&#x6BB5;" class="headerlink" title="&#x4EE3;&#x7801;&#x7247;&#x6BB5;"></a>&#x4EE3;&#x7801;&#x7247;&#x6BB5;</h2><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://evleblog.com/2016/03/09/使用GitHub+Hexo搭建个人博客(三)/" data-id="cj9kt1mah001e7r35ykvy0cg3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">__('next') &raquo;</a>
-  </nav>
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-5/">build-serverless-app-5</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-4/">build-serverless-app-4</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-3/">build-serverless-app-3</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-2/">build-serverless-app-2</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/03/build-serverless-app-1/">Building Serverless Web Application 1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    app.listen(3000);
+    console.log(&#39;app started at port 3000...&#39;);
+</code></pre><h2 id="koa-router"><a href="#koa-router" class="headerlink" title="koa-router"></a>koa-router</h2><h2 id="模版引擎"><a href="#模版引擎" class="headerlink" title="模版引擎"></a>模版引擎</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Sangwoo Lee<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <div class="card-text">
+        2016-11-18
+      </div>
+
+    </article>
+
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
+</section>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+ 
+        
+
+          
+     </main>
+
+            <footer class="d-flex justify-content-around align-items-center text-white">
+ 
+<div></div>
+
+     
+      <div>
+      &copy;
+      2017
+        Max Lee
+      </div>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<div class="">
+  <div class="">
+      Powered by
+      <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+
+ 
+ <div class="">
+    Theme -
+    <a href="git@github.com:evle/min.git" target="_blank">Min</a>
+ </div>
+ 
+ </div>
+
+</footer>
+       
+             
+  </body>
 
 
-<script src="/js/script.js"></script>
 
-  </div>
-  
-    <script type="text/javascript" src="/live2d/script.js"></script>
-    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
-    <style>
-      #live2dcanvas {
-        position: fixed;
-        right: 0px;
-        z-index: 999;
-        pointer-events: none;
-        bottom: -20px;
-      }
-    </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json",0.5)</script>
-  
-</body>
 </html>
